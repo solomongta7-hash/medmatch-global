@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MedMatch Global — The Academy of Medical Travel</title>
+<meta name="description" content="MedMatch Global privately matches patients from the United States & Canada with Türkiye's most distinguished surgeons. Rhinoplasty, dental aesthetics, knee surgery & hair restoration — flights, five-star stay and aftercare, all arranged." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23F2F9F8' stroke='%2337B5B0' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='Georgia' font-size='28' text-anchor='middle' fill='%230F5E68'%3EM%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ══════════ PRELOADER ══════════ -->
+<div class="loader" id="loader">
+  <div class="loader__curtain loader__curtain--l"></div>
+  <div class="loader__curtain loader__curtain--r"></div>
+  <div class="loader__center">
+    <svg class="loader__emblem" viewBox="0 0 120 120" fill="none">
+      <circle cx="60" cy="60" r="56" stroke="currentColor" stroke-width="0.8" class="loader__ring"/>
+      <circle cx="60" cy="60" r="46" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
+      <text x="60" y="72" text-anchor="middle" class="loader__mono">MG</text>
+    </svg>
+    <p class="loader__word">MEDMATCH&nbsp;GLOBAL</p>
+    <p class="loader__pct"><span id="loaderPct">0</span></p>
+  </div>
+</div>
+
+<!-- ══════════ CUSTOM CURSOR ══════════ -->
+<div class="cursor" id="cursor"><div class="cursor__ring"></div><div class="cursor__dot"></div></div>
+
+<!-- ══════════ NAVIGATION ══════════ -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" data-scroll-to="#top">
+    <span class="nav__brand-name">MEDMATCH&nbsp;GLOBAL</span>
+    <span class="nav__brand-sub">THE&nbsp;ACADEMY</span>
+  </a>
+  <nav class="nav__links">
+    <a href="#standard" data-scroll-to="#standard">The Standard</a>
+    <a href="#treatments" data-scroll-to="#treatments">Treatments</a>
+    <a href="#faculty" data-scroll-to="#faculty">The Faculty</a>
+    <a href="#estimate" data-scroll-to="#estimate">The Ledger</a>
+    <a href="#passage" data-scroll-to="#passage">The Passage</a>
+  </nav>
+  <a class="btn btn--gold nav__cta magnetic" href="#invitation" data-scroll-to="#invitation"><span>Request Invitation</span></a>
+  <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+</header>
+
+<!-- mobile menu -->
+<div class="mmenu" id="mmenu">
+  <nav>
+    <a href="#standard" data-scroll-to="#standard">The Standard</a>
+    <a href="#treatments" data-scroll-to="#treatments">Treatments</a>
+    <a href="#faculty" data-scroll-to="#faculty">The Faculty</a>
+    <a href="#estimate" data-scroll-to="#estimate">The Ledger</a>
+    <a href="#passage" data-scroll-to="#passage">The Passage</a>
+    <a href="#invitation" data-scroll-to="#invitation">Request Invitation</a>
+  </nav>
+</div>
+
+<main id="top">
+
+<!-- ══════════ HERO — Mediterranean ══════════ -->
+<section class="hero" id="hero">
+  <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80')"></div>
+  <div class="hero__veil"></div>
+  <canvas id="silk" class="hero__canvas"></canvas>
+  <div class="hero__inner">
+    <p class="hero__eyebrow" data-fade>
+      <svg viewBox="0 0 24 24" class="crest"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1"/><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="0.8"/></svg>
+      THE ACADEMY OF MEDICAL TRAVEL&ensp;·&ensp;ISTANBUL — NORTH AMERICA
+    </p>
+    <h1 class="hero__title">
+      <span class="hero__line" data-reveal="chars">Exceptional care,</span>
+      <span class="hero__line hero__line--em" data-reveal="chars">an ocean away.</span>
+    </h1>
+    <p class="hero__sub" data-fade>MedMatch Global privately matches patients from the United States &amp; Canada
+    with Türkiye's most distinguished surgeons — flights, five-star recovery on the
+    Mediterranean and lifetime aftercare, all arranged by your personal concierge.</p>
+    <div class="hero__cta" data-fade>
+      <a class="btn btn--gold magnetic" href="#invitation" data-scroll-to="#invitation"><span>Begin Your Consultation</span></a>
+      <a class="btn btn--ghost magnetic" href="#treatments" data-scroll-to="#treatments"><span>Explore the Treatments</span></a>
+    </div>
+  </div>
+  <div class="hero__foot">
+    <div class="hero__stat" data-fade><strong>4,200+</strong><span>patients accompanied</span></div>
+    <div class="hero__scrollcue" data-fade><span>SCROLL</span><i></i></div>
+    <div class="hero__stat" data-fade><strong>70%</strong><span>average saving vs. U.S.</span></div>
+  </div>
+</section>
+
+<!-- ══════════ MARQUEE ══════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" id="marqueeTrack">
+    <span>Rhinoplasty <i>✦</i> Dental Aesthetics <i>✦</i> Knee Surgery <i>✦</i> Hair Restoration <i>✦</i> JCI-Accredited Hospitals <i>✦</i> Board-Certified Surgeons <i>✦</i> Door-to-Door Concierge <i>✦</i> </span>
+    <span>Rhinoplasty <i>✦</i> Dental Aesthetics <i>✦</i> Knee Surgery <i>✦</i> Hair Restoration <i>✦</i> JCI-Accredited Hospitals <i>✦</i> Board-Certified Surgeons <i>✦</i> Door-to-Door Concierge <i>✦</i> </span>
+  </div>
+</div>
+
+<!-- ══════════ THE STANDARD ══════════ -->
+<section class="standard" id="standard">
+  <div class="section-head">
+    <p class="eyebrow" data-fade>WHY MEDMATCH GLOBAL</p>
+    <h2 class="display" data-reveal="words">Admission to a higher standard of care.</h2>
+    <div class="rule" data-rule></div>
+    <p class="lede" data-fade>Turkey performs more than two million medical journeys a year — yet fewer than
+    one in ten clinics meet our admission criteria. We exist so you never have to guess which ones do.</p>
+  </div>
+  <div class="standard__grid">
+    <article class="pillar" data-fade>
+      <span class="pillar__num">I</span>
+      <h3>The Vetted Circle</h3>
+      <p>Every surgeon in our network is board-certified, personally interviewed, and operates
+      exclusively in JCI-accredited hospitals. We decline over 90% of clinics that apply.</p>
+    </article>
+    <article class="pillar" data-fade>
+      <span class="pillar__num">II</span>
+      <h3>The Private Concierge</h3>
+      <p>From your driveway in Toronto or Dallas to your suite in Istanbul — one dedicated host
+      manages flights, transfers, translation and every appointment. You are never alone.</p>
+    </article>
+    <article class="pillar" data-fade>
+      <span class="pillar__num">III</span>
+      <h3>The Honest Ledger</h3>
+      <p>One fixed, all-inclusive quote before you fly — surgery, hospital, hotel, transfers.
+      No hidden fees, no surprise invoices, no fine print. Ever.</p>
+    </article>
+    <article class="pillar" data-fade>
+      <span class="pillar__num">IV</span>
+      <h3>Continued Care</h3>
+      <p>Recovery doesn't end at the airport. Scheduled video follow-ups with your surgeon and
+      coordination with your physicians at home, for as long as you need us.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ══════════ INTERLUDE — sea ══════════ -->
+<section class="interlude">
+  <div class="interlude__img" data-parallax style="background-image:url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=2000&q=80')"></div>
+  <div class="interlude__veil"></div>
+  <p class="interlude__quote" data-fade>“Recovery should feel less like a hospital corridor —<br/>and more like the Turquoise Coast.”</p>
+</section>
+
+<!-- ══════════ TREATMENTS — HORIZONTAL SCROLL ══════════ -->
+<section class="treatments" id="treatments">
+  <div class="hwrap" id="hwrap">
+    <div class="htrack" id="htrack">
+
+      <article class="tpanel tpanel--intro">
+        <p class="eyebrow">THE CURRICULUM</p>
+        <h2 class="display">Four disciplines.<br/><em>Mastered.</em></h2>
+        <p class="lede">We do not offer everything. We offer the four fields in which our Turkish
+        partners lead the world — and nothing we cannot vouch for personally.</p>
+        <div class="tpanel__arrow">⟶</div>
+      </article>
+
+      <article class="tpanel" data-treatment="rhinoplasty">
+        <div class="tpanel__plate">
+          <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+            <circle cx="100" cy="100" r="86" stroke-width="0.6" opacity="0.35"/>
+            <path d="M118 42c-4 14-2 24-6 36-3 10-10 18-12 28-1.6 8 1 13 7 15 4 1.4 8 1 9 5 .8 4-3 6-7 7"/>
+            <path d="M104 140c2 5 8 6 13 4" opacity="0.6"/>
+            <path d="M118 42c1-6 3-10 6-13" opacity="0.5"/>
+            <path d="M109 152c-1 6-5 9-10 11" opacity="0.5"/>
+          </svg>
+          <span class="tpanel__platenum">01</span>
+        </div>
+        <div class="tpanel__body">
+          <span class="tpanel__num">01</span>
+          <h3 class="tpanel__title">Rhinoplasty</h3>
+          <p>Türkiye's facial surgeons are among the most practiced on earth — many performing more
+          rhinoplasties in a year than a U.S. surgeon does in a decade. Ultrasonic &amp; preservation techniques as standard.</p>
+          <div class="tpanel__meta">
+            <div><em>from</em><strong>$3,200</strong><span>all-inclusive</span></div>
+            <div class="tpanel__save">SAVE UP TO 70%</div>
+          </div>
+          <a class="tpanel__link magnetic" href="#estimate" data-scroll-to="#estimate" data-goto-calc="rhinoplasty"><span>Estimate my price</span> ↓</a>
+        </div>
+      </article>
+
+      <article class="tpanel" data-treatment="dental">
+        <div class="tpanel__plate">
+          <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+            <circle cx="100" cy="100" r="86" stroke-width="0.6" opacity="0.35"/>
+            <path d="M78 62c-10 2-16 12-15 26 1.4 20 8 44 14 52 3 4 8 3 9-2 1.6-8 2-18 8-18h12c6 0 6.4 10 8 18 1 5 6 6 9 2 6-8 12.6-32 14-52 1-14-5-24-15-26-8-1.6-14 3-22 3s-14-4.6-22-3z"/>
+            <path d="M146 52l3-9 3 9 9 3-9 3-3 9-3-9-9-3z" stroke-width="1" opacity="0.7"/>
+          </svg>
+          <span class="tpanel__platenum">02</span>
+        </div>
+        <div class="tpanel__body">
+          <span class="tpanel__num">02</span>
+          <h3 class="tpanel__title">Dental Aesthetics</h3>
+          <p>Full smile makeovers, implants, and porcelain artistry completed in five to seven days —
+          in digital-first clinics that U.S. dentists visit to study. E-max &amp; premium zirconia only.</p>
+          <div class="tpanel__meta">
+            <div><em>from</em><strong>$2,400</strong><span>smile makeover</span></div>
+            <div class="tpanel__save">SAVE UP TO 75%</div>
+          </div>
+          <a class="tpanel__link magnetic" href="#estimate" data-scroll-to="#estimate" data-goto-calc="dental"><span>Estimate my price</span> ↓</a>
+        </div>
+      </article>
+
+      <article class="tpanel" data-treatment="knee">
+        <div class="tpanel__plate">
+          <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+            <circle cx="100" cy="100" r="86" stroke-width="0.6" opacity="0.35"/>
+            <path d="M88 38c4 18 8 30 6 44-1 7-6 10-6 16"/>
+            <path d="M112 38c-2 16-4 28-2 42 .8 6 5 10 5 18" opacity="0.8"/>
+            <ellipse cx="99" cy="106" rx="14" ry="10" opacity="0.9"/>
+            <path d="M90 116c-2 14-4 26-2 46" />
+            <path d="M110 116c3 14 4 26 3 46" opacity="0.8"/>
+          </svg>
+          <span class="tpanel__platenum">03</span>
+        </div>
+        <div class="tpanel__body">
+          <span class="tpanel__num">03</span>
+          <h3 class="tpanel__title">Knee Surgery</h3>
+          <p>From arthroscopy to total replacement with the same U.S.-made implants — Zimmer&nbsp;Biomet,
+          Smith+Nephew — placed by high-volume orthopaedic teams, with physiotherapy at your hotel.</p>
+          <div class="tpanel__meta">
+            <div><em>from</em><strong>$3,000</strong><span>all-inclusive</span></div>
+            <div class="tpanel__save">SAVE UP TO 70%</div>
+          </div>
+          <a class="tpanel__link magnetic" href="#estimate" data-scroll-to="#estimate" data-goto-calc="knee"><span>Estimate my price</span> ↓</a>
+        </div>
+      </article>
+
+      <article class="tpanel" data-treatment="hair">
+        <div class="tpanel__plate">
+          <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+            <circle cx="100" cy="100" r="86" stroke-width="0.6" opacity="0.35"/>
+            <path d="M56 122c0-34 18-60 44-60s44 26 44 60" />
+            <path d="M70 96c8-12 18-18 30-18s22 6 30 18" opacity="0.6"/>
+            <g opacity="0.9">
+              <path d="M84 70c0-6 3-10 3-10M100 64c0-6 3-10 3-10M116 70c0-6 3-10 3-10M92 58c0-5 2-8 2-8M108 58c0-5 2-8 2-8" stroke-width="1.1"/>
+            </g>
+          </svg>
+          <span class="tpanel__platenum">04</span>
+        </div>
+        <div class="tpanel__body">
+          <span class="tpanel__num">04</span>
+          <h3 class="tpanel__title">Hair Restoration</h3>
+          <p>Istanbul is the world capital of hair restoration. Sapphire FUE &amp; DHI performed by the
+          surgeon — not a technician — with natural hairline design and lifetime density guarantees.</p>
+          <div class="tpanel__meta">
+            <div><em>from</em><strong>$2,100</strong><span>all-inclusive package</span></div>
+            <div class="tpanel__save">SAVE UP TO 80%</div>
+          </div>
+          <a class="tpanel__link magnetic" href="#estimate" data-scroll-to="#estimate" data-goto-calc="hair"><span>Estimate my price</span> ↓</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ NUMBERS ══════════ -->
+<section class="numbers">
+  <div class="numbers__grid">
+    <div class="numbers__item" data-fade><strong><span data-count="4200">0</span>+</strong><span>Patients from the U.S. &amp; Canada</span></div>
+    <div class="numbers__item" data-fade><strong><span data-count="97">0</span>%</strong><span>Would recommend us</span></div>
+    <div class="numbers__item" data-fade><strong><span data-count="12">0</span></strong><span>JCI-accredited partner hospitals</span></div>
+    <div class="numbers__item" data-fade><strong>$<span data-count="18400">0</span></strong><span>Average saving per patient</span></div>
+  </div>
+</section>
+
+<!-- ══════════ THE FACULTY — DOCTORS ══════════ -->
+<section class="faculty" id="faculty">
+  <div class="section-head">
+    <p class="eyebrow" data-fade>THE FACULTY</p>
+    <h2 class="display" data-reveal="words">The hands you are in.</h2>
+    <div class="rule" data-rule></div>
+    <p class="lede" data-fade>Not a directory — a faculty. Each specialist below leads their discipline within
+    the Circle, and each one reviews your case personally before you are invited to fly.</p>
+  </div>
+  <div class="faculty__grid">
+    <article class="doctor" data-fade>
+      <div class="doctor__photo" style="background-image:url('img/doctors/onur-ademhan.jpg')">
+        <span class="doctor__field">ORAL SURGERY</span>
+      </div>
+      <h3>Dr. Onur Ademhan</h3>
+      <p class="doctor__title">Maxillofacial &amp; Oral Surgeon — Istanbul</p>
+      <p class="doctor__bio">Leads complex surgical and implant cases within the Circle, from full-arch restorations to advanced jaw surgery.</p>
+    </article>
+    <article class="doctor" data-fade>
+      <div class="doctor__photo" style="background-image:url('img/doctors/seda-genis.jpg')">
+        <span class="doctor__field">AESTHETIC DENTISTRY</span>
+      </div>
+      <h3>Dr. Seda Geniş</h3>
+      <p class="doctor__title">Aesthetic Dentist — Istanbul</p>
+      <p class="doctor__bio">Smile design and porcelain artistry — veneers and crowns shade-matched by hand for a natural North American smile.</p>
+    </article>
+    <article class="doctor" data-fade>
+      <div class="doctor__photo" style="background-image:url('img/doctors/ramazan-emre-bahsi.jpg')">
+        <span class="doctor__field">AESTHETIC DENTISTRY</span>
+      </div>
+      <h3>Dr. Ramazan Emre Bahşi</h3>
+      <p class="doctor__title">Aesthetic Dentist — Istanbul</p>
+      <p class="doctor__bio">Full smile makeovers completed in five to seven days, combining digital planning with meticulous chairside finishing.</p>
+    </article>
+    <article class="doctor" data-fade>
+      <div class="doctor__photo" style="background-image:url('img/doctors/dogukan-kilickap.jpg')">
+        <span class="doctor__field">AESTHETIC DENTISTRY</span>
+      </div>
+      <h3>Dr. Doğukan Kılıçkap</h3>
+      <p class="doctor__title">Aesthetic Dentist — Istanbul</p>
+      <p class="doctor__bio">Minimally invasive cosmetic dentistry — preserving healthy enamel while transforming the smile beneath it.</p>
+    </article>
+    <article class="doctor" data-fade>
+      <div class="doctor__photo" style="background-image:url('img/doctors/diana-gadzhaeva.jpg')">
+        <span class="doctor__field">GENERAL DENTISTRY</span>
+      </div>
+      <h3>Dr. Diana Gadzhaeva</h3>
+      <p class="doctor__title">General Dentist — Istanbul</p>
+      <p class="doctor__bio">Your first clinical assessment and continuing care — ensuring every treatment plan starts from healthy foundations.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ══════════ THE LEDGER — CALCULATORS ══════════ -->
+<section class="ledger" id="estimate">
+  <div class="section-head">
+    <p class="eyebrow" data-fade>THE PRIVATE LEDGER</p>
+    <h2 class="display" data-reveal="words">Transparent to the cent.</h2>
+    <div class="rule" data-rule></div>
+    <p class="lede" data-fade>Compose your treatment below. Every estimate includes surgery, hospital fees,
+    five-star hotel, VIP transfers and your personal host — compared honestly against
+    average prices at home.</p>
+  </div>
+
+  <div class="ledger__bar">
+    <div class="tabs" role="tablist" id="calcTabs">
+      <button class="tab" role="tab" data-calc="dental" aria-selected="false"><span>Dental</span></button>
+      <button class="tab" role="tab" data-calc="rhinoplasty" aria-selected="false"><span>Rhinoplasty</span></button>
+      <button class="tab" role="tab" data-calc="knee" aria-selected="false"><span>Knee</span></button>
+      <button class="tab" role="tab" data-calc="hair" aria-selected="false"><span>Hair</span></button>
+      <span class="tabs__ink" id="tabsInk"></span>
+    </div>
+    <div class="currency" id="currencyToggle">
+      <button class="currency__btn is-active" data-cur="USD">USD $</button>
+      <button class="currency__btn" data-cur="CAD">CAD $</button>
+    </div>
+  </div>
+
+  <div class="calc" id="calcRoot">
+
+    <!-- ── DENTAL ── -->
+    <div class="calc__panel" data-panel="dental">
+      <div class="calc__inputs">
+        <div class="field">
+          <div class="field__label"><label for="d-implants">Dental implants</label><output id="d-implants-out">0</output></div>
+          <input type="range" id="d-implants" min="0" max="12" step="1" value="0" data-recalc/>
+          <div class="field__hint">Premium brands — Straumann, Nobel Biocare</div>
+        </div>
+        <div class="field">
+          <div class="field__label"><label for="d-veneers">Porcelain veneers</label><output id="d-veneers-out">8</output></div>
+          <input type="range" id="d-veneers" min="0" max="20" step="1" value="8" data-recalc/>
+          <div class="field__hint">Hand-layered, shade-matched to your smile</div>
+        </div>
+        <div class="field">
+          <div class="field__label"><label for="d-crowns">Crowns</label><output id="d-crowns-out">0</output></div>
+          <input type="range" id="d-crowns" min="0" max="20" step="1" value="0" data-recalc/>
+        </div>
+        <div class="field">
+          <div class="field__label"><label for="d-material">Material</label></div>
+          <div class="select-wrap">
+            <select id="d-material" data-recalc>
+              <option value="zirconia">Premium Zirconia</option>
+              <option value="emax">E-max Porcelain (+20%)</option>
+            </select>
+          </div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="d-whitening" data-recalc/>
+          <span class="switch__track"><span class="switch__thumb"></span></span>
+          <span class="switch__text">Add professional whitening</span>
+        </label>
+      </div>
+      <div class="calc__result"></div>
+    </div>
+
+    <!-- ── RHINOPLASTY ── -->
+    <div class="calc__panel" data-panel="rhinoplasty">
+      <div class="calc__inputs">
+        <div class="field">
+          <div class="field__label"><label for="r-type">Procedure</label></div>
+          <div class="select-wrap">
+            <select id="r-type" data-recalc>
+              <option value="primary">Primary Rhinoplasty</option>
+              <option value="ethnic">Ethnic Rhinoplasty</option>
+              <option value="revision">Revision Rhinoplasty</option>
+              <option value="tip">Tip Plasty</option>
+            </select>
+          </div>
+          <div class="field__hint">Ultrasonic (piezo) technique as standard</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="r-septum" data-recalc/>
+          <span class="switch__track"><span class="switch__thumb"></span></span>
+          <span class="switch__text">Add septoplasty — breathing correction</span>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="r-suite" data-recalc/>
+          <span class="switch__track"><span class="switch__thumb"></span></span>
+          <span class="switch__text">Premier recovery suite — 7 nights, Bosphorus view</span>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="r-companion" data-recalc/>
+          <span class="switch__track"><span class="switch__thumb"></span></span>
+          <span class="switch__text">Bring a companion — travel &amp; stay included</span>
+        </label>
+      </div>
+      <div class="calc__result"></div>
+    </div>
+
+    <!-- ── KNEE ── -->
+    <div class="calc__panel" data-panel="knee">
+      <div class="calc__inputs">
+        <div class="field">
+          <div class="field__label"><label for="k-proc">Procedure</label></div>
+          <div class="select-wrap">
+            <select id="k-proc" data-recalc>
+              <option value="arthro">Knee Arthroscopy</option>
+              <option value="partial">Partial Knee Replacement</option>
+              <option value="total" selected>Total Knee Replacement</option>
+              <option value="bilateral">Bilateral Total Replacement</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field__label"><label for="k-implant">Implant tier</label></div>
+          <div class="select-wrap">
+            <select id="k-implant" data-recalc>
+              <option value="standard">Standard — Zimmer Biomet</option>
+              <option value="premium">Premium — Smith+Nephew Oxinium (+15%)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field__label"><label for="k-physio">On-site physiotherapy</label><output id="k-physio-out">1 week</output></div>
+          <input type="range" id="k-physio" min="0" max="3" step="1" value="1" data-recalc/>
+          <div class="field__hint">Daily sessions at your recovery hotel</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="k-companion" data-recalc/>
+          <span class="switch__track"><span class="switch__thumb"></span></span>
+          <span class="switch__text">Bring a companion — travel &amp; stay included</span>
+        </label>
+      </div>
+      <div class="calc__result"></div>
+    </div>
+
+    <!-- ── HAIR ── -->
+    <div class="calc__panel" data-panel="hair">
+      <div class="calc__inputs">
+        <div class="field">
+          <div class="field__label"><label for="h-grafts">Grafts</label><output id="h-grafts-out">3,000</output></div>
+          <input type="range" id="h-grafts" min="1500" max="5500" step="100" value="3000" data-recalc/>
+          <div class="field__hint">Most patients require 2,500 – 4,000 grafts</div>
+        </div>
+        <div class="field">
+          <div class="field__label"><label for="h-tech">Technique</label></div>
+          <div class="select-wrap">
+            <select id="h-tech" data-recalc>
+              <option value="fue">Classic FUE</option>
+              <option value="sapphire" selected>Sapphire FUE</option>
+              <option value="dhi">DHI — Direct Hair Implantation</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field__label"><label for="h-prp">PRP recovery sessions</label><output id="h-prp-out">1</output></div>
+          <input type="range" id="h-prp" min="0" max="3" step="1" value="1" data-recalc/>
+          <div class="field__hint">Accelerates growth &amp; graft survival</div>
+        </div>
+      </div>
+      <div class="calc__result"></div>
+    </div>
+
+  </div>
+  <p class="ledger__note" data-fade>Estimates are indicative and confirmed only after review of your records by our surgical board.
+  Home-market figures reflect published U.S. &amp; Canadian private-pay averages, 2025–26.</p>
+</section>
+
+<!-- ══════════ INTERLUDE — wellness ══════════ -->
+<section class="interlude interlude--short">
+  <div class="interlude__img" data-parallax style="background-image:url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=2000&q=80')"></div>
+  <div class="interlude__veil"></div>
+  <p class="interlude__quote" data-fade>“You are not a case number here.<br/>You are a guest.”</p>
+</section>
+
+<!-- ══════════ THE PASSAGE — JOURNEY ══════════ -->
+<section class="passage" id="passage">
+  <div class="section-head">
+    <p class="eyebrow" data-fade>THE PASSAGE</p>
+    <h2 class="display" data-reveal="words">From your door, and back again.</h2>
+    <div class="rule" data-rule></div>
+  </div>
+  <div class="passage__layout">
+    <div class="passage__line"><i id="passageProgress"></i></div>
+    <ol class="passage__steps">
+      <li class="pstep" data-step>
+        <span class="pstep__num">01</span>
+        <div><h3>The Consultation</h3>
+        <p>A private video consultation from home. Your records and imagery are reviewed by no fewer
+        than three surgeons from the Circle before any recommendation is made.</p></div>
+      </li>
+      <li class="pstep" data-step>
+        <span class="pstep__num">02</span>
+        <div><h3>The Blueprint</h3>
+        <p>You receive one fixed, all-inclusive quote — surgery, hospital, suite, transfers, host.
+        The price you accept is the price you pay. It is signed, and it is final.</p></div>
+      </li>
+      <li class="pstep" data-step>
+        <span class="pstep__num">03</span>
+        <div><h3>The Arrival</h3>
+        <p>Met at the aircraft door in Istanbul. Private transfer to a five-star hotel on the
+        Bosphorus. Your host — fluent, discreet, on call — is with you from this moment on.</p></div>
+      </li>
+      <li class="pstep" data-step>
+        <span class="pstep__num">04</span>
+        <div><h3>The Procedure</h3>
+        <p>Treatment in a JCI-accredited hospital with an English-speaking clinical team. Your host
+        remains at the hospital; your family receives updates at every stage.</p></div>
+      </li>
+      <li class="pstep" data-step>
+        <span class="pstep__num">05</span>
+        <div><h3>The Return</h3>
+        <p>Fit-to-fly checks before departure, then scheduled video follow-ups with your surgeon and
+        coordination with your physicians in the U.S. or Canada — for as long as you need us.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════ VOICES ══════════ -->
+<section class="voices" id="voices">
+  <div class="section-head">
+    <p class="eyebrow" data-fade>VOICES OF THE ACADEMY</p>
+    <h2 class="display" data-reveal="words">They arrived as patients.<br/>They returned as advocates.</h2>
+    <div class="rule" data-rule></div>
+  </div>
+  <div class="voices__grid">
+    <figure class="voice" data-fade>
+      <div class="voice__mark">“</div>
+      <blockquote>I was quoted $31,000 for veneers in Manhattan. MedMatch arranged the same work — honestly,
+      finer work — for a fifth of that, with a week on the Bosphorus. My dentist at home asked
+      where I'd had it done.</blockquote>
+      <figcaption><strong>Elaine S.</strong><span>New York — Dental Aesthetics</span></figcaption>
+    </figure>
+    <figure class="voice" data-fade>
+      <div class="voice__mark">“</div>
+      <blockquote>The part no one tells you about is the fear of being alone in a foreign hospital. I never
+      was. Ayşe was outside my door every single morning. My knee is perfect; the care was better
+      than home.</blockquote>
+      <figcaption><strong>Marcus D.</strong><span>Dallas — Total Knee Replacement</span></figcaption>
+    </figure>
+    <figure class="voice" data-fade>
+      <div class="voice__mark">“</div>
+      <blockquote>Two years after my hair transplant, the surgeon still answers my messages himself. Try
+      getting that in Vancouver — at any price. This is the only way I'd ever do it.</blockquote>
+      <figcaption><strong>Rebecca T.</strong><span>Vancouver — Sapphire FUE</span></figcaption>
+    </figure>
+  </div>
+  <div class="accreditation" data-fade>
+    <span>JCI ACCREDITED PARTNERS</span><i>✦</i>
+    <span>ISO 9001 : 2015</span><i>✦</i>
+    <span>TURKISH MINISTRY OF HEALTH LICENSED</span><i>✦</i>
+    <span>INTERNATIONAL PATIENT DEPT. CERTIFIED</span>
+  </div>
+</section>
+
+<!-- ══════════ INVITATION ══════════ -->
+<section class="invitation" id="invitation">
+  <div class="invitation__card" data-fade>
+    <div class="invitation__left">
+      <p class="eyebrow eyebrow--light">THE FIRST STEP</p>
+      <h2 class="display display--light" data-reveal="words">Your invitation awaits.</h2>
+      <p class="lede lede--light">Tell us what you're considering. Within 48 hours you'll receive a private
+      assessment from our surgical board and a fixed, all-inclusive proposal —
+      with no obligation and complete discretion.</p>
+      <ul class="invitation__points">
+        <li>Response within 48 hours</li>
+        <li>Reviewed by three surgeons</li>
+        <li>Fixed quote — no surprises</li>
+      </ul>
+    </div>
+    <form class="invitation__form" id="inviteForm" novalidate>
+      <div class="ffield"><label for="f-name">Full name</label><input id="f-name" type="text" autocomplete="name" required placeholder="Alexandra Whitmore"/></div>
+      <div class="ffield"><label for="f-email">Email</label><input id="f-email" type="email" autocomplete="email" required placeholder="you@example.com"/></div>
+      <div class="ffield"><label for="f-treatment">Treatment of interest</label>
+        <div class="select-wrap select-wrap--light">
+          <select id="f-treatment">
+            <option>Rhinoplasty</option><option>Dental Aesthetics</option>
+            <option>Knee Surgery</option><option>Hair Restoration</option><option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+      <div class="ffield"><label for="f-msg">Anything we should know?</label><textarea id="f-msg" rows="3" placeholder="Optional — your timeline, questions, or history"></textarea></div>
+      <button class="btn btn--ivory magnetic" type="submit"><span>Request My Private Consultation</span></button>
+      <p class="invitation__success" id="inviteSuccess">Thank you. Your request has been received —<br/>expect our reply within 48 hours. <em>— The Academy</em></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="footer__word" aria-hidden="true"><span>MEDMATCH</span></div>
+  <div class="footer__cols">
+    <div>
+      <p class="footer__brand">MEDMATCH GLOBAL<span>THE ACADEMY OF MEDICAL TRAVEL</span></p>
+      <p class="footer__desc">Privately matching patients from the United States &amp; Canada with
+      Türkiye's most distinguished surgeons since 2021.</p>
+    </div>
+    <div class="footer__col">
+      <h4>Treatments</h4>
+      <a href="#treatments" data-scroll-to="#treatments">Rhinoplasty</a>
+      <a href="#treatments" data-scroll-to="#treatments">Dental Aesthetics</a>
+      <a href="#treatments" data-scroll-to="#treatments">Knee Surgery</a>
+      <a href="#treatments" data-scroll-to="#treatments">Hair Restoration</a>
+    </div>
+    <div class="footer__col">
+      <h4>The Academy</h4>
+      <a href="#standard" data-scroll-to="#standard">The Standard</a>
+      <a href="#faculty" data-scroll-to="#faculty">The Faculty</a>
+      <a href="#estimate" data-scroll-to="#estimate">The Ledger</a>
+      <a href="#invitation" data-scroll-to="#invitation">Request Invitation</a>
+    </div>
+    <div class="footer__col">
+      <h4>Concierge</h4>
+      <a href="mailto:concierge@medmatchglobal.com">concierge@medmatchglobal.com</a>
+      <a href="tel:+18005550194">+1 (800) 555-0194</a>
+      <span class="footer__loc">Istanbul · Toronto · New York</span>
+    </div>
+  </div>
+  <div class="footer__base">
+    <span>© 2026 MedMatch Global. All rights reserved.</span>
+    <span>Estimates are informational and do not constitute medical advice.</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/scene.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,589 @@
+/* ═══════════════════════════════════════════════════════════════
+   MEDMATCH GLOBAL — THE ACADEMY
+   Motion direction: unhurried, weighted, precise.
+   ═══════════════════════════════════════════════════════════════ */
+
+(function () {
+  "use strict";
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hasGsap = typeof gsap !== "undefined";
+  var isTouch = window.matchMedia("(hover: none)").matches;
+
+  if (reduced) document.body.classList.add("reduced");
+
+  /* ───────────────────────── smooth scroll ───────────────────────── */
+  var lenis = null;
+  if (typeof Lenis !== "undefined" && !reduced) {
+    lenis = new Lenis({ duration: 1.25, smoothWheel: true });
+  }
+
+  if (hasGsap) {
+    gsap.registerPlugin(ScrollTrigger);
+    if (lenis) {
+      lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+      gsap.ticker.lagSmoothing(0);
+    }
+  }
+
+  function scrollToTarget(sel) {
+    var el = document.querySelector(sel);
+    if (!el) return;
+    if (lenis) lenis.scrollTo(el, { offset: -64, duration: 1.6 });
+    else el.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
+  }
+
+  document.querySelectorAll("[data-scroll-to]").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var calc = a.getAttribute("data-goto-calc");
+      if (calc) activateCalc(calc, true);
+      closeMenu();
+      scrollToTarget(a.getAttribute("data-scroll-to"));
+    });
+  });
+
+  /* ───────────────────────── text splitting ───────────────────────── */
+  function splitWords(el) {
+    // wraps each word in a mask so it can rise into view; keeps <br> and <em>
+    function process(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+        if (child.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          child.textContent.split(/(\s+)/).forEach(function (piece) {
+            if (!piece) return;
+            if (/^\s+$/.test(piece)) { frag.appendChild(document.createTextNode(" ")); return; }
+            var mask = document.createElement("span");
+            mask.className = "word-mask";
+            var w = document.createElement("span");
+            w.className = "word";
+            w.textContent = piece;
+            mask.appendChild(w);
+            frag.appendChild(mask);
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1 && child.tagName !== "BR") {
+          process(child);
+        }
+      });
+    }
+    process(el);
+    return el.querySelectorAll(".word");
+  }
+
+  function splitChars(el) {
+    var text = el.textContent;
+    el.textContent = "";
+    var chars = [];
+    text.split(" ").forEach(function (word, wi, arr) {
+      var w = document.createElement("span");
+      w.className = "word";
+      word.split("").forEach(function (ch) {
+        var c = document.createElement("span");
+        c.className = "char";
+        c.textContent = ch;
+        w.appendChild(c);
+        chars.push(c);
+      });
+      el.appendChild(w);
+      if (wi < arr.length - 1) el.appendChild(document.createTextNode(" "));
+    });
+    return chars;
+  }
+
+  /* ───────────────────────── preloader + hero intro ───────────────────────── */
+  var loader = document.getElementById("loader");
+
+  function heroIntro() {
+    if (!hasGsap || reduced) {
+      document.querySelectorAll(".hero [data-fade]").forEach(function (el) { el.style.opacity = 1; });
+      document.querySelectorAll(".hero__line").forEach(function (el) { el.style.opacity = 1; });
+      return;
+    }
+    var tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+    document.querySelectorAll('.hero [data-reveal="chars"]').forEach(function (line, i) {
+      var chars = splitChars(line);
+      gsap.set(chars, { yPercent: 115 });
+      tl.to(chars, { yPercent: 0, duration: 1.3, stagger: 0.022 }, 0.15 + i * 0.14);
+    });
+    tl.to(".hero [data-fade]", { opacity: 1, y: 0, duration: 1.1, stagger: 0.1 }, 0.6);
+    gsap.set(".hero [data-fade]", { y: 26 });
+  }
+
+  if (hasGsap && !reduced && loader) {
+    document.documentElement.style.overflow = "hidden";
+    var pct = { v: 0 };
+    var pctEl = document.getElementById("loaderPct");
+    var tl = gsap.timeline({
+      onComplete: function () {
+        loader.style.display = "none";
+        document.documentElement.style.overflow = "";
+        if (lenis) lenis.resize();
+        ScrollTrigger.refresh();
+      }
+    });
+    tl.to(".loader__ring", { strokeDashoffset: 0, duration: 1.7, ease: "power2.inOut" }, 0)
+      .to(pct, {
+        v: 100, duration: 1.7, ease: "power2.inOut",
+        onUpdate: function () { pctEl.textContent = Math.round(pct.v); }
+      }, 0)
+      .to(".loader__center", { opacity: 0, y: -26, duration: 0.5, ease: "power2.in" }, 1.85)
+      .to(".loader__curtain--l", { xPercent: -101, duration: 1.0, ease: "power4.inOut" }, 2.15)
+      .to(".loader__curtain--r", { xPercent: 101, duration: 1.0, ease: "power4.inOut" }, 2.15)
+      .add(heroIntro, 2.35);
+  } else {
+    if (loader) loader.style.display = "none";
+    heroIntro();
+  }
+
+  /* ───────────────────────── nav ───────────────────────── */
+  var nav = document.getElementById("nav");
+  var burger = document.getElementById("burger");
+  var mmenu = document.getElementById("mmenu");
+
+  window.addEventListener("scroll", onScrollNav, { passive: true });
+  if (lenis) lenis.on("scroll", onScrollNav);
+  function onScrollNav() {
+    var y = window.scrollY || window.pageYOffset;
+    nav.classList.toggle("is-solid", y > 60);
+  }
+
+  function closeMenu() {
+    burger.classList.remove("is-open");
+    mmenu.classList.remove("is-open");
+  }
+  burger.addEventListener("click", function () {
+    burger.classList.toggle("is-open");
+    mmenu.classList.toggle("is-open");
+  });
+
+  /* ───────────────────────── scroll-driven motion ───────────────────────── */
+  if (hasGsap && !reduced) {
+
+    // hero canvas scroll progress → three.js dolly
+    ScrollTrigger.create({
+      trigger: "#hero", start: "top top", end: "bottom top", scrub: true,
+      onUpdate: function (self) { window.__heroScroll = self.progress; }
+    });
+
+    // hero photo: slow Ken Burns drift + scroll parallax
+    gsap.fromTo(".hero__bg", { scale: 1.08 }, { scale: 1, duration: 6, ease: "power2.out" });
+    gsap.to(".hero__bg", {
+      yPercent: 10, ease: "none",
+      scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true }
+    });
+
+    // full-bleed interlude photos drift against scroll
+    gsap.utils.toArray("[data-parallax]").forEach(function (img) {
+      gsap.fromTo(img, { yPercent: -10 }, {
+        yPercent: 10, ease: "none",
+        scrollTrigger: { trigger: img.parentElement, start: "top bottom", end: "bottom top", scrub: true }
+      });
+    });
+
+    // hero content drifts up & fades as you leave
+    gsap.to(".hero__inner", {
+      yPercent: -14, opacity: 0.25, ease: "none",
+      scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom 25%", scrub: true }
+    });
+
+    // generic fades (outside hero)
+    gsap.utils.toArray("[data-fade]").forEach(function (el) {
+      if (el.closest(".hero")) return;
+      gsap.fromTo(el, { opacity: 0, y: 34 }, {
+        opacity: 1, y: 0, duration: 1.15, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 86%" }
+      });
+    });
+
+    // word reveals on section headlines
+    gsap.utils.toArray('[data-reveal="words"]').forEach(function (el) {
+      var words = splitWords(el);
+      gsap.set(words, { yPercent: 112 });
+      gsap.to(words, {
+        yPercent: 0, duration: 1.2, ease: "power4.out", stagger: 0.045,
+        scrollTrigger: { trigger: el, start: "top 84%" }
+      });
+    });
+
+    // gold rules draw in
+    gsap.utils.toArray("[data-rule]").forEach(function (el) {
+      gsap.fromTo(el, { scaleX: 0 }, {
+        scaleX: 1, duration: 1.4, ease: "power4.inOut",
+        scrollTrigger: { trigger: el, start: "top 88%" }
+      });
+    });
+
+    // marquee — perpetual, accelerates with scroll velocity
+    var mTrack = document.getElementById("marqueeTrack");
+    if (mTrack) {
+      var marquee = gsap.to(mTrack, { xPercent: -50, ease: "none", duration: 26, repeat: -1 });
+      ScrollTrigger.create({
+        onUpdate: function (self) {
+          var boost = 1 + Math.min(Math.abs(self.getVelocity()) / 900, 3.2);
+          gsap.to(marquee, { timeScale: boost, duration: 0.3, overwrite: true });
+          gsap.to(marquee, { timeScale: 1, duration: 1.4, delay: 0.3, overwrite: false });
+        }
+      });
+    }
+
+    // treatments — pinned horizontal voyage (desktop only)
+    ScrollTrigger.matchMedia({
+      "(min-width: 901px)": function () {
+        var track = document.getElementById("htrack");
+        var getDist = function () { return track.scrollWidth - window.innerWidth; };
+        gsap.to(track, {
+          x: function () { return -getDist(); },
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#treatments",
+            start: "top top",
+            end: function () { return "+=" + getDist(); },
+            scrub: 1,
+            pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true
+          }
+        });
+        // plates rotate gently as the train passes
+        gsap.utils.toArray(".tpanel__plate").forEach(function (plate) {
+          gsap.fromTo(plate, { rotation: -7 }, {
+            rotation: 7, ease: "none",
+            scrollTrigger: {
+              trigger: "#treatments", start: "top top",
+              end: function () { return "+=" + getDist(); }, scrub: 1.2
+            }
+          });
+        });
+      }
+    });
+
+    // numbers — counters
+    gsap.utils.toArray("[data-count]").forEach(function (el) {
+      var end = parseInt(el.getAttribute("data-count"), 10);
+      var obj = { v: 0 };
+      ScrollTrigger.create({
+        trigger: el, start: "top 85%", once: true,
+        onEnter: function () {
+          gsap.to(obj, {
+            v: end, duration: 2.2, ease: "power3.out",
+            onUpdate: function () { el.textContent = Math.round(obj.v).toLocaleString("en-US"); }
+          });
+        }
+      });
+    });
+
+    // the passage — progress line + step activation
+    var progress = document.getElementById("passageProgress");
+    if (progress) {
+      ScrollTrigger.create({
+        trigger: ".passage__layout", start: "top 65%", end: "bottom 55%", scrub: true,
+        onUpdate: function (self) { progress.style.height = (self.progress * 100) + "%"; }
+      });
+    }
+    gsap.utils.toArray("[data-step]").forEach(function (step) {
+      ScrollTrigger.create({
+        trigger: step, start: "top 62%", end: "bottom 30%",
+        onToggle: function (self) { step.classList.toggle("is-active", self.isActive); }
+      });
+      gsap.fromTo(step, { opacity: 0, x: -30 }, {
+        opacity: 1, x: 0, duration: 1.1, ease: "power3.out",
+        scrollTrigger: { trigger: step, start: "top 80%" }
+      });
+    });
+
+    // footer wordmark rises
+    gsap.fromTo(".footer__word span", { yPercent: 60, opacity: 0 }, {
+      yPercent: 0, opacity: 1, duration: 1.4, ease: "power4.out",
+      scrollTrigger: { trigger: ".footer", start: "top 78%" }
+    });
+  }
+
+  /* ───────────────────────── cursor + magnetics ───────────────────────── */
+  if (hasGsap && !isTouch && !reduced) {
+    var cursor = document.getElementById("cursor");
+    var xTo = gsap.quickTo(cursor, "x", { duration: 0.35, ease: "power3" });
+    var yTo = gsap.quickTo(cursor, "y", { duration: 0.35, ease: "power3" });
+    window.addEventListener("mousemove", function (e) { xTo(e.clientX); yTo(e.clientY); }, { passive: true });
+    document.querySelectorAll("a, button, .switch, input, select").forEach(function (el) {
+      el.addEventListener("mouseenter", function () { cursor.classList.add("is-hover"); });
+      el.addEventListener("mouseleave", function () { cursor.classList.remove("is-hover"); });
+    });
+
+    document.querySelectorAll(".magnetic").forEach(function (el) {
+      el.addEventListener("mousemove", function (e) {
+        var r = el.getBoundingClientRect();
+        gsap.to(el, {
+          x: (e.clientX - r.left - r.width / 2) * 0.28,
+          y: (e.clientY - r.top - r.height / 2) * 0.34,
+          duration: 0.5, ease: "power3.out"
+        });
+      });
+      el.addEventListener("mouseleave", function () {
+        gsap.to(el, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, 0.45)" });
+      });
+    });
+  }
+
+  /* ═════════════════════════ THE PRIVATE LEDGER ═════════════════════════
+     All base figures in USD. [low, high] ranges; home = published
+     U.S./Canadian private-pay averages. Türkiye figures are all-inclusive
+     (surgery, hospital, hotel, VIP transfers, personal host).            */
+
+  var CAD_RATE = 1.37;
+  var currency = "USD";
+
+  var MODELS = {
+    dental: function () {
+      var implants = +document.getElementById("d-implants").value;
+      var veneers  = +document.getElementById("d-veneers").value;
+      var crowns   = +document.getElementById("d-crowns").value;
+      var emax     = document.getElementById("d-material").value === "emax";
+      var white    = document.getElementById("d-whitening").checked;
+      var m = emax ? 1.2 : 1;
+
+      var tr = [implants * 450 + veneers * 170 * m + crowns * 150 * m + (white ? 120 : 0),
+                implants * 650 + veneers * 260 * m + crowns * 240 * m + (white ? 180 : 0)];
+      var us = [implants * 3500 + veneers * (emax ? 1400 : 1200) + crowns * 1000 + (white ? 450 : 0),
+                implants * 5000 + veneers * (emax ? 2500 : 2000) + crowns * 1600 + (white ? 650 : 0)];
+      if (tr[0] > 0) { tr[0] += 600; tr[1] += 800; } // hotel + transfers + host
+      return { tr: tr, us: us, unitLabel: implants + veneers + crowns === 0 && !white ? "Select your treatments above" : null };
+    },
+
+    rhinoplasty: function () {
+      var types = {
+        primary:  { tr: [3200, 4800],  us: [9000, 15000] },
+        ethnic:   { tr: [3800, 5400],  us: [11000, 16000] },
+        revision: { tr: [4500, 6500],  us: [13000, 22000] },
+        tip:      { tr: [2200, 3200],  us: [6000, 9000] }
+      };
+      var t = types[document.getElementById("r-type").value];
+      var tr = t.tr.slice(), us = t.us.slice();
+      if (document.getElementById("r-septum").checked)    { tr[0] += 600; tr[1] += 900;  us[0] += 3500; us[1] += 6000; }
+      if (document.getElementById("r-suite").checked)     { tr[0] += 450; tr[1] += 750; }
+      if (document.getElementById("r-companion").checked) { tr[0] += 550; tr[1] += 850; }
+      return { tr: tr, us: us };
+    },
+
+    knee: function () {
+      var procs = {
+        arthro:    { tr: [3000, 4500],   us: [10000, 15000] },
+        partial:   { tr: [7000, 9500],   us: [20000, 32000] },
+        total:     { tr: [8500, 12000],  us: [30000, 50000] },
+        bilateral: { tr: [15000, 20500], us: [55000, 90000] }
+      };
+      var p = procs[document.getElementById("k-proc").value];
+      var premium = document.getElementById("k-implant").value === "premium";
+      var weeks = +document.getElementById("k-physio").value;
+      var f = premium ? 1.15 : 1, fu = premium ? 1.12 : 1;
+      var tr = [p.tr[0] * f + weeks * 300, p.tr[1] * f + weeks * 450];
+      var us = [p.us[0] * fu + weeks * 1200, p.us[1] * fu + weeks * 2000];
+      if (document.getElementById("k-companion").checked) { tr[0] += 600; tr[1] += 900; }
+      return { tr: tr, us: us };
+    },
+
+    hair: function () {
+      var grafts = +document.getElementById("h-grafts").value;
+      var prp = +document.getElementById("h-prp").value;
+      var tech = {
+        fue:      { tr: [0.85, 1.15], us: [4, 6] },
+        sapphire: { tr: [1.0, 1.35],  us: [5, 7] },
+        dhi:      { tr: [1.25, 1.7],  us: [6, 8] }
+      }[document.getElementById("h-tech").value];
+      var tr = [Math.max(grafts * tech.tr[0], 2100) + prp * 100,
+                Math.max(grafts * tech.tr[1], 2400) + prp * 150];
+      var us = [grafts * tech.us[0] + prp * 500, grafts * tech.us[1] + prp * 750];
+      return { tr: tr, us: us };
+    }
+  };
+
+  /* — result template — */
+  function resultShell(panel) {
+    var box = panel.querySelector(".calc__result");
+    box.innerHTML =
+      '<p class="res__label">Your estimate in T&uuml;rkiye</p>' +
+      '<p class="res__price" data-r="price">$0</p>' +
+      '<p class="res__range" data-r="range">&nbsp;</p>' +
+      '<div class="res__bars">' +
+        '<div class="res__bar res__bar--home"><span><b data-r="homeLabel">At home — U.S. average</b><b data-r="homeVal">$0</b></span><i data-r="homeBar"></i></div>' +
+        '<div class="res__bar res__bar--tr"><span><b>With MedMatch, in T&uuml;rkiye</b><b data-r="trVal">$0</b></span><i data-r="trBar"></i></div>' +
+      '</div>' +
+      '<div class="res__save"><strong data-r="save">You keep $0</strong><em data-r="pct">&minus;0%</em></div>' +
+      '<p class="res__includes">Includes five-star hotel, VIP transfers, personal host &amp; lifetime aftercare.</p>' +
+      '<a class="btn btn--gold res__cta magnetic" href="#invitation" data-scroll-to="#invitation"><span>Reserve this estimate</span></a>';
+    box.querySelector("[data-scroll-to]").addEventListener("click", function (e) {
+      e.preventDefault();
+      scrollToTarget("#invitation");
+    });
+    return box;
+  }
+
+  function fmt(v) {
+    var val = currency === "CAD" ? v * CAD_RATE : v;
+    return new Intl.NumberFormat("en-US", {
+      style: "currency", currency: currency, maximumFractionDigits: 0
+    }).format(Math.round(val / 10) * 10);
+  }
+
+  var displayed = {}; // panel → last shown numbers, for tweening
+
+  function renderCalc(name, animate) {
+    var panel = document.querySelector('[data-panel="' + name + '"]');
+    if (!panel) return;
+    var box = panel.querySelector(".calc__result");
+    if (!box.hasChildNodes()) box = resultShell(panel);
+
+    var r = MODELS[name]();
+    var trMid = (r.tr[0] + r.tr[1]) / 2;
+    var usMid = (r.us[0] + r.us[1]) / 2;
+    var save = Math.max(usMid - trMid, 0);
+    var pct = usMid > 0 ? Math.round(save / usMid * 100) : 0;
+
+    var q = function (k) { return box.querySelector('[data-r="' + k + '"]'); };
+
+    q("homeLabel").textContent = currency === "CAD" ? "At home — Canadian average" : "At home — U.S. average";
+    q("range").innerHTML = r.tr[0] > 0
+      ? "typically " + fmt(r.tr[0]) + " &ndash; " + fmt(r.tr[1])
+      : (r.unitLabel || "&nbsp;");
+
+    var end = { price: trMid, home: usMid, save: save, pct: pct };
+    var start = displayed[name] || { price: 0, home: 0, save: 0, pct: 0 };
+    displayed[name] = end;
+
+    function apply(s) {
+      q("price").textContent = fmt(s.price);
+      q("homeVal").textContent = fmt(s.home);
+      q("trVal").textContent = fmt(s.price);
+      q("save").textContent = "You keep " + fmt(s.save);
+      q("pct").innerHTML = "&minus;" + Math.round(s.pct) + "% vs home";
+    }
+
+    var homeW = 100;
+    var trW = usMid > 0 ? Math.max((trMid / usMid) * 100, 2) : 0;
+
+    if (hasGsap && animate && !reduced) {
+      var obj = { price: start.price, home: start.home, save: start.save, pct: start.pct };
+      gsap.to(obj, {
+        price: end.price, home: end.home, save: end.save, pct: end.pct,
+        duration: 0.9, ease: "power3.out", overwrite: true,
+        onUpdate: function () { apply(obj); }
+      });
+      gsap.to(q("homeBar"), { width: homeW + "%", duration: 0.9, ease: "power3.out" });
+      gsap.to(q("trBar"), { width: trW + "%", duration: 0.9, ease: "power3.out" });
+    } else {
+      apply(end);
+      q("homeBar").style.width = homeW + "%";
+      q("trBar").style.width = trW + "%";
+    }
+  }
+
+  /* — tabs — */
+  var tabs = document.querySelectorAll("#calcTabs .tab");
+  var ink = document.getElementById("tabsInk");
+
+  function positionInk(btn) {
+    ink.style.left = btn.offsetLeft + "px";
+    ink.style.width = btn.offsetWidth + "px";
+  }
+
+  function activateCalc(name, instant) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute("data-calc") === name;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      if (on) positionInk(t);
+    });
+    document.querySelectorAll(".calc__panel").forEach(function (p) {
+      var on = p.getAttribute("data-panel") === name;
+      p.classList.toggle("is-active", on);
+      if (on && hasGsap && !reduced && !instant) {
+        gsap.fromTo(p, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" });
+      }
+    });
+    renderCalc(name, false);
+    if (hasGsap) ScrollTrigger.refresh();
+  }
+
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function () { activateCalc(t.getAttribute("data-calc")); });
+  });
+  window.addEventListener("resize", function () {
+    var active = document.querySelector('#calcTabs .tab[aria-selected="true"]');
+    if (active) positionInk(active);
+  });
+
+  /* — currency — */
+  document.querySelectorAll("#currencyToggle .currency__btn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      currency = b.getAttribute("data-cur");
+      document.querySelectorAll("#currencyToggle .currency__btn").forEach(function (x) {
+        x.classList.toggle("is-active", x === b);
+      });
+      var active = document.querySelector(".calc__panel.is-active");
+      if (active) renderCalc(active.getAttribute("data-panel"), true);
+    });
+  });
+
+  /* — inputs — */
+  function sliderFill(input) {
+    var p = (input.value - input.min) / (input.max - input.min) * 100;
+    input.style.setProperty("--fill", p + "%");
+  }
+
+  var OUTPUT_FMT = {
+    "k-physio": function (v) { return v === "0" ? "none" : v + (v === "1" ? " week" : " weeks"); },
+    "h-grafts": function (v) { return (+v).toLocaleString("en-US"); }
+  };
+
+  document.querySelectorAll("[data-recalc]").forEach(function (input) {
+    var evt = input.tagName === "SELECT" || input.type === "checkbox" ? "change" : "input";
+    input.addEventListener(evt, function () {
+      if (input.type === "range") {
+        sliderFill(input);
+        var out = document.getElementById(input.id + "-out");
+        if (out) out.textContent = (OUTPUT_FMT[input.id] || String)(input.value);
+      }
+      var panel = input.closest(".calc__panel");
+      renderCalc(panel.getAttribute("data-panel"), true);
+    });
+    if (input.type === "range") sliderFill(input);
+  });
+
+  // initial state
+  activateCalc("dental", true);
+  ["dental", "rhinoplasty", "knee", "hair"].forEach(function (n) { renderCalc(n, false); });
+
+  /* ───────────────────────── invitation form ───────────────────────── */
+  var form = document.getElementById("inviteForm");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = document.getElementById("f-name");
+    var email = document.getElementById("f-email");
+    if (!name.value.trim() || !email.value.trim() || email.validity.typeMismatch) {
+      [name, email].forEach(function (f) {
+        if (!f.value.trim() || f.validity.typeMismatch) {
+          if (hasGsap && !reduced) gsap.fromTo(f, { x: -7 }, { x: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+          f.style.borderColor = "#C96A6A";
+          setTimeout(function () { f.style.borderColor = ""; }, 1800);
+        }
+      });
+      return;
+    }
+    var fields = form.querySelectorAll(".ffield, .btn");
+    var success = document.getElementById("inviteSuccess");
+    if (hasGsap && !reduced) {
+      gsap.to(fields, {
+        opacity: 0, y: -14, duration: 0.5, stagger: 0.05, ease: "power2.in",
+        onComplete: function () {
+          fields.forEach(function (f) { f.style.display = "none"; });
+          success.style.display = "block";
+          gsap.fromTo(success, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" });
+        }
+      });
+    } else {
+      fields.forEach(function (f) { f.style.display = "none"; });
+      success.style.display = "block";
+    }
+  });
+
+})();
