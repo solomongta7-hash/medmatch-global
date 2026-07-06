@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://solomongta7-hash.github.io/medmatch-global/sitemap.xml

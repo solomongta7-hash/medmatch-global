@@ -8,6 +8,16 @@
   var canvas = document.getElementById("silk");
   if (!canvas) return;
 
+  // skip the WebGL scene entirely on touch devices / small screens — the
+  // Mediterranean hero photo already carries the hero, and this keeps
+  // mobile fast (no GPU work, no wasted load).
+  var isTouchDevice = window.matchMedia("(hover: none)").matches;
+  var isSmall = window.matchMedia("(max-width: 900px)").matches;
+  if (isTouchDevice || isSmall) {
+    canvas.style.display = "none";
+    return;
+  }
+
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   var renderer = new THREE.WebGLRenderer({

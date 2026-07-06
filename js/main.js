@@ -111,7 +111,11 @@
     gsap.set(".hero [data-fade]", { y: 26 });
   }
 
-  if (hasGsap && !reduced && loader) {
+  var isSmallViewport = window.matchMedia("(max-width: 900px)").matches;
+  var skipLoader = isTouch || isSmallViewport;
+
+  if (hasGsap && !reduced && loader && !skipLoader) {
+    // desktop: full curtain animation, capped to ~1.2s total
     document.documentElement.style.overflow = "hidden";
     var pct = { v: 0 };
     var pctEl = document.getElementById("loaderPct");
@@ -123,17 +127,19 @@
         ScrollTrigger.refresh();
       }
     });
-    tl.to(".loader__ring", { strokeDashoffset: 0, duration: 1.7, ease: "power2.inOut" }, 0)
+    tl.to(".loader__ring", { strokeDashoffset: 0, duration: 0.65, ease: "power2.inOut" }, 0)
       .to(pct, {
-        v: 100, duration: 1.7, ease: "power2.inOut",
+        v: 100, duration: 0.65, ease: "power2.inOut",
         onUpdate: function () { pctEl.textContent = Math.round(pct.v); }
       }, 0)
-      .to(".loader__center", { opacity: 0, y: -26, duration: 0.5, ease: "power2.in" }, 1.85)
-      .to(".loader__curtain--l", { xPercent: -101, duration: 1.0, ease: "power4.inOut" }, 2.15)
-      .to(".loader__curtain--r", { xPercent: 101, duration: 1.0, ease: "power4.inOut" }, 2.15)
-      .add(heroIntro, 2.35);
+      .to(".loader__center", { opacity: 0, y: -26, duration: 0.25, ease: "power2.in" }, 0.7)
+      .to(".loader__curtain--l", { xPercent: -101, duration: 0.45, ease: "power4.inOut" }, 0.82)
+      .to(".loader__curtain--r", { xPercent: 101, duration: 0.45, ease: "power4.inOut" }, 0.82)
+      .add(heroIntro, 0.95);
   } else {
+    // touch devices / small viewports: skip the loader entirely so content paints fast
     if (loader) loader.style.display = "none";
+    document.documentElement.style.overflow = "";
     heroIntro();
   }
 
@@ -157,6 +163,17 @@
     burger.classList.toggle("is-open");
     mmenu.classList.toggle("is-open");
   });
+
+  /* ───────────────────────── mobile sticky CTA bar ───────────────────────── */
+  var mobilebar = document.getElementById("mobilebar");
+  if (mobilebar && "IntersectionObserver" in window) {
+    var hideTargets = [document.getElementById("invitation"), document.querySelector(".footer")].filter(Boolean);
+    var io = new IntersectionObserver(function (entries) {
+      var anyVisible = entries.some(function (en) { return en.isIntersecting; });
+      mobilebar.classList.toggle("is-hidden", anyVisible);
+    }, { threshold: 0.1 });
+    hideTargets.forEach(function (t) { io.observe(t); });
+  }
 
   /* ───────────────────────── scroll-driven motion ───────────────────────── */
   if (hasGsap && !reduced) {
@@ -555,21 +572,12 @@
 
   /* ───────────────────────── invitation form ───────────────────────── */
   var form = document.getElementById("inviteForm");
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var name = document.getElementById("f-name");
-    var email = document.getElementById("f-email");
-    if (!name.value.trim() || !email.value.trim() || email.validity.typeMismatch) {
-      [name, email].forEach(function (f) {
-        if (!f.value.trim() || f.validity.typeMismatch) {
-          if (hasGsap && !reduced) gsap.fromTo(f, { x: -7 }, { x: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
-          f.style.borderColor = "#C96A6A";
-          setTimeout(function () { f.style.borderColor = ""; }, 1800);
-        }
-      });
-      return;
-    }
-    var fields = form.querySelectorAll(".ffield, .btn");
+  var submitBtn = form.querySelector(".btn[type='submit']");
+  var submitBtnLabel = submitBtn ? submitBtn.querySelector("span") : null;
+  var submitBtnDefaultText = submitBtnLabel ? submitBtnLabel.textContent : "";
+
+  function showSuccess() {
+    var fields = form.querySelectorAll(".ffield, .btn, .invitation__microcopy");
     var success = document.getElementById("inviteSuccess");
     if (hasGsap && !reduced) {
       gsap.to(fields, {
@@ -584,6 +592,73 @@
       fields.forEach(function (f) { f.style.display = "none"; });
       success.style.display = "block";
     }
+  }
+
+  function showError() {
+    var errBox = document.getElementById("inviteError");
+    if (!errBox) return;
+    errBox.style.display = "block";
+    if (hasGsap && !reduced) {
+      gsap.fromTo(errBox, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" });
+    }
+  }
+
+  function setSending(sending) {
+    if (!submitBtn) return;
+    submitBtn.disabled = sending;
+    if (submitBtnLabel) submitBtnLabel.textContent = sending ? "Sending…" : submitBtnDefaultText;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = document.getElementById("f-name");
+    var email = document.getElementById("f-email");
+    var phone = document.getElementById("f-phone");
+    var treatment = document.getElementById("f-treatment");
+    var msg = document.getElementById("f-msg");
+
+    if (!name.value.trim() || !email.value.trim() || email.validity.typeMismatch) {
+      [name, email].forEach(function (f) {
+        if (!f.value.trim() || f.validity.typeMismatch) {
+          if (hasGsap && !reduced) gsap.fromTo(f, { x: -7 }, { x: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+          f.style.borderColor = "#C96A6A";
+          setTimeout(function () { f.style.borderColor = ""; }, 1800);
+        }
+      });
+      return;
+    }
+
+    var treatmentVal = treatment ? treatment.value : "";
+    var payload = {
+      name: name.value.trim(),
+      email: email.value.trim(),
+      phone: phone ? phone.value.trim() : "",
+      treatment: treatmentVal,
+      message: msg ? msg.value.trim() : "",
+      _subject: "New MedMatch lead — " + treatmentVal,
+      _template: "table",
+      _captcha: "false"
+    };
+
+    setSending(true);
+
+    fetch("https://formsubmit.co/ajax/solomongta7@gmail.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error("Request failed");
+        return res.json();
+      })
+      .then(function () {
+        setSending(false);
+        showSuccess();
+      })
+      .catch(function () {
+        setSending(false);
+        showError();
+      });
   });
 
 })();
