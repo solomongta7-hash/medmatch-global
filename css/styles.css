@@ -883,3 +883,18 @@ input[type="range"]::-moz-range-thumb {
   *, *::before, *::after { animation-duration: 0.001s !important; transition-duration: 0.001s !important; }
   [data-fade] { opacity: 1; }
 }
+
+/* ═══════════ MOBILE OVERFLOW FIXES ═══════════ */
+
+@media (max-width: 700px) {
+  .btn { max-width: 100%; white-space: normal; text-align: center; line-height: 1.5; padding: 15px 24px; font-size: 11px; letter-spacing: 0.18em; }
+  .res__cta { align-self: stretch; display: flex; width: 100%; }
+  .invitation__form .btn { width: 100%; }
+  .invitation__microcopy { white-space: normal; line-height: 1.7; }
+  .ledger__bar { justify-content: center; }
+  .tabs { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { padding: 12px 16px; letter-spacing: 0.14em; flex: none; }
+  .calc__panel { border-radius: 20px; }
+  .calc__result { min-width: 0; }
+}
