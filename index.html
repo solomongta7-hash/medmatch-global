@@ -23,6 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/styles.css?v=3.1" />
+<link rel="stylesheet" href="css/packages.css?v=1" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,7 +48,8 @@
     { "@type": "Question", "name": "How long do I need to stay in Turkey?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on the procedure: hair transplants typically need 2–4 days, dental work 5–7 days, rhinoplasty 7–8 days, and knee surgery 10–14 days including physiotherapy. Your personal plan gives you exact dates before you book anything." } },
     { "@type": "Question", "name": "Do I need a visa?", "acceptedAnswer": { "@type": "Answer", "text": "Most U.S. and Canadian passport holders can currently enter Türkiye without a visa for short stays. We confirm the current requirements for your passport and handle any paperwork as part of your travel plan — it is one of the simplest parts of the journey." } },
     { "@type": "Question", "name": "Can I bring my partner or a friend?", "acceptedAnswer": { "@type": "Answer", "text": "Please do — most of our patients travel with someone. Your hotel room accommodates two, and companion packages cover their transfers and stay. Many companions treat the week as a holiday on the Turquoise Coast while you recover." } },
-    { "@type": "Question", "name": "How and when do I pay?", "acceptedAnswer": { "@type": "Answer", "text": "Never everything upfront. You pay nothing until you have met your surgeon on video and accepted a written fixed quote. A booking payment secures your dates, and the balance is paid at the clinic — by card or transfer. If your plan changes before treatment, your booking payment is transferable to new dates." } }
+    { "@type": "Question", "name": "How and when do I pay?", "acceptedAnswer": { "@type": "Answer", "text": "Never everything upfront. You pay nothing until you have met your surgeon on video and accepted a written fixed quote. A booking payment secures your dates, and the balance is paid at the clinic — by card or transfer. If your plan changes before treatment, your booking payment is transferable to new dates." } },
+    { "@type": "Question", "name": "Why is there a 300 coordination fee?", "acceptedAnswer": { "@type": "Answer", "text": "It is the only thing you ever pay us. You pay the clinic directly for your treatment — we never mark up medical prices. The fixed Patient Care & Coordination Fee covers your free consultation and treatment plan, doctor matching, all scheduling, hotel and VIP transfer booking, a personal English-speaking host during your trip, 24/7 WhatsApp support, and aftercare follow-up at home." } }
   ]
 }
 </script>
@@ -83,7 +85,7 @@
     <a href="#treatments" data-scroll-to="#treatments">Treatments</a>
     <a href="#faculty" data-scroll-to="#faculty">Our Doctors</a>
     <a href="#estimate" data-scroll-to="#estimate">Pricing</a>
-    <a href="#passage" data-scroll-to="#passage">How It Works</a>
+    <a href="#packages" data-scroll-to="#packages">Packages</a>
     <a href="#faq" data-scroll-to="#faq">FAQ</a>
   </nav>
   <a class="btn btn--gold nav__cta magnetic" href="#invitation" data-scroll-to="#invitation"><span>Get My Free Quote</span></a>
@@ -97,6 +99,7 @@
     <a href="#treatments" data-scroll-to="#treatments">Treatments</a>
     <a href="#faculty" data-scroll-to="#faculty">Our Doctors</a>
     <a href="#estimate" data-scroll-to="#estimate">Pricing</a>
+    <a href="#packages" data-scroll-to="#packages">Packages</a>
     <a href="#passage" data-scroll-to="#passage">How It Works</a>
     <a href="#faq" data-scroll-to="#faq">FAQ</a>
     <a href="#invitation" data-scroll-to="#invitation">Get My Free Quote</a>
@@ -544,6 +547,25 @@
   <p class="interlude__quote" data-fade>“You are not a case number here.<br/>You are a guest.”</p>
 </section>
 
+<!-- ══════════ PACKAGES — transparent breakdown ══════════ -->
+<section class="pkgs" id="packages">
+  <div class="section-head">
+    <p class="eyebrow" data-fade>DENTAL PACKAGES — ANTALYA</p>
+    <h2 class="display" data-reveal="words">Every dollar, itemized.</h2>
+    <div class="rule" data-rule></div>
+    <p class="lede" data-fade>You pay the clinic directly for your treatment — we never mark up medical
+    prices. Choose your hotel, see the full breakdown, and know your total before you ever
+    book a flight.</p>
+    <div id="pkgBadge" data-badge-slot></div>
+  </div>
+  <div class="pkgs__bar">
+    <p class="pkgs__note" style="font-size:13px;color:var(--ink-soft);max-width:520px;">Treatment prices are paid directly to your doctor at our partner clinic in Antalya.
+    Hotel, VIP transfers and your personal host are arranged by us.</p>
+    <div class="currency" id="pkgCurrency"></div>
+  </div>
+  <div class="pkgs__grid" id="pkgGrid"></div>
+</section>
+
 <!-- ══════════ THE PASSAGE — JOURNEY ══════════ -->
 <section class="passage" id="passage">
   <div class="section-head">
@@ -631,6 +653,24 @@
   </div>
 </section>
 
+<!-- ══════════ PATIENT STORIES — video shorts ══════════ -->
+<section class="stories" id="stories">
+  <div class="section-head stories__head">
+    <div>
+      <p class="eyebrow" data-fade>REAL PATIENT STORIES</p>
+      <h2 class="display" data-reveal="words">Hear it from them.</h2>
+      <div class="rule" data-rule></div>
+      <p class="lede" data-fade>Real results from Perla Dental Clinics — the partner clinic we work with in
+      Antalya. Videos are published on the clinic's official YouTube channel.</p>
+    </div>
+    <div class="stories__nav">
+      <button data-stories-nav="prev" aria-label="Previous stories">←</button>
+      <button data-stories-nav="next" aria-label="Next stories">→</button>
+    </div>
+  </div>
+  <div class="stories__row" id="storiesRow"></div>
+</section>
+
 <!-- ══════════ FAQ ══════════ -->
 <section class="faq" id="faq">
   <div class="section-head">
@@ -696,6 +736,19 @@
       surgeon on video and accepted a written fixed quote. A booking payment secures your dates, and
       the balance is paid at the clinic — by card or transfer. If your plan changes before treatment,
       your booking payment is transferable to new dates.</p></div>
+    </details>
+    <details class="faq__item" name="faq-group">
+      <summary><span>Why is there a 300 coordination fee?</span><i class="faq__icon">+</i></summary>
+      <div class="faq__answer"><p>Because it is the only thing you ever pay us — and it replaces the hidden
+      markups most medical-travel agencies build into "package prices." You pay the clinic directly for your
+      treatment; we never touch or inflate medical prices. Your fixed Patient Care &amp; Coordination Fee covers:</p>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin:14px 0 4px;">
+        <li>✦ Free consultation and a personalized treatment plan</li>
+        <li>✦ Matching you with the right doctor for your case</li>
+        <li>✦ All appointment scheduling, hotel and VIP transfer booking</li>
+        <li>✦ A personal English-speaking host &amp; translator during your trip</li>
+        <li>✦ 24/7 WhatsApp support and aftercare follow-up once you're home</li>
+      </ul></div>
     </details>
   </div>
 </section>
@@ -794,11 +847,22 @@
   <a class="mobilebar__btn mobilebar__btn--cta" href="#invitation" data-scroll-to="#invitation">Get Free Quote</a>
 </div>
 
+<!-- video lightbox -->
+<div class="lightbox" id="storyLightbox" aria-modal="true" role="dialog">
+  <button class="lightbox__close" aria-label="Close video">✕</button>
+  <div class="lightbox__frame"></div>
+</div>
+
+<!-- floating WhatsApp (desktop; mobile uses the sticky bar) -->
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"></a>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="js/scene.js?v=3.1"></script>
+<script src="js/packages-data.js?v=1"></script>
+<script src="js/packages.js?v=1"></script>
 <script src="js/main.js?v=3.1"></script>
 <script src="js/chat.js?v=3.1"></script>
 </body>
