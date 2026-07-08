@@ -434,7 +434,10 @@
       <div class="ffield"><label for="a-msg">Why do you want to guide patients?</label><textarea id="a-msg" rows="3" placeholder="Were you a patient? A caregiver? Tell us the short version."></textarea></div>
       <button class="btn btn--ivory" type="submit"><span>Submit My Application</span></button>
       <p class="invitation__microcopy">Reply within 48 hours · Small monthly intake · Your details are never shared</p>
-      <p class="invitation__success" id="applySuccess">Thank you. Your application is with the Hub —<br/>expect our reply within 48 hours. <em>— MedMatch Global</em></p>
+      <div class="invitation__success" id="applySuccess">
+        <p>Thank you. Your application is with the Hub —<br/>expect our reply within 48 hours. <em>— MedMatch Global</em></p>
+        <a class="btn btn--ivory" id="applyPayLink" href="#" target="_blank" rel="noopener" style="display:none;margin-top:22px;font-family:var(--sans);font-style:normal;"><span>Ready now? Activate Membership — $299/yr</span></a>
+      </div>
       <div class="invitation__error" id="applyError">
         <p>Something went wrong. Message us directly:</p>
         <div class="invitation__error-links">
@@ -492,6 +495,7 @@
   <a class="mobilebar__btn mobilebar__btn--cta" href="#apply">Apply to Join</a>
 </div>
 
-<script src="js/hub.js?v=1.3"></script>
+<script src="js/config.js?v=1"></script>
+<script src="js/hub.js?v=1.4"></script>
 </body>
 </html>

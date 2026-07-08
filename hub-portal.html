@@ -84,7 +84,7 @@
         <li><span>03 · Hair Restoration Masterclass</span><span class="st-member">Membership</span></li>
         <li><span>04 · Finding &amp; Guiding Patients</span><span class="st-member">Membership</span></li>
       </ul>
-      <a class="btn btn--gold" href="https://wa.me/14375951735?text=Hello%20MedMatch%2C%20I%27d%20like%20to%20upgrade%20to%20Certified%20Advisor%20membership." target="_blank" rel="noopener"><span>Upgrade to Certified — $299/yr</span></a>
+      <a class="btn btn--gold" id="upgradeBtn" href="https://wa.me/14375951735?text=Hello%20MedMatch%2C%20I%27d%20like%20to%20upgrade%20to%20Certified%20Advisor%20membership." target="_blank" rel="noopener"><span>Upgrade to Certified — $299/yr</span></a>
     </article>
 
     <article class="pcard">
@@ -135,11 +135,16 @@
 
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js" integrity="sha384-ZaR6mWzmJtrRibZ1Vm7SoHFr8OXjyAuGAXalGDKqbxFT18oi/z+oZLIRFkpeNor1" crossorigin="anonymous"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js" integrity="sha384-I1LYojsZ5RM1cOda44Z2h42Qa6YfsQ1XkXxREnhp4ueYBR/4d1pG1K+NZM537Vsj" crossorigin="anonymous"></script>
+<script src="js/config.js?v=1"></script>
 <script src="js/auth.js?v=1"></script>
 <script>
 (function () {
   "use strict";
   var A = window.MM_AUTH;
+
+  // Stripe membership checkout, when configured
+  var payLink = window.MM_CONFIG && window.MM_CONFIG.stripeMembershipLink;
+  if (payLink) document.getElementById("upgradeBtn").href = payLink;
 
   if (!A.configured) { window.location.href = "hub-login.html"; return; }
 

@@ -165,6 +165,13 @@
       .then(function () {
         applyForm.querySelectorAll(".ffield, .btn, .invitation__microcopy").forEach(function (el) { el.style.display = "none"; });
         applySuccess.style.display = "block";
+        // if Stripe is configured, let eager applicants pay their membership right away
+        var payLink = window.MM_CONFIG && window.MM_CONFIG.stripeMembershipLink;
+        var payBtn = document.getElementById("applyPayLink");
+        if (payLink && payBtn && /^Certified/.test(tierSelect.value)) {
+          payBtn.href = payLink;
+          payBtn.style.display = "inline-flex";
+        }
       })
       .catch(function () {
         submitBtn.disabled = false;
