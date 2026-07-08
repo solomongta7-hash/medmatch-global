@@ -353,7 +353,126 @@
      (surgery, hospital, hotel, VIP transfers, personal host).            */
 
   var CAD_RATE = 1.37;
+  var EUR_USD  = 1.15;  // EDIT HERE — €→$ rate for Acıbadem hospital prices (keep in sync with js/packages-data.js eurToUsd)
   var currency = "USD";
+
+  /* ── Acıbadem fixed hospital prices ─────────────────────────────
+     item = [value, label, EUR price, US-average low, US-average high]
+     EUR figures are the official Acıbadem international-patient
+     rates; US figures are published private-pay averages used for
+     the comparison bars. EDIT HERE when the hospital updates rates. */
+
+  var ACB_MENU = {
+    plastic: [
+      ["Breast", [
+        ["aug-lift-impl", "Breast Augmentation + Lift — implants included", 4300, 9000, 16000],
+        ["aug-lift",      "Breast Augmentation + Lift", 4000, 8000, 14000],
+        ["reduction",     "Breast Reduction", 4000, 9000, 16000]
+      ]],
+      ["Face", [
+        ["bichectomy",   "Bichectomy — buccal fat removal", 1600, 3000, 5000],
+        ["otoplasty-ga", "Otoplasty — both ears, general anesthesia", 2200, 5000, 8000],
+        ["otoplasty-la", "Otoplasty — both ears, local anesthesia", 1900, 4000, 7000],
+        ["bleph-upper",  "Blepharoplasty — upper eyelids", 2200, 4500, 8000],
+        ["bleph-lower",  "Blepharoplasty — lower eyelids", 2000, 4500, 8000],
+        ["bleph-both",   "Blepharoplasty — upper + lower", 3000, 7000, 12000]
+      ]],
+      ["Face & neck lifting", [
+        ["facelift-mid",  "Facelift — midface", 4300, 12000, 25000],
+        ["facelift-full", "Facelift — full face", 5300, 15000, 30000],
+        ["necklift",      "Neck Lift", 3500, 9000, 15000],
+        ["brow-jplasma",  "Endoscopic Brow Lift — J-Plasma", 2750, 6000, 11000],
+        ["forehead-lift", "Forehead Lift", 5800, 7000, 12000]
+      ]],
+      ["Body", [
+        ["gyneco-exc",   "Gynecomastia — excisional", 3800, 7000, 12000],
+        ["gyneco-lipo",  "Gynecomastia — with liposuction", 3000, 6000, 10000],
+        ["labiaplasty",  "Labiaplasty / Nymphoplasty", 2200, 4000, 7000],
+        ["abdomino",     "Abdominoplasty — tummy tuck", 4000, 9000, 18000],
+        ["abdomino-ext", "Abdominoplasty — extended", 4000, 12000, 22000],
+        ["arm-lift",     "Arm Lift — brachioplasty", 2750, 6000, 10000],
+        ["thigh-lift",   "Thigh Lift", 4000, 8000, 13000],
+        ["buttock-lift", "Buttock Lift", 4000, 8000, 14000],
+        ["back-lift",    "Back Lift", 3500, 8000, 13000],
+        ["lift-360",     "360 Lifting", 4400, 15000, 30000]
+      ]],
+      ["Liposuction & filling", [
+        ["lipo-1",         "Liposuction — 1 region", 2200, 4000, 7500],
+        ["lipo-23",        "Liposuction — 2–3 regions", 2750, 7000, 12000],
+        ["lipo-45",        "Liposuction — 4–5 regions", 3300, 10000, 16000],
+        ["llipo-1",        "Laser Liposuction — 1 region", 2200, 4500, 8000],
+        ["llipo-23",       "Laser Liposuction — 2–3 regions", 3300, 8000, 13000],
+        ["llipo-5",        "Laser Liposuction — 5 regions", 4000, 12000, 18000],
+        ["lipofill-small", "Lipofilling — small, local anesthesia", 900, 2500, 5000],
+        ["lipofill-23la",  "Lipofilling — 2–3 regions, local anesthesia", 1100, 3000, 6000],
+        ["lipofill-23ga",  "Lipofilling — 2–3 regions, general anesthesia", 1600, 4000, 8000],
+        ["filling",        "Filling", 700, 1500, 3000]
+      ]]
+    ],
+    eye: [
+      [null, [
+        ["ilasik",       "iLASIK — both eyes", 1500, 4000, 5500],
+        ["ilasik-hotel", "iLASIK — both eyes + 2 hotel nights", 1700, 4000, 5500],
+        ["smile",        "SMILE Laser — both eyes", 2000, 4500, 6500],
+        ["smile-hotel",  "SMILE Laser — both eyes + 2 hotel nights", 2200, 4500, 6500],
+        ["phaco",        "Cataract (Phaco) — both eyes, lens included", 5500, 8000, 14000],
+        ["phaco-hotel",  "Cataract (Phaco) — both eyes + 5 hotel nights", 6000, 8000, 14000]
+      ]]
+    ],
+    obesity: [
+      [null, [
+        ["sleeve",         "Gastric Sleeve — incl. 5 hotel nights", 5000, 18000, 28000],
+        ["bypass",         "Gastric Bypass — incl. 5 hotel nights", 6000, 25000, 38000],
+        ["balloon-endo",   "Gastric Balloon — endoscopic", 3500, 7000, 9500],
+        ["balloon-swallow","Gastric Balloon — swallowable", 3500, 6500, 9000],
+        ["botox",          "Gastric Botox", 2000, 2000, 3500]
+      ]]
+    ],
+    checkup: [
+      ["Check-Up Packages", [
+        ["standard",  "Standard Check-Up", 800, 1500, 2800],
+        ["gold",      "Gold Check-Up", 1200, 2500, 4500],
+        ["premium",   "Premium Check-Up Package", 2000, 4000, 7000],
+        ["exec-endo", "Executive — endoscopy + colonoscopy", 3800, 6500, 11000],
+        ["exec-mri",  "Executive — full-body MRI", 3500, 6000, 10500],
+        ["cardiac",   "Cardiac Check-Up", 1700, 3000, 6000],
+        ["lung",      "Lung Check-Up", 1700, 3000, 6000],
+        ["thyroid",   "Thyroid Package", 400, 800, 1600],
+        ["womens",    "Women's Health Screening", 300, 700, 1400],
+        ["breast-40", "Breast Screening Panel — over 40", 350, 700, 1500],
+        ["breast-u40","Breast Screening Panel — under 40", 250, 500, 1100]
+      ]],
+      ["Imaging", [
+        ["brain-mri",  "Brain MRI — 3T", 650, 1600, 4000],
+        ["thorax-mri", "Thorax MRI", 650, 1500, 3500],
+        ["leg-mri",    "Leg MRI", 650, 1500, 3500],
+        ["knee-mri",   "Knee MRI", 650, 1500, 3500],
+        ["pet-ct",     "PET-CT", 850, 4000, 8000]
+      ]]
+    ]
+  };
+
+  var ACB_SELECTS = { plastic: "p-proc", eye: "e-proc", obesity: "o-proc", checkup: "c-proc" };
+  var ACB_LOOKUP = {};
+
+  Object.keys(ACB_MENU).forEach(function (panel) {
+    var sel = document.getElementById(ACB_SELECTS[panel]);
+    if (!sel) return;
+    ACB_LOOKUP[panel] = {};
+    sel.innerHTML = ACB_MENU[panel].map(function (grp) {
+      var opts = grp[1].map(function (it) {
+        ACB_LOOKUP[panel][it[0]] = it;
+        return '<option value="' + it[0] + '">' + it[1] + ' — €' + it[2].toLocaleString("en-US") + '</option>';
+      }).join("");
+      return grp[0] ? '<optgroup label="' + grp[0] + '">' + opts + '</optgroup>' : opts;
+    }).join("");
+  });
+
+  function acbFixed(panel) {
+    var it = ACB_LOOKUP[panel][document.getElementById(ACB_SELECTS[panel]).value];
+    var usd = it[2] * EUR_USD;
+    return { tr: [usd, usd], us: [it[3], it[4]], fixed: true, eur: it[2] };
+  }
 
   var MODELS = {
     dental: function () {
@@ -374,18 +493,18 @@
 
     rhinoplasty: function () {
       var types = {
-        primary:  { tr: [3200, 4800],  us: [9000, 15000] },
-        ethnic:   { tr: [3800, 5400],  us: [11000, 16000] },
-        revision: { tr: [4500, 6500],  us: [13000, 22000] },
-        tip:      { tr: [2200, 3200],  us: [6000, 9000] }
+        primary: { eur: 3000, us: [9000, 15000] },
+        complex: { eur: 3500, us: [13000, 22000] }
       };
       var t = types[document.getElementById("r-type").value];
-      var tr = t.tr.slice(), us = t.us.slice();
-      if (document.getElementById("r-septum").checked)    { tr[0] += 600; tr[1] += 900;  us[0] += 3500; us[1] += 6000; }
-      if (document.getElementById("r-suite").checked)     { tr[0] += 450; tr[1] += 750; }
-      if (document.getElementById("r-companion").checked) { tr[0] += 550; tr[1] += 850; }
-      return { tr: tr, us: us };
+      var usd = t.eur * EUR_USD;
+      return { tr: [usd, usd], us: t.us, fixed: true, eur: t.eur };
     },
+
+    plastic: function () { return acbFixed("plastic"); },
+    eye:     function () { return acbFixed("eye"); },
+    obesity: function () { return acbFixed("obesity"); },
+    checkup: function () { return acbFixed("checkup"); },
 
     knee: function () {
       var procs = {
@@ -405,22 +524,26 @@
     },
 
     hair: function () {
-      var grafts = +document.getElementById("h-grafts").value;
-      var prp = +document.getElementById("h-prp").value;
+      var hotel = document.getElementById("h-hotel").checked;
       var tech = {
-        fue:      { tr: [0.85, 1.15], us: [4, 6] },
-        sapphire: { tr: [1.0, 1.35],  us: [5, 7] },
-        dhi:      { tr: [1.25, 1.7],  us: [6, 8] }
+        fue: { eur: hotel ? 2500 : 2300, us: [12000, 18000] },
+        dhi: { eur: hotel ? 2700 : 2500, us: [13000, 20000] }
       }[document.getElementById("h-tech").value];
-      var tr = [Math.max(grafts * tech.tr[0], 2100) + prp * 100,
-                Math.max(grafts * tech.tr[1], 2400) + prp * 150];
-      var us = [grafts * tech.us[0] + prp * 500, grafts * tech.us[1] + prp * 750];
-      return { tr: tr, us: us };
+      var usd = tech.eur * EUR_USD;
+      return { tr: [usd, usd], us: tech.us, fixed: true, eur: tech.eur };
     }
   };
 
   /* — result template — */
+  var INCLUDES_TEXT = {
+    dental: "Includes five-star hotel, VIP transfers, personal host &amp; lifetime aftercare.",
+    knee:   "Includes five-star hotel, VIP transfers, personal host &amp; lifetime aftercare.",
+    acibadem: "Official Ac&#305;badem price, paid directly to the hospital — hotel included only where stated. " +
+              "Transfers &amp; your personal host arranged by us; our only charge is the fixed $300 coordination fee."
+  };
+
   function resultShell(panel) {
+    var name = panel.getAttribute("data-panel");
     var box = panel.querySelector(".calc__result");
     box.innerHTML =
       '<p class="res__label">Your estimate in T&uuml;rkiye</p>' +
@@ -431,7 +554,7 @@
         '<div class="res__bar res__bar--tr"><span><b>With MedMatch, in T&uuml;rkiye</b><b data-r="trVal">$0</b></span><i data-r="trBar"></i></div>' +
       '</div>' +
       '<div class="res__save"><strong data-r="save">You keep $0</strong><em data-r="pct">&minus;0%</em></div>' +
-      '<p class="res__includes">Includes five-star hotel, VIP transfers, personal host &amp; lifetime aftercare.</p>' +
+      '<p class="res__includes">' + (INCLUDES_TEXT[name] || INCLUDES_TEXT.acibadem) + '</p>' +
       '<a class="btn btn--gold res__cta magnetic" href="#invitation" data-scroll-to="#invitation"><span>Reserve this estimate</span></a>';
     box.querySelector("[data-scroll-to]").addEventListener("click", function (e) {
       e.preventDefault();
@@ -464,9 +587,11 @@
     var q = function (k) { return box.querySelector('[data-r="' + k + '"]'); };
 
     q("homeLabel").textContent = currency === "CAD" ? "At home — Canadian average" : "At home — U.S. average";
-    q("range").innerHTML = r.tr[0] > 0
-      ? "typically " + fmt(r.tr[0]) + " &ndash; " + fmt(r.tr[1])
-      : (r.unitLabel || "&nbsp;");
+    q("range").innerHTML = r.fixed
+      ? "fixed hospital price — &euro;" + r.eur.toLocaleString("en-US") + ", quoted by Ac&#305;badem"
+      : (r.tr[0] > 0
+        ? "typically " + fmt(r.tr[0]) + " &ndash; " + fmt(r.tr[1])
+        : (r.unitLabel || "&nbsp;"));
 
     var end = { price: trMid, home: usMid, save: save, pct: pct };
     var start = displayed[name] || { price: 0, home: 0, save: 0, pct: 0 };
@@ -552,8 +677,7 @@
   }
 
   var OUTPUT_FMT = {
-    "k-physio": function (v) { return v === "0" ? "none" : v + (v === "1" ? " week" : " weeks"); },
-    "h-grafts": function (v) { return (+v).toLocaleString("en-US"); }
+    "k-physio": function (v) { return v === "0" ? "none" : v + (v === "1" ? " week" : " weeks"); }
   };
 
   document.querySelectorAll("[data-recalc]").forEach(function (input) {
@@ -572,7 +696,7 @@
 
   // initial state
   activateCalc("dental", true);
-  ["dental", "rhinoplasty", "knee", "hair"].forEach(function (n) { renderCalc(n, false); });
+  ["dental", "rhinoplasty", "plastic", "eye", "obesity", "checkup", "knee", "hair"].forEach(function (n) { renderCalc(n, false); });
 
   /* ───────────────────────── invitation form ───────────────────────── */
   var form = document.getElementById("inviteForm");

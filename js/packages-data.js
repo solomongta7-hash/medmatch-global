@@ -192,5 +192,140 @@ window.MM_DATA = {
     { videoId: "9_qpYvqIOgM", name: "Patient story",             flag: "", procedure: "Perla Dental Clinics" }
   ],
 
-  partnerClinic: "Perla Dental Clinics"
+  partnerClinic: "Perla Dental Clinics",
+
+  /* ── PARTNERS — names & addresses (no website links by design) ── */
+
+  partnersInfo: {
+    perla: {
+      name: "Perla Dental Clinics",
+      type: "Dental Partner — Antalya",
+      address: "Lara Caddesi, 1964. Sk. No:7, 07160 Muratpaşa / Antalya"
+    },
+    acibadem: {
+      name: "Acıbadem Healthcare Group",
+      type: "Partner Hospital Group — Istanbul",
+      campuses: [
+        { label: "Acıbadem Fulya Hospital — eye surgery", address: "Dikilitaş Mah. Hakkı Yeten Cad. Yeşilçimen Sok. No:23, 34349 Beşiktaş / Istanbul" },
+        { label: "Acıbadem Kartal Hospital — hair transplantation", address: "Çavuşoğlu Mah. Sanayi Cad. No:1/1, Kartal / Istanbul" },
+        { label: "Acıbadem Ataşehir Medical Center — hair transplantation", address: "Küçükbakkalköy Mah. Vedat Günyol Cad. No:36, Ataşehir / Istanbul" }
+      ]
+    },
+    medicalpark: {
+      name: "Medical Park Hospitals Group",
+      type: "Partner Hospital Group — coming soon",
+      address: ""   // EDIT HERE once the campus is confirmed with the price list
+    }
+  },
+
+  /* ── ACIBADEM PRICE LIST ─────────────────────────────────────
+     Official Acibadem international-patient rates, quoted in EUR
+     and paid directly to the hospital. eurToUsd converts € to $
+     for the approximate figures shown next to each price.
+     EDIT HERE to update the rate or any price.                   */
+
+  eurToUsd: 1.15,
+
+  acibadem: {
+    note: "Prices are quoted in euros (€) by the hospital and paid directly to Acıbadem. " +
+          "Hotel nights are included only where stated. Our fixed Patient Care & Coordination Fee " +
+          "is the only thing you ever pay MedMatch.",
+    categories: [
+      { title: "Breast", items: [
+        { n: "Breast Augmentation + Lift (bilateral, implants included)", eur: 4300 },
+        { n: "Breast Augmentation + Lift (bilateral)", eur: 4000 },
+        { n: "Breast Reduction", eur: 4000 }
+      ]},
+      { title: "Face", items: [
+        { n: "Rhinoplasty", eur: 3000 },
+        { n: "Rhinoplasty — Complex", eur: 3500 },
+        { n: "Bichectomy (buccal fat removal)", eur: 1600 },
+        { n: "Otoplasty — bilateral (general anesthesia)", eur: 2200 },
+        { n: "Otoplasty — bilateral (local anesthesia)", eur: 1900 },
+        { n: "Blepharoplasty — bilateral upper eyelid", eur: 2200 },
+        { n: "Blepharoplasty — bilateral lower eyelid", eur: 2000 },
+        { n: "Blepharoplasty — upper + lower eyelids", eur: 3000 }
+      ]},
+      { title: "Body", items: [
+        { n: "Gynecomastia (excisional)", eur: 3800 },
+        { n: "Gynecomastia (with liposuction)", eur: 3000 },
+        { n: "Labiaplasty / Nymphoplasty", eur: 2200 }
+      ]},
+      { title: "Filling & Lipofilling", items: [
+        { n: "Filling", eur: 700 },
+        { n: "Lipofilling — small (local anesthesia)", eur: 900 },
+        { n: "Lipofilling — 2–3 regions (local anesthesia)", eur: 1100 },
+        { n: "Lipofilling — 2–3 regions (general anesthesia)", eur: 1600 }
+      ]},
+      { title: "Liposuction", items: [
+        { n: "Liposuction — 1 region", eur: 2200 },
+        { n: "Liposuction — 2–3 regions", eur: 2750 },
+        { n: "Liposuction — 4–5 regions", eur: 3300 },
+        { n: "Laser Liposuction — 1 region", eur: 2200 },
+        { n: "Laser Liposuction — 2–3 regions", eur: 3300 },
+        { n: "Laser Liposuction — 5 regions", eur: 4000 }
+      ]},
+      { title: "Lifting", items: [
+        { n: "Abdominoplasty (tummy tuck)", eur: 4000 },
+        { n: "Abdominoplasty — Extended", eur: 4000 },
+        { n: "Facelift — Midface", eur: 4300 },
+        { n: "Facelift — Full face", eur: 5300 },
+        { n: "Neck Lift", eur: 3500 },
+        { n: "Endoscopic Brow Lift (J-Plasma)", eur: 2750 },
+        { n: "Forehead Lift", eur: 5800 },
+        { n: "Back Lift", eur: 3500 },
+        { n: "360 Lifting", eur: 4400 },
+        { n: "Arm Lift (Brachioplasty)", eur: 2750 },
+        { n: "Thigh Lift", eur: 4000 },
+        { n: "Buttock Lift", eur: 4000 }
+      ]},
+      { title: "Hair Transplantation — Kartal Hospital", items: [
+        { n: "FUE Hair Transplant (2-night hotel included)", eur: 2500 },
+        { n: "DHI Hair Transplant (2-night hotel included)", eur: 2700 }
+      ]},
+      { title: "Hair Transplantation — Ataşehir Medical Center", items: [
+        { n: "FUE Hair Transplant", eur: 2300 },
+        { n: "DHI Hair Transplant", eur: 2500 },
+        { n: "FUE Hair Transplant (2-night hotel included)", eur: 2500 },
+        { n: "DHI Hair Transplant (2-night hotel included)", eur: 2700 }
+      ]},
+      { title: "Health Check-Up", items: [
+        { n: "Standard Check-Up", eur: 800 },
+        { n: "Gold Check-Up", eur: 1200 },
+        { n: "Premium Check-Up Package", eur: 2000 },
+        { n: "Executive Check-Up (endoscopy + colonoscopy)", eur: 3800 },
+        { n: "Executive Check-Up (full-body MRI)", eur: 3500 },
+        { n: "Cardiac Check-Up", eur: 1700 },
+        { n: "Lung Check-Up", eur: 1700 },
+        { n: "Thyroid Package", eur: 400 },
+        { n: "Women's Health Screening Package", eur: 300 },
+        { n: "Breast Health Screening Panel (over 40)", eur: 350 },
+        { n: "Breast Health Screening Panel (under 40)", eur: 250 }
+      ]},
+      { title: "Radiology & Imaging", items: [
+        { n: "Brain MRI (3T, with or without contrast)", eur: 650 },
+        { n: "Thorax MRI", eur: 650 },
+        { n: "Leg MRI", eur: 650 },
+        { n: "Knee MRI", eur: 650 },
+        { n: "PET-CT", eur: 850 }
+      ]},
+      { title: "Eye Surgery — Fulya Hospital", items: [
+        { n: "Pentacam (corneal tomography)", eur: 400 },
+        { n: "iLASIK — both eyes", eur: 1500 },
+        { n: "iLASIK — both eyes (2-night hotel included)", eur: 1700 },
+        { n: "SMILE Laser — both eyes", eur: 2000 },
+        { n: "SMILE Laser — both eyes (2-night hotel included)", eur: 2200 },
+        { n: "Cataract Surgery (Phaco) — both eyes, lens included", eur: 5500 },
+        { n: "Cataract Surgery (Phaco) — both eyes, lens included (5-night hotel)", eur: 6000 }
+      ]},
+      { title: "Obesity Center", items: [
+        { n: "Gastric Balloon (endoscopic)", eur: 3500 },
+        { n: "Gastric Balloon (swallowable)", eur: 3500 },
+        { n: "Gastric Balloon removal", eur: 1500 },
+        { n: "Gastric Botox", eur: 2000 },
+        { n: "Gastric Sleeve (5-night hotel included)", eur: 5000 },
+        { n: "Gastric Bypass (5-night hotel included)", eur: 6000 }
+      ]}
+    ]
+  }
 };

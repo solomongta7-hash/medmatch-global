@@ -4,6 +4,7 @@
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
+  color-scheme: only light; /* stop mobile browsers force-darkening the palette */
   --foam:       #F4FAF9;   /* light background        */
   --shell:      #FFFFFF;
   --sand:       #F2EFE7;   /* warm secondary bg       */
@@ -324,7 +325,7 @@ button { font-family: inherit; cursor: pointer; }
   background-color: var(--sea);
   will-change: transform;
 }
-.interlude__veil { position: absolute; inset: 0; background: rgba(6, 51, 59, 0.44); }
+.interlude__veil { position: absolute; inset: 0; background: rgba(6, 51, 59, 0.58); }
 .interlude__quote {
   position: relative; z-index: 2; text-align: center; padding: 0 7vw;
   font-family: var(--serif); font-style: italic; font-weight: 400;
@@ -350,11 +351,11 @@ button { font-family: inherit; cursor: pointer; }
 }
 .tpanel--intro::before {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, var(--foam) 0%, rgba(244, 250, 249, 0.9) 55%, var(--sand) 100%);
-  opacity: 0.85; pointer-events: none;
+  background: linear-gradient(180deg, var(--foam) 0%, rgba(244, 250, 249, 0.94) 55%, var(--sand) 100%);
+  opacity: 0.96; pointer-events: none;
 }
 .tpanel--intro > * { position: relative; z-index: 1; }
-.tpanel--intro .lede { margin-top: 24px; }
+.tpanel--intro .lede { margin-top: 24px; color: var(--ink); font-weight: 400; }
 .tpanel__arrow { font-size: 44px; color: var(--turquoise); margin-top: 7vh; }
 
 .tpanel__plate {
@@ -423,6 +424,34 @@ button { font-family: inherit; cursor: pointer; }
 /* ═══════════ THE FACULTY ═══════════ */
 
 .faculty { padding: 16vh 0 14vh; background: var(--shell); }
+
+/* partner clinic / hospital cards */
+.partners__grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  margin: 8vh 4vw 0; max-width: 1500px;
+}
+@media (max-width: 1080px) { .partners__grid { grid-template-columns: 1fr; max-width: 640px; margin-left: 7vw; margin-right: 7vw; } }
+.partner {
+  display: flex; flex-direction: column;
+  background: var(--foam); border: 1px solid var(--line-soft); border-radius: 22px;
+  padding: 32px 30px 28px;
+  box-shadow: 0 30px 60px -48px rgba(6, 51, 59, 0.4);
+}
+.partner__type { font-size: 10px; letter-spacing: 0.3em; font-weight: 500; color: var(--turquoise); }
+.partner h3 { font-family: var(--serif); font-size: 28px; font-weight: 500; margin-top: 12px; line-height: 1.1; }
+.partner__desc { margin-top: 12px; font-size: 13.5px; color: var(--ink-soft); flex: 1; }
+.partner__addr {
+  margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line-soft);
+  font-size: 12.5px; color: var(--ink-soft); line-height: 1.6;
+}
+.partner__addr::before { content: "📍 "; }
+.partner__link {
+  margin-top: 16px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+  font-weight: 500; color: var(--teal); transition: color 0.3s;
+}
+.partner__link:hover { color: var(--turquoise); }
+
+.faculty__subhead { margin-top: 10vh; }
 .faculty__grid {
   display: grid; grid-template-columns: repeat(5, 1fr); gap: 22px;
   margin: 9vh 4vw 0; max-width: 1500px;
@@ -464,7 +493,10 @@ button { font-family: inherit; cursor: pointer; }
   position: relative; display: inline-flex; gap: 4px;
   border: 1px solid var(--line); border-radius: 999px; padding: 5px;
   background: var(--shell);
+  max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
 }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { flex: none; }
 .tab {
   position: relative; z-index: 2; border: 0; background: none;
   padding: 13px 30px; border-radius: 999px;
