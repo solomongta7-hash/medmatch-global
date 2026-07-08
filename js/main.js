@@ -632,6 +632,9 @@
       return;
     }
 
+    var honey = document.getElementById("f-honey");
+    if (honey && honey.value) return; // honeypot filled — silently drop bot submission
+
     var treatmentVal = treatment ? treatment.value : "";
     var payload = {
       name: name.value.trim(),

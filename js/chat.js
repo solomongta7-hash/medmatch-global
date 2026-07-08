@@ -52,7 +52,9 @@
   }
 
   function addBubble(text, isUser) {
-    var b = el("div", "chat-bubble" + (isUser ? " chat-bubble--user" : ""), text);
+    var b = el("div", "chat-bubble" + (isUser ? " chat-bubble--user" : ""));
+    if (isUser) b.textContent = text; // user input is never treated as HTML
+    else b.innerHTML = text;
     body.appendChild(b);
     scrollToBottom();
     return b;

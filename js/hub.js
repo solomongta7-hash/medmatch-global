@@ -141,6 +141,8 @@
       [name, email].forEach(function (f) { if (!f.value.trim() || f.validity.typeMismatch) flagInvalid(f); });
       return;
     }
+    var honey = document.getElementById("a-honey");
+    if (honey && honey.value) return; // honeypot filled — silently drop bot submission
     var payload = {
       name: name.value.trim(),
       email: email.value.trim(),
