@@ -318,7 +318,7 @@ window.MM_DATA = {
         { n: "Cataract Surgery (Phaco) — both eyes, lens included", eur: 5500 },
         { n: "Cataract Surgery (Phaco) — both eyes, lens included (5-night hotel)", eur: 6000 }
       ]},
-      { title: "Obesity Center", items: [
+      { title: "Weight Loss", items: [
         { n: "Gastric Balloon (endoscopic)", eur: 3500 },
         { n: "Gastric Balloon (swallowable)", eur: 3500 },
         { n: "Gastric Balloon removal", eur: 1500 },
