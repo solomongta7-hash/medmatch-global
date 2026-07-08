@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Advisor Portal — MedMatch Global Academy</title>
+<meta name="description" content="Your MedMatch Advisor workspace: training, live package pricing and commission tools." />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#06333B" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23F2F9F8' stroke='%2337B5B0' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='Georgia' font-size='28' text-anchor='middle' fill='%230F5E68'%3EM%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css?v=3.2" />
+<style>
+  body { background: var(--foam); }
+  .portal { max-width: 1080px; margin: 0 auto; padding: 0 5vw 12vh; }
+  .portal-top {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    padding: 24px 5vw; border-bottom: 1px solid var(--line-soft);
+    position: sticky; top: 0; background: rgba(244,250,249,0.92); backdrop-filter: blur(8px); z-index: 5;
+  }
+  .portal-top .brand { display: flex; flex-direction: column; }
+  .portal-top .brand b { font-size: 14px; letter-spacing: 0.28em; font-weight: 500; }
+  .portal-top .brand span { font-size: 9px; letter-spacing: 0.55em; color: var(--turquoise); font-weight: 500; }
+  .portal-top nav { display: flex; align-items: center; gap: 18px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; }
+  .portal-top nav a { color: var(--ink-soft); }
+  .portal-top nav a:hover { color: var(--teal); }
+  #signOut { background: none; border: 1px solid var(--line); border-radius: 999px; padding: 9px 18px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); }
+  #signOut:hover { border-color: var(--turquoise); color: var(--teal); }
+  .portal-hello { padding: 8vh 0 4vh; }
+  .portal-hello h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 4.5vw, 56px); }
+  .portal-hello h1 em { font-style: italic; color: var(--teal); }
+  .portal-hello p { margin-top: 12px; color: var(--ink-soft); max-width: 560px; }
+  .ptag { display: inline-block; margin-top: 18px; padding: 8px 16px; border: 1px solid rgba(47,169,164,0.4); border-radius: 999px; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal); background: rgba(47,169,164,0.07); }
+  .pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; margin-top: 4vh; }
+  .pcard { background: var(--shell); border: 1px solid var(--line-soft); border-radius: 18px; padding: 30px 28px; }
+  .pcard h2 { font-family: var(--serif); font-weight: 500; font-size: 25px; margin-bottom: 6px; }
+  .pcard > p { font-size: 14px; color: var(--ink-soft); margin-bottom: 18px; }
+  .pcard .btn { display: inline-flex; }
+  .mods { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+  .mods li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 14px; border-bottom: 1px dashed var(--line-soft); padding-bottom: 10px; }
+  .mods li span:last-child { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap; }
+  .mods .st-open { color: var(--teal); }
+  .mods .st-member { color: var(--ink-soft); opacity: 0.7; }
+  .pcalc-out { display: flex; gap: 24px; margin-top: 16px; }
+  .pcalc-out div em { display: block; font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--ink-soft); }
+  .pcalc-out div strong { font-family: var(--serif); font-size: 30px; font-weight: 500; color: var(--sea); }
+  .pcard .field { margin-bottom: 14px; }
+  .pfine { font-size: 12px; color: var(--ink-soft); opacity: 0.8; margin-top: 14px; }
+  @media (max-width: 640px) { .portal-top nav { display: none; } }
+</style>
+</head>
+<body class="reduced">
+
+<div class="portal-top">
+  <div class="brand"><b>MEDMATCH GLOBAL</b><span>ADVISOR PORTAL</span></div>
+  <nav>
+    <a href="advisor-hub.html">The Hub</a>
+    <a href="packages.html" target="_blank" rel="noopener">Live Pricing</a>
+    <a href="index.html">Main Site</a>
+  </nav>
+  <button id="signOut" type="button">Sign out</button>
+</div>
+
+<main class="portal">
+
+  <section class="portal-hello">
+    <h1>Welcome, <em id="userName">Advisor</em>.</h1>
+    <p>This is your workspace. Training, live package pricing and your commission terms live here —
+    and it will grow as the Hub grows. Tell us what would help you most.</p>
+    <span class="ptag" id="userTier">GUEST PASS · <span id="userProgram">PROGRAM NOT SET</span></span>
+  </section>
+
+  <div class="pgrid">
+
+    <article class="pcard">
+      <h2>Your certification path</h2>
+      <p>Four modules stand between you and certification. Module 01 is included with your account —
+      your access link arrives by email within one business day.</p>
+      <ul class="mods">
+        <li><span>01 · Foundations &amp; Ethics</span><span class="st-open">Included</span></li>
+        <li><span>02 · Dental Packages Masterclass</span><span class="st-member">Membership</span></li>
+        <li><span>03 · Hair Restoration Masterclass</span><span class="st-member">Membership</span></li>
+        <li><span>04 · Finding &amp; Guiding Patients</span><span class="st-member">Membership</span></li>
+      </ul>
+      <a class="btn btn--gold" href="https://wa.me/14375951735?text=Hello%20MedMatch%2C%20I%27d%20like%20to%20upgrade%20to%20Certified%20Advisor%20membership." target="_blank" rel="noopener"><span>Upgrade to Certified — $299/yr</span></a>
+    </article>
+
+    <article class="pcard">
+      <h2>Commission quick-math</h2>
+      <p>Clinics pay us at most 10% of a package; you earn 20% of that commission on every
+      completed journey.</p>
+      <div class="field">
+        <div class="field__label"><label for="pPkg">Package value</label><output id="pPkgOut">$4,500</output></div>
+        <input type="range" id="pPkg" min="1500" max="12000" step="250" value="4500" />
+      </div>
+      <div class="pcalc-out">
+        <div><em>your share, per journey</em><strong id="pEarn">$90</strong></div>
+      </div>
+      <p class="pfine">Estimates at standard terms, paid on completed journeys only. Full terms are
+      always put in writing.</p>
+    </article>
+
+    <article class="pcard">
+      <h2>Live package pricing</h2>
+      <p>The same transparent price breakdowns your patients see — treatment paid directly to the
+      clinic, hotel, transfers and the fixed coordination fee.</p>
+      <a class="btn btn--ghost" href="packages.html" target="_blank" rel="noopener"><span>Open the Price Sheets</span></a>
+    </article>
+
+    <article class="pcard">
+      <h2>Weekly office hours</h2>
+      <p>Bring your live cases and questions every week — a coordinator and, once a month, one of
+      our clinicians answer them directly.</p>
+      <a class="btn btn--ghost" href="https://wa.me/14375951735?text=Hello%20MedMatch%2C%20please%20send%20me%20this%20week%27s%20office-hours%20time." target="_blank" rel="noopener"><span>Get This Week's Time</span></a>
+    </article>
+
+    <article class="pcard">
+      <h2>Marketing kit</h2>
+      <p>Brand-approved photos, package one-pagers and message templates for your community —
+      being prepared now, released to members first.</p>
+      <a class="btn btn--ghost" href="mailto:solomongta7@gmail.com?subject=Marketing%20kit%20request"><span>Request Early Access</span></a>
+    </article>
+
+    <article class="pcard">
+      <h2>What's missing?</h2>
+      <p>This portal is built around working advisors. If a tool would genuinely help you guide
+      patients better, tell us — the best suggestions get built.</p>
+      <a class="btn btn--ghost" href="https://wa.me/14375951735?text=Hub%20portal%20suggestion%3A%20" target="_blank" rel="noopener"><span>Suggest a Tool</span></a>
+    </article>
+
+  </div>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="js/auth.js?v=1"></script>
+<script>
+(function () {
+  "use strict";
+  var A = window.MM_AUTH;
+
+  if (!A.configured) { window.location.href = "hub-login.html"; return; }
+
+  A.onUser(function (user) {
+    if (!user) { window.location.href = "hub-login.html"; return; }
+    document.getElementById("userName").textContent = (user.displayName || "Advisor").split(" ")[0];
+    var program = A.programOf(user);
+    if (program) document.getElementById("userProgram").textContent = program.toUpperCase();
+  });
+
+  document.getElementById("signOut").addEventListener("click", function () {
+    A.signOut().then(function () { window.location.href = "hub-login.html"; });
+  });
+
+  var pkg = document.getElementById("pPkg");
+  function money(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
+  function paint() {
+    var v = parseInt(pkg.value, 10);
+    var p = (v - pkg.min) / (pkg.max - pkg.min) * 100;
+    pkg.style.setProperty("--fill", p + "%");
+    document.getElementById("pPkgOut").textContent = money(v);
+    document.getElementById("pEarn").textContent = money(v * 0.10 * 0.20);
+  }
+  pkg.addEventListener("input", paint);
+  paint();
+})();
+</script>
+</body>
+</html>

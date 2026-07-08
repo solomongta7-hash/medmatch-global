@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Advisor Login — MedMatch Global Academy</title>
+<meta name="description" content="Log in to the MedMatch Advisor Hub or create your advisor account." />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#06333B" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23F2F9F8' stroke='%2337B5B0' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='Georgia' font-size='28' text-anchor='middle' fill='%230F5E68'%3EM%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css?v=3.2" />
+<style>
+  .auth-page {
+    min-height: 100vh; display: flex; flex-direction: column;
+    background:
+      linear-gradient(180deg, rgba(6,51,59,0.88), rgba(6,51,59,0.94)),
+      url('img/kas-harbor-town.jpg') center / cover no-repeat fixed;
+  }
+  .auth-top { display: flex; justify-content: space-between; align-items: center; padding: 26px 5vw; }
+  .auth-top a { color: rgba(244,250,249,0.75); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; }
+  .auth-top a:hover { color: var(--aqua); }
+  .auth-wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 5vh 5vw 10vh; }
+  .auth-card {
+    width: 100%; max-width: 460px; padding: 44px 40px 38px;
+    background: rgba(9,58,67,0.72); border: 1px solid rgba(143,214,208,0.22);
+    border-radius: 22px; backdrop-filter: blur(8px);
+  }
+  .auth-card .eyebrow { justify-content: center; }
+  .auth-title { font-family: var(--serif); font-weight: 500; font-size: 34px; color: var(--shell); text-align: center; margin: 14px 0 6px; }
+  .auth-sub { text-align: center; font-size: 14px; color: rgba(244,250,249,0.7); margin-bottom: 26px; }
+  .auth-tabs { display: flex; border: 1px solid rgba(143,214,208,0.28); border-radius: 999px; padding: 4px; margin-bottom: 26px; }
+  .auth-tabs button {
+    flex: 1; padding: 11px 0; border: 0; border-radius: 999px; background: transparent;
+    color: rgba(244,250,249,0.7); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 500;
+    transition: all .3s var(--ease);
+  }
+  .auth-tabs button.is-on { background: var(--turquoise); color: var(--shell); }
+  .auth-form { display: none; flex-direction: column; gap: 18px; }
+  .auth-form.is-on { display: flex; }
+  .auth-form .btn { margin-top: 8px; width: 100%; text-align: center; justify-content: center; display: inline-flex; }
+  .auth-msg { display: none; font-size: 13.5px; line-height: 1.55; padding: 12px 16px; border-radius: 12px; }
+  .auth-msg.is-error { display: block; background: rgba(201,106,106,0.16); border: 1px solid rgba(201,106,106,0.45); color: #F3C8C8; }
+  .auth-msg.is-ok { display: block; background: rgba(47,169,164,0.16); border: 1px solid rgba(47,169,164,0.5); color: var(--aqua); }
+  .auth-alt { text-align: center; font-size: 13px; color: rgba(244,250,249,0.6); margin-top: 18px; }
+  .auth-alt button { background: none; border: 0; color: var(--aqua); font-size: 13px; text-decoration: underline; }
+  .auth-soon { text-align: center; }
+  .auth-soon p { font-size: 15px; color: rgba(244,250,249,0.8); margin: 6px 0 22px; }
+  .auth-soon .btn { display: inline-flex; }
+  .auth-foot { text-align: center; padding: 22px 5vw 30px; font-size: 12px; color: rgba(244,250,249,0.45); }
+</style>
+</head>
+<body>
+<div class="auth-page">
+
+  <div class="auth-top">
+    <a href="advisor-hub.html">← Advisor Hub</a>
+    <a href="index.html">MedMatch Global</a>
+  </div>
+
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <p class="eyebrow eyebrow--light">THE ADVISOR HUB</p>
+      <h1 class="auth-title">Your advisor account.</h1>
+      <p class="auth-sub">Training, live pricing and your commission record — in one place.</p>
+
+      <!-- visible until Firebase config is added in js/auth.js -->
+      <div class="auth-soon" id="authSoon">
+        <p>Advisor accounts are opening shortly. Apply now and we will
+        open yours personally — you lose nothing by being early.</p>
+        <a class="btn btn--gold" href="advisor-hub.html#apply"><span>Apply to Join the Hub</span></a>
+      </div>
+
+      <div id="authLive" style="display:none;">
+        <div class="auth-tabs" role="tablist">
+          <button type="button" id="tabLogin" class="is-on">Log in</button>
+          <button type="button" id="tabSignup">Create account</button>
+        </div>
+
+        <p class="auth-msg" id="authMsg"></p>
+
+        <form class="auth-form is-on" id="loginForm" novalidate>
+          <div class="ffield"><label for="l-email">Email</label><input id="l-email" type="email" autocomplete="email" required /></div>
+          <div class="ffield"><label for="l-pass">Password</label><input id="l-pass" type="password" autocomplete="current-password" required /></div>
+          <button class="btn btn--gold" type="submit"><span>Log In</span></button>
+          <p class="auth-alt">Forgot your password? <button type="button" id="resetBtn">Send a reset email</button></p>
+        </form>
+
+        <form class="auth-form" id="signupForm" novalidate>
+          <div class="ffield"><label for="s-name">Full name</label><input id="s-name" type="text" autocomplete="name" required /></div>
+          <div class="ffield"><label for="s-email">Email</label><input id="s-email" type="email" autocomplete="email" required /></div>
+          <div class="ffield"><label for="s-pass">Password (8+ characters)</label><input id="s-pass" type="password" autocomplete="new-password" minlength="8" required /></div>
+          <div class="ffield"><label for="s-program">Program of interest</label>
+            <div class="select-wrap select-wrap--light">
+              <select id="s-program">
+                <option>The Dental Advisory</option>
+                <option>The Hair Advisory</option>
+                <option>Both programs</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn--ivory" type="submit"><span>Create My Account</span></button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="auth-foot">© 2026 MedMatch Global · Questions? <a href="advisor-hub.html#hfaq" style="color:var(--aqua);">Read the FAQ</a></div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="js/auth.js?v=1"></script>
+<script>
+(function () {
+  "use strict";
+  var A = window.MM_AUTH;
+
+  if (!A.configured) return; // "opening soon" notice stays visible
+  document.getElementById("authSoon").style.display = "none";
+  document.getElementById("authLive").style.display = "block";
+
+  // already logged in? straight to the portal
+  A.onUser(function (user) { if (user) window.location.href = "hub-portal.html"; });
+
+  var msg = document.getElementById("authMsg");
+  function say(text, ok) {
+    msg.textContent = text;
+    msg.className = "auth-msg " + (ok ? "is-ok" : "is-error");
+  }
+  function clearMsg() { msg.className = "auth-msg"; }
+
+  var tabs = { login: document.getElementById("tabLogin"), signup: document.getElementById("tabSignup") };
+  var forms = { login: document.getElementById("loginForm"), signup: document.getElementById("signupForm") };
+  function show(which) {
+    ["login", "signup"].forEach(function (k) {
+      tabs[k].classList.toggle("is-on", k === which);
+      forms[k].classList.toggle("is-on", k === which);
+    });
+    clearMsg();
+  }
+  tabs.login.addEventListener("click", function () { show("login"); });
+  tabs.signup.addEventListener("click", function () { show("signup"); });
+
+  forms.login.addEventListener("submit", function (e) {
+    e.preventDefault();
+    clearMsg();
+    A.signIn(document.getElementById("l-email").value.trim(), document.getElementById("l-pass").value)
+      .then(function () { window.location.href = "hub-portal.html"; })
+      .catch(function (err) { say(A.errorText(err)); });
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", function () {
+    var email = document.getElementById("l-email").value.trim();
+    if (!email) { say("Type your email above first, then press the reset link again."); return; }
+    A.resetPassword(email)
+      .then(function () { say("Reset email sent — check your inbox.", true); })
+      .catch(function (err) { say(A.errorText(err)); });
+  });
+
+  forms.signup.addEventListener("submit", function (e) {
+    e.preventDefault();
+    clearMsg();
+    var name = document.getElementById("s-name").value.trim();
+    if (!name) { say("Please tell us your full name."); return; }
+    A.signUp(
+      name,
+      document.getElementById("s-email").value.trim(),
+      document.getElementById("s-pass").value,
+      document.getElementById("s-program").value
+    )
+      .then(function () { window.location.href = "hub-portal.html"; })
+      .catch(function (err) { say(A.errorText(err)); });
+  });
+})();
+</script>
+</body>
+</html>

@@ -27,10 +27,13 @@
   function closeMenu() {
     burger.classList.remove("is-open");
     mmenu.classList.remove("is-open");
+    burger.setAttribute("aria-expanded", "false");
   }
+  burger.setAttribute("aria-expanded", "false");
   burger.addEventListener("click", function () {
     burger.classList.toggle("is-open");
     mmenu.classList.toggle("is-open");
+    burger.setAttribute("aria-expanded", burger.classList.contains("is-open") ? "true" : "false");
   });
 
   /* ── smooth anchor scrolling (offset for fixed nav) ── */

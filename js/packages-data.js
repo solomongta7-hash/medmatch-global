@@ -184,12 +184,12 @@ window.MM_DATA = {
      show an elegant placeholder.                                   */
 
   videos: [
-    { videoId: "", name: "Sarah",   flag: "🇺🇸", procedure: "Hollywood Smile" },   // EDIT HERE — video 1
-    { videoId: "", name: "Michael", flag: "🇨🇦", procedure: "All-on-4" },          // EDIT HERE — video 2
-    { videoId: "", name: "Jennifer",flag: "🇺🇸", procedure: "E-max Veneers" },     // EDIT HERE — video 3
-    { videoId: "", name: "David",   flag: "🇬🇧", procedure: "Full Mouth Implants"},// EDIT HERE — video 4
-    { videoId: "", name: "Amanda",  flag: "🇨🇦", procedure: "Zirconia Crowns" },   // EDIT HERE — video 5
-    { videoId: "", name: "Robert",  flag: "🇺🇸", procedure: "Single Implant" }     // EDIT HERE — video 6
+    { videoId: "m5Hog3mxFzk", name: "New smile, new beginning", flag: "", procedure: "Smile Design — Antalya" },
+    { videoId: "UqyuXX1UIVM", name: "“Now my smile is gorgeous”", flag: "", procedure: "Smile Makeover" },
+    { videoId: "KPmff8yt2A8", name: "Inga's new smile",          flag: "", procedure: "Smile Makeover" },
+    { videoId: "t0z-Yte_zLY", name: "Shine like a star",         flag: "", procedure: "Smile Design" },
+    { videoId: "OAxTq5Pl_pg", name: "Patient story",             flag: "", procedure: "Perla Dental Clinics" },
+    { videoId: "9_qpYvqIOgM", name: "Patient story",             flag: "", procedure: "Perla Dental Clinics" }
   ],
 
   partnerClinic: "Perla Dental Clinics"

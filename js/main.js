@@ -16,6 +16,7 @@
   var lenis = null;
   if (typeof Lenis !== "undefined" && !reduced) {
     lenis = new Lenis({ duration: 1.25, smoothWheel: true });
+    window.lenis = lenis; // chat widget uses this for smooth scrolling
   }
 
   if (hasGsap) {
@@ -158,10 +159,13 @@
   function closeMenu() {
     burger.classList.remove("is-open");
     mmenu.classList.remove("is-open");
+    burger.setAttribute("aria-expanded", "false");
   }
+  burger.setAttribute("aria-expanded", "false");
   burger.addEventListener("click", function () {
     burger.classList.toggle("is-open");
     mmenu.classList.toggle("is-open");
+    burger.setAttribute("aria-expanded", burger.classList.contains("is-open") ? "true" : "false");
   });
 
   /* ───────────────────────── mobile sticky CTA bar ───────────────────────── */
