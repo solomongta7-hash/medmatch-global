@@ -8,7 +8,7 @@
   "use strict";
 
   var WHATSAPP_URL = "https://wa.me/14375951735?text=Hello%20MedMatch%20Global%2C%20I%27d%20like%20a%20free%20quote.";
-  var EMAIL_URL = "mailto:solomongta7@gmail.com";
+  var EMAIL_URL = "mailto:suleymansuleymanoglu@medmatchglobal.info";
 
   var ANSWERS = {
     prices: "Rhinoplasty from $3,200, dental veneers from $2,400, knee surgery from $3,000 and hair transplants from $2,100 — all fixed, all-inclusive of surgery, hospital, hotel, transfers and aftercare. Typical savings are 50–70% versus U.S. prices.",

@@ -646,7 +646,7 @@
 
     setSending(true);
 
-    fetch("https://formsubmit.co/ajax/solomongta7@gmail.com", {
+    fetch("https://formsubmit.co/ajax/suleymansuleymanoglu@medmatchglobal.info", {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify(payload)

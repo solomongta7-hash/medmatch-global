@@ -7,7 +7,7 @@
   "use strict";
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var FORM_ENDPOINT = "https://formsubmit.co/ajax/solomongta7@gmail.com";
+  var FORM_ENDPOINT = "https://formsubmit.co/ajax/suleymansuleymanoglu@medmatchglobal.info";
 
   /* commission terms — the Hub's honest math:
      clinic pays MedMatch at most 10% of the package;
