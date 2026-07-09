@@ -294,9 +294,131 @@
       "inv.eyebrow": "शुरू करें", "inv.heading": "अपना मुफ़्त कोटेशन पाएं।"
     }
   };
-  Object.keys(T1).forEach(function (l) {
+  /* ── Stage 2: section intros, How-It-Works steps, testimonials ── */
+  var T2 = {
+    tr: {
+      "treat.lede": "Adımızı, Türkiye'nin uzmanlarının gerçekten dünyaya öncülük ettiği dört işlemle kazandık — ziyaret ettiğimiz, denetlediğimiz ve sürekli izlediğimiz kliniklerde. Ortak hastane grubumuz Acıbadem aracılığıyla artık estetik cerrahi, göz cerrahisi, kilo verme işlemleri ve üst düzey check-up'ları da resmi hastane fiyatlarıyla düzenliyoruz.",
+      "partners.lede": "Ziyaret ettiğimiz, denetlediğimiz ve sürekli izlediğimiz az sayıda ortakla çalışıyoruz — Antalya'da özel bir diş kliniği ve İstanbul'da Türkiye'nin en büyük hastane gruplarından biri; üçüncüsü yakında katılıyor. Tedaviniz ne olursa olsun uzmanınız bu çevreden gelir ve tüm belgeleri ödeme yapmadan önce sizinle paylaşılır.",
+      "pricing.lede": "Tahmininizi aşağıda oluşturun — ülkenizdeki ortalama özel ödeme fiyatlarıyla dürüstçe karşılaştırılır. Diş ve diz tahminleri otel, VIP transfer ve kişisel bakım koordinatörünüzü içerir; Acıbadem tedavileri, yalnızca belirtildiğinde otel dahil olmak üzere resmi sabit hastane fiyatını gösterir.",
+      "packages.lede": "Tedaviniz için doğrudan kliniğe ödeme yaparsınız — tıbbi fiyatlara asla ek yapmıyoruz. Otelinizi seçin, tüm dökümü görün ve daha uçak bileti almadan toplamınızı bilin.",
+      "stories.lede": "Antalya'da birlikte çalıştığımız ortak klinik Perla Dental Clinics'ten gerçek sonuçlar. Videolar kliniğin resmi YouTube kanalında yayınlanmaktadır.",
+      "faq.lede": "Yurt dışında ameliyat olmayı seçmek ciddi bir karardır ve rahatsız edici sorular dahil net yanıtları hak edersiniz. Bunlar ABD ve Kanada'daki hastalardan en çok duyduğumuz sorular. Sizinki burada yoksa bize yazın — bir satış temsilcisi değil, bir bakım koordinatörü bir gün içinde yanıtlar.",
+      "inv.lede": "Neyi düşündüğünüzü bize anlatın. 48 saat içinde özel bir değerlendirme ve sabit, her şey dahil bir teklif alırsınız — ücretsiz, yükümlülük yok ve bilgileriniz asla paylaşılmaz.",
+      "ps1h": "Danışma", "ps1b": "Evden özel bir görüntülü görüşme. Kayıtlarınız ve görüntüleriniz, herhangi bir öneri yapılmadan önce Çevre'den en az üç cerrah tarafından incelenir.",
+      "ps2h": "Sabit Teklif", "ps2b": "Her şey dahil tek sabit teklif alırsınız — ameliyat, hastane, suit, transferler, ev sahibi. Kabul ettiğiniz fiyat ödediğiniz fiyattır. İmzalıdır ve nihaidir.",
+      "ps3h": "Varış", "ps3b": "İstanbul'da uçağın kapısında karşılanırsınız. Boğaz'da beş yıldızlı bir otele özel transfer. Ev sahibiniz — akıcı, ölçülü, ulaşılabilir — bu andan itibaren yanınızdadır.",
+      "ps4h": "İşlem", "ps4b": "İngilizce konuşan klinik ekibiyle JCI akreditasyonlu bir hastanede tedavi. Ev sahibiniz hastanede kalır; aileniz her aşamada bilgilendirilir.",
+      "ps5h": "Dönüş", "ps5b": "Ayrılıştan önce uçuşa uygunluk kontrolleri, ardından cerrahınızla planlı görüntülü kontroller ve ABD veya Kanada'daki doktorlarınızla koordinasyon — bize ihtiyacınız olduğu sürece.",
+      "v1q": "Manhattan'da kaplamalar için bana 31.000 dolar teklif edilmişti. MedMatch aynı işi — açıkçası daha iyisini — bunun beşte birine, Boğaz'da bir haftayla ayarladı. Ülkemdeki diş hekimim nerede yaptırdığımı sordu.", "v1cap": "New York — Diş Estetiği",
+      "v2q": "Kimsenin söylemediği şey, yabancı bir hastanede yalnız olma korkusudur. Asla yalnız olmadım. Ayşe her sabah kapımın önündeydi. Dizim mükemmel; bakım evdekinden daha iyiydi.", "v2cap": "Dallas — Total Diz Protezi",
+      "v3q": "Saç ekimimden iki yıl sonra cerrah hâlâ mesajlarımı bizzat yanıtlıyor. Bunu Vancouver'da — hangi fiyata olursa olsun — bulmayı deneyin. Bunu yapmanın tek yolu bu.", "v3cap": "Vancouver — Safir FUE"
+    },
+    de: {
+      "treat.lede": "Wir haben uns mit den vier Eingriffen einen Namen gemacht, bei denen die Spezialisten der Türkei wirklich weltweit führend sind – in Kliniken, die wir besucht, geprüft und laufend überwachen. Über unsere Partnerklinikgruppe Acıbadem organisieren wir jetzt auch plastische Chirurgie, Augenchirurgie, Eingriffe zur Gewichtsreduktion und Vorsorge-Check-ups zu offiziellen Klinikpreisen.",
+      "partners.lede": "Wir arbeiten mit wenigen Partnern, die wir besucht, geprüft und laufend überwacht haben – einer spezialisierten Zahnklinik in Antalya und einer der größten Klinikgruppen der Türkei in Istanbul, mit einer dritten in Kürze. Was auch immer Ihre Behandlung ist, Ihr Spezialist stammt aus diesem Kreis, und seine vollständigen Qualifikationen werden Ihnen vor der Zahlung mitgeteilt.",
+      "pricing.lede": "Erstellen Sie unten Ihre Schätzung – ehrlich verglichen mit durchschnittlichen Selbstzahlerpreisen zu Hause. Schätzungen für Zähne und Knie umfassen Hotel, VIP-Transfers und Ihre persönliche Betreuungskoordinatorin; Acıbadem-Behandlungen zeigen den offiziellen Festpreis der Klinik, Hotel nur wo angegeben.",
+      "packages.lede": "Sie zahlen die Behandlung direkt an die Klinik – wir schlagen niemals etwas auf medizinische Preise auf. Wählen Sie Ihr Hotel, sehen Sie die vollständige Aufschlüsselung und kennen Sie Ihre Gesamtsumme, bevor Sie einen Flug buchen.",
+      "stories.lede": "Echte Ergebnisse von Perla Dental Clinics – der Partnerklinik, mit der wir in Antalya zusammenarbeiten. Die Videos werden auf dem offiziellen YouTube-Kanal der Klinik veröffentlicht.",
+      "faq.lede": "Eine Operation im Ausland zu wählen ist eine ernste Entscheidung, und Sie verdienen klare Antworten – auch auf die unbequemen Fragen. Diese hören wir am häufigsten von Patienten in den USA und Kanada. Ist Ihre nicht dabei, schreiben Sie uns – eine Betreuungskoordinatorin, kein Verkäufer, antwortet innerhalb eines Tages.",
+      "inv.lede": "Sagen Sie uns, was Sie in Betracht ziehen. Innerhalb von 48 Stunden erhalten Sie eine private Einschätzung und ein festes All-inclusive-Angebot – kostenlos, unverbindlich, und Ihre Daten werden niemals weitergegeben.",
+      "ps1h": "Die Beratung", "ps1b": "Eine private Videosprechstunde von zu Hause. Ihre Unterlagen und Bilder werden von mindestens drei Chirurgen aus dem Kreis geprüft, bevor eine Empfehlung ausgesprochen wird.",
+      "ps2h": "Das Festangebot", "ps2b": "Sie erhalten ein festes All-inclusive-Angebot – Operation, Klinik, Suite, Transfers, Betreuer. Der Preis, den Sie annehmen, ist der Preis, den Sie zahlen. Er ist unterzeichnet und endgültig.",
+      "ps3h": "Die Ankunft", "ps3b": "Empfang an der Flugzeugtür in Istanbul. Privater Transfer zu einem Fünf-Sterne-Hotel am Bosporus. Ihr Betreuer – gewandt, diskret, erreichbar – ist ab diesem Moment bei Ihnen.",
+      "ps4h": "Der Eingriff", "ps4b": "Behandlung in einer JCI-akkreditierten Klinik mit einem englischsprachigen Team. Ihr Betreuer bleibt in der Klinik; Ihre Familie wird in jeder Phase informiert.",
+      "ps5h": "Die Rückkehr", "ps5b": "Flugtauglichkeitsprüfung vor der Abreise, dann geplante Video-Nachsorge mit Ihrem Chirurgen und Abstimmung mit Ihren Ärzten in den USA oder Kanada – so lange Sie uns brauchen.",
+      "v1q": "In Manhattan wurden mir 31.000 $ für Veneers genannt. MedMatch organisierte dieselbe Arbeit – ehrlich gesagt, feinere Arbeit – für ein Fünftel davon, mit einer Woche am Bosporus. Mein Zahnarzt zu Hause fragte, wo ich es hatte machen lassen.", "v1cap": "New York — Dentale Ästhetik",
+      "v2q": "Worüber niemand spricht, ist die Angst, allein in einem fremden Krankenhaus zu sein. Ich war es nie. Ayşe stand jeden Morgen vor meiner Tür. Mein Knie ist perfekt; die Betreuung war besser als zu Hause.", "v2cap": "Dallas — Totale Knieprothese",
+      "v3q": "Zwei Jahre nach meiner Haartransplantation beantwortet der Chirurg meine Nachrichten noch immer selbst. Versuchen Sie das mal in Vancouver – zu welchem Preis auch immer. Nur so würde ich es je tun.", "v3cap": "Vancouver — Saphir-FUE"
+    },
+    fr: {
+      "treat.lede": "Nous avons bâti notre réputation sur les quatre interventions où les spécialistes de la Turquie sont véritablement les meilleurs au monde — dans des cliniques que nous avons visitées, vérifiées et surveillons en continu. Grâce à notre groupe hospitalier partenaire Acıbadem, nous organisons désormais aussi la chirurgie esthétique, la chirurgie oculaire, les interventions d'amaigrissement et les bilans de santé, aux tarifs officiels de l'hôpital.",
+      "partners.lede": "Nous travaillons avec un petit nombre de partenaires que nous avons visités, vérifiés et surveillons en continu — une clinique dentaire dédiée à Antalya et l'un des plus grands groupes hospitaliers de Turquie à Istanbul, un troisième arrivant bientôt. Quel que soit votre traitement, votre spécialiste vient de ce cercle, et ses qualifications complètes vous sont communiquées avant tout paiement.",
+      "pricing.lede": "Établissez votre estimation ci-dessous — comparée honnêtement aux tarifs privés moyens de votre pays. Les estimations dentaires et du genou incluent l'hôtel, les transferts VIP et votre coordinatrice de soins ; les traitements Acıbadem affichent le prix fixe officiel de l'hôpital, hôtel inclus uniquement lorsque indiqué.",
+      "packages.lede": "Vous payez la clinique directement pour votre traitement — nous ne majorons jamais les prix médicaux. Choisissez votre hôtel, consultez le détail complet et connaissez votre total avant même de réserver un vol.",
+      "stories.lede": "De vrais résultats de Perla Dental Clinics — la clinique partenaire avec laquelle nous travaillons à Antalya. Les vidéos sont publiées sur la chaîne YouTube officielle de la clinique.",
+      "faq.lede": "Choisir une opération à l'étranger est une décision sérieuse, et vous méritez des réponses franches — y compris aux questions inconfortables. Ce sont celles que nous entendons le plus de la part des patients aux États-Unis et au Canada. Si la vôtre n'y figure pas, écrivez-nous — une coordinatrice de soins, pas un commercial, vous répondra sous un jour.",
+      "inv.lede": "Dites-nous ce que vous envisagez. Sous 48 heures, vous recevrez une évaluation privée et un devis fixe tout compris — gratuit, sans engagement, et vos données ne sont jamais partagées.",
+      "ps1h": "La consultation", "ps1b": "Une consultation vidéo privée depuis chez vous. Vos dossiers et images sont examinés par au moins trois chirurgiens du Cercle avant toute recommandation.",
+      "ps2h": "Le devis fixe", "ps2b": "Vous recevez un devis fixe tout compris — chirurgie, hôpital, suite, transferts, hôte. Le prix que vous acceptez est celui que vous payez. Il est signé, et il est définitif.",
+      "ps3h": "L'arrivée", "ps3b": "Accueil à la porte de l'avion à Istanbul. Transfert privé vers un hôtel cinq étoiles sur le Bosphore. Votre hôte — à l'aise, discret, disponible — est à vos côtés dès cet instant.",
+      "ps4h": "L'intervention", "ps4b": "Traitement dans un hôpital accrédité JCI avec une équipe anglophone. Votre hôte reste à l'hôpital ; votre famille reçoit des nouvelles à chaque étape.",
+      "ps5h": "Le retour", "ps5b": "Contrôles d'aptitude au vol avant le départ, puis suivis vidéo programmés avec votre chirurgien et coordination avec vos médecins aux États-Unis ou au Canada — aussi longtemps que vous avez besoin de nous.",
+      "v1q": "On m'a annoncé 31 000 $ pour des facettes à Manhattan. MedMatch a organisé le même travail — franchement, un travail plus fin — pour un cinquième de ce prix, avec une semaine sur le Bosphore. Mon dentiste chez moi m'a demandé où je l'avais fait faire.", "v1cap": "New York — Esthétique dentaire",
+      "v2q": "Ce dont personne ne parle, c'est la peur d'être seul dans un hôpital étranger. Je ne l'ai jamais été. Ayşe était devant ma porte chaque matin. Mon genou est parfait ; les soins étaient meilleurs qu'à la maison.", "v2cap": "Dallas — Prothèse totale du genou",
+      "v3q": "Deux ans après ma greffe de cheveux, le chirurgien répond encore lui-même à mes messages. Essayez d'obtenir cela à Vancouver — à n'importe quel prix. C'est la seule façon dont je le referais.", "v3cap": "Vancouver — FUE Saphir"
+    },
+    ru: {
+      "treat.lede": "Мы завоевали имя на четырёх процедурах, в которых специалисты Турции действительно ведущие в мире — в клиниках, которые мы посетили, проверили и постоянно контролируем. Через нашу партнёрскую больничную группу Acıbadem мы теперь также организуем пластическую хирургию, офтальмологию, процедуры для снижения веса и чек-апы по официальным ценам больницы.",
+      "partners.lede": "Мы работаем с небольшим числом партнёров, которых посетили, проверили и постоянно контролируем — специализированной стоматологической клиникой в Анталье и одной из крупнейших больничных групп Турции в Стамбуле; третья присоединится скоро. Каким бы ни было ваше лечение, ваш специалист из этого круга, и его полная квалификация предоставляется вам до оплаты.",
+      "pricing.lede": "Составьте свою оценку ниже — честно сравнённую со средними ценами частной оплаты у вас дома. Оценки по стоматологии и колену включают отель, VIP-трансферы и вашего личного координатора; лечение в Acıbadem показывает официальную фиксированную цену больницы, отель включён только там, где указано.",
+      "packages.lede": "Вы платите за лечение напрямую клинике — мы никогда не наценяем медицинские цены. Выберите отель, посмотрите полную разбивку и узнайте итог ещё до того, как купите билет.",
+      "stories.lede": "Реальные результаты из Perla Dental Clinics — партнёрской клиники, с которой мы работаем в Анталье. Видео публикуются на официальном YouTube-канале клиники.",
+      "faq.lede": "Выбор операции за рубежом — серьёзное решение, и вы заслуживаете прямых ответов, в том числе на неудобные вопросы. Эти мы чаще всего слышим от пациентов из США и Канады. Если вашего здесь нет, напишите нам — координатор по уходу, а не продавец, ответит в течение дня.",
+      "inv.lede": "Расскажите, что вы рассматриваете. В течение 48 часов вы получите частную оценку и фиксированное предложение «всё включено» — бесплатно, без обязательств, и ваши данные никогда не передаются.",
+      "ps1h": "Консультация", "ps1b": "Частная видеоконсультация из дома. Ваши записи и снимки изучают не менее трёх хирургов из Круга, прежде чем дать какую-либо рекомендацию.",
+      "ps2h": "Фиксированное предложение", "ps2b": "Вы получаете одно фиксированное предложение «всё включено» — операция, больница, люкс, трансферы, сопровождающий. Цена, которую вы принимаете, — это цена, которую вы платите. Оно подписано и окончательно.",
+      "ps3h": "Прибытие", "ps3b": "Встреча у двери самолёта в Стамбуле. Частный трансфер в пятизвёздочный отель на Босфоре. Ваш сопровождающий — свободно говорящий, деликатный, на связи — рядом с вами с этого момента.",
+      "ps4h": "Процедура", "ps4b": "Лечение в аккредитованной JCI больнице с англоговорящей клинической командой. Ваш сопровождающий остаётся в больнице; ваша семья получает обновления на каждом этапе.",
+      "ps5h": "Возвращение", "ps5b": "Проверка готовности к полёту перед вылетом, затем плановые видеонаблюдения с вашим хирургом и координация с вашими врачами в США или Канаде — столько, сколько мы вам нужны.",
+      "v1q": "В Манхэттене мне назвали 31 000 $ за виниры. MedMatch организовал ту же работу — честно, более тонкую — за пятую часть этой суммы, с неделей на Босфоре. Мой стоматолог дома спросил, где я это сделала.", "v1cap": "Нью-Йорк — Эстетическая стоматология",
+      "v2q": "О чём никто не говорит — это страх остаться одному в чужой больнице. Я никогда не был один. Айше была у моей двери каждое утро. Моё колено идеально; уход был лучше, чем дома.", "v2cap": "Даллас — Тотальное протезирование колена",
+      "v3q": "Через два года после пересадки волос хирург всё ещё сам отвечает на мои сообщения. Попробуйте получить такое в Ванкувере — за любые деньги. Только так я бы это и сделал.", "v3cap": "Ванкувер — Сапфировая FUE"
+    },
+    zh: {
+      "treat.lede": "我们凭借四项土耳其专家真正领先世界的手术树立了口碑——都在我们亲自走访、审核并持续监督的诊所进行。通过合作医院集团 Acıbadem，我们如今还以官方医院价格安排整形外科、眼科手术、减重项目和高端体检。",
+      "partners.lede": "我们只与少数经我们走访、审核并持续监督的伙伴合作——安塔利亚一家专属牙科诊所，以及伊斯坦布尔土耳其最大的医院集团之一，第三家即将加入。无论您接受何种治疗，您的专家都来自这个圈子，其完整资历会在您付款前与您分享。",
+      "pricing.lede": "在下方建立您的估价——与您本国的平均自费价格诚实对比。牙科和膝关节的估价包含酒店、VIP 接送和您的专属护理协调员；Acıbadem 项目显示官方固定的医院价格，仅在注明处含酒店。",
+      "packages.lede": "您直接向诊所支付治疗费用——我们绝不在医疗价格上加价。选择您的酒店，查看完整明细，在预订机票之前就知道您的总额。",
+      "stories.lede": "来自 Perla Dental Clinics 的真实效果——我们在安塔利亚合作的伙伴诊所。视频发布于该诊所的官方 YouTube 频道。",
+      "faq.lede": "选择出国手术是一个严肃的决定，您理应得到坦率的回答——包括那些令人不安的问题。这些是我们从美国和加拿大患者那里最常听到的问题。若这里没有您的问题，请联系我们——将由护理协调员而非销售人员，在一天之内回复。",
+      "inv.lede": "告诉我们您正在考虑什么。48 小时内，您将收到一份私人评估和一份固定的全包报价——免费、无义务，且您的信息绝不外泄。",
+      "ps1h": "咨询", "ps1b": "在家进行的一对一视频咨询。在做出任何建议之前，您的病历和影像至少由圈内三位外科医生审阅。",
+      "ps2h": "固定报价", "ps2b": "您将收到一份固定的全包报价——手术、医院、套房、接送、专属陪同。您接受的价格就是您支付的价格。它已签署，且为最终版本。",
+      "ps3h": "抵达", "ps3b": "在伊斯坦布尔于舱门迎接。专车接送至博斯普鲁斯海峡畔的五星级酒店。您的陪同——语言流利、谨慎、随时待命——从这一刻起与您同行。",
+      "ps4h": "手术", "ps4b": "在通过 JCI 认证的医院、由讲英语的临床团队进行治疗。您的陪同留在医院；您的家人在每个阶段都收到进展通报。",
+      "ps5h": "归程", "ps5b": "离境前进行适飞检查，随后与您的医生进行预约视频随访，并与您在美国或加拿大的医生协调——只要您需要我们。",
+      "v1q": "在曼哈顿，贴面报价 31,000 美元。MedMatch 安排了同样的——老实说，更精细的——工作，价格只有五分之一，还在博斯普鲁斯海峡度过一周。我家乡的牙医问我是在哪里做的。", "v1cap": "纽约 — 牙齿美学",
+      "v2q": "没有人告诉你的，是独自身处异国医院的恐惧。我从未孤单。Ayşe 每天早晨都在我门外。我的膝盖很完美；护理比在家还好。", "v2cap": "达拉斯 — 全膝关节置换",
+      "v3q": "植发两年后，医生仍亲自回复我的消息。在温哥华试试看——无论出多少钱。这是我唯一愿意选择的方式。", "v3cap": "温哥华 — 蓝宝石 FUE"
+    },
+    fa: {
+      "treat.lede": "نام خود را با چهار روشی ساختیم که متخصصان ترکیه واقعاً در جهان پیشتاز هستند — در کلینیک‌هایی که بازدید، بررسی و به‌طور مداوم پایش کرده‌ایم. از طریق گروه بیمارستانی همکارمان آجی‌بادم، اکنون جراحی زیبایی، جراحی چشم، روش‌های کاهش وزن و چکاپ‌های تخصصی را نیز با قیمت‌های رسمی بیمارستان ترتیب می‌دهیم.",
+      "partners.lede": "با شمار اندکی از شرکا کار می‌کنیم که بازدید، بررسی و به‌طور مداوم پایش کرده‌ایم — یک کلینیک تخصصی دندان‌پزشکی در آنتالیا و یکی از بزرگ‌ترین گروه‌های بیمارستانی ترکیه در استانبول، و سومی به‌زودی می‌پیوندد. درمان شما هرچه باشد، متخصص شما از همین حلقه است و مدارک کامل او پیش از پرداخت با شما در میان گذاشته می‌شود.",
+      "pricing.lede": "برآورد خود را در پایین بسازید — به‌صورت صادقانه با میانگین قیمت‌های پرداخت خصوصی در کشورتان مقایسه می‌شود. برآوردهای دندان و زانو شامل هتل، ترانسفر ویژه و هماهنگ‌کننده شخصی شماست؛ درمان‌های آجی‌بادم قیمت ثابت رسمی بیمارستان را نشان می‌دهند، هتل تنها در جایی که ذکر شده.",
+      "packages.lede": "هزینه درمان را مستقیماً به کلینیک می‌پردازید — ما هرگز روی قیمت‌های پزشکی سود نمی‌گذاریم. هتل خود را انتخاب کنید، جزئیات کامل را ببینید و پیش از رزرو پرواز، مجموع هزینه را بدانید.",
+      "stories.lede": "نتایج واقعی از Perla Dental Clinics — کلینیک همکاری که در آنتالیا با آن کار می‌کنیم. ویدیوها در کانال رسمی یوتیوب کلینیک منتشر می‌شوند.",
+      "faq.lede": "انتخاب جراحی در خارج تصمیمی جدی است و شما سزاوار پاسخ‌های صریح هستید — از جمله به پرسش‌های ناخوشایند. این‌ها پرسش‌هایی است که بیشتر از بیماران آمریکا و کانادا می‌شنویم. اگر پرسش شما اینجا نیست، برایمان پیام بفرستید — یک هماهنگ‌کننده مراقبت، نه یک فروشنده، ظرف یک روز پاسخ می‌دهد.",
+      "inv.lede": "به ما بگویید چه چیزی را در نظر دارید. ظرف ۴۸ ساعت یک ارزیابی خصوصی و یک پیشنهاد ثابت همه‌شمول دریافت می‌کنید — رایگان، بدون تعهد، و اطلاعات شما هرگز به اشتراک گذاشته نمی‌شود.",
+      "ps1h": "مشاوره", "ps1b": "یک مشاوره ویدیویی خصوصی از خانه. پرونده و تصاویر شما پیش از هر توصیه‌ای دست‌کم توسط سه جراح از حلقه بررسی می‌شود.",
+      "ps2h": "پیشنهاد ثابت", "ps2b": "یک پیشنهاد ثابت همه‌شمول دریافت می‌کنید — عمل، بیمارستان، سوئیت، ترانسفر، میزبان. قیمتی که می‌پذیرید همان است که می‌پردازید. امضا شده و نهایی است.",
+      "ps3h": "ورود", "ps3b": "در استانبول کنار درِ هواپیما استقبال می‌شوید. ترانسفر خصوصی به هتلی پنج‌ستاره در کنار بسفر. میزبان شما — مسلط، مبادی آداب، در دسترس — از این لحظه در کنار شماست.",
+      "ps4h": "عمل", "ps4b": "درمان در بیمارستانی دارای اعتبار JCI با تیم بالینی انگلیسی‌زبان. میزبان شما در بیمارستان می‌ماند؛ خانواده‌تان در هر مرحله به‌روز می‌شود.",
+      "ps5h": "بازگشت", "ps5b": "بررسی آمادگی پرواز پیش از حرکت، سپس پیگیری‌های ویدیویی برنامه‌ریزی‌شده با جراح‌تان و هماهنگی با پزشکان شما در آمریکا یا کانادا — تا هر زمان که به ما نیاز دارید.",
+      "v1q": "در منهتن برای لمینت به من ۳۱٬۰۰۰ دلار پیشنهاد شد. مدمچ همان کار را — راستش، ظریف‌تر — با یک‌پنجم آن مبلغ و یک هفته کنار بسفر ترتیب داد. دندان‌پزشکم در وطنم پرسید کجا انجامش داده‌ام.", "v1cap": "نیویورک — زیبایی دندان",
+      "v2q": "چیزی که هیچ‌کس به شما نمی‌گوید، ترس از تنها بودن در بیمارستانی بیگانه است. من هرگز تنها نبودم. آیشه هر روز صبح پشت درِ من بود. زانویم عالی است؛ مراقبت از خانه بهتر بود.", "v2cap": "دالاس — تعویض کامل زانو",
+      "v3q": "دو سال پس از کاشت مویم، جراح هنوز خودش به پیام‌هایم پاسخ می‌دهد. این را در ونکوور — به هر قیمتی — پیدا کنید. تنها راهی که حاضرم انجامش دهم همین است.", "v3cap": "ونکوور — FUE یاقوتی"
+    },
+    hi: {
+      "treat.lede": "हमने अपना नाम उन चार प्रक्रियाओं से बनाया जिनमें तुर्की के विशेषज्ञ वास्तव में दुनिया में अग्रणी हैं — उन क्लीनिकों में जिन्हें हमने देखा, परखा और लगातार निगरानी में रखा है। अपने साझेदार अस्पताल समूह Acıbadem के माध्यम से, हम अब आधिकारिक अस्पताल मूल्यों पर प्लास्टिक सर्जरी, नेत्र सर्जरी, वज़न-घटाने की प्रक्रियाएँ और एग्ज़ीक्यूटिव चेक-अप भी व्यवस्थित करते हैं।",
+      "partners.lede": "हम कुछ ही साझेदारों के साथ काम करते हैं जिन्हें हमने देखा, परखा और लगातार निगरानी में रखा है — अंताल्या में एक समर्पित डेंटल क्लिनिक और इस्तांबुल में तुर्की के सबसे बड़े अस्पताल समूहों में से एक, तीसरा जल्द जुड़ रहा है। आपका उपचार कुछ भी हो, आपका विशेषज्ञ इसी दायरे से आता है, और उसकी पूरी योग्यता आपके भुगतान से पहले आपके साथ साझा की जाती है।",
+      "pricing.lede": "नीचे अपना अनुमान बनाएं — आपके देश की औसत निजी-भुगतान कीमतों से ईमानदारी से तुलना की गई। डेंटल और घुटने के अनुमान में होटल, VIP ट्रांसफर और आपका निजी केयर कोऑर्डिनेटर शामिल है; Acıbadem उपचार आधिकारिक निश्चित अस्पताल मूल्य दिखाते हैं, होटल केवल वहीं शामिल जहाँ बताया गया है।",
+      "packages.lede": "आप अपने उपचार के लिए सीधे क्लिनिक को भुगतान करते हैं — हम चिकित्सा कीमतों पर कभी मार्कअप नहीं करते। अपना होटल चुनें, पूरा विवरण देखें, और उड़ान बुक करने से पहले ही अपना कुल जान लें।",
+      "stories.lede": "Perla Dental Clinics से असली परिणाम — वह साझेदार क्लिनिक जिसके साथ हम अंताल्या में काम करते हैं। वीडियो क्लिनिक के आधिकारिक YouTube चैनल पर प्रकाशित हैं।",
+      "faq.lede": "विदेश में सर्जरी चुनना एक गंभीर निर्णय है, और आप सीधे उत्तर के हकदार हैं — असहज प्रश्नों के भी। ये वे प्रश्न हैं जो हम अमेरिका और कनाडा के मरीज़ों से सबसे अधिक सुनते हैं। यदि आपका यहाँ नहीं है, तो हमें संदेश करें — एक केयर कोऑर्डिनेटर, कोई सेल्समैन नहीं, एक दिन के भीतर उत्तर देगा।",
+      "inv.lede": "हमें बताएं कि आप क्या विचार कर रहे हैं। 48 घंटों के भीतर आपको एक निजी मूल्यांकन और एक निश्चित, सर्व-समावेशी कोटेशन मिलेगा — मुफ़्त, बिना बाध्यता, और आपकी जानकारी कभी साझा नहीं की जाती।",
+      "ps1h": "परामर्श", "ps1b": "घर से एक निजी वीडियो परामर्श। कोई भी सिफ़ारिश करने से पहले आपके रिकॉर्ड और छवियों की समीक्षा सर्कल के कम से कम तीन सर्जन करते हैं।",
+      "ps2h": "निश्चित कोटेशन", "ps2b": "आपको एक निश्चित, सर्व-समावेशी कोटेशन मिलता है — सर्जरी, अस्पताल, सुइट, ट्रांसफर, मेज़बान। जो मूल्य आप स्वीकार करते हैं, वही आप चुकाते हैं। यह हस्ताक्षरित है, और अंतिम है।",
+      "ps3h": "आगमन", "ps3b": "इस्तांबुल में विमान के द्वार पर स्वागत। बॉस्फोरस पर एक पाँच-सितारा होटल तक निजी ट्रांसफर। आपका मेज़बान — कुशल, विवेकी, सदा उपलब्ध — इसी क्षण से आपके साथ है।",
+      "ps4h": "प्रक्रिया", "ps4b": "अंग्रेज़ी बोलने वाली क्लिनिकल टीम के साथ JCI-मान्यता प्राप्त अस्पताल में उपचार। आपका मेज़बान अस्पताल में रहता है; आपके परिवार को हर चरण पर जानकारी मिलती है।",
+      "ps5h": "वापसी", "ps5b": "प्रस्थान से पहले उड़ान-योग्यता जाँच, फिर आपके सर्जन के साथ निर्धारित वीडियो फ़ॉलो-अप और अमेरिका या कनाडा में आपके चिकित्सकों के साथ समन्वय — जब तक आपको हमारी ज़रूरत हो।",
+      "v1q": "मैनहट्टन में विनियर के लिए मुझे 31,000 डॉलर बताए गए। MedMatch ने वही काम — सच कहूँ तो, बेहतर काम — उसके पाँचवें हिस्से में करवाया, बॉस्फोरस पर एक सप्ताह के साथ। मेरे घर के डेंटिस्ट ने पूछा कि मैंने यह कहाँ करवाया।", "v1cap": "न्यूयॉर्क — डेंटल सौंदर्य",
+      "v2q": "जिस बात के बारे में कोई नहीं बताता, वह है किसी विदेशी अस्पताल में अकेले होने का डर। मैं कभी अकेला नहीं था। Ayşe हर सुबह मेरे दरवाज़े पर होती थीं। मेरा घुटना बिल्कुल ठीक है; देखभाल घर से बेहतर थी।", "v2cap": "डलास — संपूर्ण घुटना प्रत्यारोपण",
+      "v3q": "मेरे हेयर ट्रांसप्लांट के दो साल बाद भी सर्जन स्वयं मेरे संदेशों का उत्तर देते हैं। वैंकूवर में यह पाकर दिखाइए — किसी भी कीमत पर। बस इसी तरह मैं इसे कभी करवाऊँगा।", "v3cap": "वैंकूवर — सैफ़ायर FUE"
+    }
+  };
+  Object.keys(T2).forEach(function (l) {
     if (!T[l]) T[l] = {};
-    Object.keys(T1[l]).forEach(function (k) { T[l][k] = T1[l][k]; });
+    Object.keys(T2[l]).forEach(function (k) { T[l][k] = T2[l][k]; });
   });
 
   var nodes = null;
