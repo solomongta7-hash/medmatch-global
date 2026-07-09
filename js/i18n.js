@@ -421,6 +421,77 @@
     Object.keys(T2[l]).forEach(function (k) { T[l][k] = T2[l][k]; });
   });
 
+  /* ── Stage 3: the five treatment panels ── */
+  var T3 = {
+    tr: {
+      "t.from": "başlangıç", "t.calc": "Fiyatımı Hesapla", "t.allinc": "her şey dahil",
+      "t.includes": "Sabit fiyata ameliyat, hastane, otel, transferler ve bakım dahildir.",
+      "t1.title": "Burun Estetiği (Rinoplasti)", "t1.desc": "Türkiye'nin burun cerrahları dünyanın en deneyimlileri arasındadır — çoğu, tipik bir ABD'li cerrahın on yılda yaptığından daha fazla rinoplastiyi bir yılda gerçekleştirir. Ultrasonik ve koruyucu teknikler standarttır.", "t1.save": "ABD'DE $8,000–$15,000",
+      "t2.title": "Diş Kaplama ve İmplantları", "t2.desc": "5–7 günde eksiksiz bir gülüş tasarımı; ülkenizdeki diş hekiminizin kullandığı aynı premium markalarla — E-max, zirkonya, Straumann. Bir dişe dokunulmadan önce yeni gülüşünüzün dijital ön izlemesini onaylarsınız.", "t2.unit": "gülüş tasarımı", "t2.save": "ABD'DE $15,000–$30,000",
+      "t3.title": "Diz Cerrahisi ve Protezi", "t3.desc": "Aynı ABD üretimi implantlar — Zimmer Biomet, Smith+Nephew — yüksek hacimli ortopedi ekiplerince yerleştirilir; eve dönmeden önce iyileşme otelinizde günlük fizyoterapi ile.", "t3.save": "ABD'DE $30,000–$50,000",
+      "t4.title": "Saç Ekimi", "t4.desc": "İstanbul dünyanın saç ekimi başkentidir. İşleminiz bir teknisyen değil, cerrah tarafından yapılır — doğal saç çizgisi tasarımı ve yazılı büyüme garantisiyle.", "t4.unit": "her şey dahil paket", "t4.save": "ABD'DE $12,000–$20,000",
+      "t5.title": "Dördün Ötesinde — Acıbadem ile", "t5.desc": "Estetik cerrahi, iLASIK ve SMILE göz cerrahisi, mide balonu ve tüpü, üst düzey check-up'lar ve ileri görüntüleme — Türkiye'nin en büyük hastane gruplarından biri olan Acıbadem'de, doğrudan hastaneye ödenen resmi fiyatlarla.", "t5.unit": "hastane fiyat listesi", "t5.save": "60+ İŞLEM, YAZILI FİYATLI", "t5.includes": "Otel yalnızca belirtildiğinde dahildir — bize ödediğiniz tek şey sabit 300 $ ücretidir.", "t5.cta": "Tüm Fiyat Listesini Gör"
+    },
+    de: {
+      "t.from": "ab", "t.calc": "Meinen Preis berechnen", "t.allinc": "All-inclusive",
+      "t.includes": "Festpreis inklusive Operation, Klinik, Hotel, Transfers und Nachsorge.",
+      "t1.title": "Nasenkorrektur (Rhinoplastik)", "t1.desc": "Die Nasenchirurgen der Türkei zählen zu den erfahrensten überhaupt – viele führen in einem Jahr mehr Rhinoplastiken durch als ein typischer US-Chirurg in einem Jahrzehnt. Ultraschall- und Erhaltungstechniken sind Standard.", "t1.save": "IN DEN USA $8,000–$15,000",
+      "t2.title": "Zahnveneers & Implantate", "t2.desc": "Ein komplettes Smile-Makeover in 5–7 Tagen, mit denselben Premiummarken wie Ihr Zahnarzt zu Hause – E-max, Zirkon, Straumann. Sie genehmigen eine digitale Vorschau Ihres neuen Lächelns, bevor ein Zahn berührt wird.", "t2.unit": "Smile-Makeover", "t2.save": "IN DEN USA $15,000–$30,000",
+      "t3.title": "Kniechirurgie & Prothese", "t3.desc": "Dieselben in den USA gefertigten Implantate – Zimmer Biomet, Smith+Nephew – eingesetzt von erfahrenen Orthopädie-Teams, mit täglicher Physiotherapie in Ihrem Genesungshotel, bevor Sie heimfliegen.", "t3.save": "IN DEN USA $30,000–$50,000",
+      "t4.title": "Haartransplantation", "t4.desc": "Istanbul ist die Welthauptstadt der Haartransplantation. Ihr Eingriff wird vom Chirurgen durchgeführt – nicht von einem Techniker – mit natürlichem Haaransatz-Design und schriftlicher Wachstumsgarantie.", "t4.unit": "All-inclusive-Paket", "t4.save": "IN DEN USA $12,000–$20,000",
+      "t5.title": "Über die vier hinaus – mit Acıbadem", "t5.desc": "Plastische Chirurgie, iLASIK- & SMILE-Augenchirurgie, Magenballon und -schlauch, Vorsorge-Check-ups und moderne Bildgebung – bei Acıbadem, einer der größten Klinikgruppen der Türkei, zu offiziellen, direkt an die Klinik gezahlten Preisen.", "t5.unit": "Klinik-Preisliste", "t5.save": "60+ EINGRIFFE, SCHRIFTLICH BEPREIST", "t5.includes": "Hotel nur wo angegeben inklusive – unsere feste Gebühr von 300 $ ist das Einzige, was Sie uns zahlen.", "t5.cta": "Vollständige Preisliste ansehen"
+    },
+    fr: {
+      "t.from": "à partir de", "t.calc": "Calculer mon prix", "t.allinc": "tout compris",
+      "t.includes": "Prix fixe incluant chirurgie, hôpital, hôtel, transferts et suivi.",
+      "t1.title": "Rhinoplastie", "t1.desc": "Les chirurgiens du nez de Turquie comptent parmi les plus expérimentés au monde — beaucoup réalisent plus de rhinoplasties en un an qu'un chirurgien américain typique en une décennie. Les techniques ultrasoniques et de préservation sont la norme.", "t1.save": "AUX É.-U. $8,000–$15,000",
+      "t2.title": "Facettes & implants dentaires", "t2.desc": "Une transformation complète du sourire en 5 à 7 jours, avec les mêmes marques premium que votre dentiste chez vous — E-max, zircone, Straumann. Vous validez un aperçu numérique de votre nouveau sourire avant qu'on ne touche une dent.", "t2.unit": "transformation du sourire", "t2.save": "AUX É.-U. $15,000–$30,000",
+      "t3.title": "Chirurgie & prothèse du genou", "t3.desc": "Les mêmes implants fabriqués aux États-Unis — Zimmer Biomet, Smith+Nephew — posés par des équipes orthopédiques à fort volume, avec kinésithérapie quotidienne à votre hôtel de convalescence avant votre retour.", "t3.save": "AUX É.-U. $30,000–$50,000",
+      "t4.title": "Greffe de cheveux", "t4.desc": "Istanbul est la capitale mondiale de la restauration capillaire. Votre intervention est réalisée par le chirurgien — pas un technicien — avec un dessin naturel de la ligne frontale et une garantie de repousse écrite.", "t4.unit": "forfait tout compris", "t4.save": "AUX É.-U. $12,000–$20,000",
+      "t5.title": "Au-delà des quatre — avec Acıbadem", "t5.desc": "Chirurgie esthétique, chirurgie oculaire iLASIK & SMILE, ballon et sleeve gastriques, bilans de santé et imagerie avancée — réalisés chez Acıbadem, l'un des plus grands groupes hospitaliers de Turquie, aux tarifs officiels payés directement à l'hôpital.", "t5.unit": "grille tarifaire de l'hôpital", "t5.save": "60+ INTERVENTIONS, TARIFS ÉCRITS", "t5.includes": "Hôtel inclus uniquement lorsque indiqué — nos frais fixes de 300 $ sont la seule chose que vous nous payez.", "t5.cta": "Voir toute la grille tarifaire"
+    },
+    ru: {
+      "t.from": "от", "t.calc": "Рассчитать мою цену", "t.allinc": "всё включено",
+      "t.includes": "Фиксированная цена включает операцию, больницу, отель, трансферы и уход.",
+      "t1.title": "Ринопластика", "t1.desc": "Ринохирурги Турции — одни из самых опытных в мире: многие делают больше ринопластик за год, чем типичный американский хирург за десятилетие. Ультразвуковые и сберегающие техники — стандарт.", "t1.save": "В США $8,000–$15,000",
+      "t2.title": "Виниры и импланты", "t2.desc": "Полное преображение улыбки за 5–7 дней с теми же премиум-брендами, что и у вашего стоматолога дома — E-max, цирконий, Straumann. Вы утверждаете цифровой предпросмотр новой улыбки, прежде чем коснутся хоть одного зуба.", "t2.unit": "преображение улыбки", "t2.save": "В США $15,000–$30,000",
+      "t3.title": "Хирургия и протезирование колена", "t3.desc": "Те же импланты производства США — Zimmer Biomet, Smith+Nephew — устанавливают опытные ортопедические команды, с ежедневной физиотерапией в вашем отеле восстановления перед вылетом домой.", "t3.save": "В США $30,000–$50,000",
+      "t4.title": "Пересадка волос", "t4.desc": "Стамбул — мировая столица восстановления волос. Вашу процедуру выполняет хирург, а не техник — с естественным дизайном линии роста и письменной гарантией роста.", "t4.unit": "пакет «всё включено»", "t4.save": "В США $12,000–$20,000",
+      "t5.title": "За пределами четырёх — с Acıbadem", "t5.desc": "Пластическая хирургия, лазерная коррекция iLASIK и SMILE, желудочный баллон и рукавная резекция, чек-апы и современная диагностика — в Acıbadem, одной из крупнейших больничных групп Турции, по официальным ценам, оплачиваемым напрямую больнице.", "t5.unit": "прайс-лист больницы", "t5.save": "60+ ПРОЦЕДУР, ЦЕНЫ ПИСЬМЕННО", "t5.includes": "Отель включён только там, где указано — наш фиксированный сбор $300 — единственное, что вы платите нам.", "t5.cta": "Смотреть полный прайс-лист"
+    },
+    zh: {
+      "t.from": "低至", "t.calc": "计算我的价格", "t.allinc": "全包",
+      "t.includes": "固定价格包含手术、医院、酒店、接送和术后护理。",
+      "t1.title": "鼻整形", "t1.desc": "土耳其的鼻整形医生是全球最有经验的之一——许多人一年完成的鼻整形手术，比美国普通医生十年还多。超声骨刀与保留式技术为标准配置。", "t1.save": "美国 $8,000–$15,000",
+      "t2.title": "牙齿贴面与种植", "t2.desc": "5–7 天内完成一次彻底的微笑改造，采用与您本地牙医相同的高端品牌——E-max、氧化锆、Straumann。在动第一颗牙之前，您先审核新笑容的数字预览。", "t2.unit": "微笑改造", "t2.save": "美国 $15,000–$30,000",
+      "t3.title": "膝关节手术与置换", "t3.desc": "同样的美国制造植入物——Zimmer Biomet、Smith+Nephew——由高手术量的骨科团队植入，回国前在您的康复酒店每日理疗。", "t3.save": "美国 $30,000–$50,000",
+      "t4.title": "植发", "t4.desc": "伊斯坦布尔是世界植发之都。您的手术由医生亲自完成——而非技师——采用自然发际线设计并附书面生长保证。", "t4.unit": "全包套餐", "t4.save": "美国 $12,000–$20,000",
+      "t5.title": "四项之外 — 携手 Acıbadem", "t5.desc": "整形外科、iLASIK 与 SMILE 眼科手术、胃球囊与胃缩小、高端体检与先进影像——在土耳其最大的医院集团之一 Acıbadem 完成，以直接支付给医院的官方价格。", "t5.unit": "医院价目表", "t5.save": "60+ 项目，明码标价", "t5.includes": "仅在注明处含酒店——您付给我们的只有固定的 300 美元费用。", "t5.cta": "查看完整价目表"
+    },
+    fa: {
+      "t.from": "از", "t.calc": "محاسبه قیمت من", "t.allinc": "همه‌شمول",
+      "t.includes": "قیمت ثابت شامل عمل، بیمارستان، هتل، ترانسفر و مراقبت است.",
+      "t1.title": "جراحی بینی (رینوپلاستی)", "t1.desc": "جراحان بینی ترکیه از باتجربه‌ترین‌های جهان‌اند — بسیاری در یک سال بیش از یک جراح معمولی آمریکایی در یک دهه، رینوپلاستی انجام می‌دهند. تکنیک‌های اولتراسونیک و حفظ‌کننده استاندارد هستند.", "t1.save": "در آمریکا $8,000–$15,000",
+      "t2.title": "لمینت و ایمپلنت دندان", "t2.desc": "طراحی کامل لبخند در ۵ تا ۷ روز، با همان برندهای برتری که دندان‌پزشک شما در وطن استفاده می‌کند — E-max، زیرکونیا، اشترومن. پیش از آنکه به دندانی دست بخورد، پیش‌نمایش دیجیتال لبخند جدیدتان را تأیید می‌کنید.", "t2.unit": "طراحی لبخند", "t2.save": "در آمریکا $15,000–$30,000",
+      "t3.title": "جراحی و تعویض زانو", "t3.desc": "همان ایمپلنت‌های ساخت آمریکا — Zimmer Biomet، Smith+Nephew — توسط تیم‌های پرحجم ارتوپدی کار گذاشته می‌شوند، با فیزیوتراپی روزانه در هتل نقاهت شما پیش از بازگشت به خانه.", "t3.save": "در آمریکا $30,000–$50,000",
+      "t4.title": "کاشت مو", "t4.desc": "استانبول پایتخت کاشت موی جهان است. عمل شما توسط جراح انجام می‌شود — نه یک تکنسین — با طراحی طبیعی خط مو و ضمانت کتبی رشد.", "t4.unit": "بسته همه‌شمول", "t4.save": "در آمریکا $12,000–$20,000",
+      "t5.title": "فراتر از چهار — با آجی‌بادم", "t5.desc": "جراحی زیبایی، جراحی چشم iLASIK و SMILE، بالون و اسلیو معده، چکاپ‌های تخصصی و تصویربرداری پیشرفته — در آجی‌بادم، یکی از بزرگ‌ترین گروه‌های بیمارستانی ترکیه، با قیمت‌های رسمی که مستقیماً به بیمارستان پرداخت می‌شود.", "t5.unit": "فهرست قیمت بیمارستان", "t5.save": "بیش از ۶۰ روش، با قیمت مکتوب", "t5.includes": "هتل تنها در جایی که ذکر شده شامل است — تنها چیزی که به ما می‌پردازید هزینه ثابت ۳۰۰ دلاری است.", "t5.cta": "مشاهده فهرست کامل قیمت"
+    },
+    hi: {
+      "t.from": "से", "t.calc": "मेरी कीमत जानें", "t.allinc": "सर्व-समावेशी",
+      "t.includes": "निश्चित मूल्य में सर्जरी, अस्पताल, होटल, ट्रांसफर और देखभाल शामिल।",
+      "t1.title": "राइनोप्लास्टी (नाक की सर्जरी)", "t1.desc": "तुर्की के नाक सर्जन दुनिया के सबसे अनुभवी सर्जनों में से हैं — कई एक वर्ष में उतनी राइनोप्लास्टी करते हैं जितनी एक सामान्य अमेरिकी सर्जन एक दशक में। अल्ट्रासोनिक और संरक्षण तकनीकें मानक हैं।", "t1.save": "अमेरिका में $8,000–$15,000",
+      "t2.title": "डेंटल विनियर और इम्प्लांट", "t2.desc": "5–7 दिनों में पूर्ण स्माइल मेकओवर, उन्हीं प्रीमियम ब्रांडों से जो आपके घर का डेंटिस्ट उपयोग करता है — E-max, ज़िरकोनिया, Straumann। किसी दाँत को छूने से पहले आप अपनी नई मुस्कान का डिजिटल पूर्वावलोकन स्वीकृत करते हैं।", "t2.unit": "स्माइल मेकओवर", "t2.save": "अमेरिका में $15,000–$30,000",
+      "t3.title": "घुटने की सर्जरी और प्रत्यारोपण", "t3.desc": "वही अमेरिका-निर्मित इम्प्लांट — Zimmer Biomet, Smith+Nephew — उच्च-मात्रा वाली ऑर्थोपेडिक टीमों द्वारा लगाए जाते हैं, घर लौटने से पहले आपके रिकवरी होटल में दैनिक फिज़ियोथेरेपी के साथ।", "t3.save": "अमेरिका में $30,000–$50,000",
+      "t4.title": "हेयर ट्रांसप्लांट", "t4.desc": "इस्तांबुल दुनिया की हेयर-रेस्टोरेशन राजधानी है। आपकी प्रक्रिया किसी तकनीशियन द्वारा नहीं, बल्कि सर्जन द्वारा की जाती है — प्राकृतिक हेयरलाइन डिज़ाइन और लिखित ग्रोथ गारंटी के साथ।", "t4.unit": "सर्व-समावेशी पैकेज", "t4.save": "अमेरिका में $12,000–$20,000",
+      "t5.title": "इन चार से आगे — Acıbadem के साथ", "t5.desc": "प्लास्टिक सर्जरी, iLASIK और SMILE नेत्र सर्जरी, गैस्ट्रिक स्लीव और बैलून, एग्ज़ीक्यूटिव चेक-अप और उन्नत इमेजिंग — तुर्की के सबसे बड़े अस्पताल समूहों में से एक Acıbadem में, सीधे अस्पताल को भुगतान की जाने वाली आधिकारिक कीमतों पर।", "t5.unit": "अस्पताल मूल्य सूची", "t5.save": "60+ प्रक्रियाएँ, लिखित मूल्य", "t5.includes": "होटल केवल वहीं शामिल जहाँ बताया गया है — हमें आप केवल निश्चित $300 शुल्क चुकाते हैं।", "t5.cta": "पूरी मूल्य सूची देखें"
+    }
+  };
+  Object.keys(T3).forEach(function (l) {
+    if (!T[l]) T[l] = {};
+    Object.keys(T3[l]).forEach(function (k) { T[l][k] = T3[l][k]; });
+  });
+
   var nodes = null;
   function collect() {
     if (!nodes) {
