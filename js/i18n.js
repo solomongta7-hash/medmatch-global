@@ -492,6 +492,84 @@
     Object.keys(T3[l]).forEach(function (k) { T[l][k] = T3[l][k]; });
   });
 
+  /* ── Stage 4: Perla dental faculty — fields, titles, bios ── */
+  var T4 = {
+    tr: {
+      "fld.oral": "AĞIZ CERRAHİSİ", "fld.aesth": "ESTETİK DİŞ HEKİMLİĞİ", "fld.general": "GENEL DİŞ HEKİMLİĞİ", "fld.ortho": "ORTODONTİ",
+      "ti.oral": "Çene ve Ağız Cerrahı — İstanbul", "ti.aesth": "Estetik Diş Hekimi — İstanbul", "ti.general": "Genel Diş Hekimi — İstanbul", "ti.ortho": "Ortodontist — Antalya",
+      "d1.bio": "Tam ark restorasyonlarından ileri çene cerrahisine kadar Çevre içindeki karmaşık cerrahi ve implant vakalarına öncülük eder.",
+      "d2.bio": "Gülüş tasarımı ve porselen sanatı — doğal bir Kuzey Amerika gülüşü için elle renk uyumu yapılan kaplama ve kronlar.",
+      "d3.bio": "Beş ila yedi günde tamamlanan tam gülüş tasarımları; dijital planlamayı titiz klinik işçilikle birleştirir.",
+      "d4.bio": "Minimal invaziv estetik diş hekimliği — altındaki gülüşü dönüştürürken sağlıklı mineyi korur.",
+      "d5.bio": "İlk klinik değerlendirmeniz ve süregelen bakımınız — her tedavi planının sağlıklı temellerden başlamasını sağlar.",
+      "d6.bio": "25 yılı aşkın gülüş hizalama deneyimi — şeffaf plaklardan karmaşık kapanış düzeltmelerine, yetişkin ve çocuklar için kişiye özel ortodonti planları."
+    },
+    de: {
+      "fld.oral": "MUNDCHIRURGIE", "fld.aesth": "ÄSTHETISCHE ZAHNMEDIZIN", "fld.general": "ALLGEMEINE ZAHNMEDIZIN", "fld.ortho": "KIEFERORTHOPÄDIE",
+      "ti.oral": "Kiefer- & Mundchirurg — Istanbul", "ti.aesth": "Ästhetische Zahnärztin — Istanbul", "ti.general": "Allgemeinzahnärztin — Istanbul", "ti.ortho": "Kieferorthopäde — Antalya",
+      "d1.bio": "Leitet komplexe chirurgische und Implantatfälle im Kreis, von Full-Arch-Restaurationen bis zur anspruchsvollen Kieferchirurgie.",
+      "d2.bio": "Smile-Design und Porzellankunst — Veneers und Kronen von Hand farblich abgestimmt für ein natürliches nordamerikanisches Lächeln.",
+      "d3.bio": "Komplette Smile-Makeovers in fünf bis sieben Tagen, digitale Planung kombiniert mit sorgfältiger Feinarbeit am Stuhl.",
+      "d4.bio": "Minimalinvasive ästhetische Zahnmedizin — bewahrt gesunden Schmelz und verwandelt zugleich das Lächeln darunter.",
+      "d5.bio": "Ihre erste klinische Untersuchung und fortlaufende Betreuung — damit jeder Behandlungsplan auf gesunder Grundlage beginnt.",
+      "d6.bio": "Über 25 Jahre Erfahrung im Ausrichten von Lächeln — individuelle kieferorthopädische Pläne für Erwachsene und Kinder, von Alignern bis zur komplexen Bisskorrektur."
+    },
+    fr: {
+      "fld.oral": "CHIRURGIE ORALE", "fld.aesth": "DENTISTERIE ESTHÉTIQUE", "fld.general": "DENTISTERIE GÉNÉRALE", "fld.ortho": "ORTHODONTIE",
+      "ti.oral": "Chirurgien maxillo-facial & oral — Istanbul", "ti.aesth": "Dentiste esthétique — Istanbul", "ti.general": "Dentiste généraliste — Istanbul", "ti.ortho": "Orthodontiste — Antalya",
+      "d1.bio": "Dirige les cas chirurgicaux et implantaires complexes au sein du Cercle, des restaurations d'arcade complète à la chirurgie maxillaire avancée.",
+      "d2.bio": "Conception du sourire et art de la porcelaine — facettes et couronnes assorties à la main pour un sourire nord-américain naturel.",
+      "d3.bio": "Transformations complètes du sourire en cinq à sept jours, alliant planification numérique et finition minutieuse au fauteuil.",
+      "d4.bio": "Dentisterie esthétique peu invasive — préservant l'émail sain tout en transformant le sourire en dessous.",
+      "d5.bio": "Votre premier bilan clinique et le suivi continu — pour que chaque plan de traitement parte de bases saines.",
+      "d6.bio": "Plus de 25 ans à aligner les sourires — plans orthodontiques personnalisés pour adultes et enfants, des gouttières transparentes aux corrections d'occlusion complexes."
+    },
+    ru: {
+      "fld.oral": "ОРАЛЬНАЯ ХИРУРГИЯ", "fld.aesth": "ЭСТЕТИЧЕСКАЯ СТОМАТОЛОГИЯ", "fld.general": "ОБЩАЯ СТОМАТОЛОГИЯ", "fld.ortho": "ОРТОДОНТИЯ",
+      "ti.oral": "Челюстно-лицевой и оральный хирург — Стамбул", "ti.aesth": "Эстетический стоматолог — Стамбул", "ti.general": "Стоматолог общей практики — Стамбул", "ti.ortho": "Ортодонт — Анталья",
+      "d1.bio": "Ведёт сложные хирургические и имплантологические случаи в Круге — от полной реставрации зубного ряда до сложной челюстной хирургии.",
+      "d2.bio": "Дизайн улыбки и искусство фарфора — виниры и коронки, подобранные по цвету вручную для естественной североамериканской улыбки.",
+      "d3.bio": "Полное преображение улыбки за пять–семь дней: цифровое планирование в сочетании с тщательной ручной отделкой.",
+      "d4.bio": "Малоинвазивная эстетическая стоматология — сохраняет здоровую эмаль, преображая улыбку под ней.",
+      "d5.bio": "Ваш первый клинический осмотр и последующий уход — каждый план лечения начинается со здоровой основы.",
+      "d6.bio": "Более 25 лет выравнивания улыбок — индивидуальные ортодонтические планы для взрослых и детей, от прозрачных элайнеров до сложной коррекции прикуса."
+    },
+    zh: {
+      "fld.oral": "口腔外科", "fld.aesth": "美学牙科", "fld.general": "全科牙科", "fld.ortho": "口腔正畸",
+      "ti.oral": "颌面与口腔外科医生 — 伊斯坦布尔", "ti.aesth": "美学牙医 — 伊斯坦布尔", "ti.general": "全科牙医 — 伊斯坦布尔", "ti.ortho": "正畸医生 — 安塔利亚",
+      "d1.bio": "在圈内主理复杂的外科与种植病例，从全牙弓修复到高难度颌骨手术。",
+      "d2.bio": "微笑设计与瓷艺——手工比色的贴面与牙冠，成就自然的北美式笑容。",
+      "d3.bio": "五到七天完成完整的微笑改造，将数字化规划与精细的椅旁修整相结合。",
+      "d4.bio": "微创美容牙科——在改变笑容的同时保留健康的牙釉质。",
+      "d5.bio": "您的首次临床评估与持续护理——确保每一份治疗方案都从健康的基础开始。",
+      "d6.bio": "逾 25 年矫正笑容经验——为成人与儿童量身定制的正畸方案，从隐形矫治到复杂咬合矫正。"
+    },
+    fa: {
+      "fld.oral": "جراحی دهان", "fld.aesth": "دندان‌پزشکی زیبایی", "fld.general": "دندان‌پزشکی عمومی", "fld.ortho": "ارتودنسی",
+      "ti.oral": "جراح فک و دهان — استانبول", "ti.aesth": "دندان‌پزشک زیبایی — استانبول", "ti.general": "دندان‌پزشک عمومی — استانبول", "ti.ortho": "ارتودنتیست — آنتالیا",
+      "d1.bio": "هدایت پرونده‌های پیچیده جراحی و ایمپلنت در حلقه، از بازسازی کامل قوس دندانی تا جراحی پیشرفته فک.",
+      "d2.bio": "طراحی لبخند و هنر پرسلن — لمینت و روکش‌هایی که برای لبخندی طبیعی و آمریکایی، دستی هم‌رنگ می‌شوند.",
+      "d3.bio": "طراحی کامل لبخند در پنج تا هفت روز، با ترکیب برنامه‌ریزی دیجیتال و پرداخت دقیق کنار صندلی.",
+      "d4.bio": "دندان‌پزشکی زیبایی کم‌تهاجمی — حفظ مینای سالم در حین دگرگون‌سازی لبخند زیر آن.",
+      "d5.bio": "نخستین ارزیابی بالینی و مراقبت مستمر شما — تضمین می‌کند هر طرح درمان از پایه‌ای سالم آغاز شود.",
+      "d6.bio": "بیش از ۲۵ سال هم‌تراز کردن لبخندها — طرح‌های ارتودنسی شخصی برای بزرگسالان و کودکان، از الاینرهای شفاف تا اصلاح پیچیده انسداد."
+    },
+    hi: {
+      "fld.oral": "ओरल सर्जरी", "fld.aesth": "एस्थेटिक डेंटिस्ट्री", "fld.general": "सामान्य डेंटिस्ट्री", "fld.ortho": "ऑर्थोडॉन्टिक्स",
+      "ti.oral": "मैक्सिलोफेशियल और ओरल सर्जन — इस्तांबुल", "ti.aesth": "एस्थेटिक डेंटिस्ट — इस्तांबुल", "ti.general": "सामान्य डेंटिस्ट — इस्तांबुल", "ti.ortho": "ऑर्थोडॉन्टिस्ट — अंताल्या",
+      "d1.bio": "सर्कल के भीतर जटिल शल्य और इम्प्लांट मामलों का नेतृत्व — फुल-आर्च रेस्टोरेशन से लेकर उन्नत जबड़े की सर्जरी तक।",
+      "d2.bio": "स्माइल डिज़ाइन और पोर्सिलेन कला — एक स्वाभाविक उत्तर-अमेरिकी मुस्कान के लिए हाथ से शेड-मैच किए विनियर और क्राउन।",
+      "d3.bio": "पाँच से सात दिनों में पूर्ण स्माइल मेकओवर, डिजिटल योजना को सूक्ष्म चेयरसाइड फिनिशिंग के साथ जोड़ते हुए।",
+      "d4.bio": "न्यूनतम-आक्रामक कॉस्मेटिक डेंटिस्ट्री — नीचे की मुस्कान बदलते हुए स्वस्थ इनेमल को सुरक्षित रखना।",
+      "d5.bio": "आपका पहला क्लिनिकल मूल्यांकन और निरंतर देखभाल — यह सुनिश्चित करते हुए कि हर उपचार योजना स्वस्थ नींव से शुरू हो।",
+      "d6.bio": "25 वर्षों से अधिक मुस्कान संरेखण — वयस्कों और बच्चों के लिए वैयक्तिक ऑर्थोडॉन्टिक योजनाएँ, क्लियर अलाइनर से लेकर जटिल बाइट सुधार तक।"
+    }
+  };
+  Object.keys(T4).forEach(function (l) {
+    if (!T[l]) T[l] = {};
+    Object.keys(T4[l]).forEach(function (k) { T[l][k] = T4[l][k]; });
+  });
+
   var nodes = null;
   function collect() {
     if (!nodes) {
