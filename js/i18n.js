@@ -570,6 +570,56 @@
     Object.keys(T4[l]).forEach(function (k) { T[l][k] = T4[l][k]; });
   });
 
+  /* ── Stage 5: FAQ questions, invitation form, footer links ── */
+  var T5 = {
+    tr: {
+      "q1": "Türkiye'de ameliyat olmak gerçekten güvenli mi?", "q2": "Cerrahım kim olacak — ve ödeme yapmadan önce onunla konuşabilir miyim?", "q3": "Sabit fiyata tam olarak neler dahil?", "q4": "Eve döndükten sonra bir komplikasyon olursa ne olur?", "q5": "Türkiye'de ne kadar kalmam gerekiyor?", "q6": "Vizeye ihtiyacım var mı?", "q7": "Eşimi veya bir arkadaşımı getirebilir miyim?", "q8": "Nasıl ve ne zaman ödeme yaparım?", "q9": "Neden 300 $'lık bir koordinasyon ücreti var?",
+      "inv.p1": "48 saat içinde yanıt", "inv.p2": "Uzman cerrahlarca incelenir", "inv.p3": "Sabit teklif — sürpriz yok",
+      "f.name": "Ad Soyad", "f.email": "E-posta", "f.phone": "Telefon / WhatsApp", "f.treatment": "İlgilendiğiniz tedavi", "f.msg": "Bilmemiz gereken bir şey var mı?", "f.submit": "Ücretsiz Teklifimi Al — Yükümlülük Yok", "f.micro": "Ücretsiz · 48 saat içinde yanıt · Bilgileriniz asla paylaşılmaz", "f.success": "Teşekkürler. Talebiniz alındı —<br>48 saat içinde yanıtımızı bekleyin. <em>— MedMatch Global</em>",
+      "ft.acb": "Acıbadem Fiyat Listesi", "ft.mp": "Medical Park — Yakında", "ft.advisor": "Danışman Merkezi — Katılın", "ft.rights": "© 2026 MedMatch Global. Tüm hakları saklıdır.", "ft.disc": "Tahminler bilgilendirme amaçlıdır ve tıbbi tavsiye niteliği taşımaz.", "ft.sub": "MEDİKAL SEYAHAT AKADEMİSİ", "ft.wa": "WhatsApp'tan yazın"
+    },
+    de: {
+      "q1": "Ist eine Operation in der Türkei wirklich sicher?", "q2": "Wer wird mein Chirurg sein – und kann ich vor der Zahlung mit ihm sprechen?", "q3": "Was genau ist im Festpreis enthalten?", "q4": "Was passiert bei einer Komplikation nach meinem Heimflug?", "q5": "Wie lange muss ich in der Türkei bleiben?", "q6": "Brauche ich ein Visum?", "q7": "Darf ich meinen Partner oder eine Freundin mitbringen?", "q8": "Wie und wann zahle ich?", "q9": "Warum gibt es eine Koordinationsgebühr von 300 $?",
+      "inv.p1": "Antwort binnen 48 Stunden", "inv.p2": "Von Fachchirurgen geprüft", "inv.p3": "Festpreis – keine Überraschungen",
+      "f.name": "Vollständiger Name", "f.email": "E-Mail", "f.phone": "Telefon / WhatsApp", "f.treatment": "Gewünschte Behandlung", "f.msg": "Sollten wir etwas wissen?", "f.submit": "Kostenloses Angebot anfordern – unverbindlich", "f.micro": "Kostenlos · Antwort binnen 48 Stunden · Ihre Daten werden nie geteilt", "f.success": "Danke. Ihre Anfrage ist eingegangen –<br>Sie erhalten unsere Antwort binnen 48 Stunden. <em>— MedMatch Global</em>",
+      "ft.acb": "Acıbadem-Preisliste", "ft.mp": "Medical Park — Demnächst", "ft.advisor": "Berater-Hub — Mitmachen", "ft.rights": "© 2026 MedMatch Global. Alle Rechte vorbehalten.", "ft.disc": "Schätzungen dienen der Information und stellen keine medizinische Beratung dar.", "ft.sub": "DIE AKADEMIE FÜR MEDIZINREISEN", "ft.wa": "Schreiben Sie uns auf WhatsApp"
+    },
+    fr: {
+      "q1": "Est-il vraiment sûr de se faire opérer en Turquie ?", "q2": "Qui sera mon chirurgien — et puis-je lui parler avant de payer ?", "q3": "Qu'inclut exactement le prix fixe ?", "q4": "Que se passe-t-il en cas de complication après mon retour ?", "q5": "Combien de temps dois-je rester en Turquie ?", "q6": "Ai-je besoin d'un visa ?", "q7": "Puis-je venir avec mon partenaire ou un ami ?", "q8": "Comment et quand dois-je payer ?", "q9": "Pourquoi des frais de coordination de 300 $ ?",
+      "inv.p1": "Réponse sous 48 heures", "inv.p2": "Examiné par des chirurgiens spécialistes", "inv.p3": "Devis fixe — sans surprise",
+      "f.name": "Nom complet", "f.email": "E-mail", "f.phone": "Téléphone / WhatsApp", "f.treatment": "Traitement souhaité", "f.msg": "Quelque chose à nous signaler ?", "f.submit": "Obtenir mon devis gratuit — sans engagement", "f.micro": "Gratuit · Réponse sous 48 heures · Vos données ne sont jamais partagées", "f.success": "Merci. Votre demande a bien été reçue —<br>attendez notre réponse sous 48 heures. <em>— MedMatch Global</em>",
+      "ft.acb": "Grille tarifaire Acıbadem", "ft.mp": "Medical Park — Bientôt", "ft.advisor": "Espace Conseiller — Rejoignez-nous", "ft.rights": "© 2026 MedMatch Global. Tous droits réservés.", "ft.disc": "Les estimations sont indicatives et ne constituent pas un avis médical.", "ft.sub": "L'ACADÉMIE DU TOURISME MÉDICAL", "ft.wa": "Écrivez-nous sur WhatsApp"
+    },
+    ru: {
+      "q1": "Действительно ли безопасно оперироваться в Турции?", "q2": "Кто будет моим хирургом — и могу ли я поговорить с ним до оплаты?", "q3": "Что именно входит в фиксированную цену?", "q4": "Что если возникнет осложнение после возвращения домой?", "q5": "Как долго мне нужно оставаться в Турции?", "q6": "Нужна ли мне виза?", "q7": "Могу ли я приехать с партнёром или другом?", "q8": "Как и когда я плачу?", "q9": "Почему есть сбор за координацию $300?",
+      "inv.p1": "Ответ в течение 48 часов", "inv.p2": "Проверено хирургами-специалистами", "inv.p3": "Фиксированное предложение — без сюрпризов",
+      "f.name": "Полное имя", "f.email": "Эл. почта", "f.phone": "Телефон / WhatsApp", "f.treatment": "Интересующее лечение", "f.msg": "Что нам следует знать?", "f.submit": "Получить бесплатную оценку — без обязательств", "f.micro": "Бесплатно · Ответ в течение 48 часов · Ваши данные никогда не передаются", "f.success": "Спасибо. Ваш запрос получен —<br>ожидайте наш ответ в течение 48 часов. <em>— MedMatch Global</em>",
+      "ft.acb": "Прайс-лист Acıbadem", "ft.mp": "Medical Park — Скоро", "ft.advisor": "Кабинет консультанта — Присоединяйтесь", "ft.rights": "© 2026 MedMatch Global. Все права защищены.", "ft.disc": "Оценки носят информационный характер и не являются медицинской консультацией.", "ft.sub": "АКАДЕМИЯ МЕДИЦИНСКОГО ТУРИЗМА", "ft.wa": "Напишите нам в WhatsApp"
+    },
+    zh: {
+      "q1": "在土耳其做手术真的安全吗？", "q2": "我的主刀医生是谁——付款前我能与他沟通吗？", "q3": "固定价格究竟包含什么？", "q4": "如果回国后出现并发症怎么办？", "q5": "我需要在土耳其停留多久？", "q6": "我需要签证吗？", "q7": "我可以带伴侣或朋友吗？", "q8": "我如何以及何时付款？", "q9": "为什么有 300 美元的协调费？",
+      "inv.p1": "48 小时内回复", "inv.p2": "由专科外科医生审核", "inv.p3": "固定报价——绝无意外",
+      "f.name": "全名", "f.email": "电子邮箱", "f.phone": "电话 / WhatsApp", "f.treatment": "感兴趣的诊疗", "f.msg": "还有什么需要我们了解的吗？", "f.submit": "获取免费报价 — 无义务", "f.micro": "免费 · 48 小时内回复 · 您的信息绝不外泄", "f.success": "谢谢。我们已收到您的请求 —<br>请等待我们在 48 小时内回复。<em>— MedMatch Global</em>",
+      "ft.acb": "Acıbadem 价目表", "ft.mp": "Medical Park — 即将上线", "ft.advisor": "顾问中心 — 加入我们", "ft.rights": "© 2026 MedMatch Global. 保留所有权利。", "ft.disc": "估价仅供参考，不构成医疗建议。", "ft.sub": "医疗旅行学院", "ft.wa": "通过 WhatsApp 联系我们"
+    },
+    fa: {
+      "q1": "آیا جراحی در ترکیه واقعاً امن است؟", "q2": "جراح من چه کسی خواهد بود — و آیا پیش از پرداخت می‌توانم با او صحبت کنم؟", "q3": "قیمت ثابت دقیقاً شامل چه چیزهایی است؟", "q4": "اگر پس از بازگشت به خانه عارضه‌ای پیش بیاید چه می‌شود؟", "q5": "چه مدت باید در ترکیه بمانم؟", "q6": "آیا به ویزا نیاز دارم؟", "q7": "آیا می‌توانم همسر یا دوستم را همراه بیاورم؟", "q8": "چگونه و چه زمانی پرداخت می‌کنم؟", "q9": "چرا هزینه هماهنگی ۳۰۰ دلاری وجود دارد؟",
+      "inv.p1": "پاسخ ظرف ۴۸ ساعت", "inv.p2": "بررسی‌شده توسط جراحان متخصص", "inv.p3": "پیشنهاد ثابت — بدون غافلگیری",
+      "f.name": "نام کامل", "f.email": "ایمیل", "f.phone": "تلفن / واتساپ", "f.treatment": "درمان موردنظر", "f.msg": "چیزی هست که باید بدانیم؟", "f.submit": "دریافت پیشنهاد رایگان — بدون تعهد", "f.micro": "رایگان · پاسخ ظرف ۴۸ ساعت · اطلاعات شما هرگز به اشتراک گذاشته نمی‌شود", "f.success": "سپاسگزاریم. درخواست شما دریافت شد —<br>ظرف ۴۸ ساعت منتظر پاسخ ما باشید. <em>— MedMatch Global</em>",
+      "ft.acb": "فهرست قیمت آجی‌بادم", "ft.mp": "Medical Park — به‌زودی", "ft.advisor": "مرکز مشاوران — بپیوندید", "ft.rights": "© ۲۰۲۶ MedMatch Global. همه حقوق محفوظ است.", "ft.disc": "برآوردها جنبه اطلاع‌رسانی دارند و توصیه پزشکی محسوب نمی‌شوند.", "ft.sub": "آکادمی گردشگری سلامت", "ft.wa": "در واتساپ برای ما بنویسید"
+    },
+    hi: {
+      "q1": "क्या तुर्की में सर्जरी कराना वास्तव में सुरक्षित है?", "q2": "मेरा सर्जन कौन होगा — और क्या मैं भुगतान से पहले उससे बात कर सकता हूँ?", "q3": "निश्चित मूल्य में वास्तव में क्या शामिल है?", "q4": "घर लौटने के बाद कोई जटिलता हो तो क्या होगा?", "q5": "मुझे तुर्की में कितने दिन रुकना होगा?", "q6": "क्या मुझे वीज़ा चाहिए?", "q7": "क्या मैं अपने साथी या मित्र को ला सकता हूँ?", "q8": "मैं कैसे और कब भुगतान करूँ?", "q9": "$300 समन्वय शुल्क क्यों है?",
+      "inv.p1": "48 घंटों में उत्तर", "inv.p2": "विशेषज्ञ सर्जनों द्वारा समीक्षित", "inv.p3": "निश्चित कोटेशन — कोई आश्चर्य नहीं",
+      "f.name": "पूरा नाम", "f.email": "ईमेल", "f.phone": "फ़ोन / WhatsApp", "f.treatment": "रुचि का उपचार", "f.msg": "क्या हमें कुछ जानना चाहिए?", "f.submit": "मेरा मुफ़्त कोटेशन पाएं — बिना बाध्यता", "f.micro": "मुफ़्त · 48 घंटों में उत्तर · आपकी जानकारी कभी साझा नहीं की जाती", "f.success": "धन्यवाद। आपका अनुरोध प्राप्त हुआ —<br>48 घंटों में हमारे उत्तर की प्रतीक्षा करें। <em>— MedMatch Global</em>",
+      "ft.acb": "Acıbadem मूल्य सूची", "ft.mp": "Medical Park — जल्द आ रहा है", "ft.advisor": "सलाहकार हब — हमसे जुड़ें", "ft.rights": "© 2026 MedMatch Global. सर्वाधिकार सुरक्षित।", "ft.disc": "अनुमान सूचनात्मक हैं और चिकित्सा सलाह नहीं हैं।", "ft.sub": "मेडिकल ट्रैवल अकादमी", "ft.wa": "WhatsApp पर हमें लिखें"
+    }
+  };
+  Object.keys(T5).forEach(function (l) {
+    if (!T[l]) T[l] = {};
+    Object.keys(T5[l]).forEach(function (k) { T[l][k] = T5[l][k]; });
+  });
+
   var nodes = null;
   function collect() {
     if (!nodes) {
