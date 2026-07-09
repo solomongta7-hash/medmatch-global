@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" as="image" href="img/antalya-turquoise-coast-hero.jpg" fetchpriority="high" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css?v=3.3" />
+<link rel="stylesheet" href="css/styles.css?v=3.4" />
 <link rel="stylesheet" href="css/packages.css?v=2" />
 <script type="application/ld+json">
 {
@@ -82,30 +82,43 @@
     <span class="nav__brand-sub">THE&nbsp;ACADEMY</span>
   </a>
   <nav class="nav__links">
-    <a href="#standard" data-scroll-to="#standard">Why Us</a>
-    <a href="#treatments" data-scroll-to="#treatments">Treatments</a>
-    <a href="#partners" data-scroll-to="#partners">Our Partners</a>
-    <a href="#estimate" data-scroll-to="#estimate">Pricing</a>
-    <a href="#packages" data-scroll-to="#packages">Packages</a>
-    <a href="advisor-hub.html">Advisor Hub</a>
-    <a href="#faq" data-scroll-to="#faq">FAQ</a>
+    <a href="#standard" data-scroll-to="#standard" data-i18n="nav.why">Why Us</a>
+    <a href="#treatments" data-scroll-to="#treatments" data-i18n="nav.treatments">Treatments</a>
+    <a href="#partners" data-scroll-to="#partners" data-i18n="nav.partners">Our Partners</a>
+    <a href="#estimate" data-scroll-to="#estimate" data-i18n="nav.pricing">Pricing</a>
+    <a href="#packages" data-scroll-to="#packages" data-i18n="nav.packages">Packages</a>
+    <a href="advisor-hub.html" data-i18n="nav.advisor">Advisor Hub</a>
+    <a href="#faq" data-scroll-to="#faq" data-i18n="nav.faq">FAQ</a>
   </nav>
-  <a class="btn btn--gold nav__cta magnetic" href="#invitation" data-scroll-to="#invitation"><span>Get My Free Quote</span></a>
+  <div class="lang-pick" title="Choose language">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
+    <select id="langSelect" aria-label="Choose language">
+      <option value="en">English</option>
+      <option value="tr">Türkçe</option>
+      <option value="de">Deutsch</option>
+      <option value="fr">Français</option>
+      <option value="ru">Русский</option>
+      <option value="zh">中文</option>
+      <option value="fa">فارسی</option>
+      <option value="hi">हिन्दी</option>
+    </select>
+  </div>
+  <a class="btn btn--gold nav__cta magnetic" href="#invitation" data-scroll-to="#invitation"><span data-i18n="nav.cta">Get My Free Quote</span></a>
   <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span></button>
 </header>
 
 <!-- mobile menu -->
 <div class="mmenu" id="mmenu">
   <nav>
-    <a href="#standard" data-scroll-to="#standard">Why Us</a>
-    <a href="#treatments" data-scroll-to="#treatments">Treatments</a>
-    <a href="#partners" data-scroll-to="#partners">Our Partners</a>
-    <a href="#estimate" data-scroll-to="#estimate">Pricing</a>
-    <a href="#packages" data-scroll-to="#packages">Packages</a>
-    <a href="advisor-hub.html">Advisor Hub</a>
-    <a href="#passage" data-scroll-to="#passage">How It Works</a>
-    <a href="#faq" data-scroll-to="#faq">FAQ</a>
-    <a href="#invitation" data-scroll-to="#invitation">Get My Free Quote</a>
+    <a href="#standard" data-scroll-to="#standard" data-i18n="nav.why">Why Us</a>
+    <a href="#treatments" data-scroll-to="#treatments" data-i18n="nav.treatments">Treatments</a>
+    <a href="#partners" data-scroll-to="#partners" data-i18n="nav.partners">Our Partners</a>
+    <a href="#estimate" data-scroll-to="#estimate" data-i18n="nav.pricing">Pricing</a>
+    <a href="#packages" data-scroll-to="#packages" data-i18n="nav.packages">Packages</a>
+    <a href="advisor-hub.html" data-i18n="nav.advisor">Advisor Hub</a>
+    <a href="#passage" data-scroll-to="#passage" data-i18n="nav.howitworks">How It Works</a>
+    <a href="#faq" data-scroll-to="#faq" data-i18n="nav.faq">FAQ</a>
+    <a href="#invitation" data-scroll-to="#invitation" data-i18n="nav.cta">Get My Free Quote</a>
   </nav>
 </div>
 
@@ -119,18 +132,18 @@
   <div class="hero__inner">
     <p class="hero__eyebrow" data-fade>
       <svg viewBox="0 0 24 24" class="crest"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1"/><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="0.8"/></svg>
-      FOR PATIENTS FROM THE U.S. &amp; CANADA&ensp;·&ensp;ISTANBUL &amp; ANTALYA, TÜRKIYE
+      <span data-i18n="hero.eyebrow">FOR PATIENTS FROM THE U.S. &amp; CANADA&ensp;·&ensp;ISTANBUL &amp; ANTALYA, TÜRKIYE</span>
     </p>
     <h1 class="hero__title">
       <span class="hero__line" data-reveal="chars">World-class surgery in Turkey.</span>
       <span class="hero__line hero__line--em" data-reveal="chars">Without the guesswork.</span>
     </h1>
-    <p class="hero__sub" data-fade>We match you with board-certified surgeons at internationally accredited
+    <p class="hero__sub" data-fade data-i18n="hero.sub">We match you with board-certified surgeons at internationally accredited
     hospitals — and handle everything else. One fixed price covers your procedure, hotel, transfers
     and aftercare. A personal care coordinator stays by your side from your first call to full recovery.</p>
     <div class="hero__cta" data-fade>
-      <a class="btn btn--gold magnetic" href="#invitation" data-scroll-to="#invitation"><span>Get My Free Quote</span></a>
-      <a class="btn btn--ghost magnetic" href="#treatments" data-scroll-to="#treatments"><span>See Treatments &amp; Prices</span></a>
+      <a class="btn btn--gold magnetic" href="#invitation" data-scroll-to="#invitation"><span data-i18n="hero.cta1">Get My Free Quote</span></a>
+      <a class="btn btn--ghost magnetic" href="#treatments" data-scroll-to="#treatments"><span data-i18n="hero.cta2">See Treatments &amp; Prices</span></a>
     </div>
   </div>
   <div class="hero__foot">
@@ -365,30 +378,39 @@
 
   <div class="partners__grid">
     <article class="partner" data-fade>
-      <p class="partner__type">DENTAL CLINIC — ANTALYA</p>
-      <h3>Perla Dental Clinics</h3>
-      <p class="partner__desc">Our dedicated dental partner — full-mouth implants, veneers and smile
-      makeovers, delivered by the five specialists you see below.</p>
-      <p class="partner__addr">Lara Caddesi, 1964. Sk. No:7, 07160 Muratpaşa / Antalya</p>
-      <a class="partner__link" href="packages.html">Dental packages &amp; prices →</a>
+      <div class="partner__img" role="img" aria-label="Perla Dental Clinics reception, Antalya" style="background-image:url('img/partners/perla-reception.webp')"></div>
+      <div class="partner__body">
+        <p class="partner__type" data-i18n="partner.perla.type">DENTAL CLINIC — ANTALYA</p>
+        <h3>Perla Dental Clinics</h3>
+        <p class="partner__desc" data-i18n="partner.perla.desc">Our dedicated dental partner — full-mouth implants, veneers and smile
+        makeovers, delivered by the six specialists you see below.</p>
+        <p class="partner__addr">Lara Caddesi, 1964. Sk. No:7, 07160 Muratpaşa / Antalya</p>
+        <a class="partner__link" href="packages.html" data-i18n="partner.perla.link">Dental packages &amp; prices →</a>
+      </div>
     </article>
     <article class="partner" data-fade>
-      <p class="partner__type">HOSPITAL GROUP — ISTANBUL</p>
-      <h3>Acıbadem Healthcare Group</h3>
-      <p class="partner__desc">One of Türkiye's largest private healthcare groups — plastic surgery, eye
-      surgery, hair transplantation, bariatric procedures, executive check-ups and imaging, all inside
-      full hospitals with intensive care on site.</p>
-      <p class="partner__addr">Fulya (Beşiktaş) · Kartal · Ataşehir campuses, Istanbul — full addresses on
-      the price list</p>
-      <a class="partner__link" href="acibadem.html">Full Acıbadem price list →</a>
+      <div class="partner__img" role="img" aria-label="Acıbadem Kartal Hospital, Istanbul" style="background-image:url('img/partners/acibadem-kartal.avif')"></div>
+      <div class="partner__body">
+        <p class="partner__type" data-i18n="partner.acibadem.type">HOSPITAL GROUP — ISTANBUL</p>
+        <h3>Acıbadem Healthcare Group</h3>
+        <p class="partner__desc" data-i18n="partner.acibadem.desc">One of Türkiye's largest private healthcare groups — plastic surgery, eye
+        surgery, hair transplantation, bariatric procedures, executive check-ups and imaging, all inside
+        full hospitals with intensive care on site.</p>
+        <p class="partner__addr">Fulya (Beşiktaş) · Kartal · Ataşehir campuses, Istanbul — full addresses on
+        the price list</p>
+        <a class="partner__link" href="acibadem.html" data-i18n="partner.acibadem.link">Full Acıbadem price list →</a>
+      </div>
     </article>
     <article class="partner" data-fade>
-      <p class="partner__type">HOSPITAL GROUP — COMING SOON</p>
-      <h3>Medical Park Hospitals</h3>
-      <p class="partner__desc">One of Türkiye's largest hospital networks — more than 25 hospitals across
-      13 cities. We are finalizing our official partner price list now.</p>
-      <p class="partner__addr">Campus details published with the price list</p>
-      <a class="partner__link" href="medical-park.html">What to expect →</a>
+      <div class="partner__img partner__img--soon"><span>COMING SOON</span></div>
+      <div class="partner__body">
+        <p class="partner__type" data-i18n="partner.mp.type">HOSPITAL GROUP — COMING SOON</p>
+        <h3>Medical Park Hospitals</h3>
+        <p class="partner__desc" data-i18n="partner.mp.desc">One of Türkiye's largest hospital networks — more than 25 hospitals across
+        13 cities. We are finalizing our official partner price list now.</p>
+        <p class="partner__addr">Campus details published with the price list</p>
+        <a class="partner__link" href="medical-park.html" data-i18n="partner.mp.link">What to expect →</a>
+      </div>
     </article>
   </div>
 
@@ -438,6 +460,14 @@
       <p class="doctor__title">General Dentist — Istanbul</p>
       <p class="doctor__bio">Your first clinical assessment and continuing care — ensuring every treatment plan starts from healthy foundations.</p>
     </article>
+    <article class="doctor" data-fade>
+      <div class="doctor__photo" role="img" aria-label="Portrait of Dr. Eldar Aydınlı" style="background-image:url('img/doctors/eldar-aydinli.webp')">
+        <span class="doctor__field">ORTHODONTICS</span>
+      </div>
+      <h3>Dr. Eldar Aydınlı</h3>
+      <p class="doctor__title">Orthodontist — Antalya</p>
+      <p class="doctor__bio">More than 25 years aligning smiles — personalised orthodontic plans for adults and children, from clear aligners to complex bite correction.</p>
+    </article>
   </div>
 </section>
 
@@ -468,6 +498,7 @@
     <div class="currency" id="currencyToggle">
       <button class="currency__btn is-active" data-cur="USD">USD $</button>
       <button class="currency__btn" data-cur="CAD">CAD $</button>
+      <button class="currency__btn" data-cur="GBP">GBP £</button>
     </div>
   </div>
 
@@ -954,12 +985,12 @@
   <div class="footer__cols">
     <div>
       <p class="footer__brand">MEDMATCH GLOBAL<span>THE ACADEMY OF MEDICAL TRAVEL</span></p>
-      <p class="footer__desc">Privately matching patients from the United States &amp; Canada with
+      <p class="footer__desc" data-i18n="footer.desc">Privately matching patients from the United States &amp; Canada with
       Türkiye's most distinguished surgeons — built on more than twenty years of health-tourism
       experience.</p>
     </div>
     <div class="footer__col">
-      <h4>Treatments</h4>
+      <h4 data-i18n="footer.treatments">Treatments</h4>
       <a href="#treatments" data-scroll-to="#treatments">Rhinoplasty</a>
       <a href="#treatments" data-scroll-to="#treatments">Dental Veneers &amp; Implants</a>
       <a href="#treatments" data-scroll-to="#treatments">Knee Surgery</a>
@@ -968,7 +999,7 @@
       <a href="medical-park.html">Medical Park — Coming Soon</a>
     </div>
     <div class="footer__col">
-      <h4>The Academy</h4>
+      <h4 data-i18n="footer.academy">The Academy</h4>
       <a href="advisor-hub.html">Advisor Hub — Join Us</a>
       <a href="#standard" data-scroll-to="#standard">Why Us</a>
       <a href="#partners" data-scroll-to="#partners">Our Partners</a>
@@ -977,7 +1008,7 @@
       <a href="#invitation" data-scroll-to="#invitation">Get My Free Quote</a>
     </div>
     <div class="footer__col">
-      <h4>Concierge</h4>
+      <h4 data-i18n="footer.concierge">Concierge</h4>
       <a href="mailto:suleymansuleymanoglu@medmatchglobal.info">suleymansuleymanoglu@medmatchglobal.info</a>
       <a href="tel:+14375951735">+1 (437) 595-1735</a>
       <a href="https://wa.me/14375951735?text=Hello%20MedMatch%20Global%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener">WhatsApp us</a>
@@ -1012,7 +1043,8 @@
 <script src="js/scene.js?v=3.1"></script>
 <script src="js/packages-data.js?v=3"></script>
 <script src="js/packages.js?v=1"></script>
-<script src="js/main.js?v=3.5"></script>
+<script src="js/i18n.js?v=1"></script>
+<script src="js/main.js?v=3.6"></script>
 <script src="js/chat.js?v=3.3"></script>
 </body>
 </html>

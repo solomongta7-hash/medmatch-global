@@ -432,11 +432,26 @@ button { font-family: inherit; cursor: pointer; }
 }
 @media (max-width: 1080px) { .partners__grid { grid-template-columns: 1fr; max-width: 640px; margin-left: 7vw; margin-right: 7vw; } }
 .partner {
-  display: flex; flex-direction: column;
+  display: flex; flex-direction: column; overflow: hidden;
   background: var(--foam); border: 1px solid var(--line-soft); border-radius: 22px;
-  padding: 32px 30px 28px;
   box-shadow: 0 30px 60px -48px rgba(6, 51, 59, 0.4);
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
 }
+.partner:hover { transform: translateY(-6px); box-shadow: 0 44px 72px -46px rgba(6, 51, 59, 0.5); }
+.partner__img {
+  height: 200px; background-size: cover; background-position: center;
+  background-color: var(--sea);
+}
+.partner__img--soon {
+  display: grid; place-items: center;
+  background: radial-gradient(120% 100% at 30% 0%, rgba(47,169,164,0.5) 0%, transparent 55%),
+              linear-gradient(160deg, var(--sea) 0%, var(--sea-deep) 85%);
+}
+.partner__img--soon span {
+  color: var(--aqua); font-size: 11px; letter-spacing: 0.34em; font-weight: 500;
+  border: 1px solid rgba(143,214,208,0.5); border-radius: 999px; padding: 9px 20px;
+}
+.partner__body { display: flex; flex-direction: column; flex: 1; padding: 28px 30px 26px; }
 .partner__type { font-size: 10px; letter-spacing: 0.3em; font-weight: 500; color: var(--turquoise); }
 .partner h3 { font-family: var(--serif); font-size: 28px; font-weight: 500; margin-top: 12px; line-height: 1.1; }
 .partner__desc { margin-top: 12px; font-size: 13.5px; color: var(--ink-soft); flex: 1; }
@@ -452,6 +467,33 @@ button { font-family: inherit; cursor: pointer; }
 .partner__link:hover { color: var(--turquoise); }
 
 .faculty__subhead { margin-top: 10vh; }
+
+/* Acıbadem doctor grid + hospital hero band (partner pages) */
+.faculty__grid--acb { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); max-width: 1200px; }
+.doctor__photo--acb { background-color: #2c4249; background-position: center top; }
+.phero {
+  height: 42vh; min-height: 300px; background-size: cover; background-position: center;
+  background-color: var(--sea);
+}
+
+/* language picker (in the header, inherits nav color via currentColor) */
+.lang-pick { display: inline-flex; align-items: center; gap: 5px; }
+.lang-pick svg { width: 15px; height: 15px; opacity: 0.85; }
+.lang-pick select {
+  font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+  color: currentColor; background: transparent; border: 0; cursor: pointer;
+  padding: 4px 2px; -webkit-appearance: none; appearance: none; outline: none;
+}
+.lang-pick select option { color: var(--ink); background: var(--shell); }
+@media (max-width: 1080px) { .lang-pick { margin-left: auto; margin-right: 18px; } }
+
+/* right-to-left (Persian) */
+[dir="rtl"] .nav__links { direction: rtl; }
+[dir="rtl"] .hero__eyebrow { flex-direction: row-reverse; }
+[dir="rtl"] .hero__sub, [dir="rtl"] .partner__desc, [dir="rtl"] .partner__type,
+[dir="rtl"] .partner__addr, [dir="rtl"] .footer__desc { direction: rtl; text-align: right; }
+[dir="rtl"] .partner__addr::before { content: ""; }
+[dir="rtl"] .partner__addr { padding-right: 0; }
 .faculty__grid {
   display: grid; grid-template-columns: repeat(5, 1fr); gap: 22px;
   margin: 9vh 4vw 0; max-width: 1500px;

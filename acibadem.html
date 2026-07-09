@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css?v=3.3" />
+<link rel="stylesheet" href="css/styles.css?v=3.4" />
 <link rel="stylesheet" href="css/packages.css?v=2" />
 <style>
   /* standalone page: no GSAP here, so reveal-on-scroll styles are neutralized */
@@ -38,6 +38,8 @@
   Its Istanbul hospitals treat international patients from over 100 countries, with dedicated
   international-patient teams, interpreters and JCI-accredited standards of care.</p>
 </div>
+
+<div class="phero" role="img" aria-label="Acıbadem hospital campus, Istanbul" style="background-image:url('img/partners/acibadem-atasehir.avif')"></div>
 
 <section class="pkgs" style="padding-top:8vh;">
   <div class="section-head">
@@ -72,17 +74,65 @@
 
   <div class="pkgs__bar" style="margin-top:7vh;">
     <p id="priceNote" style="font-size:13px;color:var(--ink-soft);max-width:560px;"></p>
+    <div class="currency" id="priceCurrency"></div>
   </div>
 
   <div class="plist" id="priceList"></div>
 
-  <p class="ledger__note">Approximate US$ figures are conversions for guidance only — the hospital invoices
-  in euros. Your final price is confirmed in writing by Acıbadem after your records are reviewed, before
-  you book anything. Hotel, VIP transfers and your personal host are arranged by MedMatch.</p>
+  <p class="ledger__note">Prices are set by Acıbadem in euros (€) and shown converted to your chosen currency
+  for guidance only — the hospital invoices in euros. Your final price is confirmed in writing by Acıbadem
+  after your records are reviewed, before you book anything. Hotel, VIP transfers and your personal host are
+  arranged by MedMatch.</p>
 
   <div class="plist__ctas">
     <a class="btn btn--gold" href="index.html#invitation"><span>Get My Free Quote</span></a>
     <a class="btn btn--wa" href="#" data-wa target="_blank" rel="noopener"><span>WhatsApp Us</span></a>
+  </div>
+</section>
+
+<!-- ══════════ ACIBADEM SPECIALISTS ══════════ -->
+<section class="faculty" style="padding:12vh 0 14vh;">
+  <div class="section-head">
+    <p class="eyebrow">ACIBADEM SPECIALISTS</p>
+    <h2 class="display">Names you can look up.</h2>
+    <div class="rule"></div>
+    <p class="lede">A hospital group is only as strong as its doctors. These are among Acıbadem's most
+    internationally recognised specialists — each with a public academic profile you can verify yourself
+    before you ever travel.</p>
+  </div>
+  <div class="faculty__grid faculty__grid--acb">
+    <article class="doctor">
+      <div class="doctor__photo doctor__photo--acb" role="img" aria-label="Portrait of Prof. Javad Parvizi" style="background-image:url('img/doctors/acibadem/javad-parvizi.avif')">
+        <span class="doctor__field">ORTHOPEDICS</span>
+      </div>
+      <h3>Prof. Javad Parvizi</h3>
+      <p class="doctor__title">Joint Replacement — Istanbul</p>
+      <p class="doctor__bio">A world-renowned joint-replacement surgeon and researcher; directs the International Joint Center at Acıbadem Maslak Hospital.</p>
+    </article>
+    <article class="doctor">
+      <div class="doctor__photo doctor__photo--acb" role="img" aria-label="Portrait of Prof. Ahmet Alanay" style="background-image:url('img/doctors/acibadem/ahmet-alanay.avif')">
+        <span class="doctor__field">SPINE SURGERY</span>
+      </div>
+      <h3>Prof. Ahmet Alanay</h3>
+      <p class="doctor__title">Spine Surgeon — Istanbul</p>
+      <p class="doctor__bio">Founder of Acıbadem's Comprehensive Spine Center; internationally recognised for scoliosis and complex spinal-deformity surgery.</p>
+    </article>
+    <article class="doctor">
+      <div class="doctor__photo doctor__photo--acb" role="img" aria-label="Portrait of Prof. Cem Alhan" style="background-image:url('img/doctors/acibadem/cem-alhan.avif')">
+        <span class="doctor__field">CARDIOVASCULAR</span>
+      </div>
+      <h3>Prof. Cem Alhan</h3>
+      <p class="doctor__title">Cardiovascular Surgeon — Istanbul</p>
+      <p class="doctor__bio">Leads cardiovascular surgery at Acıbadem Maslak; specialises in minimally invasive and robotic heart surgery.</p>
+    </article>
+    <article class="doctor">
+      <div class="doctor__photo doctor__photo--acb" role="img" aria-label="Portrait of Prof. Funda Çorapçıoğlu" style="background-image:url('img/doctors/acibadem/funda-corapcioglu.avif')">
+        <span class="doctor__field">PEDIATRIC ONCOLOGY</span>
+      </div>
+      <h3>Prof. Funda Çorapçıoğlu</h3>
+      <p class="doctor__title">Pediatric Hematology &amp; Oncology — Istanbul</p>
+      <p class="doctor__bio">More than 25 years in childhood cancer care; leads Acıbadem's pediatric oncology clinic in Maslak.</p>
+    </article>
   </div>
 </section>
 
@@ -96,6 +146,6 @@
 <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"></a>
 
 <script src="js/packages-data.js?v=3"></script>
-<script src="js/partners.js?v=1"></script>
+<script src="js/partners.js?v=2"></script>
 </body>
 </html>

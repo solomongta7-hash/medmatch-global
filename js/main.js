@@ -352,7 +352,8 @@
      U.S./Canadian private-pay averages. Türkiye figures are all-inclusive
      (surgery, hospital, hotel, VIP transfers, personal host).            */
 
-  var CAD_RATE = 1.37;
+  // EDIT HERE — conversion rates FROM USD (base). Keep in sync with js/packages-data.js "rates".
+  var FX = { USD: 1, CAD: 1.37, GBP: 0.79 };
   var EUR_USD  = 1.15;  // EDIT HERE — €→$ rate for Acıbadem hospital prices (keep in sync with js/packages-data.js eurToUsd)
   var currency = "USD";
 
@@ -564,7 +565,7 @@
   }
 
   function fmt(v) {
-    var val = currency === "CAD" ? v * CAD_RATE : v;
+    var val = v * (FX[currency] || 1);
     return new Intl.NumberFormat("en-US", {
       style: "currency", currency: currency, maximumFractionDigits: 0
     }).format(Math.round(val / 10) * 10);
@@ -586,7 +587,7 @@
 
     var q = function (k) { return box.querySelector('[data-r="' + k + '"]'); };
 
-    q("homeLabel").textContent = currency === "CAD" ? "At home — Canadian average" : "At home — U.S. average";
+    q("homeLabel").textContent = { CAD: "At home — Canadian average", GBP: "At home — U.K. average" }[currency] || "At home — U.S. average";
     q("range").innerHTML = r.fixed
       ? "fixed hospital price — &euro;" + r.eur.toLocaleString("en-US") + ", quoted by Ac&#305;badem"
       : (r.tr[0] > 0
