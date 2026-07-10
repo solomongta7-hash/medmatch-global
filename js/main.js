@@ -761,29 +761,32 @@
     if (honey && honey.value) return; // honeypot filled — silently drop bot submission
 
     var treatmentVal = treatment ? treatment.value : "";
+
+    var LEAD_ENDPOINT = "https://script.google.com/macros/s/AKfycbx8G_Drl8SkJfAqJ1YTjOl-muJqLssAkdtyqZyGFobQ2SDt0ompH-jK2ciq_UL5uB4B/exec";
+
     var payload = {
       name: name.value.trim(),
       email: email.value.trim(),
       phone: phone ? phone.value.trim() : "",
       treatment: treatmentVal,
       message: msg ? msg.value.trim() : "",
-      _subject: "New MedMatch lead — " + treatmentVal,
-      _template: "table",
-      _captcha: "false"
+      page: location.pathname + location.search,
+      _honey: ""
     };
 
     setSending(true);
 
-    fetch("https://formsubmit.co/ajax/suleymansuleymanoglu@medmatchglobal.info", {
+    // No headers here: Apps Script web apps don't answer CORS preflight,
+    // so this fetch must stay a "simple request" (no Content-Type).
+    fetch(LEAD_ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify(payload)
     })
       .then(function (res) {
-        if (!res.ok) throw new Error("Request failed");
         return res.json();
       })
-      .then(function () {
+      .then(function (data) {
+        if (!data.ok) throw new Error("Request failed");
         setSending(false);
         showSuccess();
       })
