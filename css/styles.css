@@ -160,10 +160,10 @@ button { font-family: inherit; cursor: pointer; }
 .nav__brand-name { font-size: 15px; letter-spacing: 0.28em; font-weight: 500; }
 .nav__brand-sub { font-size: 9px; letter-spacing: 0.6em; color: var(--aqua); font-weight: 500; }
 .nav.is-solid .nav__brand-sub { color: var(--turquoise); }
-.nav__links { display: flex; gap: 34px; }
+.nav__links { display: flex; gap: clamp(14px, 1.4vw, 28px); }
 .nav__links a {
-  font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 400;
-  position: relative; padding: 4px 0; opacity: 0.9;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 400;
+  position: relative; padding: 4px 0; opacity: 0.9; white-space: nowrap;
 }
 .nav__links a::after {
   content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%;
@@ -187,9 +187,12 @@ button { font-family: inherit; cursor: pointer; }
 .mmenu nav { display: flex; flex-direction: column; gap: 26px; text-align: center; }
 .mmenu a { font-family: var(--serif); font-size: 34px; font-style: italic; color: var(--foam); }
 .mmenu a:last-child { color: var(--aqua); }
-@media (max-width: 1080px) {
-  .nav__links, .nav__cta { display: none; }
+@media (max-width: 1400px) {
+  .nav__links { display: none; }
   .nav__burger { display: block; }
+}
+@media (max-width: 740px) {
+  .nav__cta { display: none; }
 }
 
 /* ═══════════ HERO — the Mediterranean ═══════════ */
@@ -485,7 +488,7 @@ button { font-family: inherit; cursor: pointer; }
   padding: 4px 2px; -webkit-appearance: none; appearance: none; outline: none;
 }
 .lang-pick select option { color: var(--ink); background: var(--shell); }
-@media (max-width: 1080px) { .lang-pick { margin-left: auto; margin-right: 18px; } }
+@media (max-width: 1400px) { .lang-pick { margin-left: auto; margin-right: 18px; } }
 
 /* right-to-left (Persian) */
 [dir="rtl"] .nav__links { direction: rtl; }
