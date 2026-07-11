@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../css/content.css" />
+<link rel="stylesheet" href="../css/content.css?v=2" />
 </head>
 <body>
 
@@ -107,6 +107,23 @@
     </div>
   </section>
 
+  <!-- ══════════ JOIN THE JOURNAL ══════════ -->
+  <section class="joinband" id="join">
+    <div class="joinband__inner">
+      <p class="eyebrow eyebrow--light" style="justify-content:center;">A LETTER, NOT A SALES PITCH</p>
+      <h2 class="display display--sub display--light">Join the Journal — <em>free.</em></h2>
+      <p class="joinband__lede">Enjoyed the read? Every new guide — real costs, safety, and how to choose
+      well — lands in your inbox first. No quotes, no pressure, and you can leave any time.</p>
+      <form class="joinband__form" id="joinForm" novalidate>
+        <input type="text" id="j-name" placeholder="First name (optional)" autocomplete="given-name" />
+        <input type="email" id="j-email" placeholder="Your email" required autocomplete="email" />
+        <input type="text" id="j-honey" name="_honey" value="" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <button class="btn btn--gold" type="submit" id="joinBtn">Join for free</button>
+      </form>
+      <p class="joinband__note" id="joinNote">One or two letters a month. Your email stays with MedMatch — never sold, never shared.</p>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer">
@@ -145,6 +162,53 @@
       var open = mmenu.classList.toggle('is-open');
       burger.classList.toggle('is-open', open);
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  // Join-the-Journal signup → same Apps Script lead endpoint as the quote form.
+  var joinForm = document.getElementById('joinForm');
+  if (joinForm) {
+    var JOIN_ENDPOINT = "https://script.google.com/macros/s/AKfycbx8G_Drl8SkJfAqJ1YTjOl-muJqLssAkdtyqZyGFobQ2SDt0ompH-jK2ciq_UL5uB4B/exec";
+    joinForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var honey = document.getElementById('j-honey');
+      if (honey && honey.value) return; // bot — drop silently
+      var emailEl = document.getElementById('j-email');
+      var nameEl = document.getElementById('j-name');
+      var note = document.getElementById('joinNote');
+      var btn = document.getElementById('joinBtn');
+      var email = (emailEl.value || '').trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        note.textContent = 'That email doesn’t look right — mind checking it?';
+        emailEl.focus();
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Joining…';
+      // No headers: Apps Script doesn't answer CORS preflight — must stay a simple request.
+      fetch(JOIN_ENDPOINT, {
+        method: 'POST',
+        body: JSON.stringify({
+          name: (nameEl.value || '').trim() || 'Journal Reader',
+          email: email,
+          phone: '',
+          treatment: 'Journal subscription',
+          message: 'Joined the Journal (free newsletter) from the blog index.',
+          page: location.pathname,
+          _honey: ''
+        })
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (!data.ok) throw new Error('failed');
+          joinForm.innerHTML = '<p class="joinband__success">Welcome to the Journal — you’re in. ✓</p>';
+          note.textContent = 'Keep an eye on your inbox (and the spam folder, just once).';
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = 'Join for free';
+          note.textContent = 'Something went wrong — email us at suleymansuleymanoglu@medmatchglobal.info and we’ll add you ourselves.';
+        });
     });
   }
 </script>

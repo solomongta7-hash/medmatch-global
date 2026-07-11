@@ -272,6 +272,31 @@ main { padding-bottom: 0; }
 .cta-band__row { display: flex; gap: 18px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
 @media (max-width: 560px) { .cta-band__row { flex-direction: column; align-items: stretch; } .cta-band__row .btn { width: 100%; } }
 
+/* ═══════════ JOIN THE JOURNAL BAND ═══════════ */
+
+.joinband { padding: 96px 6vw 104px; background: var(--sea-deep); color: var(--shell); text-align: center; }
+.joinband__inner { max-width: 640px; margin: 0 auto; }
+.joinband__lede { margin-top: 22px; font-size: 16.5px; font-weight: 300; color: rgba(244, 250, 249, 0.78); }
+.joinband__form { display: flex; gap: 12px; justify-content: center; margin-top: 38px; flex-wrap: wrap; }
+.joinband__form input {
+  flex: 1 1 200px; max-width: 260px; padding: 15px 20px;
+  font-family: var(--sans); font-size: 14.5px; font-weight: 300; color: var(--shell);
+  background: rgba(244, 250, 249, 0.07); border: 1px solid rgba(143, 214, 208, 0.35);
+  border-radius: 999px; outline: none;
+  transition: border-color 0.3s, background 0.3s;
+}
+.joinband__form input::placeholder { color: rgba(244, 250, 249, 0.45); }
+.joinband__form input:focus { border-color: var(--aqua); background: rgba(244, 250, 249, 0.11); }
+.joinband__form .btn { border-radius: 999px; }
+.joinband__form .btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+.joinband__note { margin-top: 20px; font-size: 12.5px; letter-spacing: 0.05em; color: rgba(244, 250, 249, 0.55); }
+.joinband__success { font-family: var(--serif); font-size: 26px; font-style: italic; color: var(--aqua); padding: 10px 0; }
+@media (max-width: 560px) {
+  .joinband__form { flex-direction: column; align-items: stretch; }
+  .joinband__form input { max-width: none; }
+  .joinband__form .btn { width: 100%; }
+}
+
 /* ═══════════ TABLES ═══════════ */
 
 .table-wrap { overflow-x: auto; margin: 30px 0; -webkit-overflow-scrolling: touch; }

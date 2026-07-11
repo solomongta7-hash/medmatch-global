@@ -430,8 +430,8 @@ button { font-family: inherit; cursor: pointer; }
 
 /* partner clinic / hospital cards */
 .partners__grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
-  margin: 8vh 4vw 0; max-width: 1500px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px;
+  margin: 8vh auto 0; max-width: 1240px; padding: 0 4vw;
 }
 @media (max-width: 1080px) { .partners__grid { grid-template-columns: 1fr; max-width: 640px; margin-left: 7vw; margin-right: 7vw; } }
 .partner {
