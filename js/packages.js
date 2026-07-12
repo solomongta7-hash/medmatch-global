@@ -131,6 +131,19 @@
   function renderStories() {
     var row = document.getElementById("storiesRow");
     if (!row) return;
+
+    /* coming-soon mode: elegant placeholders, no videos yet (see packages-data.js) */
+    if (D.videosComingSoon) {
+      row.classList.add("stories__row--soon");
+      row.innerHTML = D.videos.map(function (v) {
+        return '<div class="story story--soon">' +
+          '<div class="story__media"></div>' +
+          '<div class="story__meta"><strong>COMING SOON</strong><span>' + v.procedure + '</span></div>' +
+        '</div>';
+      }).join("");
+      return;
+    }
+
     row.innerHTML = D.videos.map(function (v, i) {
       return '<button class="story" data-i="' + i + '" aria-label="Play ' + v.name + "'s story\">" +
         '<div class="story__media">' + thumb(v) + '<span class="story__play">▶</span></div>' +

@@ -161,7 +161,7 @@
   .stories__head { flex-direction: column; align-items: flex-start; }
 }
 
-/* ── partner hospital pages (acibadem.html / medical-park.html) ── */
+/* ── partner hospital pages (partner-hospital.html / hospital-network.html) ── */
 
 .campuses {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -225,3 +225,43 @@
 .soon__card p { margin-top: 14px; font-size: 14px; color: var(--ink-soft); }
 .soon__card .plist__ctas { margin: 26px 0 0; }
 @media (max-width: 640px) { .soon__card { padding: 32px 24px; } }
+
+/* ── advisor-only masking (partner cards, gated price list, stories placeholder) ── */
+.partner__lock {
+  display: inline-block; vertical-align: 4px; margin-left: 10px;
+  font-family: var(--sans); font-size: 8.5px; letter-spacing: 0.22em; font-weight: 600;
+  color: var(--teal); background: rgba(47, 169, 164, 0.10);
+  border: 1px solid rgba(47, 169, 164, 0.35); border-radius: 999px;
+  padding: 5px 10px 4px; white-space: nowrap;
+}
+
+.plist--locked .plist__table td:last-child b {
+  filter: blur(4px); user-select: none; letter-spacing: 2px; opacity: 0.75;
+}
+.plist--locked .plist__table td span { opacity: 0.55; }
+.plist__count {
+  display: block; font-size: 11px; color: var(--ink-soft); opacity: 0.8; margin-top: 4px;
+  letter-spacing: 0.08em;
+}
+.plist__unlockbar {
+  margin: 6vh 7vw 0; padding: 26px 30px; border: 1px dashed rgba(18, 112, 123, 0.4);
+  border-radius: 18px; background: rgba(47, 169, 164, 0.06);
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  max-width: 1250px;
+}
+.plist__unlockbar p { font-size: 14px; color: var(--ink); max-width: 640px; }
+.plist__unlockbar p b { color: var(--teal); }
+
+/* stories — coming soon placeholders */
+.stories__row--soon { overflow: visible; flex-wrap: wrap; }
+.story--soon {
+  pointer-events: none; border: 1px dashed rgba(18, 112, 123, 0.35);
+  border-radius: 18px; background: rgba(47, 169, 164, 0.05);
+}
+.story--soon .story__media {
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; font-size: 30px;
+}
+.story--soon .story__media::after { content: "🎬"; }
+.story--soon .story__play { display: none; }
+.story--soon .story__meta strong { color: var(--teal); letter-spacing: 0.18em; font-size: 10.5px; }

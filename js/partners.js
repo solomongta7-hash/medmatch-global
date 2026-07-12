@@ -1,9 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════
-   MEDMATCH GLOBAL — partner hospital price list (Acibadem etc.)
+   MEDMATCH GLOBAL — partner hospital price list
    Renders the categorized price list from js/packages-data.js
-   (window.MM_DATA.acibadem). Prices are quoted in EUR by the
+   (window.MM_DATA.hospital). Prices are quoted in EUR by the
    hospital; the visitor can view them converted to USD / CAD / GBP,
    with the official € shown alongside each line.
+   LOCKED MODE: if #priceList has data-locked, prices render as
+   advisor-only lock chips instead of figures.
    Rates reuse MM_DATA.rates (USD-based) × MM_DATA.eurToUsd.
    ═══════════════════════════════════════════════════════════════ */
 
@@ -24,15 +26,20 @@
   /* ── categorized price list ── */
   function renderList() {
     var root = document.getElementById("priceList");
-    if (!root || !D.acibadem) return;
-    root.innerHTML = D.acibadem.categories.map(function (cat) {
+    if (!root || !D.hospital) return;
+    var locked = root.hasAttribute("data-locked");
+    root.innerHTML = D.hospital.categories.map(function (cat) {
       return (
         '<section class="plist__cat">' +
-          '<h3 class="plist__title">' + cat.title + '</h3>' +
+          '<h3 class="plist__title">' + cat.title +
+            (locked ? '<span class="plist__count">' + cat.items.length + ' procedures — official fixed prices</span>' : '') +
+          '</h3>' +
           '<table class="plist__table"><tbody>' +
           cat.items.map(function (it) {
-            return '<tr><td>' + it.n + '</td>' +
-              '<td><b>' + money(it.eur) + '</b><span>' + eurStr(it.eur) + ' at the hospital</span></td></tr>';
+            var price = locked
+              ? '<b aria-label="Price unlocked with your free quote">€ •,•••</b><span>unlocked with your free quote</span>'
+              : '<b>' + money(it.eur) + '</b><span>' + eurStr(it.eur) + ' at the hospital</span>';
+            return '<tr><td>' + it.n + '</td><td>' + price + '</td></tr>';
           }).join("") +
           '</tbody></table>' +
         '</section>'
@@ -59,7 +66,7 @@
   }
 
   var note = document.getElementById("priceNote");
-  if (note && D.acibadem) note.textContent = D.acibadem.note;
+  if (note && D.hospital) note.textContent = D.hospital.note;
 
   /* ── WhatsApp links ── */
   var waMsg = encodeURIComponent(document.body.getAttribute("data-wa-msg") ||

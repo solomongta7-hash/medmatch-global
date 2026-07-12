@@ -471,7 +471,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .faculty__subhead { margin-top: 10vh; }
 
-/* Acıbadem doctor grid + hospital hero band (partner pages) */
+/* partner-hospital doctor grid + hospital hero band (partner pages) */
 .faculty__grid--acb { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); max-width: 1200px; }
 .doctor__photo--acb { background-color: #2c4249; background-position: center top; }
 .phero {

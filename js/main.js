@@ -354,14 +354,14 @@
 
   // EDIT HERE — conversion rates FROM USD (base). Keep in sync with js/packages-data.js "rates".
   var FX = { USD: 1, CAD: 1.37, GBP: 0.79 };
-  var EUR_USD  = 1.15;  // EDIT HERE — €→$ rate for Acıbadem hospital prices (keep in sync with js/packages-data.js eurToUsd)
+  var EUR_USD  = 1.15;  // EDIT HERE — €→$ rate for partner-hospital prices (keep in sync with js/packages-data.js eurToUsd)
   var currency = "USD";
 
-  /* ── Acıbadem fixed hospital prices ─────────────────────────────
+  /* ── partner-hospital fixed prices ──────────────────────────────
      item = [value, label, EUR price, US-average low, US-average high]
-     EUR figures are the official Acıbadem international-patient
-     rates; US figures are published private-pay averages used for
-     the comparison bars. EDIT HERE when the hospital updates rates. */
+     EUR figures are the official international-patient rates of our
+     partner hospital group; US figures are published private-pay
+     averages used for the comparison bars. EDIT HERE on rate updates. */
 
   var ACB_MENU = {
     plastic: [
@@ -539,7 +539,7 @@
   var INCLUDES_TEXT = {
     dental: "Includes five-star hotel, VIP transfers, personal host &amp; lifetime aftercare.",
     knee:   "Includes five-star hotel, VIP transfers, personal host &amp; lifetime aftercare.",
-    acibadem: "Official Ac&#305;badem price, paid directly to the hospital — hotel included only where stated. " +
+    hospital: "Official fixed hospital price, paid directly to our partner hospital — hotel included only where stated. " +
               "Transfers &amp; your personal host arranged by us; our only charge is the fixed $300 coordination fee."
   };
 
@@ -555,7 +555,7 @@
         '<div class="res__bar res__bar--tr"><span><b>With MedMatch, in T&uuml;rkiye</b><b data-r="trVal">$0</b></span><i data-r="trBar"></i></div>' +
       '</div>' +
       '<div class="res__save"><strong data-r="save">You keep $0</strong><em data-r="pct">&minus;0%</em></div>' +
-      '<p class="res__includes">' + (INCLUDES_TEXT[name] || INCLUDES_TEXT.acibadem) + '</p>' +
+      '<p class="res__includes">' + (INCLUDES_TEXT[name] || INCLUDES_TEXT.hospital) + '</p>' +
       '<a class="btn btn--gold res__cta magnetic" href="#invitation" data-scroll-to="#invitation"><span>Reserve this estimate</span></a>';
     box.querySelector("[data-scroll-to]").addEventListener("click", function (e) {
       e.preventDefault();
@@ -589,7 +589,7 @@
 
     q("homeLabel").textContent = { CAD: "At home — Canadian average", GBP: "At home — U.K. average" }[currency] || "At home — U.S. average";
     q("range").innerHTML = r.fixed
-      ? "fixed hospital price — &euro;" + r.eur.toLocaleString("en-US") + ", quoted by Ac&#305;badem"
+      ? "fixed hospital price — &euro;" + r.eur.toLocaleString("en-US") + ", quoted in writing by the hospital"
       : (r.tr[0] > 0
         ? "typically " + fmt(r.tr[0]) + " &ndash; " + fmt(r.tr[1])
         : (r.unitLabel || "&nbsp;"));

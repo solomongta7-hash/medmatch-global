@@ -183,51 +183,55 @@ window.MM_DATA = {
      Leave videoId "" until you have the real link — the card will
      show an elegant placeholder.                                   */
 
+  /* ── PATIENT STORIES — set to false when your own videos are ready.
+     Real video IDs & labels are kept in _archive/partners-private.js
+     (not published). Keep the array below for when you re-enable.     */
+
+  videosComingSoon: true,
+
   videos: [
-    { videoId: "m5Hog3mxFzk", name: "New smile, new beginning", flag: "", procedure: "Smile Design — Antalya" },
-    { videoId: "UqyuXX1UIVM", name: "“Now my smile is gorgeous”", flag: "", procedure: "Smile Makeover" },
-    { videoId: "KPmff8yt2A8", name: "Inga's new smile",          flag: "", procedure: "Smile Makeover" },
-    { videoId: "t0z-Yte_zLY", name: "Shine like a star",         flag: "", procedure: "Smile Design" },
-    { videoId: "OAxTq5Pl_pg", name: "Patient story",             flag: "", procedure: "Perla Dental Clinics" },
-    { videoId: "9_qpYvqIOgM", name: "Patient story",             flag: "", procedure: "Perla Dental Clinics" }
+    { videoId: "", name: "Patient story — coming soon", flag: "", procedure: "Smile Makeover — Antalya" },
+    { videoId: "", name: "Patient story — coming soon", flag: "", procedure: "Full-Mouth Implants" },
+    { videoId: "", name: "Patient story — coming soon", flag: "", procedure: "Veneers & Smile Design" }
   ],
 
-  partnerClinic: "Perla Dental Clinics",
+  partnerClinic: "our partner clinic in Antalya",
 
-  /* ── PARTNERS — names & addresses (no website links by design) ── */
+  /* ── PARTNERS — identities are advisor-only. Real names & addresses
+     live in _archive/partners-private.js (not published).            ── */
 
   partnersInfo: {
-    perla: {
-      name: "Perla Dental Clinics",
+    dental: {
+      name: "Signature Dental Partner",
       type: "Dental Partner — Antalya",
-      address: "Lara Caddesi, 1964. Sk. No:7, 07160 Muratpaşa / Antalya"
+      address: "Shared with your treatment plan"
     },
-    acibadem: {
-      name: "Acıbadem Healthcare Group",
+    hospital: {
+      name: "Partner Hospital Group",
       type: "Partner Hospital Group — Istanbul",
       campuses: [
-        { label: "Acıbadem Fulya Hospital — eye surgery", address: "Dikilitaş Mah. Hakkı Yeten Cad. Yeşilçimen Sok. No:23, 34349 Beşiktaş / Istanbul" },
-        { label: "Acıbadem Kartal Hospital — hair transplantation", address: "Çavuşoğlu Mah. Sanayi Cad. No:1/1, Kartal / Istanbul" },
-        { label: "Acıbadem Ataşehir Medical Center — hair transplantation", address: "Küçükbakkalköy Mah. Vedat Günyol Cad. No:36, Ataşehir / Istanbul" }
+        { label: "Eye surgery hospital — Istanbul", address: "Named in your written quote" },
+        { label: "Hair restoration hospital — Istanbul", address: "Named in your written quote" },
+        { label: "Surgical & check-up campuses — Istanbul", address: "Named in your written quote" }
       ]
     },
-    medicalpark: {
-      name: "Medical Park Hospitals Group",
+    network: {
+      name: "Second Hospital Network",
       type: "Partner Hospital Group — coming soon",
-      address: ""   // EDIT HERE once the campus is confirmed with the price list
+      address: ""
     }
   },
 
-  /* ── ACIBADEM PRICE LIST ─────────────────────────────────────
-     Official Acibadem international-patient rates, quoted in EUR
-     and paid directly to the hospital. eurToUsd converts € to $
-     for the approximate figures shown next to each price.
+  /* ── PARTNER HOSPITAL PRICE LIST ─────────────────────────────
+     Official international-patient rates, quoted in EUR and paid
+     directly to the hospital. eurToUsd converts € to $ for the
+     approximate figures shown next to each price.
      EDIT HERE to update the rate or any price.                   */
 
   eurToUsd: 1.15,
 
-  acibadem: {
-    note: "Prices are quoted in euros (€) by the hospital and paid directly to Acıbadem. " +
+  hospital: {
+    note: "Prices are quoted in euros (€) by the hospital and paid directly to the hospital. " +
           "Hotel nights are included only where stated. Our fixed Patient Care & Coordination Fee " +
           "is the only thing you ever pay MedMatch.",
     categories: [
@@ -279,11 +283,11 @@ window.MM_DATA = {
         { n: "Thigh Lift", eur: 4000 },
         { n: "Buttock Lift", eur: 4000 }
       ]},
-      { title: "Hair Transplantation — Kartal Hospital", items: [
+      { title: "Hair Transplantation — Hospital Campus", items: [
         { n: "FUE Hair Transplant (2-night hotel included)", eur: 2500 },
         { n: "DHI Hair Transplant (2-night hotel included)", eur: 2700 }
       ]},
-      { title: "Hair Transplantation — Ataşehir Medical Center", items: [
+      { title: "Hair Transplantation — Medical Center", items: [
         { n: "FUE Hair Transplant", eur: 2300 },
         { n: "DHI Hair Transplant", eur: 2500 },
         { n: "FUE Hair Transplant (2-night hotel included)", eur: 2500 },
@@ -309,7 +313,7 @@ window.MM_DATA = {
         { n: "Knee MRI", eur: 650 },
         { n: "PET-CT", eur: 850 }
       ]},
-      { title: "Eye Surgery — Fulya Hospital", items: [
+      { title: "Eye Surgery — Partner Eye Hospital", items: [
         { n: "Pentacam (corneal tomography)", eur: 400 },
         { n: "iLASIK — both eyes", eur: 1500 },
         { n: "iLASIK — both eyes (2-night hotel included)", eur: 1700 },
