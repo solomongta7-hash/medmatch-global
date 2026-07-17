@@ -490,3 +490,6 @@ table.ct td strong, table.ct td.hl { color: var(--teal); font-weight: 600; }
 
 /* replaceable-block visual hint (dev only, harmless in prod) */
 .swap-hint { display: none; }
+
+/* Legal entity line in footer */
+.footer__legal { font-size: 10.5px; opacity: .8; }

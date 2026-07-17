@@ -977,3 +977,6 @@ input[type="range"]::-moz-range-thumb {
   .calc__panel { border-radius: 20px; }
   .calc__result { min-width: 0; }
 }
+
+/* Legal entity line in footer */
+.footer__legal { font-size: 10.5px; opacity: .8; }
