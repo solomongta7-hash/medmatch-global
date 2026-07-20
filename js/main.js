@@ -708,6 +708,8 @@
   function showSuccess() {
     var fields = form.querySelectorAll(".ffield, .btn, .invitation__microcopy");
     var success = document.getElementById("inviteSuccess");
+    var errBox = document.getElementById("inviteError");
+    if (errBox) errBox.style.display = "none"; // clear a stale error from a failed earlier attempt
     if (hasGsap && !reduced) {
       gsap.to(fields, {
         opacity: 0, y: -14, duration: 0.5, stagger: 0.05, ease: "power2.in",
@@ -775,6 +777,8 @@
     };
 
     setSending(true);
+    var errBox = document.getElementById("inviteError");
+    if (errBox) errBox.style.display = "none"; // hide any previous error while retrying
 
     // No headers here: Apps Script web apps don't answer CORS preflight,
     // so this fetch must stay a "simple request" (no Content-Type).

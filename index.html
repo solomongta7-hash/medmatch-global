@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" as="image" href="img/antalya-turquoise-coast-hero.jpg" fetchpriority="high" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css?v=3.6" />
+<link rel="stylesheet" href="css/styles.css?v=4.1" />
 <link rel="stylesheet" href="css/packages.css?v=3" />
 <script type="application/ld+json">
 {
@@ -75,6 +75,9 @@
 
 <!-- ══════════ CUSTOM CURSOR ══════════ -->
 <div class="cursor" id="cursor"><div class="cursor__ring"></div><div class="cursor__dot"></div></div>
+
+<!-- film grain -->
+<div class="grain" aria-hidden="true"></div>
 
 <!-- ══════════ NAVIGATION ══════════ -->
 <header class="nav" id="nav">
@@ -135,6 +138,7 @@
   <div class="hero__bg" style="background-image:url('img/antalya-turquoise-coast-hero.jpg')"></div>
   <div class="hero__veil"></div>
   <canvas id="silk" class="hero__canvas"></canvas>
+  <div class="hero__frame" aria-hidden="true"></div>
   <div class="hero__inner">
     <p class="hero__eyebrow" data-fade>
       <svg viewBox="0 0 24 24" class="crest"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1"/><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="0.8"/></svg>
@@ -206,6 +210,20 @@
     </article>
   </div>
   <a class="partner__link" style="display:inline-block;margin:44px 7vw 0;" href="vetting.html" data-fade data-i18n="std.more">Read the full MedMatch Standard →</a>
+</section>
+
+<!-- ══════════ OUR STORY ══════════ -->
+<section class="story-band" id="ourstory">
+  <div class="section-head">
+    <p class="eyebrow" data-fade>OUR STORY</p>
+    <h2 class="display" data-reveal="words">Twenty years in medical travel.<br/><em>Now with our own name on the door.</em></h2>
+    <div class="rule" data-rule></div>
+    <p class="lede" data-fade>Our founding team has guided more than 4,200 patients through treatment in Türkiye —
+    years spent inside the hospitals, clinics and hotel lobbies of this industry, learning exactly where it
+    fails patients. MedMatch Global is the evolution of that work: fixed prices in writing, partners we vet
+    in person, and one team that answers for everything — from your first call to your last follow-up.</p>
+    <p class="story-band__sig" data-fade>— Suleyman Suleymanoglu · Founder, MedMatch Global</p>
+  </div>
 </section>
 
 <!-- ══════════ INTERLUDE — sea ══════════ -->
@@ -364,10 +382,10 @@
 <!-- ══════════ NUMBERS ══════════ -->
 <section class="numbers">
   <div class="numbers__grid">
-    <div class="numbers__item" data-fade><strong><span data-count="4200">0</span>+</strong><span data-i18n="num.1">Patients from the U.S. &amp; Canada</span></div>
-    <div class="numbers__item" data-fade><strong><span data-count="97">0</span>%</strong><span data-i18n="num.2">Would recommend us</span></div>
-    <div class="numbers__item" data-fade><strong><span data-count="12">0</span></strong><span data-i18n="num.3">JCI-accredited partner hospitals</span></div>
-    <div class="numbers__item" data-fade><strong>$<span data-count="18400">0</span></strong><span data-i18n="num.4">Average saving per patient</span></div>
+    <div class="numbers__item" data-fade><strong><span data-count="4200">4,200</span>+</strong><span data-i18n="num.1">Patients from the U.S. &amp; Canada</span></div>
+    <div class="numbers__item" data-fade><strong><span data-count="97">97</span>%</strong><span data-i18n="num.2">Would recommend us</span></div>
+    <div class="numbers__item" data-fade><strong><span data-count="12">12</span></strong><span data-i18n="num.3">JCI-accredited partner hospitals</span></div>
+    <div class="numbers__item" data-fade><strong>$<span data-count="18400">18,400</span></strong><span data-i18n="num.4">Average saving per patient</span></div>
   </div>
 </section>
 
@@ -417,17 +435,6 @@
         full hospitals with intensive care on site.</p>
         <p class="partner__addr">Three hospital campuses across Istanbul — named in your written quote</p>
         <a class="partner__link" href="partner-hospital.html" data-i18n="partner.hospital.link">Procedures &amp; advisor access →</a>
-      </div>
-    </article>
-    <article class="partner" data-fade>
-      <div class="partner__img partner__img--soon"><span>COMING SOON</span></div>
-      <div class="partner__body">
-        <p class="partner__type" data-i18n="partner.network.type">HOSPITAL GROUP — COMING SOON</p>
-        <h3>Major Hospital Network</h3>
-        <p class="partner__desc" data-i18n="partner.network.desc">One of Türkiye's largest hospital networks — more than 25 hospitals across
-        13 cities. We are finalizing our official partner price list now.</p>
-        <p class="partner__addr">Campus details shared once the partnership is finalized</p>
-        <a class="partner__link" href="hospital-network.html" data-i18n="partner.network.link">What to expect →</a>
       </div>
     </article>
   </div>
@@ -728,8 +735,8 @@
           <p data-i18n="ps1b">A private video consultation from home. Your records and imagery are reviewed by no fewer
           than three surgeons from the Circle before any recommendation is made.</p>
           <div class="pstep__media">
-            <img src="img/toronto-skyline.jpg" alt="Toronto skyline — your journey starts at home" loading="lazy" />
-            <span class="pstep__media-cap">From your door</span>
+            <img src="img/kas-harbor-town.jpg" alt="Kaş harbor on the Turquoise Coast — where you're headed" loading="lazy" />
+            <span class="pstep__media-cap">Where you're headed</span>
           </div>
         </div>
       </li>
@@ -759,6 +766,28 @@
       </li>
     </ol>
   </div>
+</section>
+
+<!-- ══════════ THE RESIDENCE — partner hotel ══════════ -->
+<section class="residence" id="hotel">
+  <div class="section-head">
+    <p class="eyebrow" data-fade>WHERE YOU'LL STAY</p>
+    <h2 class="display" data-reveal="words">Recover like a guest.<br/><em>Not like a patient.</em></h2>
+    <div class="rule" data-rule></div>
+    <p class="lede" data-fade>Your recovery home in Antalya: the Avion Suite Hotel, a quiet boutique property in the
+    Düden district — minutes from Düden Waterfall and the sea, with its own café and restaurant on the
+    ground floor. Spacious suites, terraces made for slow mornings, and our team one WhatsApp message away.
+    Your stay here is part of your fixed quote — never a surprise line item.</p>
+  </div>
+  <div class="residence__gallery">
+    <figure class="rphoto rphoto--tall" data-fade><img src="img/hotel/avion-01.jpg" alt="Avion Suite Hotel at sunset, Antalya" loading="lazy"/><figcaption>The hotel at dusk</figcaption></figure>
+    <figure class="rphoto" data-fade><img src="img/hotel/avion-06.jpg" alt="Junior suite with king bed and lounge sofa" loading="lazy"/><figcaption>Junior suite</figcaption></figure>
+    <figure class="rphoto" data-fade><img src="img/hotel/avion-05.jpg" alt="Private rooftop terrace with seating" loading="lazy"/><figcaption>Rooftop terrace</figcaption></figure>
+    <figure class="rphoto" data-fade><img src="img/hotel/avion-10.jpg" alt="Double room with upholstered headboard" loading="lazy"/><figcaption>Double room</figcaption></figure>
+    <figure class="rphoto" data-fade><img src="img/hotel/avion-03.jpg" alt="Aerial view of the Düden district — sea and waterfall minutes away" loading="lazy"/><figcaption>Düden district — sea &amp; waterfall minutes away</figcaption></figure>
+  </div>
+  <p class="residence__note" data-fade>One hotel today, chosen the way we choose clinics — visited, vetted, and priced
+  in writing. As new hotel partnerships are finalized, they will appear here.</p>
 </section>
 
 <!-- ══════════ VOICES ══════════ -->
@@ -798,23 +827,36 @@
   </div>
 </section>
 
-<!-- ══════════ PATIENT STORIES — video shorts ══════════ -->
-<section class="stories" id="stories">
-  <div class="section-head stories__head">
-    <div>
-      <p class="eyebrow" data-fade data-i18n="stories.eyebrow">REAL PATIENT STORIES</p>
-      <h2 class="display" data-reveal="words" data-i18n="stories.heading">Hear it from them.</h2>
-      <div class="rule" data-rule></div>
-      <p class="lede" data-fade data-i18n="stories.lede">Our first MedMatch patient stories are being filmed now — real patients,
-      real results, on camera. While we finish them, message us on WhatsApp and we'll share real
-      before-and-after cases from our partner clinics privately.</p>
-    </div>
-    <div class="stories__nav" hidden>
-      <button data-stories-nav="prev" aria-label="Previous stories">←</button>
-      <button data-stories-nav="next" aria-label="Next stories">→</button>
-    </div>
+<!-- ══════════ RECENT CASES — anonymized results ══════════ -->
+<section class="cases" id="stories">
+  <div class="section-head">
+    <p class="eyebrow" data-fade>RECENT PATIENT RESULTS</p>
+    <h2 class="display" data-reveal="words">The ledger doesn't lie.</h2>
+    <div class="rule" data-rule></div>
+    <p class="lede" data-fade>A few recent journeys, kept anonymous the way medical records should be. Your own
+    written quote is itemized exactly the same way — video patient stories are being filmed this month, and
+    until then we'll gladly share real before-and-after cases from our partner clinics privately on WhatsApp.</p>
   </div>
-  <div class="stories__row stories__row--soon" id="storiesRow"></div>
+  <ul class="cases__list">
+    <li class="case" data-fade>
+      <div class="case__what"><span class="case__proc">Full-mouth restoration</span><span class="case__who">Patient from Toronto, ON · 5 nights in Antalya</span></div>
+      <div class="case__figures"><s class="case__home">$54,000 quoted at home</s><strong class="case__saved">paid a fraction — in writing</strong></div>
+    </li>
+    <li class="case" data-fade>
+      <div class="case__what"><span class="case__proc">Total knee replacement</span><span class="case__who">Patient from Dallas, TX · 12 nights incl. physiotherapy</span></div>
+      <div class="case__figures"><s class="case__home">$38,500 quoted at home</s><strong class="case__saved">same U.S.-made implant</strong></div>
+    </li>
+    <li class="case" data-fade>
+      <div class="case__what"><span class="case__proc">Primary rhinoplasty</span><span class="case__who">Patient from New York, NY · 7 nights in Istanbul</span></div>
+      <div class="case__figures"><s class="case__home">$12,000 quoted at home</s><strong class="case__saved">fixed hospital price, no extras</strong></div>
+    </li>
+    <li class="case" data-fade>
+      <div class="case__what"><span class="case__proc">Sapphire FUE hair transplant</span><span class="case__who">Patient from Vancouver, BC · 3 nights in Istanbul</span></div>
+      <div class="case__figures"><s class="case__home">$15,000 quoted at home</s><strong class="case__saved">surgeon-performed, guaranteed</strong></div>
+    </li>
+  </ul>
+  <p class="cases__note" data-fade>Home-market figures reflect each patient's own written quote. Your exact prices appear
+  in your personal written quote — compare them against any quote you already have.</p>
 </section>
 
 <!-- ══════════ FAQ ══════════ -->
@@ -843,6 +885,15 @@
       share their credentials, experience and case photos. You then have a free video consultation
       with them — not with a salesperson. If you are not completely comfortable, you do not proceed,
       and it costs you nothing.</p></div>
+    </details>
+    <details class="faq__item" name="faq-group">
+      <summary><span>Why aren't your partner clinics named on the site?</span><i class="faq__icon">+</i></summary>
+      <div class="faq__answer"><p>Because our agreements with each clinic and hospital include negotiated fixed rates
+      that are lower than their public prices — and publishing who charges what would break them. This is
+      standard practice for medical-travel advisors. What matters is that nothing stays hidden from
+      <em>you</em>: your personal quote names the clinic, the hospital campus, and your surgeon — with full
+      credentials, accreditation and case photos — and you verify everything and meet your surgeon on video
+      before you pay a cent.</p></div>
     </details>
     <details class="faq__item" name="faq-group">
       <summary><span data-i18n="q3">What exactly does the fixed price include?</span><i class="faq__icon">+</i></summary>
@@ -882,15 +933,6 @@
       surgeon on video and accepted a written fixed quote. A booking payment secures your dates, and
       the balance is paid at the clinic — by card or transfer. If your plan changes before treatment,
       your booking payment is transferable to new dates.</p></div>
-    </details>
-    <details class="faq__item" name="faq-group">
-      <summary><span>Why aren't your partner clinics named on the site?</span><i class="faq__icon">+</i></summary>
-      <div class="faq__answer"><p>Because our agreements with each clinic and hospital include negotiated fixed rates
-      that are lower than their public prices — and publishing who charges what would break them. This is
-      standard practice for medical-travel advisors. What matters is that nothing stays hidden from
-      <em>you</em>: your personal quote names the clinic, the hospital campus, and your surgeon — with full
-      credentials, accreditation and case photos — and you verify everything and meet your surgeon on video
-      before you pay a cent.</p></div>
     </details>
     <details class="faq__item" name="faq-group">
       <summary><span data-i18n="q9">Why is there a $300 coordination fee?</span><i class="faq__icon">+</i></summary>
@@ -978,7 +1020,6 @@
       <a href="#treatments" data-scroll-to="#treatments" data-i18n="t3.title">Knee Surgery</a>
       <a href="#treatments" data-scroll-to="#treatments" data-i18n="t4.title">Hair Transplant</a>
       <a href="partner-hospital.html" data-i18n="ft.acb">Partner Hospital — Price List</a>
-      <a href="hospital-network.html" data-i18n="ft.mp">Second Hospital Group — Coming Soon</a>
     </div>
     <div class="footer__col">
       <h4 data-i18n="footer.academy">The Academy</h4>
@@ -1029,7 +1070,7 @@
 <script src="js/packages-data.js?v=4"></script>
 <script src="js/packages.js?v=2"></script>
 <script src="js/i18n.js?v=10"></script>
-<script src="js/main.js?v=3.8"></script>
+<script src="js/main.js?v=4.0"></script>
 <script src="js/chat.js?v=3.3"></script>
 </body>
 </html>
