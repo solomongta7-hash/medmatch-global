@@ -180,13 +180,20 @@ button { font-family: inherit; cursor: pointer; }
 
 .mmenu {
   position: fixed; inset: 0; z-index: 1900; background: var(--sea-deep);
-  display: grid; place-items: center; clip-path: inset(0 0 100% 0);
+  display: flex; align-items: center; justify-content: center;
+  overflow-y: auto; padding: 100px 24px 40px;
+  clip-path: inset(0 0 100% 0);
   transition: clip-path 0.7s var(--ease); visibility: hidden;
 }
 .mmenu.is-open { clip-path: inset(0 0 0% 0); visibility: visible; }
-.mmenu nav { display: flex; flex-direction: column; gap: 26px; text-align: center; }
-.mmenu a { font-family: var(--serif); font-size: 34px; font-style: italic; color: var(--foam); }
+.mmenu nav { display: flex; flex-direction: column; gap: 18px; text-align: center; margin: auto 0; }
+.mmenu a { font-family: var(--serif); font-size: 26px; font-style: italic; color: var(--foam); line-height: 1.2; }
 .mmenu a:last-child { color: var(--aqua); }
+@media (max-width: 380px) {
+  .mmenu { padding: 90px 20px 30px; }
+  .mmenu nav { gap: 14px; }
+  .mmenu a { font-size: 22px; }
+}
 @media (max-width: 1400px) {
   .nav__links { display: none; }
   .nav__burger { display: block; }
