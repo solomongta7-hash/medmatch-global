@@ -1121,8 +1121,8 @@ input[type="range"]::-moz-range-thumb {
 /* ═══════════ THE SETTING — the Turquoise Coast (reuses .rphoto) ═══════════ */
 .setting { padding: 14vh 0 12vh; background: var(--sand); }
 .setting__gallery {
-  margin: 7vh auto 0; max-width: 1240px; padding: 0 4vw;
-  display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 244px; gap: 14px;
+  margin: 7vh auto 0; max-width: 1300px; padding: 0 4vw;
+  display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: clamp(244px, 20vw, 300px); gap: 16px;
 }
 @media (max-width: 900px) { .setting__gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; } }
 @media (max-width: 560px) { .setting__gallery { grid-template-columns: 1fr; grid-auto-rows: 240px; } }
