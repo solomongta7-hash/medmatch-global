@@ -1,0 +1,26 @@
+# This repo publishes straight to medmatchglobal.info via GitHub Pages —
+# anything committed here becomes publicly downloadable. Keep local tool
+# output and scratch files out of it.
+#
+# Note: _archive/ is intentionally TRACKED. The leading underscore is what
+# stops GitHub Pages from publishing it (verified 404 live). Do not add it here.
+
+# Agent tooling output (browse logs, network captures, audit trails)
+.gstack/
+
+# graphify knowledge-graph cache (generated from the codebase)
+graphify-out/
+
+# Dependencies, if anything ever needs them locally
+node_modules/
+
+# Logs and scratch
+*.log
+*.tmp
+
+# OS and editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
