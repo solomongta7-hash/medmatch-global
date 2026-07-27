@@ -336,6 +336,14 @@
       "inv.eyebrow": "शुरू करें", "inv.heading": "अपना मुफ़्त कोटेशन पाएं।"
     }
   };
+  // This merge was missing, so all 38 Stage 1 keys — the Why-Us pillars, every
+  // section heading and the stat labels — silently stayed English in all seven
+  // languages no matter what the visitor picked.
+  Object.keys(T1).forEach(function (l) {
+    if (!T[l]) T[l] = {};
+    Object.keys(T1[l]).forEach(function (k) { T[l][k] = T1[l][k]; });
+  });
+
   /* ── Stage 2: section intros, How-It-Works steps, testimonials ── */
   var T2 = {
     tr: {
