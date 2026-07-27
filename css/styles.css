@@ -122,6 +122,11 @@ button { font-family: inherit; cursor: pointer; }
 .btn--ivory::before { background: var(--turquoise); }
 .btn--ivory:hover { color: var(--shell); }
 
+/* secondary action on light backgrounds — never competes with .btn--gold */
+.btn--outline { border-color: var(--teal); color: var(--teal); background: transparent; }
+.btn--outline::before { background: var(--teal); }
+.btn--outline:hover { color: var(--shell); }
+
 /* ═══════════ PRELOADER ═══════════ */
 
 .loader { position: fixed; inset: 0; z-index: 4000; display: grid; place-items: center; }
@@ -258,12 +263,27 @@ button { font-family: inherit; cursor: pointer; }
 .hero__line { display: block; overflow: hidden; padding-bottom: 0.1em; margin-bottom: -0.06em; }
 .hero__line--em { font-style: italic; color: var(--aqua); }
 .hero__sub { max-width: 540px; margin-top: 34px; color: rgba(244, 250, 249, 0.94); font-size: 17px; text-shadow: 0 1px 18px rgba(6, 51, 59, 0.55); }
-.hero__cta { display: flex; gap: 18px; margin-top: 44px; flex-wrap: wrap; }
+.hero__cta { display: flex; gap: 18px; margin-top: 36px; flex-wrap: wrap; }
+
+/* four numbers above the fold — the proof a first-time visitor needs */
+.hero__proof {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 14px 34px; margin-top: 34px;
+  padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.22); max-width: 620px;
+}
+.hero__proof li { display: flex; flex-direction: column; gap: 2px; }
+.hero__proof strong {
+  font-family: var(--serif); font-size: 30px; font-weight: 500; line-height: 1;
+  color: var(--shell); text-shadow: 0 1px 18px rgba(6, 51, 59, 0.55);
+}
+.hero__proof span {
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(244, 250, 249, 0.72);
+}
 
 .hero__foot {
   position: relative; z-index: 2;
   margin-top: auto;
-  display: flex; align-items: flex-end; justify-content: space-between;
+  display: flex; align-items: flex-end; justify-content: center;
   padding: 0 7vw 42px;
 }
 .hero__stat { display: flex; flex-direction: column; }
@@ -281,8 +301,18 @@ button { font-family: inherit; cursor: pointer; }
 @keyframes cue { 0% { top: -50%; } 60%, 100% { top: 110%; } }
 
 @media (max-width: 700px) {
-  .hero__foot .hero__stat:last-child { display: none; }
-  .hero__inner { padding-top: 20vh; }
+  /* The proof strip costs vertical room, and the sticky CTA bar eats the
+     bottom 74px — without tightening here the hero's own buttons end up
+     underneath it. Measured: keep the primary CTA clear of the bar. */
+  .hero__inner { padding-top: 12vh; }
+  .hero__sub { margin-top: 18px; }
+  .hero__proof { gap: 12px 0; margin-top: 18px; padding-top: 14px; }
+  .hero__proof li { flex: 0 0 50%; }
+  .hero__proof strong { font-size: 26px; }
+  .hero__cta { margin-top: 22px; }
+  /* WhatsApp is permanently in the sticky bar two inches below — a second
+     copy in the hero is duplication that pushes the primary CTA off-screen. */
+  .hero__cta .btn--ghost { display: none; }
 }
 
 @media (max-width: 480px) {
@@ -292,8 +322,9 @@ button { font-family: inherit; cursor: pointer; }
   .hero__sub { font-size: 15px; max-width: 100%; }
   .hero__cta { gap: 12px; }
   .hero__cta .btn { padding: 15px 24px; font-size: 11px; flex: 1 1 auto; }
-  .hero__foot { padding: 0 6vw 28px; flex-wrap: wrap; gap: 18px; }
-  .hero__stat strong { font-size: 24px; }
+  .hero__foot { padding: 0 6vw 24px; }
+  .hero__proof strong { font-size: 23px; }
+  .hero__proof span { font-size: 9.5px; letter-spacing: 0.14em; }
   .display { overflow-wrap: break-word; }
 }
 
@@ -310,6 +341,123 @@ button { font-family: inherit; cursor: pointer; }
   color: rgba(244, 250, 249, 0.75); padding-right: 12px;
 }
 .marquee__track i { color: var(--turquoise); font-style: normal; font-size: 14px; vertical-align: 3px; padding: 0 18px; }
+
+/* ═══════════ STICKY JUMP BAR ═══════════ */
+
+.jump {
+  position: fixed; top: var(--navh, 64px); left: 0; right: 0; z-index: 1950;
+  background: rgba(255, 255, 255, 0.93);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line-soft);
+  /* it is parked at top:var(--navh), so hiding it means clearing its own
+     height AND that offset — a plain percentage leaves a sliver over the nav */
+  transform: translateY(calc(-100% - var(--navh, 64px)));
+  transition: transform 0.4s var(--ease);
+  pointer-events: none;
+}
+.jump.is-on { transform: translateY(0); pointer-events: auto; }
+.jump { display: flex; align-items: center; }
+.jump__menu { display: none; }
+.jump__track { flex: 1 1 auto; min-width: 0; }
+.jump__track {
+  display: flex; gap: 6px; padding: 8px 4vw;
+  overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+}
+.jump__track::-webkit-scrollbar { display: none; }
+.jump__chip {
+  flex: 0 0 auto; scroll-snap-align: start;
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px;
+  border-radius: 999px; white-space: nowrap;
+  font-size: 12.5px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-soft);
+  border: 1px solid transparent;
+  transition: color 0.25s, background 0.25s, border-color 0.25s;
+}
+.jump__chip:hover { color: var(--teal); background: rgba(47, 169, 164, 0.09); }
+.jump__chip.is-here {
+  color: var(--shell); background: var(--teal); border-color: var(--teal);
+}
+
+@media (max-width: 900px) {
+  /* On a phone the jump bar IS the nav — stacking both would eat a fifth of the
+     screen, so the header steps aside and the bottom CTA bar covers brand actions. */
+  .jump { top: 0; transform: translateY(-100%); }
+  .jump__track { padding: 7px 3vw; }
+  .jump__chip { min-height: 38px; padding: 0 14px; font-size: 12px; }
+  body.jumping .nav { transform: translateY(-100%); pointer-events: none; }
+  body.jumping .nav.is-menu-open { transform: none; pointer-events: auto; }
+  .nav { transition: transform 0.4s var(--ease), padding 0.5s var(--ease), background 0.5s, color 0.5s; }
+
+  /* everything the hidden header held is still one tap away */
+  .jump__menu {
+    display: flex; flex-direction: column; justify-content: center; gap: 4px;
+    flex: 0 0 auto; width: 48px; height: 44px; padding: 0 14px 0 10px;
+    background: none; border: 0; border-left: 1px solid var(--line-soft);
+  }
+  .jump__menu span { display: block; height: 1.5px; width: 100%; background: var(--ink); border-radius: 2px; }
+  .jump__menu span:nth-child(2) { width: 70%; }
+}
+
+/* ═══════════ CHOOSER ═══════════
+   The routing decision. Sits directly under the hero so a phone user makes
+   one tap instead of scrolling the whole page to find their treatment. */
+
+.chooser { padding: 9vh 4vw 8vh; background: var(--foam); }
+.chooser__head { text-align: center; max-width: 620px; margin: 0 auto 40px; }
+.chooser__q {
+  font-family: var(--serif); font-size: clamp(30px, 5.4vw, 50px); font-weight: 500;
+  line-height: 1.05; color: var(--ink);
+}
+.chooser__hint { margin-top: 12px; font-size: 14.5px; color: var(--ink-soft); }
+
+.chooser__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  max-width: 1100px; margin: 0 auto;
+}
+.choice {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 6px; padding: 30px 16px 26px;
+  background: var(--shell); border: 1px solid var(--line-soft); border-radius: 20px;
+  box-shadow: 0 24px 48px -40px rgba(6, 51, 59, 0.4);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.choice:hover, .choice:focus-visible {
+  transform: translateY(-5px); border-color: var(--turquoise);
+  box-shadow: 0 34px 56px -38px rgba(6, 51, 59, 0.55);
+}
+.choice__ico { width: 46px; height: 46px; color: var(--turquoise); margin-bottom: 6px; }
+.choice__name {
+  font-family: var(--serif); font-size: 26px; font-weight: 500; color: var(--ink); line-height: 1.1;
+}
+.choice__sub { font-size: 12.5px; color: var(--ink-soft); line-height: 1.4; }
+.choice__from {
+  margin-top: 8px; font-size: 14px; font-weight: 500; color: var(--teal);
+  letter-spacing: 0.02em;
+}
+.choice__from em {
+  font-style: normal; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-soft); margin-right: 5px;
+}
+
+.chooser__foot {
+  display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: 30px;
+}
+.chooser__alt {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px;
+  font-size: 13.5px; color: var(--ink-soft); text-align: center;
+}
+.chooser__alt:hover { color: var(--teal); }
+.chooser__alt--strong { color: var(--teal); font-weight: 500; }
+
+@media (max-width: 900px) {
+  .chooser { padding: 7vh 5vw 6vh; }
+  .chooser__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .choice { padding: 24px 12px 20px; }
+  .choice__ico { width: 40px; height: 40px; }
+  .choice__name { font-size: 23px; }
+  /* keep these centred links out from under the chat launcher (right edge) */
+  .chooser__alt { padding-left: 34px; padding-right: 34px; }
+}
 
 /* ═══════════ THE STANDARD ═══════════ */
 
@@ -429,11 +577,36 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 480px) { .tpanel__save { font-size: 8.5px; letter-spacing: 0.08em; padding: 8px 12px; } }
 
 @media (max-width: 900px) {
-  .htrack { height: auto; flex-direction: column; width: 100%; }
-  .tpanel { width: 100%; height: auto; flex-direction: column; align-items: flex-start; padding: 14vw 8vw; border-right: 0; border-bottom: 1px solid var(--line-soft); gap: 40px; }
-  .tpanel--intro { width: 100%; }
-  .tpanel__arrow { display: none; }
-  .tpanel__plate { width: 200px; }
+  /* Stacked, these six panels cost six full screens of scrolling. As a
+     snap carousel they cost one, and swiping matches what the desktop
+     pinned track already does. */
+  .hwrap {
+    overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .hwrap::-webkit-scrollbar { display: none; }
+  .htrack { height: auto; flex-direction: row; width: max-content; align-items: stretch; }
+  .tpanel {
+    width: 86vw; height: auto; flex-direction: column; align-items: flex-start;
+    padding: 10vw 7vw; gap: 26px;
+    border-right: 1px solid var(--line-soft); border-bottom: 0;
+    scroll-snap-align: center;
+  }
+  .tpanel--intro { width: 86vw; justify-content: center; }
+  .tpanel__arrow { display: block; font-size: 30px; margin-top: 4vh; }
+  .tpanel__plate { width: 128px; }
+  .tpanel__title { font-size: clamp(30px, 8vw, 42px); }
+  .tpanel__body > p { font-size: 14.5px; }
+  .tpanel__meta { margin: 20px 0 18px; gap: 16px; }
+  .tpanel__meta strong { font-size: 34px; }
+
+  .treatments { position: relative; }
+  .treatments::after {
+    content: "Swipe for more →"; position: absolute; left: 7vw; bottom: 14px;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-soft); pointer-events: none;
+  }
 }
 
 /* ═══════════ NUMBERS ═══════════ */
@@ -464,6 +637,11 @@ button { font-family: inherit; cursor: pointer; }
   margin: 8vh auto 0; max-width: 1240px; padding: 0 4vw;
 }
 @media (max-width: 1080px) { .partners__grid { grid-template-columns: 1fr; max-width: 640px; margin-left: 7vw; margin-right: 7vw; } }
+@media (max-width: 900px) {
+  .partners__grid { gap: 14px; margin-top: 5vh; }
+  .partner__img { height: 132px; }
+  .partner__body { padding: 20px 22px 20px; }
+}
 .partner {
   display: flex; flex-direction: column; overflow: hidden;
   background: var(--foam); border-radius: 14px;
@@ -506,6 +684,14 @@ button { font-family: inherit; cursor: pointer; }
 .partner__link:hover { color: var(--turquoise); }
 
 .faculty__subhead { margin-top: 10vh; }
+.faculty__team {
+  margin: 5vh 7vw 0; max-width: 620px; font-size: 14.5px; color: var(--ink-soft);
+}
+.faculty__team a {
+  display: inline-block; min-height: 44px; line-height: 44px;
+  color: var(--teal); font-weight: 500; white-space: nowrap;
+}
+.faculty__team a:hover { color: var(--turquoise); }
 
 /* partner-hospital doctor grid + hospital hero band (partner pages) */
 .faculty__grid--acb { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); max-width: 1200px; }
@@ -735,6 +921,17 @@ input[type="range"]::-moz-range-thumb {
 .voices__grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;
   margin: 9vh 7vw 0; max-width: 1300px;
+}
+/* three stacked quotes read as three screens of scrolling; one swipeable
+   row reads as one, and nobody scrolls past a testimonial they can't see */
+@media (max-width: 900px) {
+  .voices__grid {
+    display: flex; gap: 14px; margin: 6vh 0 0; padding: 0 6vw;
+    overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .voices__grid::-webkit-scrollbar { display: none; }
+  .voice { flex: 0 0 82vw; scroll-snap-align: center; padding: 32px 26px 28px; }
 }
 .voice {
   background: var(--shell); border: 1px solid var(--line-soft); border-radius: 22px;
@@ -1088,44 +1285,83 @@ input[type="range"]::-moz-range-thumb {
   .case__figures { text-align: left; }
 }
 
-/* ═══════════ WHY PATIENTS COME — before / after ═══════════ */
-.reason { padding: 15vh 0 13vh; background: var(--foam); }
-.reason__grid {
-  margin: 8vh auto 0; max-width: 1160px; padding: 0 6vw;
-  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(18px, 3.4vw, 48px);
-}
-.rcard {
-  position: relative; border-radius: 20px; overflow: hidden; background: var(--shell);
-  border: 1px solid var(--line-soft); box-shadow: 0 34px 64px -46px rgba(6, 51, 59, 0.5);
-  display: flex; flex-direction: column;
-}
-.rcard__img { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--sand); }
-.rcard__img img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center 18%;
-  display: block; transition: transform 0.9s var(--ease);
-}
-.rcard:hover .rcard__img img { transform: scale(1.04); }
-.rcard__tag {
-  position: absolute; top: 16px; left: 16px; z-index: 2;
-  font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase; font-weight: 600;
-  padding: 8px 15px; border-radius: 999px; color: var(--shell);
-}
-.rcard--before .rcard__tag { background: rgba(120, 66, 60, 0.82); }
-.rcard--after .rcard__tag { background: rgba(47, 169, 164, 0.92); }
-.rcard__body { padding: 30px 32px 34px; }
-.rcard__body h3 { font-family: var(--serif); font-size: clamp(24px, 2.3vw, 32px); font-weight: 500; line-height: 1.1; margin-bottom: 12px; }
-.rcard--after .rcard__body h3 { color: var(--teal); }
-.rcard__body p { color: var(--ink-soft); font-size: 15px; }
-@media (max-width: 820px) { .reason__grid { grid-template-columns: 1fr; max-width: 440px; } }
+/* ═══════════════════════════════════════════════════════════════
+   TOUCH TARGETS
+   Every interactive element reaches the 44px minimum on touch
+   devices. Scoped to (hover: none) so desktop spacing is untouched.
+   ═══════════════════════════════════════════════════════════════ */
 
-/* ═══════════ THE SETTING — the Turquoise Coast (reuses .rphoto) ═══════════ */
-.setting { padding: 14vh 0 12vh; background: var(--sand); }
-.setting__gallery {
-  margin: 7vh auto 0; max-width: 1300px; padding: 0 4vw;
-  display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: clamp(244px, 20vw, 300px); gap: 16px;
-}
-@media (max-width: 900px) { .setting__gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; } }
-@media (max-width: 560px) { .setting__gallery { grid-template-columns: 1fr; grid-auto-rows: 240px; } }
+@media (hover: none), (max-width: 900px) {
+  .nav__burger { width: 44px; height: 44px; }
+  .nav__burger span { left: 5px; width: 34px; }
+  .nav__burger span:first-child { top: 17px; }
+  .nav__burger span:last-child { top: 26px; }
+  .nav__burger.is-open span:first-child,
+  .nav__burger.is-open span:last-child { top: 21px; }
 
-/* recovery interlude — interior room needs a lighter veil than the sea shots */
-.interlude--room .interlude__veil { background: rgba(6, 51, 59, 0.42); }
+  .nav__brand { min-height: 44px; justify-content: center; }
+
+  .mmenu nav { gap: 4px; }
+  .mmenu nav a { min-height: 52px; display: flex; align-items: center; justify-content: center; }
+
+  .footer__col a,
+  .footer__cols a { min-height: 44px; display: flex; align-items: center; }
+
+  .partner__link,
+  .ledger__note a,
+  .tpanel__link { min-height: 44px; display: inline-flex; align-items: center; }
+
+  .currency__btn { min-height: 44px; padding-top: 0; padding-bottom: 0; }
+  .tab { min-height: 46px; }
+  .pkg__hbtn { min-height: 46px; }
+  .jump__chip { min-height: 44px; }
+  .jump__track { padding-top: 5px; padding-bottom: 5px; }
+
+  .chat-chip { min-height: 44px; }
+  .chat-panel__close { width: 44px; height: 44px; }
+
+  .lang-pick { min-height: 44px; display: flex; align-items: center; }
+  .lang-pick select { min-height: 44px; }
+
+  /* sliders are the calculator's main control — give the thumb room to be grabbed */
+  input[type="range"] { height: 44px; }
+  input[type="range"]::-webkit-slider-thumb { width: 28px; height: 28px; margin-top: -13px; }
+  input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; }
+
+  .mobilebar__btn { min-height: 50px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE RHYTHM
+   Section padding is set in vh, which is generous on a desktop and
+   enormous on a phone: 16vh top + 14vh bottom across a dozen
+   sections was costing roughly four full screens of empty scroll.
+   Placed last so it wins over the earlier per-section rules.
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .standard, .faculty, .faq { padding: 8vh 0 7vh; }
+  .ledger, .voices { padding: 8vh 0 6vh; }
+  .passage { padding: 8vh 0; }
+  .story-band, .residence, .cases { padding: 7vh 0 6vh; }
+  .numbers { padding: 7vh 7vw; }
+  .invitation { padding: 7vh 4vw 8vh; }
+  .pkgs { padding: 8vh 0 7vh; }
+  .footer { padding: 7vh 7vw 4vh; }
+  .section-head { padding-top: 0; }
+
+  /* the partner cards' own image height is declared after the earlier
+     mobile block, so the shrink has to live down here to take effect */
+  .partner__img { height: 130px; }
+  .partner h3 { font-size: 22px; }
+  .partner__desc { font-size: 13px; }
+  .partner__addr { font-size: 11.5px; }
+
+  .standard__grid { margin-top: 5vh; }
+  .voices__grid { margin-top: 5vh; }
+  .cases__list { margin-top: 5vh; }
+  .case { padding: 20px 4px; }
+
+  /* the last few controls sitting 1–3px under the line */
+  .chat-chip, .chat-panel__close, .chat-form button { min-height: 46px; }
+}

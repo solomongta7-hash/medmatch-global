@@ -24,8 +24,8 @@
       "nav.standard": "Standartlarımız", "nav.journal": "Blog",
       "std.more": "MedMatch Standardının tamamını okuyun →",
       "hero.eyebrow": "ABD VE KANADA'DAN HASTALAR İÇİN · İSTANBUL VE ANTALYA, TÜRKİYE",
-      "hero.sub": "Sizi uluslararası akreditasyona sahip hastanelerdeki board sertifikalı cerrahlarla buluşturur, gerisini biz hallederiz. Tek sabit fiyat; ameliyatınızı, otelinizi, transferlerinizi ve bakımınızı kapsar. Kişisel bakım koordinatörünüz ilk görüşmeden tam iyileşmeye kadar yanınızdadır.",
-      "hero.cta1": "Ücretsiz Teklif Al", "hero.cta2": "Tedavileri ve Fiyatları Gör",
+      "hero.sub": "Sizi board sertifikalı bir cerrahla eşleştirir, tek sabit ve her şey dahil fiyatı yazılı veririz ve ilk görüşmeden tam iyileşmeye kadar yanınızda kalırız.",
+      "hero.cta1": "Fiyatımı Gör", "hero.cta2": "WhatsApp'tan Sorun",
       "partner.dental1.type": "DİŞ KLİNİĞİ — ANTALYA",
       "partner.dental2.type": "DİŞ KLİNİĞİ — ANTALYA · İSTANBUL · DİDİM",
       "partner.dental2.desc": "Yirmi yılı aşkın deneyime sahip ödüllü gülüş stüdyosu — tam dijital iş akışıyla kaplama, kuron ve implant. Ücretsiz danışmanızda gerçek hasta sonuçlarını bizden isteyin.",
@@ -49,8 +49,8 @@
       "nav.standard": "Der Standard", "nav.journal": "Journal",
       "std.more": "Den vollständigen MedMatch-Standard lesen →",
       "hero.eyebrow": "FÜR PATIENTEN AUS DEN USA UND KANADA · ISTANBUL UND ANTALYA, TÜRKEI",
-      "hero.sub": "Wir vermitteln Ihnen zertifizierte Chirurgen an international akkreditierten Kliniken – um alles Weitere kümmern wir uns. Ein Festpreis deckt Eingriff, Hotel, Transfers und Nachsorge. Eine persönliche Betreuungskoordinatorin ist vom ersten Anruf bis zur vollständigen Genesung an Ihrer Seite.",
-      "hero.cta1": "Kostenloses Angebot", "hero.cta2": "Behandlungen & Preise ansehen",
+      "hero.sub": "Wir vermitteln Ihnen einen zertifizierten Chirurgen, halten einen festen Komplettpreis schriftlich fest und bleiben vom ersten Anruf bis zur vollständigen Genesung an Ihrer Seite.",
+      "hero.cta1": "Meinen Preis sehen", "hero.cta2": "Per WhatsApp fragen",
       "partner.dental1.type": "ZAHNKLINIK — ANTALYA",
       "partner.dental2.type": "ZAHNKLINIK — ANTALYA · ISTANBUL · DIDIM",
       "partner.dental2.desc": "Preisgekröntes Smile-Studio mit über zwanzig Jahren Erfahrung – Veneers, Kronen und Implantate im volldigitalen Workflow. Fragen Sie uns in Ihrer kostenlosen Beratung nach echten Patientenergebnissen.",
@@ -74,8 +74,8 @@
       "nav.standard": "Notre Standard", "nav.journal": "Journal",
       "std.more": "Lire le Standard MedMatch complet →",
       "hero.eyebrow": "POUR LES PATIENTS DES ÉTATS-UNIS ET DU CANADA · ISTANBUL ET ANTALYA, TÜRKİYE",
-      "hero.sub": "Nous vous mettons en relation avec des chirurgiens certifiés dans des hôpitaux accrédités à l'international — et nous nous occupons du reste. Un prix fixe couvre votre intervention, l'hôtel, les transferts et le suivi. Une coordinatrice de soins personnelle reste à vos côtés du premier appel jusqu'à votre pleine guérison.",
-      "hero.cta1": "Devis Gratuit", "hero.cta2": "Voir Traitements & Tarifs",
+      "hero.sub": "Nous vous mettons en relation avec un chirurgien certifié, fixons par écrit un prix unique tout compris, et restons à vos côtés du premier appel jusqu'à la guérison complète.",
+      "hero.cta1": "Voir mon prix", "hero.cta2": "Demander sur WhatsApp",
       "partner.dental1.type": "CLINIQUE DENTAIRE — ANTALYA",
       "partner.dental2.type": "CLINIQUE DENTAIRE — ANTALYA · ISTANBUL · DIDIM",
       "partner.dental2.desc": "Studio du sourire primé, fort de plus de vingt ans d'expérience — facettes, couronnes et implants en flux 100 % numérique. Demandez-nous de vrais résultats de patients lors de votre consultation gratuite.",
@@ -99,8 +99,8 @@
       "nav.standard": "Наш стандарт", "nav.journal": "Журнал",
       "std.more": "Читать полный стандарт MedMatch →",
       "hero.eyebrow": "ДЛЯ ПАЦИЕНТОВ ИЗ США И КАНАДЫ · СТАМБУЛ И АНТАЛЬЯ, ТУРЦИЯ",
-      "hero.sub": "Мы подбираем вам сертифицированных хирургов в клиниках с международной аккредитацией — и берём на себя всё остальное. Одна фиксированная цена включает операцию, отель, трансферы и последующий уход. Персональный координатор рядом с вами от первого звонка до полного выздоровления.",
-      "hero.cta1": "Бесплатная оценка", "hero.cta2": "Лечение и цены",
+      "hero.sub": "Мы подбираем вам сертифицированного хирурга, фиксируем единую цену «всё включено» в письменном виде и остаёмся рядом от первого звонка до полного восстановления.",
+      "hero.cta1": "Узнать мою цену", "hero.cta2": "Спросить в WhatsApp",
       "partner.dental1.type": "СТОМАТОЛОГИЯ — АНТАЛЬЯ",
       "partner.dental2.type": "СТОМАТОЛОГИЯ — АНТАЛЬЯ · СТАМБУЛ · ДИДИМ",
       "partner.dental2.desc": "Титулованная студия улыбки с более чем двадцатилетним опытом — виниры, коронки и импланты по полностью цифровому протоколу. Запросите реальные результаты пациентов на бесплатной консультации.",
@@ -124,8 +124,8 @@
       "nav.standard": "审核标准", "nav.journal": "博客",
       "std.more": "阅读完整的 MedMatch 标准 →",
       "hero.eyebrow": "面向美国和加拿大患者 · 土耳其伊斯坦布尔与安塔利亚",
-      "hero.sub": "我们为您匹配国际认证医院中具备资质的外科医生，其余一切由我们安排。一个固定价格涵盖手术、酒店、接送与术后护理。专属护理协调员从您首次来电到完全康复始终陪伴左右。",
-      "hero.cta1": "获取免费报价", "hero.cta2": "查看项目与价格",
+      "hero.sub": "我们为您匹配具备资质的外科医生，以书面形式锁定一口价全包费用，并从第一通电话陪伴您直到完全康复。",
+      "hero.cta1": "查看我的价格", "hero.cta2": "用 WhatsApp 咨询",
       "partner.dental1.type": "牙科诊所 — 安塔利亚",
       "partner.dental2.type": "牙科诊所 — 安塔利亚 · 伊斯坦布尔 · 迪迪姆",
       "partner.dental2.desc": "屡获殊荣的微笑设计工作室，拥有二十余年经验——贴面、牙冠与种植全数字化流程。免费咨询时可向我们索取真实患者案例。",
@@ -149,8 +149,8 @@
       "nav.standard": "استاندارد ما", "nav.journal": "مجله",
       "std.more": "مطالعه استاندارد کامل MedMatch →",
       "hero.eyebrow": "برای بیماران از آمریکا و کانادا · استانبول و آنتالیا، ترکیه",
-      "hero.sub": "ما شما را با جراحان دارای بورد تخصصی در بیمارستان‌های دارای اعتبار بین‌المللی مرتبط می‌کنیم — و باقی امور را خودمان انجام می‌دهیم. یک قیمت ثابت شامل عمل، هتل، ترانسفر و مراقبت‌های پس از عمل است. یک هماهنگ‌کننده شخصی از نخستین تماس تا بهبودی کامل در کنار شماست.",
-      "hero.cta1": "دریافت پیشنهاد رایگان", "hero.cta2": "مشاهده درمان‌ها و قیمت‌ها",
+      "hero.sub": "شما را با جراحی دارای بورد تخصصی هماهنگ می‌کنیم، یک قیمت ثابت و همه‌شمول را کتبی ثبت می‌کنیم و از نخستین تماس تا بهبود کامل کنارتان می‌مانیم.",
+      "hero.cta1": "قیمت من را ببینید", "hero.cta2": "در واتساپ بپرسید",
       "partner.dental1.type": "کلینیک دندان‌پزشکی — آنتالیا",
       "partner.dental2.type": "کلینیک دندان‌پزشکی — آنتالیا · استانبول · دیدیم",
       "partner.dental2.desc": "استودیوی لبخند برنده جایزه با بیش از بیست سال تجربه — لمینت، روکش و ایمپلنت با فرایند کاملاً دیجیتال. در مشاوره رایگان، نتایج واقعی بیماران را از ما بخواهید.",
@@ -174,8 +174,8 @@
       "nav.standard": "हमारा मानक", "nav.journal": "जर्नल",
       "std.more": "पूरा MedMatch मानक पढ़ें →",
       "hero.eyebrow": "अमेरिका और कनाडा के मरीज़ों के लिए · इस्तांबुल और अंताल्या, तुर्किये",
-      "hero.sub": "हम आपको अंतरराष्ट्रीय स्तर पर मान्यता प्राप्त अस्पतालों के बोर्ड-प्रमाणित सर्जनों से जोड़ते हैं — और बाकी सब कुछ हम संभालते हैं। एक निश्चित मूल्य में आपकी सर्जरी, होटल, ट्रांसफर और देखभाल शामिल है। एक निजी केयर कोऑर्डिनेटर आपकी पहली कॉल से लेकर पूर्ण रिकवरी तक आपके साथ रहता है।",
-      "hero.cta1": "मुफ़्त कोटेशन पाएं", "hero.cta2": "उपचार और मूल्य देखें",
+      "hero.sub": "हम आपको एक बोर्ड-प्रमाणित सर्जन से मिलाते हैं, एक निश्चित सर्व-समावेशी कीमत लिखित में तय करते हैं, और पहली कॉल से पूर्ण स्वस्थ होने तक आपके साथ रहते हैं।",
+      "hero.cta1": "मेरी कीमत देखें", "hero.cta2": "WhatsApp पर पूछें",
       "partner.dental1.type": "डेंटल क्लिनिक — अंताल्या",
       "partner.dental2.type": "डेंटल क्लिनिक — अंताल्या · इस्तांबुल · दिदिम",
       "partner.dental2.desc": "बीस से अधिक वर्षों के अनुभव वाला पुरस्कार-विजेता स्माइल स्टूडियो — पूरी तरह डिजिटल वर्कफ़्लो पर विनियर, क्राउन और इम्प्लांट। अपनी मुफ़्त परामर्श में हमसे असली मरीज़ों के परिणाम माँगें।",
@@ -197,7 +197,7 @@
   var T1 = {
     tr: {
       "std.eyebrow": "HASTALARIN BİZE GÜVENME NEDENİ", "std.heading": "Güvenliğiniz tüm iş modelimizdir.",
-      "std.lede": "Medikal seyahat, hiçbir şey şansa bırakılmadığında işe yarar. Kurucu ekibimiz sağlık turizminde yirmi yılı aşkın deneyime ve on yıllık uygulamalı diş hekimliği uzmanlığına sahiptir — risklerin nerede saklandığını biliyoruz, çünkü kariyerimizi onları ortadan kaldırmaya adadık. İşte sizi her adımda nasıl koruduğumuz — ve karar vermeden önce kendinizin nasıl doğrulayabileceği.",
+      "std.lede": "Yurt dışında ameliyat olmaktan çekiniyor musunuz? Dikkatli olmalısınız — zaten tam bu yüzden, hiçbir ödeme yapmadan önce cerrahınızla tanışır ve yazılı sabit fiyatınızı elinize alırsınız. İşte size garanti ettiklerimiz ve kendinizin doğrulayabilecekleri.",
       "std.p1h": "Kanıtlı, seçilmiş cerrahlar", "std.p1b": "Başvuran kliniklerin 10'da 1'inden azını kabul ediyoruz. Her cerrah board sertifikalıdır ve yalnızca JCI akreditasyonlu hastanelerde çalışır — önde gelen Amerikan hastanelerinin standardıyla aynı. Herhangi bir cerrahın belgelerini ve vaka geçmişini isteyin: ödeme yapmadan önce size gönderiyoruz.",
       "std.p2h": "Ödeme yapmadan cerrahınızla tanışın", "std.p2b": "Para el değiştirmeden önce gerçek cerrahınızla — bir satış temsilcisiyle değil — özel bir görüntülü görüşme. Bir şey ters gelirse ayrılırsınız. Depozito yok, baskı yok.",
       "std.p3h": "Yazılı, tek sabit fiyat", "std.p3b": "Ameliyat, hastane, otel, transferler, bakım — uçuş rezervasyonundan önce onaylanan her şey dahil tek teklif. Kabul ettiğiniz fiyat, ödediğiniz fiyattır. Asla sürpriz fatura yok.",
@@ -217,7 +217,7 @@
     },
     de: {
       "std.eyebrow": "WARUM PATIENTEN UNS VERTRAUEN", "std.heading": "Ihre Sicherheit ist unser ganzes Geschäftsmodell.",
-      "std.lede": "Medizinreisen funktionieren nur, wenn nichts dem Zufall überlassen wird. Unser Gründungsteam bringt über zwanzig Jahre Erfahrung im Gesundheitstourismus und ein Jahrzehnt praktische zahnmedizinische Expertise mit – wir wissen, wo die Risiken lauern, weil wir unsere Laufbahn darauf verwendet haben, sie zu beseitigen. So schützen wir Sie bei jedem Schritt – und das können Sie selbst überprüfen, bevor Sie sich zu etwas verpflichten.",
+      "std.lede": "Angst vor einer Operation im Ausland? Vorsicht ist richtig — genau deshalb lernen Sie Ihren Chirurgen kennen und halten einen festen schriftlichen Preis in der Hand, bevor Sie irgendetwas bezahlen. Das garantieren wir Ihnen, und das können Sie selbst überprüfen.",
       "std.p1h": "Geprüfte Chirurgen – mit Nachweis", "std.p1b": "Wir nehmen weniger als 1 von 10 Kliniken an, die sich bewerben. Jeder Chirurg ist zertifiziert und operiert ausschließlich in JCI-akkreditierten Kliniken – demselben Standard führender amerikanischer Kliniken. Fragen Sie nach Qualifikationen und Fallhistorie eines Chirurgen: Wir senden sie, bevor Sie etwas bezahlen.",
       "std.p2h": "Lernen Sie Ihren Chirurgen kennen, bevor Sie zahlen", "std.p2b": "Eine private Videosprechstunde mit Ihrem tatsächlichen Chirurgen – nicht mit einem Verkäufer – bevor Geld fließt. Wenn sich etwas nicht richtig anfühlt, gehen Sie. Keine Anzahlung, kein Druck.",
       "std.p3h": "Ein Festpreis, schriftlich", "std.p3b": "Operation, Klinik, Hotel, Transfers, Nachsorge – ein Komplettangebot, bestätigt, bevor Sie Flüge buchen. Der Preis, den Sie annehmen, ist der Preis, den Sie zahlen. Niemals Überraschungsrechnungen.",
@@ -237,7 +237,7 @@
     },
     fr: {
       "std.eyebrow": "POURQUOI LES PATIENTS NOUS FONT CONFIANCE", "std.heading": "Votre sécurité est tout notre modèle.",
-      "std.lede": "Le tourisme médical ne fonctionne que lorsque rien n'est laissé au hasard. Notre équipe fondatrice cumule plus de vingt ans dans le tourisme de santé et une décennie d'expertise dentaire concrète — nous savons où se cachent les risques, car nous avons passé notre carrière à les éliminer. Voici exactement comment nous vous protégeons à chaque étape — et ce que vous pouvez vérifier vous-même avant de vous engager.",
+      "std.lede": "L'idée d'une opération à l'étranger vous fait peur ? La prudence est justifiée — c'est précisément pour cela que vous rencontrez votre chirurgien et disposez d'un prix fixe écrit avant de payer quoi que ce soit. Voici ce que nous garantissons, et ce que vous pouvez vérifier vous-même.",
       "std.p1h": "Chirurgiens vérifiés — avec preuves", "std.p1b": "Nous acceptons moins d'une clinique sur 10 qui postulent. Chaque chirurgien est certifié et n'opère que dans des hôpitaux accrédités JCI — la même norme que les grands hôpitaux américains. Demandez les qualifications et l'historique de cas de tout chirurgien : nous vous les envoyons avant tout paiement.",
       "std.p2h": "Rencontrez votre chirurgien avant de payer", "std.p2b": "Une consultation vidéo privée avec votre véritable chirurgien — pas un commercial — avant tout échange d'argent. Si quelque chose vous gêne, vous partez. Aucun acompte, aucune pression.",
       "std.p3h": "Un prix fixe, par écrit", "std.p3b": "Chirurgie, hôpital, hôtel, transferts, suivi — un devis tout compris confirmé avant de réserver vos vols. Le prix que vous acceptez est celui que vous payez. Jamais de facture surprise.",
@@ -257,7 +257,7 @@
     },
     ru: {
       "std.eyebrow": "ПОЧЕМУ ПАЦИЕНТЫ НАМ ДОВЕРЯЮТ", "std.heading": "Ваша безопасность — вся наша бизнес-модель.",
-      "std.lede": "Медицинские поездки работают только тогда, когда ничто не оставлено на волю случая. Наша команда-основатель имеет более двадцати лет в медицинском туризме и десятилетие практической стоматологии — мы знаем, где скрываются риски, потому что всю карьеру их устраняли. Вот как именно мы защищаем вас на каждом шаге — и что вы можете проверить сами, прежде чем на что-либо решиться.",
+      "std.lede": "Страшно оперироваться за границей? Осторожность оправданна — именно поэтому вы знакомитесь с хирургом и получаете фиксированную цену на бумаге до того, как что-либо оплатите. Вот что мы гарантируем и что вы можете проверить сами.",
       "std.p1h": "Проверенные хирурги — с доказательствами", "std.p1b": "Мы принимаем менее 1 из 10 клиник, подающих заявку. Каждый хирург сертифицирован и оперирует только в клиниках с аккредитацией JCI — тот же стандарт, что и у ведущих американских больниц. Запросите квалификацию и историю случаев любого хирурга: мы пришлём их до того, как вы что-либо оплатите.",
       "std.p2h": "Познакомьтесь с хирургом до оплаты", "std.p2b": "Частная видеоконсультация с вашим настоящим хирургом — не с менеджером по продажам — до того, как деньги перейдут из рук в руки. Если что-то не так, вы уходите. Без депозита, без давления.",
       "std.p3h": "Одна фиксированная цена, письменно", "std.p3b": "Операция, больница, отель, трансферы, уход — одно всё включающее предложение, подтверждённое до бронирования билетов. Цена, которую вы принимаете, — это цена, которую вы платите. Никаких неожиданных счетов.",
@@ -277,7 +277,7 @@
     },
     zh: {
       "std.eyebrow": "患者为何信任我们", "std.heading": "您的安全，就是我们的整个商业模式。",
-      "std.lede": "只有当一切都不留给偶然，医疗旅行才行得通。我们的创始团队拥有二十多年的健康旅游经验和十年的一线牙科专业积累——我们知道风险藏在哪里，因为我们的职业生涯都在消除它们。以下正是我们在每一步如何保护您——以及在您做出任何决定之前，您可以自行核实的内容。",
+      "std.lede": "担心出国手术？谨慎是应该的——正因如此，在您付款之前，您会先见到主刀医生，并拿到一份书面固定报价。以下是我们的承诺，以及您可以自行核实的内容。",
       "std.p1h": "经过筛选的外科医生——有据可查", "std.p1b": "在申请的诊所中，我们接受的不到十分之一。每位外科医生均具备资质，且只在通过 JCI 认证的医院手术——与美国顶尖医院相同的标准。索取任何一位医生的资历与病例记录：我们会在您付款之前发送给您。",
       "std.p2h": "付款前先与您的医生见面", "std.p2b": "在任何款项交付之前，与您真正的主刀医生——而非销售人员——进行一对一视频咨询。若有任何不妥，您可随时离开。无需押金，绝无压力。",
       "std.p3h": "一个固定价格，白纸黑字", "std.p3b": "手术、医院、酒店、接送、术后护理——在您预订机票之前确认的一体化报价。您接受的价格，就是您支付的价格。绝无意外账单。",
@@ -297,7 +297,7 @@
     },
     fa: {
       "std.eyebrow": "چرا بیماران به ما اعتماد می‌کنند", "std.heading": "ایمنی شما، تمام مدل کاری ماست.",
-      "std.lede": "سفر درمانی تنها زمانی جواب می‌دهد که هیچ چیز به شانس واگذار نشود. تیم بنیان‌گذار ما بیش از بیست سال تجربه در گردشگری سلامت و یک دهه تخصص عملی دندان‌پزشکی دارد — می‌دانیم خطرها کجا پنهان‌اند، چون تمام حرفه‌مان را صرف حذف آن‌ها کرده‌ایم. این دقیقاً همان شیوه‌ای است که در هر گام از شما محافظت می‌کنیم — و آنچه می‌توانید پیش از هر تعهدی خودتان راستی‌آزمایی کنید.",
+      "std.lede": "از جراحی در خارج از کشور می‌ترسید؟ احتیاط درست است — دقیقاً به همین دلیل پیش از پرداخت هر مبلغی، جراح خود را می‌بینید و یک قیمت ثابت کتبی در دست دارید. این چیزی است که تضمین می‌کنیم و آنچه خودتان می‌توانید بررسی کنید.",
       "std.p1h": "جراحان تأییدشده — با مدرک", "std.p1b": "از هر ۱۰ کلینیک متقاضی، کمتر از ۱ مورد را می‌پذیریم. هر جراح دارای بورد تخصصی است و تنها در بیمارستان‌های دارای اعتبار JCI عمل می‌کند — همان استانداردی که بیمارستان‌های برتر آمریکا دارند. مدارک و سوابق پرونده هر جراح را بخواهید: پیش از هر پرداختی برایتان می‌فرستیم.",
       "std.p2h": "پیش از پرداخت با جراح‌تان دیدار کنید", "std.p2b": "یک مشاوره ویدیویی خصوصی با جراح واقعی شما — نه یک فروشنده — پیش از هر جابه‌جایی پول. اگر چیزی درست به نظر نرسید، کنار می‌کشید. بدون بیعانه، بدون فشار.",
       "std.p3h": "یک قیمت ثابت، کتبی", "std.p3b": "عمل، بیمارستان، هتل، ترانسفر، مراقبت پس از عمل — یک پیشنهاد همه‌شمول که پیش از رزرو پرواز تأیید می‌شود. قیمتی که می‌پذیرید همان است که می‌پردازید. هرگز صورتحساب غیرمنتظره‌ای در کار نیست.",
@@ -317,7 +317,7 @@
     },
     hi: {
       "std.eyebrow": "मरीज़ हम पर भरोसा क्यों करते हैं", "std.heading": "आपकी सुरक्षा ही हमारा पूरा व्यवसाय मॉडल है।",
-      "std.lede": "मेडिकल यात्रा तभी काम करती है जब कुछ भी संयोग पर न छोड़ा जाए। हमारी संस्थापक टीम के पास स्वास्थ्य पर्यटन में बीस वर्षों से अधिक और व्यावहारिक दंत चिकित्सा में एक दशक का अनुभव है — हम जानते हैं कि जोखिम कहाँ छिपते हैं, क्योंकि हमने अपना करियर उन्हें दूर करने में बिताया है। यहाँ ठीक वही है कि हम हर कदम पर आपकी रक्षा कैसे करते हैं — और किसी भी बात के लिए प्रतिबद्ध होने से पहले आप स्वयं क्या सत्यापित कर सकते हैं।",
+      "std.lede": "विदेश में सर्जरी से डर लगता है? सतर्क रहना सही है — इसीलिए तो आप कुछ भी चुकाने से पहले अपने सर्जन से मिलते हैं और एक लिखित निश्चित कीमत हाथ में रखते हैं। यह रही हमारी गारंटी, और वह सब जो आप खुद जाँच सकते हैं।",
       "std.p1h": "प्रमाण सहित परखे गए सर्जन", "std.p1b": "आवेदन करने वाले क्लीनिकों में से हम 10 में से 1 से भी कम स्वीकार करते हैं। हर सर्जन बोर्ड-प्रमाणित है और केवल JCI-मान्यता प्राप्त अस्पतालों में ही ऑपरेट करता है — वही मानक जो अग्रणी अमेरिकी अस्पताल रखते हैं। किसी भी सर्जन की योग्यता और केस इतिहास माँगें: हम इन्हें आपके भुगतान से पहले भेजते हैं।",
       "std.p2h": "भुगतान से पहले अपने सर्जन से मिलें", "std.p2b": "कोई भी पैसा हाथ बदलने से पहले आपके वास्तविक सर्जन के साथ — किसी सेल्समैन के साथ नहीं — एक निजी वीडियो परामर्श। यदि कुछ ठीक न लगे, तो आप चले जाते हैं। कोई जमा राशि नहीं, कोई दबाव नहीं।",
       "std.p3h": "एक निश्चित मूल्य, लिखित में", "std.p3b": "सर्जरी, अस्पताल, होटल, ट्रांसफर, देखभाल — उड़ान बुक करने से पहले पुष्ट एक सर्व-समावेशी कोटेशन। जो मूल्य आप स्वीकार करते हैं, वही आप चुकाते हैं। कभी कोई चौंकाने वाला बिल नहीं।",
@@ -347,14 +347,14 @@
   /* ── Stage 2: section intros, How-It-Works steps, testimonials ── */
   var T2 = {
     tr: {
-      "treat.lede": "Adımızı, Türkiye'nin uzmanlarının gerçekten dünyaya öncülük ettiği dört işlemle kazandık — ziyaret ettiğimiz, denetlediğimiz ve sürekli izlediğimiz kliniklerde. İstanbul'daki ortak hastane grubumuz aracılığıyla artık estetik cerrahi, göz cerrahisi, kilo verme işlemleri ve üst düzey check-up'ları da resmi hastane fiyatlarıyla düzenliyoruz.",
-      "partners.lede": "Ziyaret ettiğimiz, denetlediğimiz ve sürekli izlediğimiz az sayıda ortakla çalışıyoruz — ödüllü iki diş kliniği ve Türkiye'nin en büyük hastane gruplarından biri; yenileri yakında katılıyor. Tedaviniz ne olursa olsun uzmanınız bu çevreden gelir ve tüm belgeleri ödeme yapmadan önce sizinle paylaşılır.",
-      "pricing.lede": "Tahmininizi aşağıda oluşturun — ülkenizdeki ortalama özel ödeme fiyatlarıyla dürüstçe karşılaştırılır. Diş ve diz tahminleri otel, VIP transfer ve kişisel bakım koordinatörünüzü içerir; ortak hastane tedavileri, yalnızca belirtildiğinde otel dahil olmak üzere resmi sabit hastane fiyatını gösterir.",
+      "treat.lede": "Türkiye'nin uzmanlarının gerçekten dünyaya öncülük ettiği dört işlem. İstanbul'daki hastane grubumuz aracılığıyla estetik cerrahi, göz cerrahisi, kilo verme ve check-up işlemlerini de resmi hastane fiyatlarıyla düzenliyoruz.",
+      "partners.lede": "Üç ortak; hepsi bizzat ziyaret edilip denetlendi. Her birini adıyla öğrenirsiniz — belgeleri, adresi, vaka sonuçları — tedavi planınızın içinde; ve ödeme yapmadan önce doktorunuzla görüntülü tanışırsınız.",
+      "pricing.lede": "Tahmininizi oluşturun; ülkenizdeki özel ödeme fiyatlarıyla dürüstçe karşılaştırılır. Diş ve diz otel, transfer ve koordinatörünüzü içerir; hastane tedavileri resmi sabit fiyatı gösterir.",
       "packages.lede": "Tedaviniz için doğrudan kliniğe ödeme yaparsınız — tıbbi fiyatlara asla ek yapmıyoruz. Otelinizi seçin, tüm dökümü görün ve daha uçak bileti almadan toplamınızı bilin.",
       "stories.lede": "İlk MedMatch hasta hikayelerimiz şu anda çekiliyor — gerçek hastalar, gerçek sonuçlar. Bu arada WhatsApp'tan yazın; ortak kliniklerimizden gerçek öncesi-sonrası vakaları sizinle özel olarak paylaşalım.",
-      "faq.lede": "Yurt dışında ameliyat olmayı seçmek ciddi bir karardır ve rahatsız edici sorular dahil net yanıtları hak edersiniz. Bunlar ABD ve Kanada'daki hastalardan en çok duyduğumuz sorular. Sizinki burada yoksa bize yazın — bir satış temsilcisi değil, bir bakım koordinatörü bir gün içinde yanıtlar.",
-      "inv.lede": "Neyi düşündüğünüzü bize anlatın. 48 saat içinde özel bir değerlendirme ve sabit, her şey dahil bir teklif alırsınız — ücretsiz, yükümlülük yok; bilgileriniz asla satılmaz ve yalnızca seçtiğiniz hastaneyle paylaşılır.",
-      "ps1h": "Danışma", "ps1b": "Evden özel bir görüntülü görüşme. Kayıtlarınız ve görüntüleriniz, herhangi bir öneri yapılmadan önce Çevre'den en az üç cerrah tarafından incelenir.",
+      "faq.lede": "Rahatsız edici olanlar dahil. Sorunuz burada yoksa bize yazın — bir satışçı değil, bir bakım koordinatörü bir gün içinde yanıtlar.",
+      "inv.lede": "Neyi düşündüğünüzü bize anlatın. 48 saat içinde özel bir değerlendirme ve sabit, her şey dahil bir teklif alırsınız — ücretsiz, yükümlülük yok ve bilgileriniz asla satılmaz.",
+      "ps1h": "Danışma", "ps1b": "Evden özel bir görüntülü görüşme. Herhangi bir öneri yapılmadan önce kayıtlarınız en az üç cerrah tarafından incelenir.",
       "ps2h": "Sabit Teklif", "ps2b": "Her şey dahil tek sabit teklif alırsınız — ameliyat, hastane, suit, transferler, ev sahibi. Kabul ettiğiniz fiyat ödediğiniz fiyattır. İmzalıdır ve nihaidir.",
       "ps3h": "Varış", "ps3b": "İstanbul'da uçağın kapısında karşılanırsınız. Boğaz'da beş yıldızlı bir otele özel transfer. Ev sahibiniz — akıcı, ölçülü, ulaşılabilir — bu andan itibaren yanınızdadır.",
       "ps4h": "İşlem", "ps4b": "İngilizce konuşan klinik ekibiyle JCI akreditasyonlu bir hastanede tedavi. Ev sahibiniz hastanede kalır; aileniz her aşamada bilgilendirilir.",
@@ -364,14 +364,14 @@
       "v3q": "Saç ekimimden iki yıl sonra cerrah hâlâ mesajlarımı bizzat yanıtlıyor. Bunu Vancouver'da — hangi fiyata olursa olsun — bulmayı deneyin. Bunu yapmanın tek yolu bu.", "v3cap": "Vancouver — Safir FUE"
     },
     de: {
-      "treat.lede": "Wir haben uns mit den vier Eingriffen einen Namen gemacht, bei denen die Spezialisten der Türkei wirklich weltweit führend sind – in Kliniken, die wir besucht, geprüft und laufend überwachen. Über unsere Partnerklinikgruppe in Istanbul organisieren wir jetzt auch plastische Chirurgie, Augenchirurgie, Eingriffe zur Gewichtsreduktion und Vorsorge-Check-ups zu offiziellen Klinikpreisen.",
-      "partners.lede": "Wir arbeiten mit wenigen Partnern, die wir besucht, geprüft und laufend überwacht haben – zwei preisgekrönten Zahnkliniken und einer der größten Klinikgruppen der Türkei, weitere folgen in Kürze. Was auch immer Ihre Behandlung ist, Ihr Spezialist stammt aus diesem Kreis, und seine vollständigen Qualifikationen werden Ihnen vor der Zahlung mitgeteilt.",
-      "pricing.lede": "Erstellen Sie unten Ihre Schätzung – ehrlich verglichen mit durchschnittlichen Selbstzahlerpreisen zu Hause. Schätzungen für Zähne und Knie umfassen Hotel, VIP-Transfers und Ihre persönliche Betreuungskoordinatorin; Partnerklinik-Behandlungen zeigen den offiziellen Festpreis der Klinik, Hotel nur wo angegeben.",
+      "treat.lede": "Die vier Eingriffe, bei denen Türkiyes Spezialisten wirklich weltweit führend sind. Über unsere Krankenhausgruppe in Istanbul organisieren wir außerdem plastische Chirurgie, Augenchirurgie, Gewichtsabnahme und Check-ups zu offiziellen Klinikpreisen.",
+      "partners.lede": "Drei Partner, alle persönlich besucht und geprüft. Sie erhalten jeden namentlich — Qualifikationen, Adresse, Fallergebnisse — in Ihrem Behandlungsplan, und Sie lernen Ihren Arzt per Video kennen, bevor Sie zahlen.",
+      "pricing.lede": "Erstellen Sie Ihre Schätzung, ehrlich verglichen mit Selbstzahlerpreisen zu Hause. Zahn und Knie enthalten Hotel, Transfers und Ihren Koordinator; Klinikbehandlungen zeigen den offiziellen Festpreis.",
       "packages.lede": "Sie zahlen die Behandlung direkt an die Klinik – wir schlagen niemals etwas auf medizinische Preise auf. Wählen Sie Ihr Hotel, sehen Sie die vollständige Aufschlüsselung und kennen Sie Ihre Gesamtsumme, bevor Sie einen Flug buchen.",
       "stories.lede": "Unsere ersten MedMatch-Patientengeschichten werden gerade gefilmt – echte Patienten, echte Ergebnisse. Schreiben Sie uns in der Zwischenzeit auf WhatsApp; wir teilen private Vorher-Nachher-Fälle unserer Partnerkliniken.",
-      "faq.lede": "Eine Operation im Ausland zu wählen ist eine ernste Entscheidung, und Sie verdienen klare Antworten – auch auf die unbequemen Fragen. Diese hören wir am häufigsten von Patienten in den USA und Kanada. Ist Ihre nicht dabei, schreiben Sie uns – eine Betreuungskoordinatorin, kein Verkäufer, antwortet innerhalb eines Tages.",
-      "inv.lede": "Sagen Sie uns, was Sie in Betracht ziehen. Innerhalb von 48 Stunden erhalten Sie eine private Einschätzung und ein festes All-inclusive-Angebot – kostenlos, unverbindlich, und Ihre Daten werden niemals verkauft und nur an die von Ihnen gewählte Klinik weitergegeben.",
-      "ps1h": "Die Beratung", "ps1b": "Eine private Videosprechstunde von zu Hause. Ihre Unterlagen und Bilder werden von mindestens drei Chirurgen aus dem Kreis geprüft, bevor eine Empfehlung ausgesprochen wird.",
+      "faq.lede": "Auch die unangenehmen. Fehlt Ihre Frage, schreiben Sie uns — ein Betreuungskoordinator, kein Verkäufer, antwortet innerhalb eines Tages.",
+      "inv.lede": "Sagen Sie uns, was Sie in Betracht ziehen. Innerhalb von 48 Stunden erhalten Sie eine private Einschätzung und ein festes All-inclusive-Angebot – kostenlos, unverbindlich, und Ihre Daten werden niemals verkauft.",
+      "ps1h": "Die Beratung", "ps1b": "Eine private Videosprechstunde von zu Hause. Ihre Unterlagen werden von mindestens drei Chirurgen geprüft, bevor eine Empfehlung ausgesprochen wird.",
       "ps2h": "Das Festangebot", "ps2b": "Sie erhalten ein festes All-inclusive-Angebot – Operation, Klinik, Suite, Transfers, Betreuer. Der Preis, den Sie annehmen, ist der Preis, den Sie zahlen. Er ist unterzeichnet und endgültig.",
       "ps3h": "Die Ankunft", "ps3b": "Empfang an der Flugzeugtür in Istanbul. Privater Transfer zu einem Fünf-Sterne-Hotel am Bosporus. Ihr Betreuer – gewandt, diskret, erreichbar – ist ab diesem Moment bei Ihnen.",
       "ps4h": "Der Eingriff", "ps4b": "Behandlung in einer JCI-akkreditierten Klinik mit einem englischsprachigen Team. Ihr Betreuer bleibt in der Klinik; Ihre Familie wird in jeder Phase informiert.",
@@ -381,14 +381,14 @@
       "v3q": "Zwei Jahre nach meiner Haartransplantation beantwortet der Chirurg meine Nachrichten noch immer selbst. Versuchen Sie das mal in Vancouver – zu welchem Preis auch immer. Nur so würde ich es je tun.", "v3cap": "Vancouver — Saphir-FUE"
     },
     fr: {
-      "treat.lede": "Nous avons bâti notre réputation sur les quatre interventions où les spécialistes de la Turquie sont véritablement les meilleurs au monde — dans des cliniques que nous avons visitées, vérifiées et surveillons en continu. Grâce à notre groupe hospitalier partenaire à Istanbul, nous organisons désormais aussi la chirurgie esthétique, la chirurgie oculaire, les interventions d'amaigrissement et les bilans de santé, aux tarifs officiels de l'hôpital.",
-      "partners.lede": "Nous travaillons avec un petit nombre de partenaires que nous avons visités, vérifiés et surveillons en continu — deux cliniques dentaires primées et l'un des plus grands groupes hospitaliers de Turquie, d'autres arrivant bientôt. Quel que soit votre traitement, votre spécialiste vient de ce cercle, et ses qualifications complètes vous sont communiquées avant tout paiement.",
-      "pricing.lede": "Établissez votre estimation ci-dessous — comparée honnêtement aux tarifs privés moyens de votre pays. Les estimations dentaires et du genou incluent l'hôtel, les transferts VIP et votre coordinatrice de soins ; les traitements de l'hôpital partenaire affichent le prix fixe officiel de l'hôpital, hôtel inclus uniquement lorsque indiqué.",
+      "treat.lede": "Les quatre interventions où les spécialistes turcs sont véritablement les meilleurs au monde. Via notre groupe hospitalier d'Istanbul, nous organisons aussi chirurgie plastique, chirurgie oculaire, perte de poids et bilans de santé aux tarifs officiels de l'hôpital.",
+      "partners.lede": "Trois partenaires, tous visités et vérifiés en personne. Vous recevez chacun d'eux nommément — diplômes, adresse, résultats de cas — dans votre plan de traitement, et vous rencontrez votre médecin en vidéo avant de payer.",
+      "pricing.lede": "Établissez votre estimation, comparée honnêtement aux tarifs privés de votre pays. Dentaire et genou incluent hôtel, transferts et votre coordinateur ; les traitements hospitaliers affichent le prix fixe officiel.",
       "packages.lede": "Vous payez la clinique directement pour votre traitement — nous ne majorons jamais les prix médicaux. Choisissez votre hôtel, consultez le détail complet et connaissez votre total avant même de réserver un vol.",
       "stories.lede": "Nos premières histoires de patients MedMatch sont en cours de tournage — de vrais patients, de vrais résultats. En attendant, écrivez-nous sur WhatsApp : nous partagerons en privé de vrais cas avant-après de nos cliniques partenaires.",
-      "faq.lede": "Choisir une opération à l'étranger est une décision sérieuse, et vous méritez des réponses franches — y compris aux questions inconfortables. Ce sont celles que nous entendons le plus de la part des patients aux États-Unis et au Canada. Si la vôtre n'y figure pas, écrivez-nous — une coordinatrice de soins, pas un commercial, vous répondra sous un jour.",
-      "inv.lede": "Dites-nous ce que vous envisagez. Sous 48 heures, vous recevrez une évaluation privée et un devis fixe tout compris — gratuit, sans engagement, et vos données ne sont jamais vendues et transmises uniquement à l'hôpital que vous choisissez.",
-      "ps1h": "La consultation", "ps1b": "Une consultation vidéo privée depuis chez vous. Vos dossiers et images sont examinés par au moins trois chirurgiens du Cercle avant toute recommandation.",
+      "faq.lede": "Y compris les questions gênantes. Si la vôtre n'y figure pas, écrivez-nous — un coordinateur de soins, pas un commercial, répond sous un jour.",
+      "inv.lede": "Dites-nous ce que vous envisagez. Sous 48 heures, vous recevrez une évaluation privée et un devis fixe tout compris — gratuit, sans engagement, et vos données ne sont jamais vendues.",
+      "ps1h": "La consultation", "ps1b": "Une consultation vidéo privée depuis chez vous. Votre dossier est examiné par au moins trois chirurgiens avant toute recommandation.",
       "ps2h": "Le devis fixe", "ps2b": "Vous recevez un devis fixe tout compris — chirurgie, hôpital, suite, transferts, hôte. Le prix que vous acceptez est celui que vous payez. Il est signé, et il est définitif.",
       "ps3h": "L'arrivée", "ps3b": "Accueil à la porte de l'avion à Istanbul. Transfert privé vers un hôtel cinq étoiles sur le Bosphore. Votre hôte — à l'aise, discret, disponible — est à vos côtés dès cet instant.",
       "ps4h": "L'intervention", "ps4b": "Traitement dans un hôpital accrédité JCI avec une équipe anglophone. Votre hôte reste à l'hôpital ; votre famille reçoit des nouvelles à chaque étape.",
@@ -398,14 +398,14 @@
       "v3q": "Deux ans après ma greffe de cheveux, le chirurgien répond encore lui-même à mes messages. Essayez d'obtenir cela à Vancouver — à n'importe quel prix. C'est la seule façon dont je le referais.", "v3cap": "Vancouver — FUE Saphir"
     },
     ru: {
-      "treat.lede": "Мы завоевали имя на четырёх процедурах, в которых специалисты Турции действительно ведущие в мире — в клиниках, которые мы посетили, проверили и постоянно контролируем. Через нашу партнёрскую больничную группу в Стамбуле мы теперь также организуем пластическую хирургию, офтальмологию, процедуры для снижения веса и чек-апы по официальным ценам больницы.",
-      "partners.lede": "Мы работаем с небольшим числом партнёров, которых посетили, проверили и постоянно контролируем — двумя титулованными стоматологическими клиниками и одной из крупнейших больничных групп Турции; скоро присоединятся новые. Каким бы ни было ваше лечение, ваш специалист из этого круга, и его полная квалификация предоставляется вам до оплаты.",
-      "pricing.lede": "Составьте свою оценку ниже — честно сравнённую со средними ценами частной оплаты у вас дома. Оценки по стоматологии и колену включают отель, VIP-трансферы и вашего личного координатора; лечение в партнёрской больнице показывает официальную фиксированную цену больницы, отель включён только там, где указано.",
+      "treat.lede": "Четыре процедуры, в которых специалисты Турции действительно лидируют в мире. Через нашу больничную группу в Стамбуле мы также организуем пластическую хирургию, офтальмологию, снижение веса и чек-апы по официальным больничным ценам.",
+      "partners.lede": "Три партнёра, каждый лично посещён и проверен. Вы получаете каждого поимённо — дипломы, адрес, результаты случаев — в вашем плане лечения, и знакомитесь с врачом по видео до оплаты.",
+      "pricing.lede": "Составьте оценку — честно сравненную с ценами платной медицины у вас дома. Стоматология и колено включают отель, трансферы и координатора; больничные процедуры показывают официальную фиксированную цену.",
       "packages.lede": "Вы платите за лечение напрямую клинике — мы никогда не наценяем медицинские цены. Выберите отель, посмотрите полную разбивку и узнайте итог ещё до того, как купите билет.",
       "stories.lede": "Наши первые истории пациентов MedMatch снимаются прямо сейчас — реальные пациенты, реальные результаты. А пока напишите нам в WhatsApp — мы приватно поделимся реальными случаями «до и после» из наших партнёрских клиник.",
-      "faq.lede": "Выбор операции за рубежом — серьёзное решение, и вы заслуживаете прямых ответов, в том числе на неудобные вопросы. Эти мы чаще всего слышим от пациентов из США и Канады. Если вашего здесь нет, напишите нам — координатор по уходу, а не продавец, ответит в течение дня.",
-      "inv.lede": "Расскажите, что вы рассматриваете. В течение 48 часов вы получите частную оценку и фиксированное предложение «всё включено» — бесплатно, без обязательств; ваши данные никогда не продаются и передаются только выбранной вами клинике.",
-      "ps1h": "Консультация", "ps1b": "Частная видеоконсультация из дома. Ваши записи и снимки изучают не менее трёх хирургов из Круга, прежде чем дать какую-либо рекомендацию.",
+      "faq.lede": "В том числе неудобные. Если вашего вопроса здесь нет — напишите нам: ответит координатор по уходу, а не продавец, в течение дня.",
+      "inv.lede": "Расскажите, что вы рассматриваете. В течение 48 часов вы получите частную оценку и фиксированное предложение «всё включено» — бесплатно, без обязательств, и ваши данные никогда не продаются.",
+      "ps1h": "Консультация", "ps1b": "Частная видеоконсультация из дома. Ваши документы изучают не менее трёх хирургов, прежде чем будет дана какая-либо рекомендация.",
       "ps2h": "Фиксированное предложение", "ps2b": "Вы получаете одно фиксированное предложение «всё включено» — операция, больница, люкс, трансферы, сопровождающий. Цена, которую вы принимаете, — это цена, которую вы платите. Оно подписано и окончательно.",
       "ps3h": "Прибытие", "ps3b": "Встреча у двери самолёта в Стамбуле. Частный трансфер в пятизвёздочный отель на Босфоре. Ваш сопровождающий — свободно говорящий, деликатный, на связи — рядом с вами с этого момента.",
       "ps4h": "Процедура", "ps4b": "Лечение в аккредитованной JCI больнице с англоговорящей клинической командой. Ваш сопровождающий остаётся в больнице; ваша семья получает обновления на каждом этапе.",
@@ -415,14 +415,14 @@
       "v3q": "Через два года после пересадки волос хирург всё ещё сам отвечает на мои сообщения. Попробуйте получить такое в Ванкувере — за любые деньги. Только так я бы это и сделал.", "v3cap": "Ванкувер — Сапфировая FUE"
     },
     zh: {
-      "treat.lede": "我们凭借四项土耳其专家真正领先世界的手术树立了口碑——都在我们亲自走访、审核并持续监督的诊所进行。通过我们位于伊斯坦布尔的合作医院集团，我们如今还以官方医院价格安排整形外科、眼科手术、减重项目和高端体检。",
-      "partners.lede": "我们只与少数经我们走访、审核并持续监督的伙伴合作——两家屡获殊荣的牙科诊所，以及土耳其最大的医院集团之一，更多伙伴即将加入。无论您接受何种治疗，您的专家都来自这个圈子，其完整资历会在您付款前与您分享。",
-      "pricing.lede": "在下方建立您的估价——与您本国的平均自费价格诚实对比。牙科和膝关节的估价包含酒店、VIP 接送和您的专属护理协调员；合作医院项目显示官方固定的医院价格，仅在注明处含酒店。",
+      "treat.lede": "土耳其专家真正领先世界的四项手术。通过我们在伊斯坦布尔的医院集团，我们还可按医院官方价格安排整形外科、眼科手术、减重和健康体检。",
+      "partners.lede": "三家合作伙伴，全部由我们亲自走访与审核。您会在治疗方案中收到每一家的具体名称——资质、地址、案例结果——并在付款前通过视频与您的医生见面。",
+      "pricing.lede": "建立您的估价，与您本国的自费价格诚实对比。牙科与膝关节含酒店、接送和您的专属协调员；医院治疗显示官方固定价格。",
       "packages.lede": "您直接向诊所支付治疗费用——我们绝不在医疗价格上加价。选择您的酒店，查看完整明细，在预订机票之前就知道您的总额。",
       "stories.lede": "首批 MedMatch 患者故事正在拍摄中——真实患者，真实效果。在此期间，欢迎通过 WhatsApp 联系我们，我们将私下分享合作诊所的真实前后对比案例。",
-      "faq.lede": "选择出国手术是一个严肃的决定，您理应得到坦率的回答——包括那些令人不安的问题。这些是我们从美国和加拿大患者那里最常听到的问题。若这里没有您的问题，请联系我们——将由护理协调员而非销售人员，在一天之内回复。",
-      "inv.lede": "告诉我们您正在考虑什么。48 小时内，您将收到一份私人评估和一份固定的全包报价——免费、无义务，且您的信息绝不出售，仅与您选择的医院共享。",
-      "ps1h": "咨询", "ps1b": "在家进行的一对一视频咨询。在做出任何建议之前，您的病历和影像至少由圈内三位外科医生审阅。",
+      "faq.lede": "包括那些不好开口的问题。如果这里没有您的疑问，请给我们留言——回复您的是护理协调员，不是销售，一天之内答复。",
+      "inv.lede": "告诉我们您正在考虑什么。48 小时内，您将收到一份私人评估和一份固定的全包报价——免费、无义务，且您的信息绝不出售。",
+      "ps1h": "咨询", "ps1b": "在家进行的一对一视频咨询。在提出任何建议之前，您的病历将由至少三位外科医生审阅。",
       "ps2h": "固定报价", "ps2b": "您将收到一份固定的全包报价——手术、医院、套房、接送、专属陪同。您接受的价格就是您支付的价格。它已签署，且为最终版本。",
       "ps3h": "抵达", "ps3b": "在伊斯坦布尔于舱门迎接。专车接送至博斯普鲁斯海峡畔的五星级酒店。您的陪同——语言流利、谨慎、随时待命——从这一刻起与您同行。",
       "ps4h": "手术", "ps4b": "在通过 JCI 认证的医院、由讲英语的临床团队进行治疗。您的陪同留在医院；您的家人在每个阶段都收到进展通报。",
@@ -432,14 +432,14 @@
       "v3q": "植发两年后，医生仍亲自回复我的消息。在温哥华试试看——无论出多少钱。这是我唯一愿意选择的方式。", "v3cap": "温哥华 — 蓝宝石 FUE"
     },
     fa: {
-      "treat.lede": "نام خود را با چهار روشی ساختیم که متخصصان ترکیه واقعاً در جهان پیشتاز هستند — در کلینیک‌هایی که بازدید، بررسی و به‌طور مداوم پایش کرده‌ایم. از طریق گروه بیمارستانی همکارمان در استانبول، اکنون جراحی زیبایی، جراحی چشم، روش‌های کاهش وزن و چکاپ‌های تخصصی را نیز با قیمت‌های رسمی بیمارستان ترتیب می‌دهیم.",
-      "partners.lede": "با شمار اندکی از شرکا کار می‌کنیم که بازدید، بررسی و به‌طور مداوم پایش کرده‌ایم — دو کلینیک دندان‌پزشکی برنده جایزه و یکی از بزرگ‌ترین گروه‌های بیمارستانی ترکیه، و شرکای دیگری به‌زودی می‌پیوندند. درمان شما هرچه باشد، متخصص شما از همین حلقه است و مدارک کامل او پیش از پرداخت با شما در میان گذاشته می‌شود.",
-      "pricing.lede": "برآورد خود را در پایین بسازید — به‌صورت صادقانه با میانگین قیمت‌های پرداخت خصوصی در کشورتان مقایسه می‌شود. برآوردهای دندان و زانو شامل هتل، ترانسفر ویژه و هماهنگ‌کننده شخصی شماست؛ درمان‌های بیمارستان همکار قیمت ثابت رسمی بیمارستان را نشان می‌دهند، هتل تنها در جایی که ذکر شده.",
+      "treat.lede": "چهار روشی که متخصصان ترکیه واقعاً در آن پیشروی جهان هستند. از طریق گروه بیمارستانی ما در استانبول، جراحی زیبایی، جراحی چشم، کاهش وزن و چکاپ را نیز با قیمت رسمی بیمارستان ترتیب می‌دهیم.",
+      "partners.lede": "سه شریک، همگی حضوری بازدید و ارزیابی شده‌اند. هر کدام را با نام دریافت می‌کنید — مدارک، نشانی، نتایج پرونده‌ها — درون برنامه درمانی‌تان، و پیش از پرداخت، پزشک خود را در ویدیو می‌بینید.",
+      "pricing.lede": "برآورد خود را بسازید؛ صادقانه با قیمت‌های پرداخت خصوصی در کشورتان مقایسه می‌شود. دندان و زانو شامل هتل، ترانسفر و هماهنگ‌کننده شماست؛ درمان‌های بیمارستانی قیمت ثابت رسمی را نشان می‌دهند.",
       "packages.lede": "هزینه درمان را مستقیماً به کلینیک می‌پردازید — ما هرگز روی قیمت‌های پزشکی سود نمی‌گذاریم. هتل خود را انتخاب کنید، جزئیات کامل را ببینید و پیش از رزرو پرواز، مجموع هزینه را بدانید.",
       "stories.lede": "نخستین داستان‌های بیماران مدمچ در حال فیلم‌برداری است — بیماران واقعی، نتایج واقعی. در این میان در واتساپ برای ما بنویسید تا نمونه‌های واقعی قبل و بعد از کلینیک‌های همکارمان را به‌صورت خصوصی با شما به اشتراک بگذاریم.",
-      "faq.lede": "انتخاب جراحی در خارج تصمیمی جدی است و شما سزاوار پاسخ‌های صریح هستید — از جمله به پرسش‌های ناخوشایند. این‌ها پرسش‌هایی است که بیشتر از بیماران آمریکا و کانادا می‌شنویم. اگر پرسش شما اینجا نیست، برایمان پیام بفرستید — یک هماهنگ‌کننده مراقبت، نه یک فروشنده، ظرف یک روز پاسخ می‌دهد.",
-      "inv.lede": "به ما بگویید چه چیزی را در نظر دارید. ظرف ۴۸ ساعت یک ارزیابی خصوصی و یک پیشنهاد ثابت همه‌شمول دریافت می‌کنید — رایگان، بدون تعهد، و اطلاعات شما هرگز فروخته نمی‌شود و فقط با بیمارستان انتخابی شما به اشتراک گذاشته می‌شود.",
-      "ps1h": "مشاوره", "ps1b": "یک مشاوره ویدیویی خصوصی از خانه. پرونده و تصاویر شما پیش از هر توصیه‌ای دست‌کم توسط سه جراح از حلقه بررسی می‌شود.",
+      "faq.lede": "از جمله پرسش‌های ناخوشایند. اگر پرسش شما اینجا نیست، برای ما بنویسید — یک هماهنگ‌کننده مراقبت، نه یک فروشنده، ظرف یک روز پاسخ می‌دهد.",
+      "inv.lede": "به ما بگویید چه چیزی را در نظر دارید. ظرف ۴۸ ساعت یک ارزیابی خصوصی و یک پیشنهاد ثابت همه‌شمول دریافت می‌کنید — رایگان، بدون تعهد، و اطلاعات شما هرگز فروخته نمی‌شود.",
+      "ps1h": "مشاوره", "ps1b": "یک مشاوره ویدیویی خصوصی از خانه. پیش از هر توصیه‌ای، پرونده شما دست‌کم توسط سه جراح بررسی می‌شود.",
       "ps2h": "پیشنهاد ثابت", "ps2b": "یک پیشنهاد ثابت همه‌شمول دریافت می‌کنید — عمل، بیمارستان، سوئیت، ترانسفر، میزبان. قیمتی که می‌پذیرید همان است که می‌پردازید. امضا شده و نهایی است.",
       "ps3h": "ورود", "ps3b": "در استانبول کنار درِ هواپیما استقبال می‌شوید. ترانسفر خصوصی به هتلی پنج‌ستاره در کنار بسفر. میزبان شما — مسلط، مبادی آداب، در دسترس — از این لحظه در کنار شماست.",
       "ps4h": "عمل", "ps4b": "درمان در بیمارستانی دارای اعتبار JCI با تیم بالینی انگلیسی‌زبان. میزبان شما در بیمارستان می‌ماند؛ خانواده‌تان در هر مرحله به‌روز می‌شود.",
@@ -449,14 +449,14 @@
       "v3q": "دو سال پس از کاشت مویم، جراح هنوز خودش به پیام‌هایم پاسخ می‌دهد. این را در ونکوور — به هر قیمتی — پیدا کنید. تنها راهی که حاضرم انجامش دهم همین است.", "v3cap": "ونکوور — FUE یاقوتی"
     },
     hi: {
-      "treat.lede": "हमने अपना नाम उन चार प्रक्रियाओं से बनाया जिनमें तुर्की के विशेषज्ञ वास्तव में दुनिया में अग्रणी हैं — उन क्लीनिकों में जिन्हें हमने देखा, परखा और लगातार निगरानी में रखा है। इस्तांबुल में अपने साझेदार अस्पताल समूह के माध्यम से, हम अब आधिकारिक अस्पताल मूल्यों पर प्लास्टिक सर्जरी, नेत्र सर्जरी, वज़न-घटाने की प्रक्रियाएँ और एग्ज़ीक्यूटिव चेक-अप भी व्यवस्थित करते हैं।",
-      "partners.lede": "हम कुछ ही साझेदारों के साथ काम करते हैं जिन्हें हमने देखा, परखा और लगातार निगरानी में रखा है — दो पुरस्कार-विजेता डेंटल क्लिनिक और तुर्की के सबसे बड़े अस्पताल समूहों में से एक, और भी जल्द जुड़ रहे हैं। आपका उपचार कुछ भी हो, आपका विशेषज्ञ इसी दायरे से आता है, और उसकी पूरी योग्यता आपके भुगतान से पहले आपके साथ साझा की जाती है।",
-      "pricing.lede": "नीचे अपना अनुमान बनाएं — आपके देश की औसत निजी-भुगतान कीमतों से ईमानदारी से तुलना की गई। डेंटल और घुटने के अनुमान में होटल, VIP ट्रांसफर और आपका निजी केयर कोऑर्डिनेटर शामिल है; साझेदार अस्पताल के उपचार आधिकारिक निश्चित अस्पताल मूल्य दिखाते हैं, होटल केवल वहीं शामिल जहाँ बताया गया है।",
+      "treat.lede": "वे चार प्रक्रियाएँ जिनमें तुर्की के विशेषज्ञ वास्तव में दुनिया में सबसे आगे हैं। इस्तांबुल स्थित हमारे अस्पताल समूह के ज़रिए हम प्लास्टिक सर्जरी, नेत्र शल्य, वज़न घटाना और चेक-अप भी अस्पताल की आधिकारिक कीमतों पर कराते हैं।",
+      "partners.lede": "तीन साझेदार, सभी व्यक्तिगत रूप से देखे और परखे गए। हर एक आपको नाम सहित मिलता है — योग्यताएँ, पता, केस परिणाम — आपकी उपचार योजना में, और भुगतान से पहले आप अपने डॉक्टर से वीडियो पर मिलते हैं।",
+      "pricing.lede": "अपना अनुमान बनाएं, जो आपके देश की निजी-भुगतान कीमतों से ईमानदारी से तुलना करता है। दाँत और घुटने में होटल, ट्रांसफर और आपका कोऑर्डिनेटर शामिल है; अस्पताल उपचार आधिकारिक निश्चित कीमत दिखाते हैं।",
       "packages.lede": "आप अपने उपचार के लिए सीधे क्लिनिक को भुगतान करते हैं — हम चिकित्सा कीमतों पर कभी मार्कअप नहीं करते। अपना होटल चुनें, पूरा विवरण देखें, और उड़ान बुक करने से पहले ही अपना कुल जान लें।",
       "stories.lede": "हमारी पहली MedMatch मरीज़ कहानियाँ अभी फ़िल्माई जा रही हैं — असली मरीज़, असली परिणाम। तब तक हमें WhatsApp पर संदेश करें — हम अपने साझेदार क्लीनिकों के असली पहले-बाद के केस निजी रूप से साझा करेंगे।",
-      "faq.lede": "विदेश में सर्जरी चुनना एक गंभीर निर्णय है, और आप सीधे उत्तर के हकदार हैं — असहज प्रश्नों के भी। ये वे प्रश्न हैं जो हम अमेरिका और कनाडा के मरीज़ों से सबसे अधिक सुनते हैं। यदि आपका यहाँ नहीं है, तो हमें संदेश करें — एक केयर कोऑर्डिनेटर, कोई सेल्समैन नहीं, एक दिन के भीतर उत्तर देगा।",
-      "inv.lede": "हमें बताएं कि आप क्या विचार कर रहे हैं। 48 घंटों के भीतर आपको एक निजी मूल्यांकन और एक निश्चित, सर्व-समावेशी कोटेशन मिलेगा — मुफ़्त, बिना बाध्यता, और आपकी जानकारी कभी बेची नहीं जाती, केवल आपके चुने अस्पताल के साथ साझा की जाती है।",
-      "ps1h": "परामर्श", "ps1b": "घर से एक निजी वीडियो परामर्श। कोई भी सिफ़ारिश करने से पहले आपके रिकॉर्ड और छवियों की समीक्षा सर्कल के कम से कम तीन सर्जन करते हैं।",
+      "faq.lede": "असहज सवाल भी शामिल। अगर आपका सवाल यहाँ नहीं है, हमें लिखें — एक केयर कोऑर्डिनेटर, कोई सेल्समैन नहीं, एक दिन में जवाब देता है।",
+      "inv.lede": "हमें बताएं कि आप क्या विचार कर रहे हैं। 48 घंटों के भीतर आपको एक निजी मूल्यांकन और एक निश्चित, सर्व-समावेशी कोटेशन मिलेगा — मुफ़्त, बिना बाध्यता, और आपकी जानकारी कभी बेची नहीं जाती।",
+      "ps1h": "परामर्श", "ps1b": "घर से एक निजी वीडियो परामर्श। कोई भी सिफ़ारिश देने से पहले आपके रिकॉर्ड कम से कम तीन सर्जन देखते हैं।",
       "ps2h": "निश्चित कोटेशन", "ps2b": "आपको एक निश्चित, सर्व-समावेशी कोटेशन मिलता है — सर्जरी, अस्पताल, सुइट, ट्रांसफर, मेज़बान। जो मूल्य आप स्वीकार करते हैं, वही आप चुकाते हैं। यह हस्ताक्षरित है, और अंतिम है।",
       "ps3h": "आगमन", "ps3b": "इस्तांबुल में विमान के द्वार पर स्वागत। बॉस्फोरस पर एक पाँच-सितारा होटल तक निजी ट्रांसफर। आपका मेज़बान — कुशल, विवेकी, सदा उपलब्ध — इसी क्षण से आपके साथ है।",
       "ps4h": "प्रक्रिया", "ps4b": "अंग्रेज़ी बोलने वाली क्लिनिकल टीम के साथ JCI-मान्यता प्राप्त अस्पताल में उपचार। आपका मेज़बान अस्पताल में रहता है; आपके परिवार को हर चरण पर जानकारी मिलती है।",
@@ -631,7 +631,7 @@
     de: {
       "q1": "Ist eine Operation in der Türkei wirklich sicher?", "q2": "Wer wird mein Chirurg sein – und kann ich vor der Zahlung mit ihm sprechen?", "q3": "Was genau ist im Festpreis enthalten?", "q4": "Was passiert bei einer Komplikation nach meinem Heimflug?", "q5": "Wie lange muss ich in der Türkei bleiben?", "q6": "Brauche ich ein Visum?", "q7": "Darf ich meinen Partner oder eine Freundin mitbringen?", "q8": "Wie und wann zahle ich?", "q9": "Warum gibt es eine Koordinationsgebühr von 300 $?",
       "inv.p1": "Antwort binnen 48 Stunden", "inv.p2": "Von Fachchirurgen geprüft", "inv.p3": "Festpreis – keine Überraschungen",
-      "f.name": "Vollständiger Name", "f.email": "E-Mail", "f.phone": "Telefon / WhatsApp", "f.treatment": "Gewünschte Behandlung", "f.msg": "Sollten wir etwas wissen?", "f.submit": "Kostenloses Angebot anfordern – unverbindlich", "f.micro": "Kostenlos · Antwort binnen 48 Stunden · Nie verkauft — nur an die von Ihnen gewählte Klinik weitergegeben", "f.success": "Danke. Ihre Anfrage ist eingegangen –<br>Sie erhalten unsere Antwort binnen 48 Stunden. <em>— MedMatch Global</em>",
+      "f.name": "Vollständiger Name", "f.email": "E-Mail", "f.phone": "Telefon / WhatsApp", "f.treatment": "Gewünschte Behandlung", "f.msg": "Sollten wir etwas wissen?", "f.submit": "Kostenloses Angebot anfordern – unverbindlich", "f.micro": "Kostenlos · Antwort binnen 48 Stunden · Nie verkauft — nur an das von Ihnen gewählte Krankenhaus weitergegeben", "f.success": "Danke. Ihre Anfrage ist eingegangen –<br>Sie erhalten unsere Antwort binnen 48 Stunden. <em>— MedMatch Global</em>",
       "ft.acb": "Partnerklinik — Preisliste", "ft.mp": "Zweite Klinikgruppe — Demnächst", "ft.advisor": "Berater-Hub — Mitmachen", "ft.rights": "© 2026 MedMatch Global. Alle Rechte vorbehalten.", "ft.disc": "Schätzungen dienen der Information und stellen keine medizinische Beratung dar.", "ft.sub": "DIE AKADEMIE FÜR MEDIZINREISEN", "ft.wa": "Schreiben Sie uns auf WhatsApp"
     },
     fr: {
@@ -643,19 +643,19 @@
     ru: {
       "q1": "Действительно ли безопасно оперироваться в Турции?", "q2": "Кто будет моим хирургом — и могу ли я поговорить с ним до оплаты?", "q3": "Что именно входит в фиксированную цену?", "q4": "Что если возникнет осложнение после возвращения домой?", "q5": "Как долго мне нужно оставаться в Турции?", "q6": "Нужна ли мне виза?", "q7": "Могу ли я приехать с партнёром или другом?", "q8": "Как и когда я плачу?", "q9": "Почему есть сбор за координацию $300?",
       "inv.p1": "Ответ в течение 48 часов", "inv.p2": "Проверено хирургами-специалистами", "inv.p3": "Фиксированное предложение — без сюрпризов",
-      "f.name": "Полное имя", "f.email": "Эл. почта", "f.phone": "Телефон / WhatsApp", "f.treatment": "Интересующее лечение", "f.msg": "Что нам следует знать?", "f.submit": "Получить бесплатную оценку — без обязательств", "f.micro": "Бесплатно · Ответ в течение 48 часов · Никогда не продаются — передаются только выбранной вами клинике", "f.success": "Спасибо. Ваш запрос получен —<br>ожидайте наш ответ в течение 48 часов. <em>— MedMatch Global</em>",
+      "f.name": "Полное имя", "f.email": "Эл. почта", "f.phone": "Телефон / WhatsApp", "f.treatment": "Интересующее лечение", "f.msg": "Что нам следует знать?", "f.submit": "Получить бесплатную оценку — без обязательств", "f.micro": "Бесплатно · Ответ в течение 48 часов · Никогда не продаются — передаются только выбранной вами больнице", "f.success": "Спасибо. Ваш запрос получен —<br>ожидайте наш ответ в течение 48 часов. <em>— MedMatch Global</em>",
       "ft.acb": "Партнёрская больница — прайс", "ft.mp": "Вторая больничная группа — скоро", "ft.advisor": "Кабинет консультанта — Присоединяйтесь", "ft.rights": "© 2026 MedMatch Global. Все права защищены.", "ft.disc": "Оценки носят информационный характер и не являются медицинской консультацией.", "ft.sub": "АКАДЕМИЯ МЕДИЦИНСКОГО ТУРИЗМА", "ft.wa": "Напишите нам в WhatsApp"
     },
     zh: {
       "q1": "在土耳其做手术真的安全吗？", "q2": "我的主刀医生是谁——付款前我能与他沟通吗？", "q3": "固定价格究竟包含什么？", "q4": "如果回国后出现并发症怎么办？", "q5": "我需要在土耳其停留多久？", "q6": "我需要签证吗？", "q7": "我可以带伴侣或朋友吗？", "q8": "我如何以及何时付款？", "q9": "为什么有 300 美元的协调费？",
       "inv.p1": "48 小时内回复", "inv.p2": "由专科外科医生审核", "inv.p3": "固定报价——绝无意外",
-      "f.name": "全名", "f.email": "电子邮箱", "f.phone": "电话 / WhatsApp", "f.treatment": "感兴趣的诊疗", "f.msg": "还有什么需要我们了解的吗？", "f.submit": "获取免费报价 — 无义务", "f.micro": "免费 · 48 小时内回复 · 绝不出售 — 仅与您选择的医院共享", "f.success": "谢谢。我们已收到您的请求 —<br>请等待我们在 48 小时内回复。<em>— MedMatch Global</em>",
+      "f.name": "全名", "f.email": "电子邮箱", "f.phone": "电话 / WhatsApp", "f.treatment": "感兴趣的诊疗", "f.msg": "还有什么需要我们了解的吗？", "f.submit": "获取免费报价 — 无义务", "f.micro": "免费 · 48 小时内回复 · 绝不出售 — 仅提供给您选择的医院", "f.success": "谢谢。我们已收到您的请求 —<br>请等待我们在 48 小时内回复。<em>— MedMatch Global</em>",
       "ft.acb": "合作医院价目表", "ft.mp": "第二家医院集团 — 即将上线", "ft.advisor": "顾问中心 — 加入我们", "ft.rights": "© 2026 MedMatch Global. 保留所有权利。", "ft.disc": "估价仅供参考，不构成医疗建议。", "ft.sub": "医疗旅行学院", "ft.wa": "通过 WhatsApp 联系我们"
     },
     fa: {
       "q1": "آیا جراحی در ترکیه واقعاً امن است؟", "q2": "جراح من چه کسی خواهد بود — و آیا پیش از پرداخت می‌توانم با او صحبت کنم؟", "q3": "قیمت ثابت دقیقاً شامل چه چیزهایی است؟", "q4": "اگر پس از بازگشت به خانه عارضه‌ای پیش بیاید چه می‌شود؟", "q5": "چه مدت باید در ترکیه بمانم؟", "q6": "آیا به ویزا نیاز دارم؟", "q7": "آیا می‌توانم همسر یا دوستم را همراه بیاورم؟", "q8": "چگونه و چه زمانی پرداخت می‌کنم؟", "q9": "چرا هزینه هماهنگی ۳۰۰ دلاری وجود دارد؟",
       "inv.p1": "پاسخ ظرف ۴۸ ساعت", "inv.p2": "بررسی‌شده توسط جراحان متخصص", "inv.p3": "پیشنهاد ثابت — بدون غافلگیری",
-      "f.name": "نام کامل", "f.email": "ایمیل", "f.phone": "تلفن / واتساپ", "f.treatment": "درمان موردنظر", "f.msg": "چیزی هست که باید بدانیم؟", "f.submit": "دریافت پیشنهاد رایگان — بدون تعهد", "f.micro": "رایگان · پاسخ ظرف ۴۸ ساعت · هرگز فروخته نمی‌شود — فقط با بیمارستان انتخابی شما به اشتراک گذاشته می‌شود", "f.success": "سپاسگزاریم. درخواست شما دریافت شد —<br>ظرف ۴۸ ساعت منتظر پاسخ ما باشید. <em>— MedMatch Global</em>",
+      "f.name": "نام کامل", "f.email": "ایمیل", "f.phone": "تلفن / واتساپ", "f.treatment": "درمان موردنظر", "f.msg": "چیزی هست که باید بدانیم؟", "f.submit": "دریافت پیشنهاد رایگان — بدون تعهد", "f.micro": "رایگان · پاسخ ظرف ۴۸ ساعت · هرگز فروخته نمی‌شود — تنها با بیمارستان منتخب شما در میان گذاشته می‌شود", "f.success": "سپاسگزاریم. درخواست شما دریافت شد —<br>ظرف ۴۸ ساعت منتظر پاسخ ما باشید. <em>— MedMatch Global</em>",
       "ft.acb": "فهرست قیمت بیمارستان همکار", "ft.mp": "گروه بیمارستانی دوم — به‌زودی", "ft.advisor": "مرکز مشاوران — بپیوندید", "ft.rights": "© ۲۰۲۶ MedMatch Global. همه حقوق محفوظ است.", "ft.disc": "برآوردها جنبه اطلاع‌رسانی دارند و توصیه پزشکی محسوب نمی‌شوند.", "ft.sub": "آکادمی گردشگری سلامت", "ft.wa": "در واتساپ برای ما بنویسید"
     },
     hi: {
@@ -760,6 +760,98 @@
   Object.keys(T6).forEach(function (l) {
     if (!T[l]) T[l] = {};
     Object.keys(T6[l]).forEach(function (k) { T[l][k] = T6[l][k]; });
+  });
+
+  /* ── Stage 7: treatment chooser, hero proof numbers, jump bar ── */
+  var T7 = {
+    tr: {
+      "ch.q": "Neye ihtiyacınız var?", "ch.hint": "Birini seçin. Fiyatı yaklaşık on saniyede alın.",
+      "ch.dental": "Diş", "ch.dental.sub": "Kaplama, implant, gülüş tasarımı",
+      "ch.nose": "Burun", "ch.nose.sub": "Burun estetiği, revizyon",
+      "ch.hair": "Saç", "ch.hair.sub": "Saç ekimi, Safir FUE",
+      "ch.knee": "Diz", "ch.knee.sub": "Protez, artroskopi",
+      "ch.other": "Başka bir şey — göz, estetik cerrahi, kilo verme, check-up →",
+      "ch.unsure": "Emin değil misiniz? Sorununuzu anlatın, sizi yönlendirelim →",
+      "hp.1": "hastaya rehberlik", "hp.2": "JCI hastanesi", "hp.3": "ABD fiyatlarının altında", "hp.4": "içinde teklifiniz",
+      "j.start": "Buradan başlayın", "j.trust": "Neden Biz", "j.treat": "Tedaviler",
+      "j.price": "Fiyatlar", "j.how": "Nasıl Çalışır", "j.reviews": "Yorumlar", "j.faq": "SSS"
+    },
+    de: {
+      "ch.q": "Was brauchen Sie?", "ch.hint": "Tippen Sie auf eine Option — den Preis erhalten Sie in etwa zehn Sekunden.",
+      "ch.dental": "Zähne", "ch.dental.sub": "Veneers, Implantate, komplettes Lächeln",
+      "ch.nose": "Nase", "ch.nose.sub": "Nasenkorrektur, Revision",
+      "ch.hair": "Haare", "ch.hair.sub": "Haartransplantation, Sapphire FUE",
+      "ch.knee": "Knie", "ch.knee.sub": "Endoprothese, Arthroskopie",
+      "ch.other": "Etwas anderes — Augen, plastische Chirurgie, Gewichtsabnahme, Check-ups →",
+      "ch.unsure": "Noch unsicher? Sagen Sie uns, worum es geht — wir beraten Sie →",
+      "hp.1": "betreute Patienten", "hp.2": "JCI-Kliniken", "hp.3": "unter US-Preisen", "hp.4": "bis zu Ihrem Angebot",
+      "j.start": "Hier starten", "j.trust": "Warum wir", "j.treat": "Behandlungen",
+      "j.price": "Preise", "j.how": "Ablauf", "j.reviews": "Bewertungen", "j.faq": "FAQ"
+    },
+    fr: {
+      "ch.q": "De quoi avez-vous besoin ?", "ch.hint": "Touchez une option — vous aurez le prix en une dizaine de secondes.",
+      "ch.dental": "Dents", "ch.dental.sub": "Facettes, implants, sourire complet",
+      "ch.nose": "Nez", "ch.nose.sub": "Rhinoplastie, révision",
+      "ch.hair": "Cheveux", "ch.hair.sub": "Greffe, Sapphire FUE",
+      "ch.knee": "Genou", "ch.knee.sub": "Prothèse, arthroscopie",
+      "ch.other": "Autre chose — yeux, chirurgie plastique, perte de poids, bilans →",
+      "ch.unsure": "Vous hésitez ? Dites-nous ce qui ne va pas, on vous conseille →",
+      "hp.1": "patients accompagnés", "hp.2": "hôpitaux JCI", "hp.3": "sous les prix américains", "hp.4": "pour votre devis",
+      "j.start": "Commencer ici", "j.trust": "Pourquoi nous", "j.treat": "Traitements",
+      "j.price": "Tarifs", "j.how": "Comment ça marche", "j.reviews": "Avis", "j.faq": "FAQ"
+    },
+    ru: {
+      "ch.q": "Что вам нужно?", "ch.hint": "Выберите одно — цену получите примерно за десять секунд.",
+      "ch.dental": "Зубы", "ch.dental.sub": "Виниры, импланты, полная улыбка",
+      "ch.nose": "Нос", "ch.nose.sub": "Ринопластика, ревизия",
+      "ch.hair": "Волосы", "ch.hair.sub": "Пересадка, Sapphire FUE",
+      "ch.knee": "Колено", "ch.knee.sub": "Эндопротезирование, артроскопия",
+      "ch.other": "Другое — глаза, пластическая хирургия, снижение веса, чек-апы →",
+      "ch.unsure": "Ещё не решили? Расскажите о проблеме — мы подскажем →",
+      "hp.1": "пациентов сопровождено", "hp.2": "клиник с JCI", "hp.3": "ниже цен в США", "hp.4": "до вашего предложения",
+      "j.start": "Начните здесь", "j.trust": "Почему мы", "j.treat": "Лечение",
+      "j.price": "Цены", "j.how": "Как это работает", "j.reviews": "Отзывы", "j.faq": "Вопросы"
+    },
+    zh: {
+      "ch.q": "您需要什么？", "ch.hint": "点击一项，约十秒即可获得价格。",
+      "ch.dental": "牙齿", "ch.dental.sub": "贴面、种植牙、全口微笑设计",
+      "ch.nose": "鼻子", "ch.nose.sub": "鼻整形、修复手术",
+      "ch.hair": "头发", "ch.hair.sub": "植发、蓝宝石 FUE",
+      "ch.knee": "膝盖", "ch.knee.sub": "关节置换、关节镜",
+      "ch.other": "其他项目 — 眼科、整形外科、减重、健康体检 →",
+      "ch.unsure": "还不确定？告诉我们您的情况，我们来建议 →",
+      "hp.1": "位患者已获协助", "hp.2": "家 JCI 医院", "hp.3": "低于美国价格", "hp.4": "内送出报价",
+      "j.start": "从这里开始", "j.trust": "为何选择我们", "j.treat": "治疗项目",
+      "j.price": "价格", "j.how": "服务流程", "j.reviews": "患者评价", "j.faq": "常见问题"
+    },
+    fa: {
+      "ch.q": "به چه چیزی نیاز دارید؟", "ch.hint": "یکی را انتخاب کنید — قیمت را در حدود ده ثانیه دریافت می‌کنید.",
+      "ch.dental": "دندان", "ch.dental.sub": "لمینت، ایمپلنت، طراحی لبخند",
+      "ch.nose": "بینی", "ch.nose.sub": "جراحی بینی، ترمیمی",
+      "ch.hair": "مو", "ch.hair.sub": "کاشت مو، سفایر FUE",
+      "ch.knee": "زانو", "ch.knee.sub": "تعویض مفصل، آرتروسکوپی",
+      "ch.other": "چیز دیگری — چشم، جراحی زیبایی، کاهش وزن، چکاپ →",
+      "ch.unsure": "هنوز مطمئن نیستید؟ مشکل‌تان را بگویید تا راهنمایی کنیم →",
+      "hp.1": "بیمار همراهی‌شده", "hp.2": "بیمارستان JCI", "hp.3": "کمتر از قیمت آمریکا", "hp.4": "تا دریافت پیشنهاد",
+      "j.start": "از اینجا شروع کنید", "j.trust": "چرا ما", "j.treat": "درمان‌ها",
+      "j.price": "قیمت‌ها", "j.how": "روند کار", "j.reviews": "نظرات", "j.faq": "پرسش‌ها"
+    },
+    hi: {
+      "ch.q": "आपको क्या चाहिए?", "ch.hint": "एक चुनें — कीमत लगभग दस सेकंड में मिल जाएगी।",
+      "ch.dental": "दाँत", "ch.dental.sub": "विनियर, इंप्लांट, पूरी मुस्कान",
+      "ch.nose": "नाक", "ch.nose.sub": "राइनोप्लास्टी, रिवीज़न",
+      "ch.hair": "बाल", "ch.hair.sub": "ट्रांसप्लांट, सैफ़ायर FUE",
+      "ch.knee": "घुटना", "ch.knee.sub": "रिप्लेसमेंट, आर्थ्रोस्कोपी",
+      "ch.other": "कुछ और — आँखें, प्लास्टिक सर्जरी, वज़न घटाना, चेक-अप →",
+      "ch.unsure": "अभी तय नहीं? हमें बताएं क्या दिक्कत है, हम सलाह देंगे →",
+      "hp.1": "मरीज़ों का मार्गदर्शन", "hp.2": "JCI अस्पताल", "hp.3": "अमेरिकी कीमतों से कम", "hp.4": "में आपका कोटेशन",
+      "j.start": "यहाँ से शुरू करें", "j.trust": "हम क्यों", "j.treat": "उपचार",
+      "j.price": "कीमतें", "j.how": "यह कैसे काम करता है", "j.reviews": "समीक्षाएँ", "j.faq": "सामान्य प्रश्न"
+    }
+  };
+  Object.keys(T7).forEach(function (l) {
+    if (!T[l]) T[l] = {};
+    Object.keys(T7[l]).forEach(function (k) { T[l][k] = T7[l][k]; });
   });
 
   var nodes = null;

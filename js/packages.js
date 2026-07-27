@@ -10,7 +10,8 @@
   if (!D) return;
 
   var cur = D.defaultCurrency || "USD";
-  var hotelChoice = {}; // packageId → 4 or 5
+  var hotelChoice = {};    // packageId → 4 or 5
+  var openBreakdown = {};  // packageId → is the itemized breakdown open
 
   function fmt(usd) {
     var v = usd * (D.rates[cur] || 1);
@@ -37,33 +38,48 @@
       '<b class="feeword">' + fee() + '</b> fee is the only thing you ever pay us.</div>';
   }
 
-  /* ── package card ── */
-  function cardHTML(p) {
+  /* ── package card ──
+     Compact mode (homepage) leads with the total and tucks the itemized
+     breakdown behind a disclosure, so the section costs ~0.6 screens per
+     card instead of ~1.5. Full mode (packages.html) shows everything. ── */
+  function cardHTML(p, compact) {
     var star = hotelChoice[p.id] || 4;
     var hotelUsd = (star === 5 ? D.hotel5PerNight : D.hotel4PerNight) * p.nights;
     var totalUsd = p.price + hotelUsd + feeUsd();
+
+    var detail =
+      '<div class="pkg__hotel" role="group" aria-label="Hotel choice">' +
+        '<button class="pkg__hbtn' + (star === 4 ? " is-on" : "") + '" data-star="4">4★ Hotel — ' + fmt(D.hotel4PerNight * p.nights) + '</button>' +
+        '<button class="pkg__hbtn' + (star === 5 ? " is-on" : "") + '" data-star="5">5★ Hotel — ' + fmt(D.hotel5PerNight * p.nights) + '</button>' +
+      '</div>' +
+      '<p class="pkg__hnote">' + p.nights + ' nights, breakfast included</p>' +
+      '<div class="pkg__free"><span>🚘 VIP Transfers — <b>FREE</b> <em>(airport ↔ hotel ↔ clinic, all appointments)</em></span>' +
+        '<span>🩺 Online Consultation &amp; Treatment Plan — <b>FREE</b></span></div>' +
+      '<table class="pkg__table"><tbody>' +
+        '<tr><td>Treatment — paid directly to your doctor at the clinic</td><td>' + fmt(p.price) + '</td></tr>' +
+        '<tr><td>Hotel (' + star + '★, ' + p.nights + ' nights)</td><td>' + fmt(hotelUsd) + '</td></tr>' +
+        '<tr><td>VIP airport &amp; clinic transfers</td><td class="free">FREE</td></tr>' +
+        '<tr><td>Online consultation &amp; treatment plan</td><td class="free">FREE</td></tr>' +
+        '<tr><td>' + D.feeName + ' <em>(our only charge)</em></td><td>' + fee() + '</td></tr>' +
+      '</tbody></table>';
+
     return (
-      '<article class="pkg" data-pkg="' + p.id + '">' +
+      '<article class="pkg' + (compact ? " pkg--compact" : "") + '" data-pkg="' + p.id + '">' +
         '<span class="pkg__tag">' + p.tag.toUpperCase() + '</span>' +
         '<h3 class="pkg__name">' + p.name + '</h3>' +
         '<p class="pkg__desc">' + p.desc + '</p>' +
-        '<ul class="pkg__inc">' + p.includes.map(function (i) { return "<li>" + i + "</li>"; }).join("") +
-          '<li>' + p.days + ' in ' + D.city + '</li></ul>' +
-        '<div class="pkg__hotel" role="group" aria-label="Hotel choice">' +
-          '<button class="pkg__hbtn' + (star === 4 ? " is-on" : "") + '" data-star="4">4★ Hotel — ' + fmt(D.hotel4PerNight * p.nights) + '</button>' +
-          '<button class="pkg__hbtn' + (star === 5 ? " is-on" : "") + '" data-star="5">5★ Hotel — ' + fmt(D.hotel5PerNight * p.nights) + '</button>' +
-        '</div>' +
-        '<p class="pkg__hnote">' + p.nights + ' nights, breakfast included</p>' +
-        '<div class="pkg__free"><span>🚘 VIP Transfers — <b>FREE</b> <em>(airport ↔ hotel ↔ clinic, all appointments)</em></span>' +
-          '<span>🩺 Online Consultation &amp; Treatment Plan — <b>FREE</b></span></div>' +
-        '<table class="pkg__table"><tbody>' +
-          '<tr><td>Treatment — paid directly to your doctor at the clinic</td><td>' + fmt(p.price) + '</td></tr>' +
-          '<tr><td>Hotel (' + star + '★, ' + p.nights + ' nights)</td><td>' + fmt(hotelUsd) + '</td></tr>' +
-          '<tr><td>VIP airport &amp; clinic transfers</td><td class="free">FREE</td></tr>' +
-          '<tr><td>Online consultation &amp; treatment plan</td><td class="free">FREE</td></tr>' +
-          '<tr><td>' + D.feeName + ' <em>(our only charge)</em></td><td>' + fee() + '</td></tr>' +
-          '<tr class="total"><td>Total estimated cost</td><td>' + fmt(totalUsd) + '</td></tr>' +
-        '</tbody></table>' +
+        (compact
+          ? '<p class="pkg__headline"><em>Total, all in</em><strong>' + fmt(totalUsd) + '</strong>' +
+              '<span>' + p.days + ' in ' + D.city + ' · ' + star + '★ hotel, transfers &amp; fee included</span></p>' +
+            '<details class="pkg__more"><summary>See what’s included, itemized</summary>' +
+              '<ul class="pkg__inc">' + p.includes.map(function (i) { return "<li>" + i + "</li>"; }).join("") +
+                '<li>' + p.days + ' in ' + D.city + '</li></ul>' + detail +
+            '</details>'
+          : '<ul class="pkg__inc">' + p.includes.map(function (i) { return "<li>" + i + "</li>"; }).join("") +
+              '<li>' + p.days + ' in ' + D.city + '</li></ul>' + detail +
+            '<table class="pkg__table pkg__table--total"><tbody>' +
+              '<tr class="total"><td>Total estimated cost</td><td>' + fmt(totalUsd) + '</td></tr>' +
+            '</tbody></table>') +
         '<div class="pkg__ctas">' +
           '<a class="btn btn--gold pkg__cta" href="#invitation" data-scroll-to="#invitation"><span>Get My Free Treatment Plan</span></a>' +
           '<a class="btn btn--wa" href="' + waLink(p.name) + '" target="_blank" rel="noopener">' + WA_ICON + '<span>WhatsApp Us</span></a>' +
@@ -76,15 +92,32 @@
   function renderPackages() {
     var grid = document.getElementById("pkgGrid");
     if (!grid) return;
-    grid.innerHTML = D.packages.map(cardHTML).join("");
+    var compact = grid.hasAttribute("data-compact");
+    var limit = parseInt(grid.getAttribute("data-limit"), 10);
+    var list = limit > 0 ? D.packages.slice(0, limit) : D.packages;
+    grid.innerHTML = list.map(function (p) { return cardHTML(p, compact); }).join("");
+    var restCount = D.packages.length - list.length;
+    var rest = document.getElementById("pkgRest");
+    if (rest) {
+      rest.innerHTML = restCount > 0
+        ? '<a class="btn btn--outline" href="packages.html"><span>See all ' + D.packages.length +
+          ' dental packages &amp; prices →</span></a>'
+        : "";
+    }
     var badgeSlot = document.getElementById("pkgBadge");
     if (badgeSlot) badgeSlot.innerHTML = badge();
 
+    // an open breakdown must survive a hotel/currency re-render
+    grid.querySelectorAll(".pkg__more").forEach(function (d) {
+      var id = d.closest(".pkg").getAttribute("data-pkg");
+      if (openBreakdown[id]) d.open = true;
+      d.addEventListener("toggle", function () { openBreakdown[id] = d.open; });
+    });
+
     grid.querySelectorAll(".pkg__hbtn").forEach(function (b) {
       b.addEventListener("click", function () {
-        var card = b.closest(".pkg");
-        hotelChoice[card.getAttribute("data-pkg")] = +b.getAttribute("data-star");
-        rerenderCard(card);
+        hotelChoice[b.closest(".pkg").getAttribute("data-pkg")] = +b.getAttribute("data-star");
+        renderPackages();
       });
     });
     // re-bind smooth-scroll CTAs rendered after main.js (index page only)
@@ -96,14 +129,7 @@
     });
   }
 
-  function rerenderCard(card) {
-    var p = D.packages.filter(function (x) { return x.id === card.getAttribute("data-pkg"); })[0];
-    var tmp = document.createElement("div");
-    tmp.innerHTML = cardHTML(p);
-    card.replaceWith(tmp.firstChild);
-    renderBindings();
-  }
-  function renderBindings() { renderPackages(); } // simplest: re-render grid (cheap, 8 cards)
+  function renderBindings() { renderPackages(); }
 
   /* ── currency toggle ── */
   var curWrap = document.getElementById("pkgCurrency");

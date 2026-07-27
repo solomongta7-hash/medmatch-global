@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" as="image" href="img/antalya-turquoise-coast-hero.jpg" fetchpriority="high" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css?v=4.2" />
+<link rel="stylesheet" href="css/styles.css?v=4.1" />
 <link rel="stylesheet" href="css/packages.css?v=3" />
 <script type="application/ld+json">
 {
@@ -132,6 +132,24 @@
   </nav>
 </div>
 
+<!-- ══════════ STICKY SECTION JUMP BAR ══════════
+     Appears once the hero is passed. Gives a long page the map it otherwise
+     lacks: where am I, and how do I get to the part I care about. -->
+<nav class="jump" id="jumpNav" aria-label="Jump to section">
+  <div class="jump__track">
+    <a class="jump__chip" href="#start" data-scroll-to="#start" data-jump="start" data-i18n="j.start">Start here</a>
+    <a class="jump__chip" href="#standard" data-scroll-to="#standard" data-jump="standard" data-i18n="j.trust">Why trust us</a>
+    <a class="jump__chip" href="#treatments" data-scroll-to="#treatments" data-jump="treatments" data-i18n="j.treat">Treatments</a>
+    <a class="jump__chip" href="#estimate" data-scroll-to="#estimate" data-jump="estimate" data-i18n="j.price">Prices</a>
+    <a class="jump__chip" href="#passage" data-scroll-to="#passage" data-jump="passage" data-i18n="j.how">How it works</a>
+    <a class="jump__chip" href="#voices" data-scroll-to="#voices" data-jump="voices" data-i18n="j.reviews">Reviews</a>
+    <a class="jump__chip" href="#faq" data-scroll-to="#faq" data-jump="faq" data-i18n="j.faq">FAQ</a>
+  </div>
+  <button class="jump__menu" id="jumpMenu" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
 <main id="top">
 
 <!-- ══════════ HERO — Mediterranean ══════════ -->
@@ -149,18 +167,21 @@
       <span class="hero__line" data-reveal="chars">Your premium healthcare advisor in Turkey.</span>
       <span class="hero__line hero__line--em" data-reveal="chars">Without the guesswork.</span>
     </h1>
-    <p class="hero__sub" data-fade data-i18n="hero.sub">We match you with board-certified surgeons at internationally accredited
-    hospitals — and handle everything else. One fixed price covers your procedure, hotel, transfers
-    and aftercare. A personal care coordinator stays by your side from your first call to full recovery.</p>
+    <p class="hero__sub" data-fade data-i18n="hero.sub">We match you with a board-certified surgeon, put one fixed
+    all-inclusive price in writing, and stay with you from the first call to full recovery.</p>
+    <ul class="hero__proof" data-fade>
+      <li><strong>4,200+</strong><span data-i18n="hp.1">patients guided</span></li>
+      <li><strong>12</strong><span data-i18n="hp.2">JCI hospitals</span></li>
+      <li><strong>50–70%</strong><span data-i18n="hp.3">below U.S. prices</span></li>
+      <li><strong>48 hrs</strong><span data-i18n="hp.4">to your quote</span></li>
+    </ul>
     <div class="hero__cta" data-fade>
-      <a class="btn btn--gold magnetic" href="#invitation" data-scroll-to="#invitation"><span data-i18n="hero.cta1">Get My Free Quote</span></a>
-      <a class="btn btn--ghost magnetic" href="#treatments" data-scroll-to="#treatments"><span data-i18n="hero.cta2">See Treatments &amp; Prices</span></a>
+      <a class="btn btn--gold magnetic" href="#start" data-scroll-to="#start"><span data-i18n="hero.cta1">See My Price</span></a>
+      <a class="btn btn--ghost magnetic" href="https://wa.me/14375951735?text=Hello%20MedMatch%20Global%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener"><span data-i18n="hero.cta2">Ask on WhatsApp</span></a>
     </div>
   </div>
   <div class="hero__foot">
-    <div class="hero__stat" data-fade><strong>4,200+</strong><span>patients guided</span></div>
     <div class="hero__scrollcue" data-fade><span>SCROLL</span><i></i></div>
-    <div class="hero__stat" data-fade><strong>50–70%</strong><span>saved vs. U.S. prices</span></div>
   </div>
 </section>
 
@@ -172,16 +193,73 @@
   </div>
 </div>
 
+<!-- ══════════ CHOOSER — the one decision that routes everything ══════════ -->
+<section class="chooser" id="start">
+  <div class="chooser__head">
+    <h2 class="chooser__q" data-i18n="ch.q">What do you need?</h2>
+    <p class="chooser__hint" data-i18n="ch.hint">Tap one. You'll get the price in about ten seconds.</p>
+  </div>
+  <div class="chooser__grid">
+    <a class="choice" href="#estimate" data-scroll-to="#estimate" data-goto-calc="dental">
+      <svg class="choice__ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <path d="M17 11c-4 .8-6.4 4.8-6 10.4.6 8 3.2 17.6 5.6 20.8 1.2 1.6 3.2 1.2 3.6-.8.6-3.2.8-7.2 3.2-7.2h1.2c2.4 0 2.6 4 3.2 7.2.4 2 2.4 2.4 3.6.8 2.4-3.2 5-12.8 5.6-20.8.4-5.6-2-9.6-6-10.4-3.2-.6-5.6 1.2-8.8 1.2S20.2 10.4 17 11z"/>
+      </svg>
+      <span class="choice__name" data-i18n="ch.dental">Teeth</span>
+      <span class="choice__sub" data-i18n="ch.dental.sub">Veneers, implants, full smile</span>
+      <span class="choice__from"><em data-i18n="t.from">from</em> $2,400</span>
+    </a>
+    <a class="choice" href="#estimate" data-scroll-to="#estimate" data-goto-calc="rhinoplasty">
+      <svg class="choice__ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <!-- face in profile: brow, nose bridge, tip, nostril, lip, chin -->
+        <path d="M29 9c-4.5 4-6.5 8.5-6 12.2.2 1.6 1 3 2.2 4.3l5.5 5.6-6.4 2.2"/>
+        <path d="M24.3 33.3c-.6 2.4.3 4 2.4 4.7"/>
+        <path d="M26 40.5c-1.4 1.4-3.2 2.2-5.3 2.4"/>
+      </svg>
+      <span class="choice__name" data-i18n="ch.nose">Nose</span>
+      <span class="choice__sub" data-i18n="ch.nose.sub">Rhinoplasty, revision</span>
+      <span class="choice__from"><em data-i18n="t.from">from</em> $3,200</span>
+    </a>
+    <a class="choice" href="#estimate" data-scroll-to="#estimate" data-goto-calc="hair">
+      <svg class="choice__ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <!-- head with a restored hairline and strands sweeping over the top -->
+        <path d="M12 41V30c0-7.2 5.4-13 12-13s12 5.8 12 13v11"/>
+        <path d="M14.5 28c3-4.2 6.2-6.2 9.5-6.2s6.5 2 9.5 6.2" opacity="0.5"/>
+        <path d="M14 24c2.2-6.4 6-9.6 10-9.6s7.8 3.2 10 9.6"/>
+        <path d="M19 14.6c.4-2.4 1.6-4 3-4.8M25.6 12.8c1-2 2.4-3.2 4-3.6" opacity="0.75"/>
+      </svg>
+      <span class="choice__name" data-i18n="ch.hair">Hair</span>
+      <span class="choice__sub" data-i18n="ch.hair.sub">Transplant, Sapphire FUE</span>
+      <span class="choice__from"><em data-i18n="t.from">from</em> $2,100</span>
+    </a>
+    <a class="choice" href="#estimate" data-scroll-to="#estimate" data-goto-calc="knee">
+      <svg class="choice__ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <!-- leg bent at the knee: thigh, kneecap, shin angling forward -->
+        <path d="M15 7v12.5" stroke-width="2.2"/>
+        <path d="M22 8v11" stroke-width="2.2" opacity="0.45"/>
+        <circle cx="18.5" cy="24" r="5.5" stroke-width="2.2"/>
+        <path d="M19 29.5 24 41" stroke-width="2.2"/>
+        <path d="M25.5 28.5 30 39" stroke-width="2.2" opacity="0.45"/>
+      </svg>
+      <span class="choice__name" data-i18n="ch.knee">Knee</span>
+      <span class="choice__sub" data-i18n="ch.knee.sub">Replacement, arthroscopy</span>
+      <span class="choice__from"><em data-i18n="t.from">from</em> $3,000</span>
+    </a>
+  </div>
+  <div class="chooser__foot">
+    <a class="chooser__alt" href="#treatments" data-scroll-to="#treatments" data-i18n="ch.other">Something else — eyes, plastic surgery, weight loss, check-ups →</a>
+    <a class="chooser__alt chooser__alt--strong" href="#invitation" data-scroll-to="#invitation" data-i18n="ch.unsure">Not sure yet? Tell us what's wrong and we'll advise →</a>
+  </div>
+</section>
+
 <!-- ══════════ THE STANDARD ══════════ -->
 <section class="standard" id="standard">
   <div class="section-head">
     <p class="eyebrow" data-fade data-i18n="std.eyebrow">WHY PATIENTS TRUST US</p>
     <h2 class="display" data-reveal="words" data-i18n="std.heading">Your safety is our whole business model.</h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade data-i18n="std.lede">Medical travel only works when nothing is left to chance. Our founding team
-    brings more than twenty years in health tourism and a decade of hands-on dental expertise — we know
-    where the risks hide, because we have spent our careers removing them. Here is exactly how we protect
-    you at every step — and what you can verify yourself before you commit to anything.</p>
+    <p class="lede" data-fade data-i18n="std.lede">Scared about surgery abroad? You should be careful — which is exactly why
+    you meet your surgeon, and hold a fixed written price, before you pay anything. Here is what we
+    guarantee, and what you can check yourself.</p>
   </div>
   <div class="standard__grid">
     <article class="pillar" data-fade>
@@ -213,44 +291,17 @@
   <a class="partner__link" style="display:inline-block;margin:44px 7vw 0;" href="vetting.html" data-fade data-i18n="std.more">Read the full MedMatch Standard →</a>
 </section>
 
-<!-- ══════════ OUR STORY ══════════ -->
+<!-- ══════════ OUR STORY — compact founder strip ══════════ -->
 <section class="story-band" id="ourstory">
   <div class="section-head">
     <p class="eyebrow" data-fade>OUR STORY</p>
-    <h2 class="display" data-reveal="words">Twenty years in medical travel.<br/><em>Now with our own name on the door.</em></h2>
+    <h2 class="display" data-reveal="words">We don't own clinics.<br/><em>That's the whole point.</em></h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade>Our founding team has guided more than 4,200 patients through treatment in Türkiye —
-    years spent inside the hospitals, clinics and hotel lobbies of this industry, learning exactly where it
-    fails patients. MedMatch Global is the evolution of that work: fixed prices in writing, partners we vet
-    in person, and one team that answers for everything — from your first call to your last follow-up.</p>
+    <p class="lede" data-fade>A clinic can only sell you what it does. We're independent — we match you to the
+    right specialist for your case, from partners we vetted in person, at a price we put in writing. Twenty
+    years in medical travel, 4,200 patients, and now our own name on the door.</p>
     <p class="story-band__sig" data-fade>— Suleyman Suleymanoglu · Founder, MedMatch Global</p>
   </div>
-</section>
-
-<!-- ══════════ THE SETTING — the Turquoise Coast ══════════ -->
-<section class="setting" id="setting">
-  <div class="section-head">
-    <p class="eyebrow" data-fade>THE SETTING</p>
-    <h2 class="display" data-reveal="words">A coast worth the crossing.</h2>
-    <div class="rule" data-rule></div>
-    <p class="lede" data-fade>Antalya and the Turquoise Coast are the backdrop to your recovery — turquoise water,
-    old-town evenings, and slow mornings that feel nothing like a hospital.</p>
-  </div>
-  <div class="setting__gallery">
-    <figure class="rphoto" data-fade><img src="img/suleymans-uploads/turquoise-coast-cliffs.jpg" alt="Cliffside houses above the turquoise sea on the Turkish coast" loading="lazy"/><figcaption>The Turquoise Coast</figcaption></figure>
-    <figure class="rphoto" data-fade><img src="img/suleymans-uploads/kas-cove-gulets.jpg" alt="Gulet boats moored in a clear turquoise cove" loading="lazy"/><figcaption>A quiet cove</figcaption></figure>
-    <figure class="rphoto" data-fade><img src="img/suleymans-uploads/old-town-evening-street.jpg" alt="Lantern-lit cobbled old-town street at dusk" loading="lazy"/><figcaption>Old-town evenings</figcaption></figure>
-    <figure class="rphoto" data-fade><img src="img/suleymans-uploads/harbor-town-boats.jpg" alt="Harbor town with fishing boats in the morning light" loading="lazy"/><figcaption>Harbor mornings</figcaption></figure>
-    <figure class="rphoto" data-fade><img src="img/suleymans-uploads/coastal-marina.jpg" alt="Colourful hillside houses above a small marina" loading="lazy"/><figcaption>Along the marina</figcaption></figure>
-    <figure class="rphoto" data-fade><img src="img/suleymans-uploads/seaview-tea-balcony.jpg" alt="Turkish tea on a balcony overlooking the sea at golden hour" loading="lazy"/><figcaption>Slow mornings by the sea</figcaption></figure>
-  </div>
-</section>
-
-<!-- ══════════ INTERLUDE — sea ══════════ -->
-<section class="interlude">
-  <div class="interlude__img" data-parallax style="background-image:url('img/turquoise-water-cove.jpg')"></div>
-  <div class="interlude__veil"></div>
-  <p class="interlude__quote" data-fade data-i18n="il.1">“Recovery should feel less like a hospital corridor —<br/>and more like the Turquoise Coast.”</p>
 </section>
 
 <!-- ══════════ TREATMENTS — HORIZONTAL SCROLL ══════════ -->
@@ -261,10 +312,9 @@
       <article class="tpanel tpanel--intro" style="background-image:url('img/antalya-old-town-harbor.jpg')">
         <p class="eyebrow" data-i18n="treat.eyebrow">TREATMENTS &amp; PRICES</p>
         <h2 class="display" data-i18n="treat.heading">Four signature treatments.<br/><em>And a full hospital behind them.</em></h2>
-        <p class="lede" data-i18n="treat.lede">We built our name on the four procedures where Türkiye's specialists genuinely
-        lead the world — in clinics we've visited, vetted and monitor continuously. Through our partner
-        hospital group in Istanbul, we now also arrange plastic surgery, eye surgery, weight-loss procedures
-        and executive check-ups, at official hospital prices.</p>
+        <p class="lede" data-i18n="treat.lede">The four procedures where Türkiye's specialists genuinely lead the world.
+        Through our Istanbul hospital group we also arrange plastic surgery, eye surgery, weight loss and
+        check-ups at official hospital prices.</p>
         <div class="tpanel__arrow">⟶</div>
       </article>
 
@@ -415,10 +465,9 @@
     <p class="eyebrow" data-fade data-i18n="partners.eyebrow">OUR PARTNERS</p>
     <h2 class="display" data-reveal="words" data-i18n="partners.heading">The hands you are in.</h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade data-i18n="partners.lede">We work with a small number of partners we have visited, vetted and monitor
-    continuously — two award-winning dental clinics and one of Türkiye's largest hospital groups, with
-    more joining soon. To keep your pricing honest, we introduce each partner by name — with full
-    credentials, addresses and case results — inside your personal treatment plan.</p>
+    <p class="lede" data-fade data-i18n="partners.lede">Three partners, all visited and vetted in person. You get each one by
+    name — credentials, address, case results — inside your treatment plan, and you meet your doctor on
+    video before you pay.</p>
   </div>
 
   <div class="partners__grid">
@@ -460,14 +509,8 @@
   </div>
 
   <!-- Dental faculty roster is advisor-only; full block preserved in the private repo archive -->
-  <div class="section-head faculty__subhead">
-    <p class="eyebrow" data-fade>YOUR TREATMENT TEAM</p>
-    <p class="lede" data-fade style="margin-top:18px;">Six board-certified specialists — oral surgery, aesthetic dentistry,
-    orthodontics and general dentistry — each personally interviewed by us, and each reviewing your case
-    before you fly. Their names, credentials and case photos are introduced with your personal
-    treatment plan, and you meet your doctor on video before you pay anything.</p>
-    <a class="partner__link" style="display:inline-block;margin-top:22px;" href="#invitation" data-scroll-to="#invitation" data-fade>Meet your team — get your free plan →</a>
-  </div>
+  <p class="faculty__team" data-fade>Six board-certified specialists review your case before you fly.
+    <a href="#invitation" data-scroll-to="#invitation">Meet your team →</a></p>
 </section>
 
 <!-- ══════════ THE LEDGER — CALCULATORS ══════════ -->
@@ -476,10 +519,9 @@
     <p class="eyebrow" data-fade data-i18n="pricing.eyebrow">PRICING</p>
     <h2 class="display" data-reveal="words" data-i18n="pricing.heading">Transparent to the cent.</h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade data-i18n="pricing.lede">Build your estimate below — compared honestly against average private-pay
-    prices at home. Dental and knee estimates include hotel, VIP transfers and your personal care
-    coordinator; partner-hospital treatments show the official fixed hospital price, with hotel included
-    only where stated.</p>
+    <p class="lede" data-fade data-i18n="pricing.lede">Build your estimate, compared honestly against private-pay prices at home.
+    Dental and knee include hotel, transfers and your coordinator; hospital treatments show the official
+    fixed price.</p>
   </div>
 
   <div class="ledger__bar">
@@ -712,13 +754,6 @@
   confirmed in writing with your <a href="partner-hospital.html" style="color:var(--teal);">free quote</a>.</p>
 </section>
 
-<!-- ══════════ INTERLUDE — wellness ══════════ -->
-<section class="interlude interlude--short">
-  <div class="interlude__img" data-parallax style="background-image:url('img/suleymans-uploads/cappadocia-balloons-dawn.jpg')"></div>
-  <div class="interlude__veil"></div>
-  <p class="interlude__quote" data-fade data-i18n="il.2">“You are not a case number here.<br/>You are a guest.”</p>
-</section>
-
 <!-- ══════════ PACKAGES — transparent breakdown ══════════ -->
 <section class="pkgs" id="packages">
   <div class="section-head">
@@ -731,11 +766,12 @@
     <div id="pkgBadge" data-badge-slot></div>
   </div>
   <div class="pkgs__bar">
-    <p class="pkgs__note" style="font-size:13px;color:var(--ink-soft);max-width:520px;">Treatment prices are paid directly to your doctor at our partner clinic in
-    Antalya — the clinic is introduced by name with your treatment plan. Hotel, VIP transfers and your personal host are arranged by us.</p>
+    <p class="pkgs__note" style="font-size:13px;color:var(--ink-soft);max-width:520px;">You pay your doctor directly at our partner
+    clinic in Antalya — introduced by name with your plan. Hotel, transfers and your host are arranged by us.</p>
     <div class="currency" id="pkgCurrency"></div>
   </div>
-  <div class="pkgs__grid" id="pkgGrid"></div>
+  <div class="pkgs__grid" id="pkgGrid" data-compact data-limit="3"></div>
+  <div class="pkgs__rest" id="pkgRest"></div>
 </section>
 
 <!-- ══════════ THE PASSAGE — JOURNEY ══════════ -->
@@ -752,12 +788,8 @@
         <span class="pstep__num">01</span>
         <div>
           <h3 data-i18n="ps1h">The Consultation</h3>
-          <p data-i18n="ps1b">A private video consultation from home. Your records and imagery are reviewed by no fewer
-          than three surgeons from the Circle before any recommendation is made.</p>
-          <div class="pstep__media">
-            <img src="img/kas-harbor-town.jpg" alt="Kaş harbor on the Turquoise Coast — where you're headed" loading="lazy" />
-            <span class="pstep__media-cap">Where you're headed</span>
-          </div>
+          <p data-i18n="ps1b">A private video consultation from home. Your records are reviewed by no fewer than
+          three surgeons before any recommendation is made.</p>
         </div>
       </li>
       <li class="pstep" data-step>
@@ -770,12 +802,7 @@
         <span class="pstep__num">03</span>
         <div><h3 data-i18n="ps3h">The Arrival</h3>
         <p data-i18n="ps3b">Met at the aircraft door in Istanbul. Private transfer to a five-star hotel on the
-        Bosphorus. Your host — fluent, discreet, on call — is with you from this moment on.</p>
-          <div class="pstep__media" data-fade>
-            <img src="img/suleymans-uploads/vip-airport-transfer.jpg" alt="Private VIP transfer vehicle waiting outside the airport terminal" loading="lazy" />
-            <span class="pstep__media-cap">Met at the door</span>
-          </div>
-        </div>
+        Bosphorus. Your host — fluent, discreet, on call — is with you from this moment on.</p></div>
       </li>
       <li class="pstep" data-step>
         <span class="pstep__num">04</span>
@@ -799,59 +826,14 @@
     <p class="eyebrow" data-fade>WHERE YOU'LL STAY</p>
     <h2 class="display" data-reveal="words">Recover like a guest.<br/><em>Not like a patient.</em></h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade>Your recovery home in Antalya: the Avion Suite Hotel, a quiet boutique property in the
-    Düden district — minutes from Düden Waterfall and the sea, with its own café and restaurant on the
-    ground floor. Spacious suites, terraces made for slow mornings, and our team one WhatsApp message away.
-    Your stay here is part of your fixed quote — never a surprise line item.</p>
+    <p class="lede" data-fade>The Avion Suite Hotel in Antalya — a quiet boutique property minutes from the sea,
+    with its own restaurant downstairs. Your stay is inside your fixed quote, never a surprise line item.</p>
   </div>
   <div class="residence__gallery">
-    <figure class="rphoto rphoto--tall" data-fade><img src="img/hotel/avion-01.jpg" alt="Avion Suite Hotel at sunset, Antalya" loading="lazy"/><figcaption>The hotel at dusk</figcaption></figure>
-    <figure class="rphoto" data-fade><img src="img/hotel/avion-06.jpg" alt="Junior suite with king bed and lounge sofa" loading="lazy"/><figcaption>Junior suite</figcaption></figure>
-    <figure class="rphoto" data-fade><img src="img/hotel/avion-05.jpg" alt="Private rooftop terrace with seating" loading="lazy"/><figcaption>Rooftop terrace</figcaption></figure>
-    <figure class="rphoto" data-fade><img src="img/hotel/avion-10.jpg" alt="Double room with upholstered headboard" loading="lazy"/><figcaption>Double room</figcaption></figure>
-    <figure class="rphoto" data-fade><img src="img/hotel/avion-03.jpg" alt="Aerial view of the Düden district — sea and waterfall minutes away" loading="lazy"/><figcaption>Düden district — sea &amp; waterfall minutes away</figcaption></figure>
+    <figure class="rphoto rphoto--tall" data-fade><img src="img/hotel/avion-01.jpg" alt="Avion Suite Hotel at sunset, Antalya" loading="lazy" width="800" height="1000"/><figcaption>The hotel at dusk</figcaption></figure>
+    <figure class="rphoto" data-fade><img src="img/hotel/avion-06.jpg" alt="Junior suite with king bed and lounge sofa" loading="lazy" width="800" height="600"/><figcaption>Junior suite</figcaption></figure>
+    <figure class="rphoto" data-fade><img src="img/hotel/avion-03.jpg" alt="Aerial view of the Düden district — sea and waterfall minutes away" loading="lazy" width="800" height="600"/><figcaption>Düden district — sea &amp; waterfall minutes away</figcaption></figure>
   </div>
-  <p class="residence__note" data-fade>One hotel today, chosen the way we choose clinics — visited, vetted, and priced
-  in writing. As new hotel partnerships are finalized, they will appear here.</p>
-</section>
-
-<!-- ══════════ WHY PATIENTS COME — before / after ══════════ -->
-<section class="reason" id="why">
-  <div class="section-head">
-    <p class="eyebrow" data-fade>WHY PATIENTS COME TO US</p>
-    <h2 class="display" data-reveal="words">The problem doesn't wait.<br/><em>Neither should the fix.</em></h2>
-    <div class="rule" data-rule></div>
-    <p class="lede" data-fade>A tooth that won't quit. A knee that's given up. Then a quote at home that stings worse
-    than the pain — so you put it off, and it only gets harder. There is a calmer, and far less costly, way to
-    handle it.</p>
-  </div>
-  <div class="reason__grid">
-    <article class="rcard rcard--before" data-fade>
-      <div class="rcard__img"><img src="img/suleymans-uploads/dental-pain-man-canada.jpg" alt="A man at home holding his jaw in dental pain" loading="lazy"/></div>
-      <span class="rcard__tag">At home</span>
-      <div class="rcard__body">
-        <h3>Priced out, and putting it off</h3>
-        <p>Living with the problem because the home-market quote is out of reach — and every month you wait,
-        it costs you more than money.</p>
-      </div>
-    </article>
-    <article class="rcard rcard--after" data-fade>
-      <div class="rcard__img"><img src="img/suleymans-uploads/patient-canada-coffee.jpg" alt="A relaxed patient smiling over coffee after treatment" loading="lazy"/></div>
-      <span class="rcard__tag">With MedMatch</span>
-      <div class="rcard__body">
-        <h3>One fixed price, and a plan</h3>
-        <p>A single written quote — treatment, hospital, hotel, transfers and your own host — carried out by a
-        vetted surgeon on the Turquoise Coast, for a fraction of the price back home.</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ══════════ INTERLUDE — recovery room ══════════ -->
-<section class="interlude interlude--short interlude--room">
-  <div class="interlude__img" data-parallax style="background-image:url('img/suleymans-uploads/seaview-suite-bedroom.jpg')"></div>
-  <div class="interlude__veil"></div>
-  <p class="interlude__quote" data-fade>“Rest is not a luxury here.<br/>It is part of the treatment.”</p>
 </section>
 
 <!-- ══════════ VOICES ══════════ -->
@@ -897,9 +879,8 @@
     <p class="eyebrow" data-fade>RECENT PATIENT RESULTS</p>
     <h2 class="display" data-reveal="words">The ledger doesn't lie.</h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade>A few recent journeys, kept anonymous the way medical records should be. Your own
-    written quote is itemized exactly the same way — video patient stories are being filmed this month, and
-    until then we'll gladly share real before-and-after cases from our partner clinics privately on WhatsApp.</p>
+    <p class="lede" data-fade>Recent journeys, kept anonymous the way medical records should be. Want the
+    before-and-after photos? We'll send real partner-clinic cases privately on WhatsApp.</p>
   </div>
   <ul class="cases__list">
     <li class="case" data-fade>
@@ -929,10 +910,8 @@
     <p class="eyebrow" data-fade data-i18n="faq.eyebrow">HONEST ANSWERS</p>
     <h2 class="display" data-reveal="words" data-i18n="faq.heading">The questions every smart patient asks.</h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade data-i18n="faq.lede">Choosing surgery abroad is a serious decision, and you deserve straight
-    answers — including to the uncomfortable questions. These are the ones we hear most from patients
-    in the U.S. and Canada. If yours isn't here, message us — a care coordinator, not a salesperson,
-    will answer within one day.</p>
+    <p class="lede" data-fade data-i18n="faq.lede">Including the uncomfortable ones. If yours isn't here, message us — a care
+    coordinator, not a salesperson, answers within a day.</p>
   </div>
   <div class="faq__list" data-fade>
     <details class="faq__item" name="faq-group">
@@ -1028,8 +1007,7 @@
       <p class="eyebrow eyebrow--light" data-i18n="inv.eyebrow">GET STARTED</p>
       <h2 class="display display--light" data-reveal="words" data-i18n="inv.heading">Get your free quote.</h2>
       <p class="lede lede--light" data-i18n="inv.lede">Tell us what you're considering. Within 48 hours you'll receive a private
-      assessment and a fixed, all-inclusive quote — free, no obligation, and your details are never sold —
-      shared only with the hospital you choose.</p>
+      assessment and a fixed, all-inclusive quote — free, no obligation, and your details are never sold.</p>
       <ul class="invitation__points">
         <li data-i18n="inv.p1">Reply within 48 hours</li>
         <li data-i18n="inv.p2">Reviewed by specialist surgeons</li>
@@ -1130,12 +1108,64 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" integrity="sha384-tKsJDT6PlUI0pSBt9/sBKJluKgA19/a6mBrDsZaXotLB4ZYfMGM6xt6/WgGpYhTm" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous"></script>
-<script src="js/scene.js?v=3.1"></script>
+
+<!-- three.js (~580 KB) only exists for the desktop hero canvas — scene.js bails
+     on touch and small screens, so phones must never pay to download it. -->
+<script>
+(function () {
+  if (window.matchMedia("(hover: none)").matches || window.matchMedia("(max-width: 900px)").matches) return;
+  var s = document.createElement("script");
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+  s.integrity = "sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu";
+  s.crossOrigin = "anonymous";
+  s.onload = function () {
+    var t = document.createElement("script");
+    t.src = "js/scene.js?v=3.2";
+    document.body.appendChild(t);
+  };
+  document.body.appendChild(s);
+})();
+</script>
+
 <script src="js/packages-data.js?v=4"></script>
-<script src="js/packages.js?v=2"></script>
-<script src="js/i18n.js?v=10"></script>
-<script src="js/main.js?v=4.0"></script>
+<script src="js/packages.js?v=3"></script>
+<script src="js/main.js?v=4.1"></script>
 <script src="js/chat.js?v=3.3"></script>
+
+<!-- i18n is 170 KB of translation tables for 8 languages. An English-speaking
+     visitor should never download it; it loads on demand when a language is
+     picked, or immediately if the browser is already set to a language we carry. -->
+<script>
+(function () {
+  var sel = document.getElementById("langSelect");
+  if (!sel) return;
+
+  function loadI18n(then) {
+    var s = document.createElement("script");
+    s.src = "js/i18n.js?v=10";
+    if (then) s.onload = then;
+    document.body.appendChild(s);
+  }
+
+  // i18n.js applies the saved language itself on load, so a returning
+  // non-English visitor gets it immediately.
+  var saved = "en";
+  try { saved = localStorage.getItem("mm_lang") || "en"; } catch (e) {}
+  if (saved !== "en") { loadI18n(); return; }
+
+  // First non-English pick: fetch the tables, then replay the change so
+  // i18n.js's delegated listener on document sees it (hence bubbles: true).
+  // i18n.js resets the select to "en" while booting, so the chosen value has
+  // to be captured first and put back before the replay.
+  sel.addEventListener("change", function once() {
+    sel.removeEventListener("change", once);
+    var picked = sel.value;
+    loadI18n(function () {
+      sel.value = picked;
+      sel.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+  });
+})();
+</script>
 </body>
 </html>

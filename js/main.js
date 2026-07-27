@@ -159,7 +159,10 @@
   function closeMenu() {
     burger.classList.remove("is-open");
     mmenu.classList.remove("is-open");
+    nav.classList.remove("is-menu-open");
     burger.setAttribute("aria-expanded", "false");
+    var jm = document.getElementById("jumpMenu");
+    if (jm) jm.setAttribute("aria-expanded", "false");
   }
   burger.setAttribute("aria-expanded", "false");
   burger.addEventListener("click", function () {
@@ -167,6 +170,78 @@
     mmenu.classList.toggle("is-open");
     burger.setAttribute("aria-expanded", burger.classList.contains("is-open") ? "true" : "false");
   });
+
+  /* ───────────────────────── sticky jump bar ─────────────────────────
+     Slides in once the hero is behind you, and keeps the chip for the
+     section you're actually in highlighted and scrolled into view. */
+  var jumpNav = document.getElementById("jumpNav");
+  if (jumpNav) {
+    var chips = Array.prototype.slice.call(jumpNav.querySelectorAll("[data-jump]"));
+    var hero = document.getElementById("hero");
+
+    // Keep the bar parked directly under the header at every breakpoint. The
+    // header changes height when it goes solid and again once webfonts land,
+    // so observe it rather than measuring once.
+    var syncNavHeight = function () {
+      document.documentElement.style.setProperty("--navh", nav.offsetHeight + "px");
+    };
+    syncNavHeight();
+    if ("ResizeObserver" in window) {
+      // border-box matters: going solid only changes the header's padding, and
+      // a content-box observer never fires for that — leaving the bar parked at
+      // the old, taller offset with a gap under the header.
+      try {
+        new ResizeObserver(syncNavHeight).observe(nav, { box: "border-box" });
+      } catch (e) {
+        new ResizeObserver(syncNavHeight).observe(nav);
+      }
+    }
+    window.addEventListener("resize", syncNavHeight, { passive: true });
+    nav.addEventListener("transitionend", function (e) {
+      if (e.propertyName === "padding-top" || e.propertyName === "padding") syncNavHeight();
+    });
+
+    var jumpMenu = document.getElementById("jumpMenu");
+    if (jumpMenu) {
+      jumpMenu.addEventListener("click", function () {
+        var open = !mmenu.classList.contains("is-open");
+        mmenu.classList.toggle("is-open", open);
+        burger.classList.toggle("is-open", open);
+        nav.classList.toggle("is-menu-open", open);
+        jumpMenu.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+
+    if ("IntersectionObserver" in window && hero) {
+      new IntersectionObserver(function (entries) {
+        var past = !entries[0].isIntersecting;
+        jumpNav.classList.toggle("is-on", past);
+        document.body.classList.toggle("jumping", past);
+      }, { threshold: 0, rootMargin: "-40% 0px 0px 0px" }).observe(hero);
+
+      // a 1%-tall band a third of the way down the screen: whatever section
+      // crosses it is the one the reader is looking at
+      var track = jumpNav.querySelector(".jump__track");
+      var sectionIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          chips.forEach(function (c) {
+            var on = c.getAttribute("data-jump") === en.target.id;
+            c.classList.toggle("is-here", on);
+            if (on && track) {
+              track.scrollTo({ left: c.offsetLeft - track.clientWidth / 2 + c.offsetWidth / 2, behavior: "smooth" });
+            }
+          });
+        });
+      }, { rootMargin: "-33% 0px -66% 0px", threshold: 0 });
+      chips.forEach(function (c) {
+        var s = document.getElementById(c.getAttribute("data-jump"));
+        if (s) sectionIO.observe(s);
+      });
+    } else {
+      jumpNav.classList.add("is-on");
+    }
+  }
 
   /* ───────────────────────── mobile sticky CTA bar ───────────────────────── */
   var mobilebar = document.getElementById("mobilebar");
