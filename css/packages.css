@@ -300,3 +300,18 @@
 .story--soon .story__media::after { content: "🎬"; }
 .story--soon .story__play { display: none; }
 .story--soon .story__meta strong { color: var(--teal); letter-spacing: 0.18em; font-size: 10.5px; }
+
+/* moved off inline style="" so the phone can get a phone-sized file */
+.phero--campus2 { background-image: url('../img/partners/hospital-campus-2.avif'); }
+@supports (background-image: image-set(url('a.avif') type('image/avif'))) {
+  .phero--campus2 {
+    background-image: image-set(url('../img/rs/partners/campus2-1100.avif') type('image/avif'),
+                                url('../img/partners/hospital-campus-2.avif') type('image/avif'));
+  }
+  @media (max-width: 900px) {
+    .phero--campus2 {
+      background-image: image-set(url('../img/rs/partners/campus2-620.avif') type('image/avif'),
+                                  url('../img/partners/hospital-campus-2.avif') type('image/avif'));
+    }
+  }
+}

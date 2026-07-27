@@ -1365,3 +1365,85 @@ input[type="range"]::-moz-range-thumb {
   /* the last few controls sitting 1–3px under the line */
   .chat-chip, .chat-panel__close, .chat-form button { min-height: 46px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE IMAGERY
+   These backgrounds used to be inline style="" on the elements,
+   which made viewport-based art direction impossible. They live
+   here now so a phone can be sent a phone-sized file.
+
+   Each rule declares the original first (universal fallback), then
+   an image-set that offers AVIF with the original as the second
+   candidate — so a browser that supports image-set but cannot
+   decode AVIF still gets a working image.
+
+   WebP is deliberately absent: the source JPEGs are already ~0.19
+   bytes/pixel and libwebp encoded them LARGER than the originals.
+   AVIF is the only format that wins on this set.
+   ═══════════════════════════════════════════════════════════════ */
+
+.hero__bg--coast      { background-image: url('../img/antalya-turquoise-coast-hero.jpg'); }
+.tpanel--intro        { background-image: url('../img/antalya-old-town-harbor.jpg'); }
+.interlude__img--kas  { background-image: url('../img/kas-harbor-town.jpg'); }
+.partner__img--dental { background-image: url('../img/partners/dental-clinic-antalya.webp'); }
+.partner__img--smile  { background-image: url('../img/partners/smile-studio.webp'); }
+.partner__img--campus { background-image: url('../img/partners/hospital-campus-1.avif'); }
+
+@supports (background-image: image-set(url('a.avif') type('image/avif'))) {
+  .hero__bg--coast {
+    background-image: image-set(url('../img/rs/hero-1920.avif') type('image/avif'),
+                                url('../img/antalya-turquoise-coast-hero.jpg') type('image/jpeg'));
+  }
+  .tpanel--intro {
+    background-image: image-set(url('../img/rs/harbor-1400.avif') type('image/avif'),
+                                url('../img/antalya-old-town-harbor.jpg') type('image/jpeg'));
+  }
+  .interlude__img--kas {
+    background-image: image-set(url('../img/rs/kas-1600.avif') type('image/avif'),
+                                url('../img/kas-harbor-town.jpg') type('image/jpeg'));
+  }
+  .partner__img--dental {
+    background-image: image-set(url('../img/rs/partners/dental-700.avif') type('image/avif'),
+                                url('../img/partners/dental-clinic-antalya.webp') type('image/webp'));
+  }
+  .partner__img--smile {
+    background-image: image-set(url('../img/rs/partners/smile-1100.avif') type('image/avif'),
+                                url('../img/partners/smile-studio.webp') type('image/webp'));
+  }
+  .partner__img--campus {
+    background-image: image-set(url('../img/rs/partners/campus-1100.avif') type('image/avif'),
+                                url('../img/partners/hospital-campus-1.avif') type('image/avif'));
+  }
+
+  /* phones get files cut to the size they actually render at */
+  @media (max-width: 900px) {
+    .hero__bg--coast {
+      background-image: image-set(url('../img/rs/hero-1100.avif') type('image/avif'),
+                                  url('../img/antalya-turquoise-coast-hero.jpg') type('image/jpeg'));
+    }
+    .tpanel--intro {
+      background-image: image-set(url('../img/rs/harbor-760.avif') type('image/avif'),
+                                  url('../img/antalya-old-town-harbor.jpg') type('image/jpeg'));
+    }
+    .interlude__img--kas {
+      background-image: image-set(url('../img/rs/kas-800.avif') type('image/avif'),
+                                  url('../img/kas-harbor-town.jpg') type('image/jpeg'));
+    }
+    .partner__img--dental {
+      background-image: image-set(url('../img/rs/partners/dental-620.avif') type('image/avif'),
+                                  url('../img/partners/dental-clinic-antalya.webp') type('image/webp'));
+    }
+    .partner__img--smile {
+      background-image: image-set(url('../img/rs/partners/smile-620.avif') type('image/avif'),
+                                  url('../img/partners/smile-studio.webp') type('image/webp'));
+    }
+    .partner__img--campus {
+      background-image: image-set(url('../img/rs/partners/campus-620.avif') type('image/avif'),
+                                  url('../img/partners/hospital-campus-1.avif') type('image/avif'));
+    }
+  }
+}
+
+/* <picture> is the direct child now, so it has to carry the box that
+   .rphoto img sizes itself against */
+.rphoto picture { display: block; width: 100%; height: 100%; }

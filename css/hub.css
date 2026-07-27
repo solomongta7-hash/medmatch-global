@@ -303,3 +303,71 @@
   .pkgrow__earn::before { content: "your share "; font-family: var(--sans); font-style: normal; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-soft); margin-right: 8px; }
   .pkgrow span:nth-child(2)::before { content: "package "; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; margin-right: 8px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE IMAGERY (advisor hub)
+   Same approach as styles.css: backgrounds moved off inline style=""
+   so a phone can be sent a phone-sized file. The module thumbnails
+   were the worst offenders — 1920px source files rendered into a
+   257x161 box.
+   ═══════════════════════════════════════════════════════════════ */
+
+.ahero__bg--kas       { background-image: url('../img/kas-harbor-town.jpg'); }
+.prog__bg--harbor     { background-image: url('../img/antalya-old-town-harbor.jpg'); }
+.prog__bg--coast      { background-image: url('../img/antalya-turquoise-coast-hero.jpg'); }
+.interlude__img--cove { background-image: url('../img/turquoise-water-cove.jpg'); }
+.module__thumb--cove  { background-image: url('../img/turquoise-water-cove.jpg'); }
+.module__thumb--harbor{ background-image: url('../img/antalya-old-town-harbor.jpg'); }
+.module__thumb--balloons { background-image: url('../img/cappadocia-balloons-sunrise.jpg'); }
+.module__thumb--toronto  { background-image: url('../img/toronto-skyline.jpg'); }
+
+@supports (background-image: image-set(url('a.avif') type('image/avif'))) {
+  .ahero__bg--kas {
+    background-image: image-set(url('../img/rs/kas-1600.avif') type('image/avif'),
+                                url('../img/kas-harbor-town.jpg') type('image/jpeg'));
+  }
+  .prog__bg--harbor {
+    background-image: image-set(url('../img/rs/harbor-1400.avif') type('image/avif'),
+                                url('../img/antalya-old-town-harbor.jpg') type('image/jpeg'));
+  }
+  .prog__bg--coast {
+    background-image: image-set(url('../img/rs/hero-1100.avif') type('image/avif'),
+                                url('../img/antalya-turquoise-coast-hero.jpg') type('image/jpeg'));
+  }
+  .interlude__img--cove {
+    background-image: image-set(url('../img/rs/cove-1600.avif') type('image/avif'),
+                                url('../img/turquoise-water-cove.jpg') type('image/jpeg'));
+  }
+  /* thumbnails never render above ~340px, so one small file serves every breakpoint */
+  .module__thumb--cove {
+    background-image: image-set(url('../img/rs/cove-800.avif') type('image/avif'),
+                                url('../img/turquoise-water-cove.jpg') type('image/jpeg'));
+  }
+  .module__thumb--harbor {
+    background-image: image-set(url('../img/rs/harbor-760.avif') type('image/avif'),
+                                url('../img/antalya-old-town-harbor.jpg') type('image/jpeg'));
+  }
+  .module__thumb--balloons {
+    background-image: image-set(url('../img/rs/cappadocia-700.avif') type('image/avif'),
+                                url('../img/cappadocia-balloons-sunrise.jpg') type('image/jpeg'));
+  }
+  .module__thumb--toronto {
+    background-image: image-set(url('../img/rs/toronto-700.avif') type('image/avif'),
+                                url('../img/toronto-skyline.jpg') type('image/jpeg'));
+  }
+
+  @media (max-width: 900px) {
+    .ahero__bg--kas {
+      background-image: image-set(url('../img/rs/kas-800.avif') type('image/avif'),
+                                  url('../img/kas-harbor-town.jpg') type('image/jpeg'));
+    }
+    .prog__bg--harbor {
+      background-image: image-set(url('../img/rs/harbor-760.avif') type('image/avif'),
+                                  url('../img/antalya-old-town-harbor.jpg') type('image/jpeg'));
+    }
+    .interlude__img--cove {
+      background-image: image-set(url('../img/rs/cove-800.avif') type('image/avif'),
+                                  url('../img/turquoise-water-cove.jpg') type('image/jpeg'));
+    }
+  }
+}
