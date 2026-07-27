@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>True Cost Calculator — What Treatment Abroad Actually Costs</title>
+<meta name="description" content="Flights, hotel, days off work and the second trip included — compared honestly against home and against the nearest alternative. Sometimes the answer is to stay closer to home." />
+<!-- Kept out of search until the market-average prices have been audited.
+     Remove this tag AND the true-cost.html line in robots.txt to open it up;
+     doing only one is how a page stays invisible by accident. -->
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://medmatchglobal.info/true-cost.html" />
+<meta property="og:url" content="https://medmatchglobal.info/true-cost.html" />
+<meta property="og:title" content="True Cost Calculator — What Treatment Abroad Actually Costs" />
+<meta property="og:description" content="Flights, hotel, days off work and the second trip included. Sometimes the honest answer is to stay closer to home." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://medmatchglobal.info/img/antalya-turquoise-coast-hero.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/content.css" />
+<link rel="stylesheet" href="css/true-cost.css" />
+<style>
+  /* Page-specific glue between the two stylesheets. Lives here, not in
+     true-cost.css, because that file is generated and would lose it.
+
+     Both the site nav and the calculator's running-total bar are
+     position:sticky with top:0. The nav wins on z-index (500 vs 30), so
+     without this the nav would sit on top of the total figure the moment
+     the page scrolls. --nav-h is measured at runtime rather than hardcoded
+     because the nav's height moves with the viewport (5vw padding, plus a
+     560px breakpoint override). */
+  .tcc .bar { top: var(--nav-h, 0px); }
+</style>
+<script src="js/analytics.js?v=1" defer></script>
+</head>
+<body>
+
+<!-- ══════════ HEADER (shared across all content pages) ══════════ -->
+<header class="nav">
+  <a class="nav__brand" href="/index.html" aria-label="MedMatch Global — home">
+    <span class="nav__brand-name">MEDMATCH&nbsp;GLOBAL</span>
+    <span class="nav__brand-sub">THE&nbsp;ACADEMY</span>
+  </a>
+  <div class="nav__right">
+    <nav class="nav__links">
+      <a href="vetting.html">The Standard</a>
+      <a href="blog/index.html">Journal</a>
+    </nav>
+    <a class="btn btn--gold nav__cta nav__cta--desktop" href="/book.html">Get My Free Quote</a>
+  </div>
+  <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+<nav class="mmenu" id="mmenu">
+  <a href="vetting.html">The Standard</a>
+  <a href="blog/index.html">Journal</a>
+  <a href="/book.html">Get My Free Quote</a>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════════
+     TRUE COST CALCULATOR
+     Everything below is scoped to .tcc — css/true-cost.css only styles
+     inside this wrapper, so the shared nav and footer above and below
+     are untouched. Regenerate that stylesheet from
+     ../true-cost-calculator/css/styles.css rather than hand-editing it.
+     ══════════════════════════════════════════════════════════════ -->
+<div class="tcc">
+
+<!-- ══════════ STICKY TOTAL BAR ══════════ -->
+<header class="bar" id="bar">
+  <div class="wrap bar__in">
+    <div class="bar__total">
+      <span class="bar__label" id="bar-label">Total, all in</span>
+      <span class="bar__fig" id="bar-fig">—</span>
+      <span class="bar__sub" id="bar-sub">Choose a treatment to begin</span>
+    </div>
+    <div class="bar__right">
+      <div class="fx" id="fx-toggle" role="group" aria-label="Currency">
+        <button type="button" data-c="USD" class="is-on">$</button>
+        <button type="button" data-c="CAD">CA$</button>
+        <button type="button" data-c="EUR">€</button>
+        <button type="button" data-c="GBP">£</button>
+      </div>
+    </div>
+  </div>
+  <nav class="steps" id="steps">
+    <button type="button" class="steps__b is-on" data-go="1"><i>1</i> Treatment</button>
+    <button type="button" class="steps__b" data-go="2"><i>2</i> Your trip</button>
+    <button type="button" class="steps__b" data-go="3"><i>3</i> True cost</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ══════════ STEP 1 ══════════ -->
+  <section class="pane wrap" id="pane-1">
+
+    <div class="block">
+      <p class="lbl">What are you having done?</p>
+      <div class="grid grid--4" id="treatment-grid"></div>
+    </div>
+
+    <!-- dental -->
+    <div class="tbox is-hidden" data-t="dental">
+      <div class="block">
+        <p class="lbl">Implant brand</p>
+        <div class="grid grid--2" id="implant-grid"></div>
+        <div class="counter-row">
+          <div class="counter" data-count="implants">
+            <span class="counter__t">Number of implants</span>
+            <div class="counter__c">
+              <button type="button" data-d="-1">−</button>
+              <b id="n-implants">2</b>
+              <button type="button" data-d="1">+</button>
+            </div>
+            <span class="chip" id="sub-implants"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <p class="lbl">Crown or bridge</p>
+        <div class="grid grid--2" id="crown-grid"></div>
+        <div class="counter-row">
+          <div class="counter" data-count="crowns">
+            <span class="counter__t">Number of crowns</span>
+            <div class="counter__c">
+              <button type="button" data-d="-1">−</button>
+              <b id="n-crowns">2</b>
+              <button type="button" data-d="1">+</button>
+            </div>
+            <span class="chip" id="sub-crowns"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <p class="lbl">Anything else in the plan</p>
+        <div class="addons" id="addon-list"></div>
+      </div>
+    </div>
+
+    <!-- hair -->
+    <div class="tbox is-hidden" data-t="hair">
+      <div class="block">
+        <p class="lbl">Technique</p>
+        <div class="grid grid--2" id="hair-grid"></div>
+        <div class="counter-row">
+          <div class="counter counter--wide" data-count="grafts">
+            <span class="counter__t">Grafts</span>
+            <div class="counter__c">
+              <button type="button" data-d="-250">−</button>
+              <b id="n-grafts">2500</b>
+              <button type="button" data-d="250">+</button>
+            </div>
+            <span class="chip" id="sub-grafts"></span>
+          </div>
+        </div>
+        <p class="hint">Priced per graft, not as a package. A clinic that sells you a
+          “Gold package” instead of a number is reserving the right to give you fewer.</p>
+      </div>
+    </div>
+
+    <!-- nose -->
+    <div class="tbox is-hidden" data-t="nose">
+      <div class="block">
+        <p class="lbl">Procedure</p>
+        <div class="grid grid--2" id="nose-grid"></div>
+      </div>
+    </div>
+
+    <!-- knee -->
+    <div class="tbox is-hidden" data-t="knee">
+      <div class="block">
+        <p class="lbl">Procedure</p>
+        <div class="grid grid--2" id="knee-grid"></div>
+        <div class="counter-row">
+          <div class="counter counter--wide" data-count="physioWeeks">
+            <span class="counter__t">Weeks of physiotherapy after you're home</span>
+            <div class="counter__c">
+              <button type="button" data-d="-1">−</button>
+              <b id="n-physioWeeks">8</b>
+              <button type="button" data-d="1">+</button>
+            </div>
+            <span class="chip" id="sub-physioWeeks"></span>
+          </div>
+        </div>
+        <p class="hint">Rehab decides the outcome of a knee, and it happens at home —
+          so it belongs in the price wherever you have the surgery.</p>
+      </div>
+    </div>
+
+    <div class="pane__foot">
+      <button type="button" class="btn" data-go="2">Next — your trip →</button>
+    </div>
+  </section>
+
+  <!-- ══════════ STEP 2 ══════════ -->
+  <section class="pane wrap is-hidden" id="pane-2">
+    <div class="block">
+      <p class="lbl">Where would you fly from?</p>
+      <div class="grid grid--2" id="region-grid"></div>
+    </div>
+
+    <div class="block">
+      <p class="lbl">Who's travelling</p>
+      <div class="grid grid--2">
+        <button type="button" class="opt is-on" id="opt-alone">
+          <span class="opt__t">Just me</span>
+          <span class="opt__b">One set of flights and meals.</span>
+        </button>
+        <button type="button" class="opt" id="opt-companion">
+          <span class="opt__t">Me and a companion</span>
+          <span class="opt__b">Doubles flights and meals. For knee surgery, close to essential.</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="block">
+      <p class="lbl">What is a day off work worth to you?</p>
+      <div class="rate">
+        <div class="rate__in">
+          <span class="rate__sym" id="rate-sym">$</span>
+          <input type="number" id="day-rate" min="0" step="25" placeholder="0" inputmode="numeric">
+          <span class="rate__suf">per day</span>
+        </div>
+        <p class="hint hint--tight">
+          Leave it at zero if your leave is paid. If it isn't, this is usually the
+          largest hidden number in the whole decision — and the one that changes
+          which country wins.
+        </p>
+      </div>
+    </div>
+
+    <div class="block">
+      <label class="check" id="ins-wrap">
+        <input type="checkbox" id="opt-insurance" checked>
+        <span>
+          <b>Include complication insurance in Türkiye</b>
+          A 12-month policy covering the cost of treating post-operative
+          complications. Türkiye mandated this for international patients in
+          January 2026; the requirement is currently suspended by the high court
+          pending a final ruling, so it is worth asking whether a clinic still
+          carries it.
+        </span>
+      </label>
+    </div>
+
+    <div class="pane__foot">
+      <button type="button" class="btn btn--ghost" data-go="1">← Back</button>
+      <button type="button" class="btn" data-go="3">Show me the real number →</button>
+    </div>
+  </section>
+
+  <!-- ══════════ STEP 3 ══════════ -->
+  <section class="pane wrap is-hidden" id="pane-3">
+    <div id="result"></div>
+
+    <div class="cta" id="cta">
+      <div class="cta__in">
+        <p class="eyebrow">No obligation</p>
+        <h3 class="cta__t">Want this checked against a real quote?</h3>
+        <p class="cta__l">
+          Send it over and Suleyman will tell you where the numbers are optimistic —
+          including ours. Whether or not you ever work with us.
+        </p>
+        <form id="cta-form" novalidate>
+          <input type="text" id="f-honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="frow">
+            <div class="field"><label for="f-name">Name</label><input type="text" id="f-name" autocomplete="name" required></div>
+            <div class="field"><label for="f-email">Email</label><input type="email" id="f-email" autocomplete="email" required></div>
+          </div>
+          <div class="field"><label for="f-phone">WhatsApp <span class="opt-txt">(optional)</span></label><input type="tel" id="f-phone" autocomplete="tel"></div>
+          <button type="submit" class="btn btn--full" id="f-submit">Send my estimate</button>
+          <p class="msg" id="cta-msg" role="status"></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="pane__foot">
+      <button type="button" class="btn btn--ghost" data-go="2">← Change the trip</button>
+      <button type="button" class="btn btn--ghost" id="btn-print">Save as PDF</button>
+    </div>
+  </section>
+
+</main>
+
+<div class="foot">
+  <div class="wrap">
+    <p class="foot__d">
+      <strong>Indicative estimates, not a quote.</strong> Figures are researched
+      market averages for each country — not MedMatch partner pricing, and not a
+      price anyone has offered you. Real costs depend on your clinical needs, which
+      only an examination can establish. Flights and hotels are mid-range averages
+      and move with season and booking date. Currency conversions are indicative.
+      Nothing here is medical advice or a recommendation to have surgery.
+    </p>
+  </div>
+</div>
+
+</div><!-- /.tcc -->
+
+<footer class="footer">
+  <div class="footer__cols">
+    <div class="footer__col">
+      <h4>MedMatch Global</h4>
+      <a href="vetting.html">The Standard</a>
+      <a href="blog/index.html">Journal</a>
+
+      <a href="/book.html">Get My Free Quote</a>
+    </div>
+    <div class="footer__col">
+      <h4>Concierge</h4>
+      <a href="mailto:contact@medmatchglobal.info">contact@medmatchglobal.info</a>
+      <a href="tel:+14375951735">+1 (437) 595-1735</a>
+      <span style="font-size:12.5px;color:rgba(244,250,249,0.6);letter-spacing:0.1em;">Istanbul &middot; Toronto</span>
+    </div>
+  </div>
+  <div class="footer__base">
+    <span>&copy; 2026 MedMatch Global. All rights reserved.</span>
+    <span class="footer__legal">Suleyman MedMatch Global Advisory</span>
+    <span>Estimates are informational and do not constitute medical advice.</span>
+  </div>
+</footer>
+
+<script>
+  var burger = document.getElementById('burger');
+  var mmenu = document.getElementById('mmenu');
+  if (burger && mmenu) {
+    burger.addEventListener('click', function () {
+      var open = mmenu.classList.toggle('is-open');
+      burger.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  /* Keep the calculator's sticky total bar parked directly below the sticky
+     site nav at every viewport width. See the --nav-h note in <head>. */
+  (function () {
+    var navEl = document.querySelector('.nav');
+    if (!navEl) return;
+    function syncNavHeight() {
+      document.documentElement.style.setProperty(
+        '--nav-h', Math.round(navEl.getBoundingClientRect().height) + 'px');
+    }
+    syncNavHeight();
+    /* ResizeObserver watches the nav box itself, so it also catches the
+       breakpoint change and the late web-font load — a window resize
+       listener alone measures before the new layout has settled. */
+    if (window.ResizeObserver) {
+      new ResizeObserver(syncNavHeight).observe(navEl);
+    } else {
+      window.addEventListener('resize', syncNavHeight);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncNavHeight);
+    }
+  })();
+</script>
+<script src="js/true-cost/pricing.js"></script>
+<script src="js/true-cost/app.js"></script>
+</body>
+</html>

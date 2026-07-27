@@ -611,6 +611,16 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ═══════════ NUMBERS ═══════════ */
 
+/* True Cost Calculator invitation — sits between the treatments voyage and
+   the numbers band, picking up the sand tone the treatments gradient ends on. */
+.toolnote { background: var(--sand); padding: 8vh 7vw; }
+.toolnote p { max-width: 640px; font-size: 14.5px; color: var(--ink-soft); }
+.toolnote a {
+  display: inline-block; min-height: 44px; line-height: 44px;
+  color: var(--teal); font-weight: 500; white-space: nowrap;
+}
+.toolnote a:hover { color: var(--turquoise); }
+
 .numbers { background: var(--sea-deep); color: var(--foam); padding: 13vh 7vw; }
 .numbers__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1250px; margin: 0 auto; }
 .numbers__item { text-align: center; position: relative; }

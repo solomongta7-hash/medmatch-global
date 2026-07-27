@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+# True Cost Calculator: market-average prices pending audit.
+# Remove this Disallow AND the noindex meta in true-cost.html to open it up.
+Disallow: /true-cost.html
 
 Sitemap: https://medmatchglobal.info/sitemap.xml
