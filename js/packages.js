@@ -44,20 +44,31 @@
      card instead of ~1.5. Full mode (packages.html) shows everything. ── */
   function cardHTML(p, compact) {
     var star = hotelChoice[p.id] || 4;
-    var hotelUsd = (star === 5 ? D.hotel5PerNight : D.hotel4PerNight) * p.nights;
-    var totalUsd = p.price + hotelUsd + feeUsd();
+    // Some partner clinics absorb the hotel themselves — then there is no
+    // 4★/5★ choice to make and the hotel line costs nothing.
+    var freeHotel = !!p.hotelIncluded;
+    var hotelUsd = freeHotel ? 0 : (star === 5 ? D.hotel5PerNight : D.hotel4PerNight) * p.nights;
+    // price === null means the clinic has not quoted this package yet.
+    var quoted = typeof p.price === "number";
+    var totalUsd = quoted ? p.price + hotelUsd + feeUsd() : null;
 
     var detail =
-      '<div class="pkg__hotel" role="group" aria-label="Hotel choice">' +
-        '<button class="pkg__hbtn' + (star === 4 ? " is-on" : "") + '" data-star="4">4★ Hotel — ' + fmt(D.hotel4PerNight * p.nights) + '</button>' +
-        '<button class="pkg__hbtn' + (star === 5 ? " is-on" : "") + '" data-star="5">5★ Hotel — ' + fmt(D.hotel5PerNight * p.nights) + '</button>' +
-      '</div>' +
-      '<p class="pkg__hnote">' + p.nights + ' nights, breakfast included</p>' +
+      (freeHotel
+        ? '<div class="pkg__free pkg__free--hotel"><span>🏨 Hotel, ' + p.nights +
+            ' nights with breakfast — <b>FREE</b> <em>(covered by the clinic)</em></span></div>'
+        : '<div class="pkg__hotel" role="group" aria-label="Hotel choice">' +
+            '<button class="pkg__hbtn' + (star === 4 ? " is-on" : "") + '" data-star="4">4★ Hotel — ' + fmt(D.hotel4PerNight * p.nights) + '</button>' +
+            '<button class="pkg__hbtn' + (star === 5 ? " is-on" : "") + '" data-star="5">5★ Hotel — ' + fmt(D.hotel5PerNight * p.nights) + '</button>' +
+          '</div>' +
+          '<p class="pkg__hnote">' + p.nights + ' nights, breakfast included</p>') +
       '<div class="pkg__free"><span>🚘 VIP Transfers — <b>FREE</b> <em>(airport ↔ hotel ↔ clinic, all appointments)</em></span>' +
         '<span>🩺 Online Consultation &amp; Treatment Plan — <b>FREE</b></span></div>' +
       '<table class="pkg__table"><tbody>' +
-        '<tr><td>Treatment — paid directly to your doctor at the clinic</td><td>' + fmt(p.price) + '</td></tr>' +
-        '<tr><td>Hotel (' + star + '★, ' + p.nights + ' nights)</td><td>' + fmt(hotelUsd) + '</td></tr>' +
+        '<tr><td>Treatment — paid directly to your doctor at the clinic</td><td>' +
+          (quoted ? fmt(p.price) : "On request") + '</td></tr>' +
+        (freeHotel
+          ? '<tr><td>Hotel (' + p.nights + ' nights, breakfast)</td><td class="free">FREE</td></tr>'
+          : '<tr><td>Hotel (' + star + '★, ' + p.nights + ' nights)</td><td>' + fmt(hotelUsd) + '</td></tr>') +
         '<tr><td>VIP airport &amp; clinic transfers</td><td class="free">FREE</td></tr>' +
         '<tr><td>Online consultation &amp; treatment plan</td><td class="free">FREE</td></tr>' +
         '<tr><td>' + D.feeName + ' <em>(our only charge)</em></td><td>' + fee() + '</td></tr>' +
@@ -66,11 +77,17 @@
     return (
       '<article class="pkg' + (compact ? " pkg--compact" : "") + '" data-pkg="' + p.id + '">' +
         '<span class="pkg__tag">' + p.tag.toUpperCase() + '</span>' +
+        (p.clinic ? '<span class="pkg__clinic">' + p.clinic + '</span>' : "") +
         '<h3 class="pkg__name">' + p.name + '</h3>' +
         '<p class="pkg__desc">' + p.desc + '</p>' +
         (compact
-          ? '<p class="pkg__headline"><em>Total, all in</em><strong>' + fmt(totalUsd) + '</strong>' +
-              '<span>' + p.days + ' in ' + D.city + ' · ' + star + '★ hotel, transfers &amp; fee included</span></p>' +
+          ? '<p class="pkg__headline">' +
+              (quoted
+                ? '<em>Total, all in</em><strong>' + fmt(totalUsd) + '</strong>'
+                : '<em>Total, all in</em><strong class="pkg__onreq">Price on request</strong>') +
+              '<span>' + p.days + ' in ' + D.city + ' · ' +
+              (freeHotel ? "hotel, transfers" : star + "★ hotel, transfers") +
+              ' &amp; fee included</span></p>' +
             '<details class="pkg__more"><summary>See what’s included, itemized</summary>' +
               '<ul class="pkg__inc">' + p.includes.map(function (i) { return "<li>" + i + "</li>"; }).join("") +
                 '<li>' + p.days + ' in ' + D.city + '</li></ul>' + detail +
@@ -78,7 +95,8 @@
           : '<ul class="pkg__inc">' + p.includes.map(function (i) { return "<li>" + i + "</li>"; }).join("") +
               '<li>' + p.days + ' in ' + D.city + '</li></ul>' + detail +
             '<table class="pkg__table pkg__table--total"><tbody>' +
-              '<tr class="total"><td>Total estimated cost</td><td>' + fmt(totalUsd) + '</td></tr>' +
+              '<tr class="total"><td>Total estimated cost</td><td>' +
+                (quoted ? fmt(totalUsd) : '<span class="pkg__onreq">Price on request</span>') + '</td></tr>' +
             '</tbody></table>') +
         '<div class="pkg__ctas">' +
           '<a class="btn btn--gold pkg__cta" href="#invitation" data-scroll-to="#invitation"><span>Get My Free Treatment Plan</span></a>' +

@@ -95,6 +95,54 @@ window.MM_DATA = {
         "3D CT scan & bone assessment"
       ]
     },
+    /* ── MIRA DENTAL CLINIC — second Antalya dental partner ──────
+       Priced FULL MOUTH (both jaws) and quoted directly by the clinic.
+       Mira includes hotel AND transfers at no charge, so the only thing
+       added on top is our $300 coordination fee.
+       Set hotelIncluded:true to zero out the hotel line on the card.   */
+    {
+      id: "mira-all-on-6-full",
+      name: "All-on-6 Full Mouth — Both Jaws",
+      clinic: "Mira Dental Clinic",
+      tag: "Implants",
+      desc: "Twelve implants across both jaws — your entire mouth restored on the most stable full-arch " +
+            "foundation there is, with hotel and transfers covered by the clinic.",
+      price: 8000,           // EDIT HERE — confirmed by Mira Dental Clinic (USD, both jaws)
+      hotelIncluded: true,
+      nights: 7,
+      visits: 2,
+      days: "6–7 days per visit",
+      includes: [
+        "12 implants — 6 per jaw, both jaws",
+        "Fixed temporary teeth same week",
+        "Final zirconia bridges on visit 2",
+        "3D CT scan & full bone assessment",
+        "Hotel & VIP transfers covered by the clinic"
+      ]
+    },
+    {
+      id: "mira-all-on-4-full",
+      name: "All-on-4 Full Mouth — Both Jaws",
+      clinic: "Mira Dental Clinic",
+      tag: "Implants",
+      desc: "Eight implants across both jaws — a complete fixed set of teeth, hotel and transfers " +
+            "covered by the clinic.",
+      // ⚠️ EDIT HERE — Mira has NOT yet quoted All-on-4 full mouth.
+      // Leave price null and the card shows "Price on request" instead of a
+      // number we made up. Put the real figure here once the clinic confirms.
+      price: null,
+      hotelIncluded: true,
+      nights: 7,
+      visits: 2,
+      days: "6–7 days per visit",
+      includes: [
+        "8 implants — 4 per jaw, both jaws",
+        "Fixed temporary teeth same week",
+        "Final zirconia bridges on visit 2",
+        "3D CT scan & treatment simulation",
+        "Hotel & VIP transfers covered by the clinic"
+      ]
+    },
     {
       id: "full-mouth-implants",
       name: "Full Mouth Dental Implants",

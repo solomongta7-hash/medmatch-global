@@ -315,3 +315,12 @@
     }
   }
 }
+
+/* ── partner label + not-yet-quoted price (Mira Dental Clinic cards) ── */
+.pkg__clinic {
+  display: inline-block; margin-left: 10px; padding: 3px 8px; border-radius: 2px;
+  font-size: 9px; letter-spacing: 0.22em; font-weight: 600; text-transform: uppercase;
+  color: var(--sea); background: rgba(47, 169, 164, 0.14);
+}
+.pkg__onreq { font-size: 0.62em; letter-spacing: 0.04em; color: var(--teal); }
+.pkg__free--hotel { margin-top: 18px; }
