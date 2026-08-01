@@ -615,7 +615,7 @@
     dental: "Includes five-star hotel, VIP transfers, personal host &amp; lifetime aftercare.",
     knee:   "Includes five-star hotel, VIP transfers, personal host &amp; lifetime aftercare.",
     hospital: "Official fixed hospital price, paid directly to our partner hospital — hotel included only where stated. " +
-              "Transfers &amp; your personal host arranged by us; our only charge is the fixed $300 coordination fee."
+              "Transfers &amp; your personal host arranged by us, for a flat $300 coordination fee."
   };
 
   function resultShell(panel) {

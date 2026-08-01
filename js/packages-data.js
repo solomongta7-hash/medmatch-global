@@ -280,8 +280,8 @@ window.MM_DATA = {
 
   hospital: {
     note: "Prices are quoted in euros (€) by the hospital and paid directly to the hospital. " +
-          "Hotel nights are included only where stated. Our fixed Patient Care & Coordination Fee " +
-          "is the only thing you ever pay MedMatch.",
+          "Hotel nights are included only where stated. Your care and coordination with MedMatch " +
+          "is a flat Patient Care & Coordination Fee.",
     categories: [
       { title: "Breast", items: [
         { n: "Breast Augmentation + Lift (bilateral, implants included)", eur: 4300 },

@@ -34,8 +34,9 @@
 
   /* ── trust badge (reusable) ── */
   function badge() {
-    return '<div class="tbadge"><i>✓</i> 100% Transparent Pricing — you pay the clinic directly; our fixed ' +
-      '<b class="feeword">' + fee() + '</b> fee is the only thing you ever pay us.</div>';
+    return '<div class="tbadge"><i>✓</i> 100% Transparent Pricing — your treatment is paid directly to the ' +
+      'clinic, never marked up. Our care and coordination is a flat ' +
+      '<b class="feeword">' + fee() + '</b> for your whole journey.</div>';
   }
 
   /* ── package card ──
@@ -71,7 +72,7 @@
           : '<tr><td>Hotel (' + star + '★, ' + p.nights + ' nights)</td><td>' + fmt(hotelUsd) + '</td></tr>') +
         '<tr><td>VIP airport &amp; clinic transfers</td><td class="free">FREE</td></tr>' +
         '<tr><td>Online consultation &amp; treatment plan</td><td class="free">FREE</td></tr>' +
-        '<tr><td>' + D.feeName + ' <em>(our only charge)</em></td><td>' + fee() + '</td></tr>' +
+        '<tr><td>' + D.feeName + '</td><td>' + fee() + '</td></tr>' +
       '</tbody></table>';
 
     return (
