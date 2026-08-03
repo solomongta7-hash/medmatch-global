@@ -4,4 +4,9 @@ Allow: /
 # Remove this Disallow AND the noindex meta in true-cost.html to open it up.
 Disallow: /true-cost.html
 
+# Staging area for Instagram. Meta has to fetch media from a public URL, so files
+# land here for a few minutes before publishing. Nothing here is meant for search,
+# and interview clips must never turn up in Google results.
+Disallow: /media/
+
 Sitemap: https://medmatchglobal.info/sitemap.xml
