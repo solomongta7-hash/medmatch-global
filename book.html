@@ -1,15 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Book Your Free Consultation — MedMatch Global</title>
-<meta name="description" content="Book a free 15-minute consultation with a MedMatch Global patient advisor. For patients in the United States and Canada considering treatment in Türkiye — no cost, no obligation, details never sold." />
+<title>Before You Book — MedMatch Global</title>
+<meta name="description" content="Nine questions, about two minutes. We'll tell you plainly whether you're ready to book a consultation, what to sort out first, or whether a clinician should review your history before anyone quotes you a price. For patients in the United States and Canada." />
 <link rel="canonical" href="https://medmatchglobal.info/book.html" />
 <meta name="theme-color" content="#06333B" />
 
-<meta property="og:title" content="Book Your Free Consultation — MedMatch Global" />
-<meta property="og:description" content="A free 15-minute private call with a patient advisor. No cost, no obligation — for U.S. & Canadian patients considering treatment in Türkiye." />
+<meta property="og:title" content="Before You Book — MedMatch Global" />
+<meta property="og:description" content="Nine questions, about two minutes. We'll tell you honestly whether treatment in Türkiye is right for you right now — even when the answer costs us the booking." />
 <meta property="og:url" content="https://medmatchglobal.info/book.html" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://medmatchglobal.info/img/antalya-turquoise-coast-hero.jpg" />
@@ -35,6 +35,10 @@
     --ink-soft:   #4E6A6D;
     --line:       rgba(12, 43, 48, 0.15);
     --line-soft:  rgba(12, 43, 48, 0.08);
+    --amber:      #B47A2E;
+    --amber-bg:   #FBF4E8;
+    --clinic:     #2F6FA9;
+    --clinic-bg:  #EEF4FB;
     --serif: "Cormorant Garamond", Georgia, serif;
     --sans:  "Jost", "Segoe UI", sans-serif;
     --ease:  cubic-bezier(0.22, 1, 0.36, 1);
@@ -46,7 +50,6 @@
     background: var(--foam);
     color: var(--ink);
     font-family: var(--sans);
-    font-weight: 400;
     font-size: 16px;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
@@ -54,39 +57,28 @@
   a { color: inherit; text-decoration: none; }
   ::selection { background: var(--turquoise); color: var(--shell); }
 
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 6vw; }
-
-  /* ── typography primitives ── */
   .eyebrow {
     font-size: 11px; letter-spacing: 0.4em; font-weight: 500;
     color: var(--turquoise); text-transform: uppercase;
   }
   .display {
     font-family: var(--serif); font-weight: 600; color: var(--ink);
-    line-height: 1.06; letter-spacing: -0.01em; margin-top: 18px;
-  }
-  .lede {
-    font-size: 17px; font-weight: 300; color: var(--ink-soft);
-    margin-top: 22px; max-width: 620px; line-height: 1.75;
-  }
-  .rule {
-    height: 1px; width: 100%; max-width: 320px; margin-top: 30px;
-    background: linear-gradient(90deg, var(--turquoise), transparent);
+    line-height: 1.1; letter-spacing: -0.01em;
   }
 
-  /* ── buttons ── */
   .btn {
     display: inline-flex; align-items: center; justify-content: center;
-    padding: 16px 32px; border-radius: 999px; border: 1px solid transparent;
-    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500;
-    white-space: nowrap; transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), color 0.3s, border-color 0.3s;
+    padding: 15px 30px; border-radius: 999px; border: 1px solid transparent;
+    font-family: var(--sans); font-size: 12px; letter-spacing: 0.22em;
+    text-transform: uppercase; font-weight: 500; cursor: pointer;
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), color 0.3s, border-color 0.3s, opacity 0.3s;
   }
   .btn--gold {
     background: linear-gradient(120deg, var(--turquoise), var(--teal)); color: var(--shell);
     box-shadow: 0 14px 30px -14px rgba(18, 112, 123, 0.55);
   }
-  .btn--gold:hover { transform: translateY(-2px); box-shadow: 0 18px 36px -14px rgba(18, 112, 123, 0.65); }
-  .btn--ghost { border-color: var(--line); color: var(--ink); }
+  .btn--gold:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 18px 36px -14px rgba(18, 112, 123, 0.65); }
+  .btn--ghost { border-color: var(--line); color: var(--ink); background: transparent; }
   .btn--ghost:hover { border-color: var(--turquoise); color: var(--teal); }
   @media (max-width: 480px) {
     .btn { white-space: normal; text-align: center; line-height: 1.5; padding: 14px 20px; font-size: 10.5px; letter-spacing: 0.14em; }
@@ -108,84 +100,156 @@
   .nav__links { display: flex; gap: 26px; }
   .nav__links a {
     font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink);
-    opacity: 0.82; padding-bottom: 3px; border-bottom: 1px solid transparent; transition: opacity 0.3s, color 0.3s;
+    opacity: 0.82; padding-bottom: 3px; transition: opacity 0.3s, color 0.3s;
   }
   .nav__links a:hover { opacity: 1; color: var(--teal); }
-  .nav__cta { padding: 12px 24px; font-size: 11px; }
-  @media (max-width: 640px) {
-    .nav__links { display: none; }
-    .nav { padding: 15px 5vw; }
-  }
+  .nav__note { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+  @media (max-width: 760px) { .nav__links { display: none; } }
+  @media (max-width: 560px) { .nav__note { display: none; } }
   @media (max-width: 480px) {
     .nav { padding: 13px 4vw; }
     .nav__brand-name { font-size: 11px; letter-spacing: 0.2em; }
     .nav__brand-sub { font-size: 7px; letter-spacing: 0.4em; }
-    .nav__cta { padding: 9px 14px; font-size: 9.5px; letter-spacing: 0.16em; }
   }
 
   main { padding-top: 78px; }
 
-  /* ── hero ── */
-  .hero { position: relative; padding: 110px 6vw 90px; overflow: hidden; }
-  .hero::before {
-    content: ""; position: absolute; top: -140px; right: -120px; width: 420px; height: 420px;
-    border-radius: 50%; background: radial-gradient(circle, rgba(47, 169, 164, 0.18), transparent 70%);
-    pointer-events: none;
+  /* ── progress ── */
+  .progress {
+    position: fixed; top: 78px; left: 0; right: 0; z-index: 190;
+    height: 2px; background: var(--line-soft);
   }
-  .hero::after {
-    content: ""; position: absolute; bottom: -160px; left: -110px; width: 380px; height: 380px;
-    border-radius: 50%; background: radial-gradient(circle, rgba(143, 214, 208, 0.16), transparent 70%);
-    pointer-events: none;
+  .progress__bar {
+    height: 100%; width: 0%; background: linear-gradient(90deg, var(--turquoise), var(--teal));
+    transition: width 0.5s var(--ease);
   }
-  .hero__inner { position: relative; max-width: 760px; margin: 0 auto; }
-  .hero h1 { font-size: clamp(38px, 6vw, 68px); }
 
-  /* ── scheduler ── */
-  .scheduler { padding: 0 6vw 110px; position: relative; }
-  .scheduler .section-head { max-width: 640px; margin: 0 auto 44px; }
-  .card {
-    max-width: 900px; margin: 0 auto; background: var(--shell); border-radius: 20px;
-    border-top: 3px solid var(--turquoise); overflow: hidden;
+  .stage { max-width: 720px; margin: 0 auto; padding: 64px 6vw 120px; }
+
+  .intro h1 { font-size: clamp(34px, 5.4vw, 54px); margin-top: 18px; }
+  .intro__lede {
+    font-size: 17px; font-weight: 300; color: var(--ink-soft);
+    margin-top: 22px; line-height: 1.75;
+  }
+  .intro__list { list-style: none; margin-top: 34px; }
+  .intro__list li {
+    padding: 16px 0 16px 30px; border-top: 1px solid var(--line-soft);
+    font-size: 15px; color: var(--ink-soft); position: relative;
+  }
+  .intro__list li::before {
+    content: ""; position: absolute; left: 4px; top: 26px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--turquoise);
+  }
+  .intro__list strong { color: var(--ink); font-weight: 500; }
+  .intro__cta { margin-top: 40px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .intro__time { font-size: 13px; color: var(--ink-soft); }
+  .intro__skip { margin-top: 28px; font-size: 13.5px; color: var(--ink-soft); }
+  .intro__skip a { color: var(--teal); border-bottom: 1px solid rgba(18, 112, 123, 0.35); }
+  .intro__skip a:hover { color: var(--turquoise); }
+
+  /* ── question ── */
+  .q { display: none; }
+  .q.is-active { display: block; animation: rise 0.45s var(--ease); }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+  .q__count { font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--turquoise); font-weight: 500; }
+  .q__title { font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 4vw, 38px); margin-top: 14px; line-height: 1.18; }
+  .q__help { margin-top: 14px; font-size: 15px; color: var(--ink-soft); line-height: 1.7; max-width: 560px; }
+
+  .opts { margin-top: 34px; display: grid; gap: 10px; }
+  .opt {
+    display: flex; align-items: flex-start; gap: 14px; width: 100%; text-align: left;
+    padding: 18px 22px; border-radius: 14px; border: 1px solid var(--line);
+    background: var(--shell); font-family: var(--sans); font-size: 15.5px; color: var(--ink);
+    cursor: pointer; transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s var(--ease);
+  }
+  .opt:hover { border-color: var(--turquoise); transform: translateX(3px); }
+  .opt.is-on { border-color: var(--turquoise); box-shadow: inset 0 0 0 1px var(--turquoise); background: #FAFEFD; }
+  .opt__mark {
+    flex: none; width: 18px; height: 18px; margin-top: 3px; border-radius: 50%;
+    border: 1px solid var(--line); position: relative; transition: border-color 0.25s;
+  }
+  .opt--multi .opt__mark { border-radius: 5px; }
+  .opt.is-on .opt__mark { border-color: var(--turquoise); }
+  .opt.is-on .opt__mark::after {
+    content: ""; position: absolute; inset: 3px; border-radius: inherit; background: var(--turquoise);
+  }
+  .opt__body { flex: 1; }
+  .opt__sub { display: block; font-size: 13.5px; color: var(--ink-soft); margin-top: 3px; line-height: 1.55; }
+
+  .field { margin-top: 22px; }
+  .field label { display: block; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+  .field input, .field textarea {
+    width: 100%; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--line);
+    background: var(--shell); font-family: var(--sans); font-size: 15.5px; color: var(--ink);
+    transition: border-color 0.25s;
+  }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--turquoise); }
+  .field textarea { min-height: 100px; resize: vertical; }
+  .field__hint { margin-top: 7px; font-size: 13px; color: var(--ink-soft); }
+  .honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+  .navrow { margin-top: 36px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .back {
+    background: none; border: 0; font-family: var(--sans); font-size: 13px; color: var(--ink-soft);
+    cursor: pointer; padding: 8px 2px; border-bottom: 1px solid transparent; transition: color 0.25s, border-color 0.25s;
+  }
+  .back:hover { color: var(--teal); border-color: rgba(18, 112, 123, 0.4); }
+
+  /* ── result ── */
+  .result { display: none; }
+  .result.is-active { display: block; animation: rise 0.5s var(--ease); }
+
+  .verdict {
+    border-radius: 20px; padding: 40px 38px; background: var(--shell);
+    border-top: 3px solid var(--turquoise);
     box-shadow: 0 40px 90px -50px rgba(6, 51, 59, 0.45);
   }
-  .card__label { padding: 28px 36px 0; }
-  .card__iframe { display: block; width: 100%; height: 720px; border: 0; }
-  .card__fallback { padding: 60px 40px; text-align: center; }
-  .card__fallback h3 { font-family: var(--serif); font-weight: 600; font-size: clamp(24px, 3vw, 32px); color: var(--ink); }
-  .card__fallback p {
-    margin: 16px auto 0; color: var(--ink-soft); font-size: 15.5px; max-width: 460px; line-height: 1.7;
-  }
-  .card__btnrow { margin-top: 32px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-  @media (max-width: 640px) {
-    .scheduler { padding: 0 4vw 80px; }
-    .card { border-radius: 0; margin-left: -4vw; margin-right: -4vw; max-width: none; }
-    .card__iframe { height: 620px; }
-    .card__label { padding: 24px 24px 0; }
-    .card__fallback { padding: 48px 24px; }
-  }
+  .verdict--amber  { border-top-color: var(--amber); }
+  .verdict--clinic { border-top-color: var(--clinic); }
+  .verdict--early  { border-top-color: var(--ink-soft); }
+  .verdict--region { border-top-color: var(--ink-soft); }
 
-  /* ── how it works ── */
-  .steps { background: var(--sand); padding: 100px 6vw; }
-  .steps .section-head { max-width: 620px; }
-  .steps__list {
-    list-style: none; margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--line-soft);
+  .verdict__tag {
+    display: inline-block; padding: 6px 14px; border-radius: 999px;
+    font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 500;
+    background: #EAF7F6; color: var(--teal);
   }
-  .steps__list li { padding: 38px 32px 8px; border-right: 1px solid var(--line-soft); }
-  .steps__list li:last-child { border-right: 0; }
-  .steps__num { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--turquoise); }
-  .steps__list h3 { font-family: var(--serif); font-weight: 600; font-size: 23px; margin-top: 14px; }
-  .steps__list p { margin-top: 12px; font-size: 14.5px; color: var(--ink-soft); }
-  @media (max-width: 860px) {
-    .steps__list { grid-template-columns: 1fr; }
-    .steps__list li { border-right: 0; border-bottom: 1px solid var(--line-soft); padding-bottom: 30px; }
+  .verdict--amber  .verdict__tag { background: var(--amber-bg);  color: var(--amber); }
+  .verdict--clinic .verdict__tag { background: var(--clinic-bg); color: var(--clinic); }
+  .verdict--early  .verdict__tag,
+  .verdict--region .verdict__tag { background: var(--sand); color: var(--ink-soft); }
+
+  .verdict h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(28px, 4.2vw, 42px); margin-top: 20px; line-height: 1.14; }
+  .verdict__lede { margin-top: 18px; font-size: 16.5px; color: var(--ink-soft); line-height: 1.75; }
+
+  .verdict__why { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--line-soft); }
+  .verdict__why h3 { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--turquoise); font-weight: 500; }
+  .verdict__why ul { list-style: none; margin-top: 16px; }
+  .verdict__why li {
+    font-size: 15px; color: var(--ink-soft); padding: 9px 0 9px 22px; position: relative; line-height: 1.65;
   }
-  .steps__note { margin-top: 54px; font-size: 14px; color: var(--ink-soft); }
-  .steps__note a { color: var(--teal); border-bottom: 1px solid rgba(18, 112, 123, 0.4); }
-  .steps__note a:hover { color: var(--turquoise); }
+  .verdict__why li::before {
+    content: ""; position: absolute; left: 2px; top: 18px;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--aqua);
+  }
+  .verdict__why li strong { color: var(--ink); font-weight: 500; }
+
+  .verdict__actions { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .sched { margin-top: 32px; border-radius: 18px; overflow: hidden; border: 1px solid var(--line-soft); background: var(--shell); }
+  .sched__label { padding: 22px 26px 0; }
+  .sched iframe { display: block; width: 100%; height: 700px; border: 0; }
+
+  .aside {
+    margin-top: 30px; padding: 26px 30px; border-radius: 16px; background: var(--sand);
+    font-size: 14.5px; color: var(--ink-soft); line-height: 1.75;
+  }
+  .aside strong { color: var(--ink); font-weight: 500; }
+  .aside a { color: var(--teal); border-bottom: 1px solid rgba(18, 112, 123, 0.35); }
 
   /* ── footer ── */
-  .footer { background: var(--sea-deep); color: var(--foam); padding: 70px 6vw 32px; }
+  .footer { background: var(--sea-deep); color: var(--foam); padding: 60px 6vw 30px; }
   .footer__brand { font-size: 14px; letter-spacing: 0.26em; font-weight: 500; }
   .footer__brand span { display: block; font-size: 9px; letter-spacing: 0.45em; color: var(--aqua); margin-top: 8px; }
   .footer__link {
@@ -194,9 +258,16 @@
   }
   .footer__link:hover { color: var(--aqua); }
   .footer__base {
-    margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(244, 250, 249, 0.12);
+    margin-top: 36px; padding-top: 22px; border-top: 1px solid rgba(244, 250, 249, 0.12);
     font-size: 11.5px; color: rgba(244, 250, 249, 0.5);
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+
+  @media (max-width: 640px) {
+    .stage { padding: 48px 5vw 90px; }
+    .verdict { padding: 32px 24px; border-radius: 16px; }
+    .opt { padding: 16px 18px; }
+    .sched iframe { height: 620px; }
   }
 </style>
 <script src="js/analytics.js?v=1" defer></script>
@@ -204,131 +275,610 @@
 <body>
 
 <header class="nav">
-  <a class="nav__brand" href="https://medmatchglobal.info" aria-label="MedMatch Global — home">
+  <a class="nav__brand" href="/" aria-label="MedMatch Global — home">
     <span class="nav__brand-name">MEDMATCH&nbsp;GLOBAL</span>
     <span class="nav__brand-sub">THE&nbsp;ACADEMY</span>
   </a>
   <div class="nav__right">
     <nav class="nav__links">
-      <a href="https://medmatchglobal.info">Home</a>
-      <a href="https://medmatchglobal.info/packages.html">Packages</a>
+      <a href="/">Home</a>
+      <a href="/packages.html">Packages</a>
+      <a href="/true-cost.html">True Cost</a>
     </nav>
-    <a class="btn btn--gold nav__cta" href="https://medmatchglobal.info/#invitation">Get My Free Quote</a>
+    <span class="nav__note">Private · Nothing is sold</span>
   </div>
 </header>
 
+<div class="progress"><div class="progress__bar" id="bar"></div></div>
+
 <main>
+  <div class="stage">
 
-  <!-- ══════════ HERO ══════════ -->
-  <section class="hero">
-    <div class="hero__inner">
-      <p class="eyebrow">PRIVATE CONSULTATION</p>
-      <h1 class="display">Book Your Free Consultation</h1>
-      <p class="lede">A 15-minute private call with a patient advisor — no cost, no obligation, and your
-      details are never sold, and shared only with the hospital you choose. For patients in the United States and Canada considering treatment in
-      Türkiye, it's the simplest way to understand your options, timelines, and a fixed price before you
-      decide anything.</p>
-    </div>
-  </section>
+    <!-- ══════════ INTRO ══════════ -->
+    <section class="intro" id="intro">
+      <p class="eyebrow">BEFORE YOU BOOK</p>
+      <h1 class="display">Is treatment in Türkiye actually right for you?</h1>
+      <p class="intro__lede">Most agencies will book a call with anyone who has a pulse. We'd rather
+      not waste your afternoon. Answer nine questions and we'll tell you plainly which of three
+      things is true — and we'll say so even when the answer costs us the booking.</p>
 
-  <!-- ══════════ SCHEDULER ══════════ -->
-  <section class="scheduler" id="book-a-call">
-    <div class="section-head wrap" style="padding:0;">
-      <p class="eyebrow">SCHEDULE YOUR CALL</p>
-      <h2 class="display" style="font-size:clamp(30px,3.6vw,44px);">Choose a time that works for you.</h2>
-      <div class="rule"></div>
-    </div>
-    <div class="card" id="schedulerCard" aria-live="polite">
-      <!-- populated by inline script below, based on the BOOKING config -->
-    </div>
-  </section>
+      <ul class="intro__list">
+        <li><strong>You're ready.</strong> Book the call and we'll come to it prepared.</li>
+        <li><strong>You're close, but something needs sorting first.</strong> We'll tell you what, and give you the tools to sort it.</li>
+        <li><strong>A clinician should look at your history before anyone quotes you a price.</strong> That's not a rejection. It's the step most operators skip.</li>
+      </ul>
 
-  <!-- ══════════ WHAT HAPPENS ON YOUR CALL ══════════ -->
-  <section class="steps" id="what-happens">
-    <div class="section-head wrap" style="padding:0;">
-      <p class="eyebrow">WHAT HAPPENS ON YOUR CALL</p>
-      <h2 class="display" style="font-size:clamp(30px,3.6vw,44px);">Three steps. No pressure.</h2>
-      <div class="rule"></div>
-    </div>
-    <div class="wrap" style="padding:0 6vw;">
-      <ol class="steps__list">
-        <li>
-          <span class="steps__num">I</span>
-          <h3>You're heard first</h3>
-          <p>You tell us your goals — we listen, in plain English.</p>
-        </li>
-        <li>
-          <span class="steps__num">II</span>
-          <h3>You see your options</h3>
-          <p>A patient advisor walks you through vetted partner clinics, real prices, and timelines.</p>
-        </li>
-        <li>
-          <span class="steps__num">III</span>
-          <h3>You get it in writing</h3>
-          <p>You receive a written summary and a fixed, all-inclusive quote within 48 hours — no obligation.</p>
-        </li>
-      </ol>
-      <p class="steps__note">Prefer to write first? Every question is welcome.
-        <a href="https://wa.me/14375951735" target="_blank" rel="noopener">Message us on WhatsApp</a>
-        or email
-        <a href="mailto:contact@medmatchglobal.info">contact@medmatchglobal.info</a>.
-      </p>
-    </div>
-  </section>
+      <div class="intro__cta">
+        <button class="btn btn--gold" id="start">Begin</button>
+        <span class="intro__time">About two minutes. No account, no payment.</span>
+      </div>
 
+      <p class="intro__skip">Rather not answer questions?
+        <a href="/book-call.html">Go straight to the calendar</a> — the call is free either way.</p>
+    </section>
+
+    <!-- ══════════ QUESTIONS (rendered by script) ══════════ -->
+    <div id="questions"></div>
+
+    <!-- ══════════ RESULT ══════════ -->
+    <section class="result" id="result"></section>
+
+  </div>
 </main>
 
-<!-- ══════════ FOOTER ══════════ -->
 <footer class="footer">
   <p class="footer__brand">MEDMATCH GLOBAL<span>THE ACADEMY OF MEDICAL TRAVEL</span></p>
-  <a class="footer__link" href="https://medmatchglobal.info">← Back to medmatchglobal.info</a>
+  <a class="footer__link" href="/">← Back to medmatchglobal.info</a>
   <div class="footer__base">
     <span>© 2026 MedMatch Global. All rights reserved.</span>
     <a class="footer__legal" href="/privacy.html">Privacy</a>
     <span class="footer__legal">Suleyman MedMatch Global Advisory</span>
-    <span>Estimates are informational and do not constitute medical advice.</span>
+    <span>This questionnaire is informational and is not medical advice.</span>
   </div>
 </footer>
 
 <script>
-/* ============ EDIT HERE ============
-   Paste your Google Calendar appointment schedule links:
-   - embedUrl: from Google Calendar → your appointment schedule → Share → "Website embed" → copy the iframe src (looks like https://calendar.google.com/calendar/appointments/schedules/…?gv=true)
-   - shortLink: from Share → "Link" (looks like https://calendar.app.google/XXXX)
-   =================================== */
-const BOOKING = {
-  embedUrl: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1o1nk9GMRuBhjb1JwMATyRsALA5vmjdHGxK72llyA1pHaoqSY2olagpb9SAYSLSrTtC2JQYnQg?gv=true",
-  shortLink: "https://calendar.app.google/uxfWGVqUmeVPqC1d7"
+/* ═══════════════════════════════════════════════════════════
+   CONFIG — the only block you normally edit.
+   ═══════════════════════════════════════════════════════════ */
+var CONFIG = {
+  /* Same Apps Script web app the rest of the site posts to, so applications land
+     in the same Leads sheet with the same owner alert and patient auto-reply. */
+  endpoint: "https://script.google.com/macros/s/AKfycbx8G_Drl8SkJfAqJ1YTjOl-muJqLssAkdtyqZyGFobQ2SDt0ompH-jK2ciq_UL5uB4B/exec",
+
+  /* Google Calendar appointment schedule — the same one book-call.html embeds. */
+  calendarEmbed: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1o1nk9GMRuBhjb1JwMATyRsALA5vmjdHGxK72llyA1pHaoqSY2olagpb9SAYSLSrTtC2JQYnQg?gv=true",
+  calendarPage:  "/book-call.html",
+
+  whatsapp: "https://wa.me/14375951735",
+  email:    "contact@medmatchglobal.info"
 };
 
-(function renderScheduler() {
-  var card = document.getElementById("schedulerCard");
-  if (!card) return;
+/* ═══════════════════════════════════════════════════════════
+   QUESTION SET
+   `score` is readiness only — how close this person is to being able
+   to act. It is never a judgement of who deserves care.
+   ═══════════════════════════════════════════════════════════ */
+var TREATMENTS = {
+  nose:   { label: "Rhinoplasty",      stay: "7 to 10 days" },
+  dental: { label: "Dental treatment", stay: "5 to 12 days, sometimes split over two trips" },
+  knee:   { label: "Knee replacement", stay: "14 to 21 days" },
+  hair:   { label: "Hair transplant",  stay: "4 to 6 days" },
+  other:  { label: "Something else",   stay: "varies" }
+};
 
-  if (BOOKING.embedUrl) {
-    card.innerHTML =
-      '<div class="card__label"><p class="eyebrow">SELECT A TIME</p></div>' +
-      '<iframe class="card__iframe" src="' + BOOKING.embedUrl + '" width="100%" height="720" ' +
-      'loading="lazy" title="Book a consultation"></iframe>';
-    return;
+var QUESTIONS = [
+  {
+    id: "treatment", type: "one",
+    title: "What are you looking into?",
+    help: "If you're weighing up more than one, pick the one you'd do first.",
+    options: [
+      { v: "nose",   t: "Rhinoplasty",       s: "Cosmetic or functional nose surgery" },
+      { v: "dental", t: "Dental treatment",  s: "Implants, veneers, crowns, or full-mouth work" },
+      { v: "knee",   t: "Knee replacement",  s: "Partial or total knee arthroplasty" },
+      { v: "hair",   t: "Hair transplant",   s: "FUE or DHI" },
+      { v: "other",  t: "Something else",    s: "Tell us on the call" }
+    ]
+  },
+  {
+    id: "location", type: "one",
+    title: "Where do you live?",
+    help: "We work with patients travelling from North America. If you're elsewhere we'll say so rather than take your details and go quiet.",
+    options: [
+      { v: "ca",    t: "Canada" },
+      { v: "us",    t: "United States" },
+      { v: "other", t: "Somewhere else" }
+    ]
+  },
+  {
+    id: "timeline", type: "one", score: { q1: 3, q2: 2, q3: 1, q4: 0 },
+    title: "When would you want the treatment done?",
+    help: "An honest answer here changes what we do next. “Just looking” is a perfectly good answer.",
+    options: [
+      { v: "q1", t: "Within 3 months" },
+      { v: "q2", t: "In 3 to 6 months" },
+      { v: "q3", t: "In 6 to 12 months" },
+      { v: "q4", t: "No date in mind — I'm researching" }
+    ]
+  },
+  {
+    id: "stage", type: "one", score: { quoted: 3, seen: 2, decided: 1, unsure: 0 },
+    title: "How far along are you?",
+    help: "",
+    options: [
+      { v: "quoted",  t: "I've been examined and I have a written quote at home",  s: "Bring it to the call — comparing it line by line is the fastest way to see whether travelling is worth it" },
+      { v: "seen",    t: "I've seen a doctor about it, but have no written quote" },
+      { v: "decided", t: "I know what I want, but haven't been examined for it yet" },
+      { v: "unsure",  t: "I'm not certain yet what I actually need" }
+    ]
+  },
+  {
+    id: "funding", type: "one", score: { ready: 3, most: 2, finance: 1, unknown: 0 },
+    title: "If you decided to go ahead, could you fund it?",
+    help: "We ask because a quote you can't act on helps nobody. There's no wrong answer and no credit check — nothing here affects what you're shown.",
+    options: [
+      { v: "ready",   t: "Yes — the money is set aside" },
+      { v: "most",    t: "Most of it, and I could cover the rest" },
+      { v: "finance", t: "I'd need a payment plan or financing" },
+      { v: "unknown", t: "I don't know what it costs yet" }
+    ]
+  },
+  {
+    id: "away", type: "one", score: { yes: 2, tight: 1, no: 0, unsure: 1 },
+    title: "Could you be away from home for the recovery period?",
+    help: "",
+    options: [
+      { v: "yes",    t: "Yes, I can take that time" },
+      { v: "tight",  t: "It would be tight, but possible" },
+      { v: "no",     t: "No — I can't be away that long" },
+      { v: "unsure", t: "I'd need to check" }
+    ]
+  },
+  {
+    id: "companion", type: "one",
+    title: "Would someone travel with you?",
+    help: "For knee replacement we ask that you bring someone. For the others it's your preference, and travelling alone is common.",
+    options: [
+      { v: "yes",    t: "Yes, someone would come with me" },
+      { v: "no",     t: "No, I'd travel alone" },
+      { v: "unsure", t: "I haven't thought about it" }
+    ]
+  },
+  {
+    id: "health", type: "many", flag: true,
+    title: "Does any of this apply to you?",
+    help: "None of these rules you out. They change who needs to review your file and how long the planning takes. Leaving something out here only delays you later.",
+    options: []
+  },
+  {
+    id: "contact", type: "form",
+    title: "Where should we send your answer?",
+    help: "Your details go to a patient advisor and to the hospital you choose. They are never sold, and never passed to anyone else."
+  }
+];
+
+var HEALTH_COMMON = [
+  { v: "thinners", t: "I take blood thinners",              s: "Warfarin, apixaban, clopidogrel, or daily aspirin on doctor's orders" },
+  { v: "diabetes", t: "I have diabetes that isn't well controlled", s: "Recent HbA1c above about 8%, or you're not sure what it is" },
+  { v: "cardiac",  t: "Heart attack, stroke, or stent in the last 12 months" },
+  { v: "cancer",   t: "I'm in active cancer treatment" },
+  { v: "bleeding", t: "I have a bleeding or clotting disorder" },
+  { v: "pregnant", t: "I'm pregnant or breastfeeding" },
+  { v: "smoker",   t: "I smoke or vape daily",              s: "It affects healing, and clinics will ask you to stop before and after" }
+];
+var HEALTH_EXTRA = {
+  knee: [
+    { v: "bmi",       t: "My BMI is over 40" },
+    { v: "jointinf",  t: "I've had an infection in the joint being replaced" }
+  ],
+  dental: [
+    { v: "bisphos",   t: "I take bisphosphonates or another bone-density medication", s: "Prolia, Fosamax, Actonel, Reclast and similar" },
+    { v: "gum",       t: "I've been told I have gum disease or bone loss" }
+  ],
+  nose: [
+    { v: "revision",  t: "I've had nose surgery before" },
+    { v: "breathing", t: "I have a breathing problem as well as a cosmetic concern" }
+  ],
+  hair: [
+    { v: "priorhair", t: "I've had a hair transplant before" },
+    { v: "alopecia",  t: "I've been diagnosed with alopecia areata or scarring alopecia" }
+  ]
+};
+
+var FLAG_REASON = {
+  thinners:  "Blood thinners have to be paused and restarted on a schedule your prescriber sets, not the clinic.",
+  diabetes:  "Blood sugar control drives healing and infection risk. A recent HbA1c decides the timing.",
+  cardiac:   "Most surgeons want twelve months and a cardiology clearance after a cardiac event.",
+  cancer:    "Active treatment changes anaesthetic and healing decisions. Your oncologist has to be in the loop.",
+  bleeding:  "A haematologist should set the plan before a surgical date is booked.",
+  pregnant:  "Elective surgery and general anaesthetic are deferred until after.",
+  smoker:    "Nicotine measurably worsens healing in every one of these procedures. Clinics will set a stop date.",
+  bmi:       "Many knee surgeons have a BMI threshold. Better to know theirs now than after you've paid a deposit.",
+  jointinf:  "Previous joint infection changes the surgical plan and the implant choice.",
+  bisphos:   "These medications carry a jaw-healing risk after extractions and implants. It's manageable, but only if it's known.",
+  gum:       "Gum and bone health decide whether implants are possible at all, and how many visits it takes.",
+  revision:  "Revision rhinoplasty is a different operation from a first one, with a different surgeon shortlist.",
+  breathing: "A functional component may change both the surgeon and what the procedure should include.",
+  priorhair: "Remaining donor density decides what a second procedure can realistically achieve.",
+  alopecia:  "Some forms of alopecia make transplantation unsuitable. A dermatologist should confirm first."
+};
+
+/* ═══════════════════════════════════════════════════════════
+   ENGINE
+   ═══════════════════════════════════════════════════════════ */
+var answers = {};
+var order = [];
+var idx = -1;
+
+var elIntro = document.getElementById("intro");
+var elQs    = document.getElementById("questions");
+var elRes   = document.getElementById("result");
+var elBar   = document.getElementById("bar");
+
+document.getElementById("start").addEventListener("click", function () {
+  elIntro.style.display = "none";
+  order = QUESTIONS.map(function (q) { return q.id; });
+  go(0);
+});
+
+function q(id) { for (var i = 0; i < QUESTIONS.length; i++) if (QUESTIONS[i].id === id) return QUESTIONS[i]; }
+
+function go(n) {
+  idx = n;
+  elBar.style.width = Math.round((n / order.length) * 100) + "%";
+  render(q(order[n]), n);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function esc(s) {
+  return String(s).replace(/[&<>"]/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+  });
+}
+
+function render(def, n) {
+  var t = answers.treatment || "other";
+
+  var help = def.help;
+  var options = def.options;
+
+  if (def.id === "away") {
+    help = "For " + TREATMENTS[t].label.toLowerCase() + ", plan on being in Türkiye " +
+           TREATMENTS[t].stay + ". That is the clinic's schedule, not a sales figure.";
+  }
+  if (def.id === "health") {
+    options = HEALTH_COMMON.concat(HEALTH_EXTRA[t] || [])
+      .concat([{ v: "none", t: "None of these apply to me", s: "" }]);
   }
 
-  var primaryBtn = BOOKING.shortLink
-    ? '<a class="btn btn--gold" href="' + BOOKING.shortLink + '" target="_blank" rel="noopener">Choose your time</a>'
-    : '<a class="btn btn--gold" href="https://wa.me/14375951735" target="_blank" rel="noopener" ' +
-      'aria-label="Message MedMatch Global on WhatsApp">Message us on WhatsApp — +1 437 595 1735</a>';
+  var html =
+    '<section class="q is-active">' +
+      '<p class="q__count">Question ' + (n + 1) + ' of ' + order.length + '</p>' +
+      '<h2 class="q__title">' + esc(def.title) + '</h2>' +
+      (help ? '<p class="q__help">' + esc(help) + '</p>' : '');
 
-  card.innerHTML =
-    '<div class="card__fallback">' +
-      '<h3>Online scheduling opens shortly</h3>' +
-      '<p>Our booking calendar is being finalized. In the meantime, reach us directly and a patient ' +
-      'advisor will arrange your call within one business day.</p>' +
-      '<div class="card__btnrow">' +
-        primaryBtn +
-        '<a class="btn btn--ghost" href="https://medmatchglobal.info/#invitation">Get My Free Quote</a>' +
+  if (def.type === "form") {
+    html +=
+      '<div class="field"><label for="f-name">Your name</label>' +
+        '<input id="f-name" type="text" autocomplete="name" /></div>' +
+      '<div class="field"><label for="f-email">Email</label>' +
+        '<input id="f-email" type="email" autocomplete="email" /></div>' +
+      '<div class="field"><label for="f-phone">Phone <span style="text-transform:none;letter-spacing:0">(optional)</span></label>' +
+        '<input id="f-phone" type="tel" autocomplete="tel" />' +
+        '<p class="field__hint">Only used if you ask us to call. We don\'t cold-call applicants.</p></div>' +
+      '<div class="field"><label for="f-note">Anything you want us to know <span style="text-transform:none;letter-spacing:0">(optional)</span></label>' +
+        '<textarea id="f-note"></textarea></div>' +
+      '<input class="honey" id="f-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />' +
+      '<div class="msg" id="msg" style="display:none;margin-top:20px;font-size:14px;padding:12px 16px;border-radius:10px;background:#FBEDED;color:#A2413F;"></div>';
+  } else {
+    html += '<div class="opts">';
+    for (var i = 0; i < options.length; i++) {
+      var o = options[i];
+      html +=
+        '<button class="opt' + (def.type === "many" ? " opt--multi" : "") + '" data-v="' + esc(o.v) + '">' +
+          '<span class="opt__mark"></span>' +
+          '<span class="opt__body">' + esc(o.t) +
+            (o.s ? '<span class="opt__sub">' + esc(o.s) + '</span>' : '') +
+          '</span>' +
+        '</button>';
+    }
+    html += '</div>';
+  }
+
+  html +=
+    '<div class="navrow">' +
+      (def.type === "one" ? '' :
+        '<button class="btn btn--gold" id="next">' +
+        (def.type === "form" ? 'See my answer' : 'Continue') + '</button>') +
+      (n > 0 ? '<button class="back" id="back">← Back</button>' : '') +
+    '</div>' +
+  '</section>';
+
+  elQs.innerHTML = html;
+
+  var back = document.getElementById("back");
+  if (back) back.addEventListener("click", function () { go(n - 1); });
+
+  if (def.type === "one") {
+    bindOptions(def, false, function () { advance(n); });
+  } else if (def.type === "many") {
+    bindOptions(def, true, null);
+    document.getElementById("next").addEventListener("click", function () { advance(n); });
+  } else {
+    document.getElementById("next").addEventListener("click", submit);
+  }
+
+  var prev = answers[def.id];
+  if (prev !== undefined && def.type !== "form") {
+    var list = def.type === "many" ? prev : [prev];
+    Array.prototype.forEach.call(elQs.querySelectorAll(".opt"), function (b) {
+      if (list.indexOf(b.dataset.v) > -1) b.classList.add("is-on");
+    });
+  }
+  if (def.type === "form" && answers.contact) {
+    document.getElementById("f-name").value  = answers.contact.name  || "";
+    document.getElementById("f-email").value = answers.contact.email || "";
+    document.getElementById("f-phone").value = answers.contact.phone || "";
+    document.getElementById("f-note").value  = answers.contact.note  || "";
+  }
+}
+
+function bindOptions(def, multi, onPick) {
+  Array.prototype.forEach.call(elQs.querySelectorAll(".opt"), function (btn) {
+    btn.addEventListener("click", function () {
+      if (!multi) {
+        Array.prototype.forEach.call(elQs.querySelectorAll(".opt"), function (b) { b.classList.remove("is-on"); });
+        btn.classList.add("is-on");
+        answers[def.id] = btn.dataset.v;
+        setTimeout(onPick, 190);
+        return;
+      }
+      var isNone = btn.dataset.v === "none";
+      if (isNone) {
+        Array.prototype.forEach.call(elQs.querySelectorAll(".opt"), function (b) { b.classList.remove("is-on"); });
+        btn.classList.add("is-on");
+      } else {
+        var none = elQs.querySelector('.opt[data-v="none"]');
+        if (none) none.classList.remove("is-on");
+        btn.classList.toggle("is-on");
+      }
+      answers[def.id] = Array.prototype.map.call(elQs.querySelectorAll(".opt.is-on"), function (b) { return b.dataset.v; });
+    });
+  });
+}
+
+function advance(n) {
+  if (n + 1 < order.length) go(n + 1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   VERDICT
+   ═══════════════════════════════════════════════════════════ */
+function flags() {
+  var f = answers.health || [];
+  return f.filter(function (v) { return v !== "none"; });
+}
+
+function readiness() {
+  var total = 0;
+  QUESTIONS.forEach(function (def) {
+    if (!def.score) return;
+    var a = answers[def.id];
+    if (a && def.score[a] !== undefined) total += def.score[a];
+  });
+  return total; /* 0 to 11 */
+}
+
+function verdict() {
+  if (answers.location === "other") return "region";
+  if (flags().length) return "clinic";
+  var s = readiness();
+  if (s >= 8) return "ready";
+  if (s >= 4) return "close";
+  return "early";
+}
+
+var COPY = {
+  ready: {
+    tag: "You're ready",
+    h: "Book the call — we'll come to it prepared.",
+    lede: "On your answers there's nothing standing between you and a real conversation. " +
+          "Pick a time below. You'll get a written summary and a fixed, all-inclusive quote within 48 hours of the call, whether or not you go ahead."
+  },
+  close: {
+    tag: "Close — one thing first",
+    h: "A call would help you, but it'll help more in a fortnight.",
+    lede: "You're serious about this. There are one or two things that would make the conversation " +
+          "far more useful, and they're all things you can do without us. Sort them and book — the call is still free either way."
+  },
+  early: {
+    tag: "Too early for a call",
+    h: "A sales call won't help you at this stage. These will.",
+    lede: "You're at the reading stage, and that's the right place to be. A consultation now would " +
+          "just be us talking at you. Take the tools below, come back when you have a date or a quote in hand, and the call will actually be worth your time."
+  },
+  clinic: {
+    tag: "Clinical review first",
+    h: "Something in your history needs a clinician's eyes before anyone quotes you.",
+    lede: "This is not a no, and it's not a delay tactic — most people in this position do go on to " +
+          "treatment. It means a doctor reviews your file before a price or a date is put in front of you. Any operator willing to quote you today, without this step, is guessing with your health."
+  },
+  region: {
+    tag: "Outside our region",
+    h: "We're not the right people for you, and we'd rather say it now.",
+    lede: "Our partner agreements, our aftercare, and our follow-up all assume you're flying from " +
+          "the United States or Canada. We can't serve you properly from anywhere else, so we're not going to take your details and disappear."
+  }
+};
+
+function reasons(v) {
+  var out = [];
+  var t = answers.treatment || "other";
+
+  if (v === "clinic") {
+    flags().forEach(function (f) {
+      if (FLAG_REASON[f]) out.push(FLAG_REASON[f]);
+    });
+    return out;
+  }
+  if (v === "region") {
+    return ["If you tell us where you are, we'll point you at someone who does cover it. No charge and no catch."];
+  }
+
+  if (answers.timeline === "q4")      out.push("<strong>You don't have a date yet.</strong> Quotes move with the calendar and the exchange rate, so one issued today is stale by the time you're ready.");
+  if (answers.timeline === "q3")      out.push("<strong>You're 6 to 12 months out.</strong> Worth a call, but expect to redo the numbers closer to the time.");
+  if (answers.funding === "unknown")  out.push("<strong>You haven't seen real numbers yet.</strong> Run the <a href=\"/true-cost.html\">true-cost estimate</a> first — flights, hotel, and the second trip included — so the call starts from a real figure.");
+  if (answers.funding === "finance")  out.push("<strong>You'd need financing.</strong> Sort that before you commit to a date. We don't lend and we don't take a cut from anyone who does.");
+  if (answers.stage === "unsure")     out.push("<strong>You're not sure what you need yet.</strong> One local examination — even a paid one — will save you far more than it costs.");
+  if (answers.stage === "decided")    out.push("<strong>You haven't been examined for this.</strong> No responsible surgeon quotes a final price without seeing you or your imaging.");
+  if (answers.away === "no")          out.push("<strong>You can't be away for " + TREATMENTS[t].stay + ".</strong> That's the real constraint here. Flying home early is how good outcomes go wrong.");
+  if (answers.away === "tight")       out.push("Your time away is tight. Build in two spare days — flights get moved and swelling doesn't read the schedule.");
+  if (answers.companion === "no" && t === "knee")
+    out.push("<strong>Knee replacement alone isn't advisable.</strong> You'll need help for the first week. Please plan to bring someone.");
+  if (answers.stage === "quoted")     out.push("<strong>You have a written quote.</strong> Bring it. Comparing it line by line is the single fastest way to find out whether travelling is actually worth it for you.");
+
+  if (!out.length) out.push("Your timeline, your funding, and your recovery window all line up. There's nothing to fix first.");
+  return out;
+}
+
+function transcript() {
+  var lines = [];
+  QUESTIONS.forEach(function (def) {
+    if (def.type === "form") return;
+    var a = answers[def.id];
+    if (a === undefined) return;
+    var t = answers.treatment || "other";
+    var opts = def.id === "health"
+      ? HEALTH_COMMON.concat(HEALTH_EXTRA[t] || []).concat([{ v: "none", t: "None of these apply" }])
+      : def.options;
+    function label(v) {
+      for (var i = 0; i < opts.length; i++) if (opts[i].v === v) return opts[i].t;
+      return v;
+    }
+    var val = Array.isArray(a) ? a.map(label).join("; ") : label(a);
+    lines.push(def.title + "  →  " + val);
+  });
+  return lines.join("\n");
+}
+
+function submit() {
+  var name  = (document.getElementById("f-name").value  || "").trim();
+  var email = (document.getElementById("f-email").value || "").trim();
+  var phone = (document.getElementById("f-phone").value || "").trim();
+  var note  = (document.getElementById("f-note").value  || "").trim();
+  var honey = document.getElementById("f-honey").value;
+  var msg   = document.getElementById("msg");
+
+  if (!name || !email || email.indexOf("@") < 1) {
+    msg.style.display = "block";
+    msg.textContent = "We need a name and a working email to send your answer.";
+    return;
+  }
+  if (honey) return; /* bot */
+
+  answers.contact = { name: name, email: email, phone: phone, note: note };
+
+  var v = verdict();
+  showResult(v);
+
+  if (!CONFIG.endpoint) return;
+
+  var VERDICT_TAG = { ready: "READY", close: "CLOSE", early: "EARLY", clinic: "CLINICAL REVIEW", region: "OUT OF REGION" };
+
+  var payload = {
+    name: name,
+    email: email,
+    phone: phone,
+    treatment: TREATMENTS[answers.treatment || "other"].label,
+    /* The Apps Script routes on `page`, not `source`. */
+    page: ("Pre-Qualification · " + VERDICT_TAG[v] + " · readiness " + readiness() + "/11").slice(0, 400),
+    message: ("VERDICT: " + VERDICT_TAG[v] + "  (readiness " + readiness() + "/11)\n\n" +
+              transcript() +
+              (note ? "\n\nTHEIR NOTE:\n" + note : "")).slice(0, 4000),
+    _honey: ""
+  };
+
+  /* No headers: Apps Script web apps don't answer CORS preflight, so this has
+     to stay a "simple request". And the script answers 200 even when it rejects
+     the lead, so success is `data.ok`, never `res.ok`. */
+  fetch(CONFIG.endpoint, { method: "POST", body: JSON.stringify(payload) })
+    .then(function (res) { return res.json(); })
+    .then(function (data) { if (!data || !data.ok) throw new Error("rejected"); })
+    .catch(function () {
+      var box = document.getElementById("sendfail");
+      if (box) box.style.display = "block";
+    });
+}
+
+function showResult(v) {
+  elQs.innerHTML = "";
+  elBar.style.width = "100%";
+
+  var c = COPY[v];
+  var list = reasons(v).map(function (r) { return "<li>" + r + "</li>"; }).join("");
+
+  var actions = "";
+  var extra   = "";
+
+  if (v === "ready") {
+    extra =
+      '<div class="sched">' +
+        '<div class="sched__label"><p class="eyebrow">SELECT A TIME</p></div>' +
+        '<iframe src="' + CONFIG.calendarEmbed + '" loading="lazy" title="Book a consultation"></iframe>' +
+      '</div>';
+  } else if (v === "close") {
+    actions =
+      '<a class="btn btn--gold" href="' + CONFIG.calendarPage + '">Book anyway — it\'s still free</a>' +
+      '<a class="btn btn--ghost" href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener">Ask a question first</a>';
+    extra =
+      '<div class="aside"><strong>We meant it about booking anyway.</strong> The list above is what we\'d ' +
+      'want you to have in hand, not a hurdle. If you\'d rather talk it through now, take a slot — we just ' +
+      'won\'t pretend the quote is final until those pieces are in place.</div>';
+  } else if (v === "early") {
+    actions =
+      '<a class="btn btn--gold" href="/true-cost.html">See what it really costs</a>' +
+      '<a class="btn btn--ghost" href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener">Message us on WhatsApp</a>';
+    extra =
+      '<div class="aside">Three things worth your time before any call: the ' +
+      '<a href="/true-cost.html">true-cost estimate</a> (flights, hotel and the second trip included), ' +
+      '<a href="/vetting.html">how we vet a hospital</a>, and the ' +
+      '<a href="/blog/">patient guides</a> for your treatment. ' +
+      '<strong>No sales sequence, no follow-up you didn\'t ask for.</strong> ' +
+      'When you have a date or a quote in hand, come back and finish this in thirty seconds.</div>';
+  } else if (v === "clinic") {
+    actions =
+      '<a class="btn btn--gold" href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener">Send your records securely</a>' +
+      '<a class="btn btn--ghost" href="mailto:' + CONFIG.email + '">Email us instead</a>';
+    extra =
+      '<div class="aside"><strong>What happens next.</strong> A patient advisor comes back to you within one ' +
+      'business day with exactly which records the surgeon needs — usually a medication list, a recent blood ' +
+      'panel, and any imaging. A clinician reviews it. Only then does anyone talk to you about price or dates. ' +
+      'If the answer is that you shouldn\'t travel for this, we will tell you that too.</div>';
+  } else if (v === "region") {
+    actions = '<a class="btn btn--ghost" href="mailto:' + CONFIG.email + '">Tell us where you are</a>';
+  }
+
+  elRes.className = "result is-active";
+  elRes.innerHTML =
+    '<div class="verdict verdict--' + v + '">' +
+      '<span class="verdict__tag">' + esc(c.tag) + '</span>' +
+      '<h2>' + esc(c.h) + '</h2>' +
+      '<p class="verdict__lede">' + esc(c.lede) + '</p>' +
+      '<div class="verdict__why">' +
+        '<h3>' + (v === "clinic" ? "Why, specifically" : v === "ready" ? "What we saw" : "What to sort first") + '</h3>' +
+        '<ul>' + list + '</ul>' +
       '</div>' +
+      (actions ? '<div class="verdict__actions">' + actions + '</div>' : '') +
+    '</div>' +
+    extra +
+    '<div class="aside" id="sendfail" style="display:none;background:#FBEDED;color:#A2413F;">' +
+      'We couldn\'t save your answers just now. Nothing is lost — message us on ' +
+      '<a href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener">WhatsApp</a> or email ' +
+      '<a href="mailto:' + CONFIG.email + '">' + CONFIG.email + '</a> and we\'ll pick it up from there.' +
     '</div>';
-})();
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 </script>
 
 </body>
