@@ -354,6 +354,19 @@ var CONFIG = {
   email:    "contact@medmatchglobal.info"
 };
 
+/* Referral code from a partner clinic's card (medmatchglobal.info/book.html?ref=AXXIM).
+   Read once at load. The value comes off the URL so it is never trusted as-is:
+   letters and digits only, capped at 12, and absent when there is no ?ref=. */
+var REF = (function () {
+  var m = /[?&]ref=([^&#]*)/.exec(location.search);
+  if (!m) return "";
+  try {
+    return decodeURIComponent(m[1]).replace(/[^A-Za-z0-9]/g, "").slice(0, 12);
+  } catch (e) {
+    return m[1].replace(/[^A-Za-z0-9]/g, "").slice(0, 12); /* malformed %-escape */
+  }
+})();
+
 /* ═══════════════════════════════════════════════════════════
    QUESTION SET
    `score` is readiness only — how close this person is to being able
@@ -791,7 +804,8 @@ function submit() {
     phone: phone,
     treatment: TREATMENTS[answers.treatment || "other"].label,
     /* The Apps Script routes on `page`, not `source`. */
-    page: ("Pre-Qualification · " + VERDICT_TAG[v] + " · readiness " + readiness() + "/11").slice(0, 400),
+    page: ("Pre-Qualification · " + VERDICT_TAG[v] + " · readiness " + readiness() + "/11" +
+           (REF ? " · ref " + REF : "")).slice(0, 400),
     message: ("VERDICT: " + VERDICT_TAG[v] + "  (readiness " + readiness() + "/11)\n\n" +
               transcript() +
               (note ? "\n\nTHEIR NOTE:\n" + note : "")).slice(0, 4000),
