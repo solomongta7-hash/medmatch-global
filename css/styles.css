@@ -252,8 +252,8 @@ button { font-family: inherit; cursor: pointer; }
   pointer-events: none;
 }
 .hero__video.is-playing { opacity: 1; }
-/* phones keep the photo: saves ~5 MB on the connection least able to spare it */
-@media (max-width: 900px) { .hero__video { display: none; } }
+/* Phones get a second, much smaller encode (960x540, ~1.6 MB) — chosen in
+   main.js — rather than being cut off from the video entirely. */
 @media (prefers-reduced-motion: reduce) { .hero__video { display: none; } }
 
 .hero__veil {

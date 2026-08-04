@@ -26,7 +26,7 @@
 <link rel="preload" as="image" href="img/rs/hero-1100.avif" type="image/avif" media="(max-width: 900px)" fetchpriority="high" />
 <link rel="preload" as="image" href="img/rs/hero-1920.avif" type="image/avif" media="(min-width: 901px)" fetchpriority="high" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css?v=5.3" />
+<link rel="stylesheet" href="css/styles.css?v=5.5" />
 <link rel="stylesheet" href="css/packages.css?v=5" />
 <script type="application/ld+json">
 {
@@ -161,7 +161,8 @@
 <section class="hero" id="hero">
   <div class="hero__bg hero__bg--coast">
     <video class="hero__video" muted loop playsinline preload="none"
-           data-src="video/hero-coast-cove.mp4" aria-hidden="true" tabindex="-1"></video>
+           data-src="video/hero-coast-cove.mp4" data-src-mobile="video/hero-coast-cove-mobile.mp4"
+           aria-hidden="true" tabindex="-1"></video>
   </div>
   <div class="hero__veil"></div>
   <canvas id="silk" class="hero__canvas"></canvas>
@@ -1259,7 +1260,7 @@
 
 <script src="js/packages-data.js?v=5"></script>
 <script src="js/packages.js?v=4"></script>
-<script src="js/main.js?v=4.3"></script>
+<script src="js/main.js?v=4.5"></script>
 <script src="js/chat.js?v=3.4"></script>
 
 <!-- i18n is 170 KB of translation tables for 8 languages. An English-speaking

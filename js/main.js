@@ -14,25 +14,39 @@
 
   /* ───────────────────────── hero background video ─────────────────────────
      Two Mediterranean shots dissolving into each other on a seamless loop.
-     Deliberately conservative about when it loads at all: desktop widths only,
-     never when the visitor asked for reduced motion, and never on a metered or
-     2G connection. The src is held in data-src so preload="none" is not the
-     only thing standing between a phone and a 5 MB download.
-     If anything here fails, the hero photo is already on screen. */
+     Desktop gets the 1920x1080 encode (~5 MB); phones and small tablets get a
+     second, much lighter 960x540 encode (~1.6 MB) picked at data-src-mobile —
+     never the desktop file. Skipped entirely under reduced motion or on a
+     metered/2G connection. If anything here fails, the hero photo (already on
+     screen as the poster) is simply what stays. */
   (function heroVideo() {
     var v = document.querySelector(".hero__video");
     if (!v || reduced) return;
-    if (!window.matchMedia("(min-width: 901px)").matches) return;
 
     var conn = navigator.connection;
     if (conn && (conn.saveData || /(^|\W)(2g|slow-2g)$/.test(conn.effectiveType || ""))) return;
 
-    v.addEventListener("playing", function () { v.classList.add("is-playing"); }, { once: true });
-    v.src = v.dataset.src;
-    var p = v.play();
-    if (p && typeof p.catch === "function") {
-      p.catch(function () { /* autoplay refused — the photograph stays put */ });
+    var isMobile = window.matchMedia("(max-width: 900px)").matches;
+    var src = isMobile ? v.dataset.srcMobile : v.dataset.src;
+    if (!src) return;
+
+    v.addEventListener("playing", function () { v.classList.add("is-playing"); });
+    v.src = src;
+
+    function tryPlay() {
+      var p = v.play();
+      if (p && typeof p.catch === "function") {
+        // Chrome pauses backgrounded muted video to save power (AbortError) —
+        // harmless, since the tab is hidden and nobody can see it anyway.
+        // Every other rejection just leaves the hero photo in place.
+        p.catch(function () {});
+      }
     }
+    tryPlay();
+    // Coming back to the tab (screen unlock, app switch) resumes it.
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden && v.paused) tryPlay();
+    });
   })();
 
   /* ───────────────────────── smooth scroll ───────────────────────── */
