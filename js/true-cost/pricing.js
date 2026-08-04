@@ -7,7 +7,7 @@
    A sticker-price calculator says "Türkiye $1,598, USA $7,600 —
    you save 79%". That number is not wrong, it is just not the
    number the patient actually pays. The real figure includes
-   flights, hotel, meals, days not earning, the SECOND trip that
+   flights, hotel, days not earning, the SECOND trip that
    implant work genuinely requires, and what it costs if something
    needs adjusting after you're home.
 
@@ -44,14 +44,14 @@ var REGIONS = {
   "ca-west":    { label: "Canada — Vancouver / Calgary", turkiye: [980, 1450], mexico: [280, 560], thailand: [1000, 1600] }
 };
 
-/* Nightly hotel + daily meals in each destination. Home markets
-   cost nothing to stay in — that asymmetry is the whole point. */
+/* Nightly hotel in each destination. Home markets cost nothing to
+   stay in — that asymmetry is the whole point. */
 var GROUND = {
-  turkiye:  { hotel: 85, meals: 45 },
-  mexico:   { hotel: 75, meals: 40 },
-  thailand: { hotel: 65, meals: 35 },
-  usa:      { hotel: 0,  meals: 0 },
-  canada:   { hotel: 0,  meals: 0 }
+  turkiye:  { hotel: 85 },
+  mexico:   { hotel: 75 },
+  thailand: { hotel: 65 },
+  usa:      { hotel: 0  },
+  canada:   { hotel: 0  }
 };
 
 /* ── Treatment catalogues ───────────────────────────────────── */
@@ -116,8 +116,6 @@ var COMPARE = {
   knee:   ["turkiye", "usa", "canada", "mexico"]
 };
 
-var COMPLICATION_INSURANCE = 180;   // 12-month policy, indicative
-
 /* ── Treatment cost in a given market ───────────────────────── */
 
 function treatmentCost(cfg, market) {
@@ -176,7 +174,7 @@ function marketCost(cfg, market) {
   var out = {
     market: market,
     treatment: treatmentCost(cfg, market),
-    flights: 0, hotel: 0, meals: 0, insurance: 0,
+    flights: 0, hotel: 0,
     secondTrip: 0, daysOff: 0, timeOff: 0,
     trips: 1
   };
@@ -196,22 +194,19 @@ function marketCost(cfg, market) {
 
   out.flights = flightEach * travellers;
   out.hotel   = g.hotel * nights;
-  out.meals   = g.meals * (nights + 1) * travellers;
   out.daysOff = nights + 2;
-
-  if (cfg.insurance && market === "turkiye") out.insurance = COMPLICATION_INSURANCE;
 
   // The second trip, priced honestly rather than hidden.
   if (needsSecondTrip(cfg) && trip.secondTripNights) {
     var n2 = trip.secondTripNights;
-    out.secondTrip = flightEach * travellers + g.hotel * n2 + g.meals * (n2 + 1) * travellers;
+    out.secondTrip = flightEach * travellers + g.hotel * n2;
     out.daysOff += n2 + 2;
     out.trips = 2;
   }
 
   out.timeOff = out.daysOff * rate;
-  out.total = out.treatment + out.flights + out.hotel + out.meals
-            + out.insurance + out.secondTrip + out.timeOff;
+  out.total = out.treatment + out.flights + out.hotel
+            + out.secondTrip + out.timeOff;
   return out;
 }
 
@@ -227,7 +222,7 @@ function returnTripCost(cfg, market) {
   var g = GROUND[market];
   var nights = cfg.treatment === "dental" ? 4 : 5;
   var flights = mid(region[market] || region.turkiye);   // one traveller for a fix-up
-  var stay = g.hotel * nights + g.meals * (nights + 1);
+  var stay = g.hotel * nights;
   var timeOff = (nights + 2) * (cfg.dayRate || 0);
   return { flights: flights, stay: stay, timeOff: timeOff, total: flights + stay + timeOff, nights: nights };
 }

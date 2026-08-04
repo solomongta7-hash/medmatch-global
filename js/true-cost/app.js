@@ -160,11 +160,6 @@
       cfg.companion = /^(1|true|yes|y)$/.test(slug(q.comp)) ;
       took("companion");
     }
-    if (q.ins != null && q.ins !== "") {
-      cfg.insurance = !/^(0|false|no|n)$/.test(slug(q.ins));
-      took("insurance");
-    }
-
     var cur = pickEnum(q.c || q.currency, Object.keys(SYM));
     if (cur) { currency = cur; took("currency"); }
 
@@ -189,7 +184,6 @@
     });
     $("#opt-alone").classList.toggle("is-on", !cfg.companion);
     $("#opt-companion").classList.toggle("is-on", cfg.companion);
-    $("#opt-insurance").checked = cfg.insurance;
     if (cfg.dayRate) $("#day-rate").value = Math.round(cfg.dayRate * (FX[currency] || 1));
     syncTreatmentBox();
     renderAll();
@@ -298,7 +292,7 @@
     hairTech: "fue", grafts: 2500,
     noseType: "primary",
     kneeProc: "total", physioWeeks: 8,
-    region: "us-east", companion: false, dayRate: 0, insurance: true
+    region: "us-east", companion: false, dayRate: 0
   };
   var currency = "USD";
   var step = 1;
@@ -474,7 +468,7 @@
     var bits = [];
     bits.push(tr.trips === 2 ? "two trips" : "one trip");
     bits.push(m(tr.treatment) + " treatment");
-    if (tr.flights) bits.push(m(tr.flights + tr.hotel + tr.meals + tr.secondTrip) + " travel");
+    if (tr.flights) bits.push(m(tr.flights + tr.hotel + tr.secondTrip) + " travel");
     if (tr.timeOff) bits.push(m(tr.timeOff) + " time off");
     $("#bar-sub").textContent = bits.join(" · ");
   }
@@ -496,7 +490,7 @@
     head.appendChild(el("p", "head__s",
       c.saveVsHome > 0
         ? "That is " + m(c.saveVsHome) + " less than " + MARKETS[c.homeRef.market].label
-          + " — a " + c.savePct + "% saving once flights, hotel, meals"
+          + " — a " + c.savePct + "% saving once flights, hotel"
           + (cfg.dayRate ? ", days off work" : "") + (tr.trips === 2 ? " and the second trip" : "") + " are counted."
         : "Once travel is counted, treating this at home works out cheaper. That happens, and you should know it before you book anything."));
     box.appendChild(head);
@@ -529,11 +523,9 @@
     var rows = [
       ["Treatment", null, tr.treatment],
       ["Flights", (cfg.companion ? "Two travellers, return" : "One traveller, return"), tr.flights],
-      ["Hotel", TRIP[cfg.treatment].nights + " nights", tr.hotel],
-      ["Meals and incidentals", null, tr.meals]
+      ["Hotel", TRIP[cfg.treatment].nights + " nights", tr.hotel]
     ];
-    if (tr.insurance) rows.push(["Complication insurance", "12-month policy", tr.insurance]);
-    if (tr.secondTrip) rows.push(["Second trip", "Flights, hotel and meals again — see below", tr.secondTrip, "flag"]);
+    if (tr.secondTrip) rows.push(["Second trip", "Flights and hotel again — see below", tr.secondTrip, "flag"]);
     if (tr.timeOff) rows.push(["Days not earning", tr.daysOff + " days at " + m(cfg.dayRate), tr.timeOff]);
 
     rows.forEach(function (r) {
@@ -581,7 +573,7 @@
       var tr2 = el("tr", r.market === "turkiye" ? "row-tr" : null);
       tr2.appendChild(el("td", null, MARKETS[r.market].label + (r.trips === 2 ? " (2 trips)" : "")));
       tr2.appendChild(el("td", null, m(r.treatment)));
-      tr2.appendChild(el("td", null, m(r.flights + r.hotel + r.meals + r.insurance + r.secondTrip)));
+      tr2.appendChild(el("td", null, m(r.flights + r.hotel + r.secondTrip)));
       tr2.appendChild(el("td", null, r.timeOff ? m(r.timeOff) : "—"));
       var totCell = el("td", r.total === best ? "is-best" : null, m(r.total));
       tr2.appendChild(totCell);
@@ -696,7 +688,7 @@
       "Flying from: " + REGIONS[cfg.region].label + (cfg.companion ? " with a companion" : ""),
       "",
       "Türkiye all-in estimate: " + m(tr.total) + (tr.trips === 2 ? " (two trips)" : ""),
-      "  treatment " + m(tr.treatment) + ", travel " + m(tr.flights + tr.hotel + tr.meals + tr.secondTrip)
+      "  treatment " + m(tr.treatment) + ", travel " + m(tr.flights + tr.hotel + tr.secondTrip)
         + (tr.timeOff ? ", time off " + m(tr.timeOff) : ""),
       "Versus " + MARKETS[c.homeRef.market].label + ": " + m(c.homeRef.total)
         + (c.saveVsHome > 0 ? "  (saving " + m(c.saveVsHome) + ", " + c.savePct + "%)" : ""),
@@ -823,11 +815,6 @@
       // The field is entered in the displayed currency; store USD.
       var shown = +this.value || 0;
       cfg.dayRate = shown / (FX[currency] || 1);
-      syncBar();
-      if (step === 3) renderResult();
-    });
-    $("#opt-insurance").addEventListener("change", function () {
-      cfg.insurance = this.checked;
       syncBar();
       if (step === 3) renderResult();
     });
