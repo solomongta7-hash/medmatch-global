@@ -12,6 +12,29 @@
 
   if (reduced) document.body.classList.add("reduced");
 
+  /* ───────────────────────── hero background video ─────────────────────────
+     Two Mediterranean shots dissolving into each other on a seamless loop.
+     Deliberately conservative about when it loads at all: desktop widths only,
+     never when the visitor asked for reduced motion, and never on a metered or
+     2G connection. The src is held in data-src so preload="none" is not the
+     only thing standing between a phone and a 5 MB download.
+     If anything here fails, the hero photo is already on screen. */
+  (function heroVideo() {
+    var v = document.querySelector(".hero__video");
+    if (!v || reduced) return;
+    if (!window.matchMedia("(min-width: 901px)").matches) return;
+
+    var conn = navigator.connection;
+    if (conn && (conn.saveData || /(^|\W)(2g|slow-2g)$/.test(conn.effectiveType || ""))) return;
+
+    v.addEventListener("playing", function () { v.classList.add("is-playing"); }, { once: true });
+    v.src = v.dataset.src;
+    var p = v.play();
+    if (p && typeof p.catch === "function") {
+      p.catch(function () { /* autoplay refused — the photograph stays put */ });
+    }
+  })();
+
   /* ───────────────────────── smooth scroll ───────────────────────── */
   var lenis = null;
   if (typeof Lenis !== "undefined" && !reduced) {
