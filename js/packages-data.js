@@ -65,15 +65,15 @@ window.MM_DATA = {
     },
     {
       id: "all-on-4",
-      name: "All-on-4 Dental Implants",
+      name: "All-on-4 Dental Implants — One Jaw",
       tag: "Implants",
-      desc: "A full fixed arch on four implants — teeth in days, one jaw completely restored.",
+      desc: "A full fixed arch on four implants — one jaw completely restored, upper or lower.",
       price: 4900,
       nights: 6,
       visits: 2,
       days: "5–6 days per visit",
       includes: [
-        "4 premium implants (per jaw)",
+        "4 premium implants — one jaw",
         "Fixed temporary teeth same week",
         "Final zirconia bridge on visit 2",
         "3D CT scan & treatment simulation"
@@ -81,33 +81,37 @@ window.MM_DATA = {
     },
     {
       id: "all-on-6",
-      name: "All-on-6 Dental Implants",
+      name: "All-on-6 Dental Implants — One Jaw",
       tag: "Implants",
-      desc: "Six implants per jaw for maximum stability — the gold standard for full-arch restoration.",
+      desc: "Six implants in one jaw for maximum stability — the gold standard for full-arch restoration.",
       price: 6400,
       nights: 6,
       visits: 2,
       days: "5–6 days per visit",
       includes: [
-        "6 premium implants (per jaw)",
+        "6 premium implants — one jaw",
         "Fixed temporary teeth same week",
         "Final zirconia bridge on visit 2",
         "3D CT scan & bone assessment"
       ]
     },
-    /* ── MIRA DENTAL CLINIC — second Antalya dental partner ──────
-       Priced FULL MOUTH (both jaws) and quoted directly by the clinic.
-       Mira includes hotel AND transfers at no charge, so the only thing
-       added on top is our $300 coordination fee.
-       Set hotelIncluded:true to zero out the hotel line on the card.   */
+    /* ── ONE FULL-MOUTH ESTIMATE, NOT ONE PER CLINIC ─────────────
+       We work with more than one Antalya dental partner and they do
+       not quote identically. The patient must never see the same
+       procedure at two different prices with two clinic names on it —
+       that reads as a markup, not as a choice.
+       So: one card, one "from" estimate, no clinic name. The figure
+       below is the lowest confirmed partner quote, and which clinic
+       a patient is matched to is decided from their X-rays, not from
+       the price list. Hotel and transfers are covered on this package
+       by every partner who quotes it.                                */
     {
-      id: "mira-all-on-6-full",
-      name: "All-on-6 Full Mouth — Both Jaws",
-      clinic: "Mira Dental Clinic",
+      id: "full-mouth-implants",
+      name: "Full Mouth Implants — Both Jaws",
       tag: "Implants",
       desc: "Twelve implants across both jaws — your entire mouth restored on the most stable full-arch " +
             "foundation there is, with hotel and transfers covered by the clinic.",
-      price: 8000,           // EDIT HERE — confirmed by Mira Dental Clinic (USD, both jaws)
+      price: 8000,           // EDIT HERE — lowest confirmed partner quote (USD, both jaws)
       hotelIncluded: true,
       nights: 7,
       visits: 2,
@@ -118,45 +122,6 @@ window.MM_DATA = {
         "Final zirconia bridges on visit 2",
         "3D CT scan & full bone assessment",
         "Hotel & VIP transfers covered by the clinic"
-      ]
-    },
-    {
-      id: "mira-all-on-4-full",
-      name: "All-on-4 Full Mouth — Both Jaws",
-      clinic: "Mira Dental Clinic",
-      tag: "Implants",
-      desc: "Eight implants across both jaws — a complete fixed set of teeth, hotel and transfers " +
-            "covered by the clinic.",
-      // ⚠️ EDIT HERE — Mira has NOT yet quoted All-on-4 full mouth.
-      // Leave price null and the card shows "Price on request" instead of a
-      // number we made up. Put the real figure here once the clinic confirms.
-      price: null,
-      hotelIncluded: true,
-      nights: 7,
-      visits: 2,
-      days: "6–7 days per visit",
-      includes: [
-        "8 implants — 4 per jaw, both jaws",
-        "Fixed temporary teeth same week",
-        "Final zirconia bridges on visit 2",
-        "3D CT scan & treatment simulation",
-        "Hotel & VIP transfers covered by the clinic"
-      ]
-    },
-    {
-      id: "full-mouth-implants",
-      name: "Full Mouth Dental Implants",
-      tag: "Implants",
-      desc: "Both jaws fully restored — 8 implants with 24 zirconia crowns, a complete new smile.",
-      price: 9100,
-      nights: 7,
-      visits: 2,
-      days: "6–7 days per visit",
-      includes: [
-        "8 implants + 24 zirconia crowns",
-        "Temporary teeth between visits",
-        "3D CT scan, X-rays & lab work",
-        "2 visits, 8–12 weeks apart"
       ]
     },
     {

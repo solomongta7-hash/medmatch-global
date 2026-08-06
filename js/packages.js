@@ -84,8 +84,8 @@
         (compact
           ? '<p class="pkg__headline">' +
               (quoted
-                ? '<em>Total, all in</em><strong>' + fmt(totalUsd) + '</strong>'
-                : '<em>Total, all in</em><strong class="pkg__onreq">Price on request</strong>') +
+                ? '<em>Estimated total, all in</em><strong>from ' + fmt(totalUsd) + '</strong>'
+                : '<em>Estimated total, all in</em><strong class="pkg__onreq">Price on request</strong>') +
               '<span>' + p.days + ' in ' + D.city + ' · ' +
               (freeHotel ? "hotel, transfers" : star + "★ hotel, transfers") +
               ' &amp; fee included</span></p>' +
@@ -97,7 +97,7 @@
               '<li>' + p.days + ' in ' + D.city + '</li></ul>' + detail +
             '<table class="pkg__table pkg__table--total"><tbody>' +
               '<tr class="total"><td>Total estimated cost</td><td>' +
-                (quoted ? fmt(totalUsd) : '<span class="pkg__onreq">Price on request</span>') + '</td></tr>' +
+                (quoted ? "from " + fmt(totalUsd) : '<span class="pkg__onreq">Price on request</span>') + '</td></tr>' +
             '</tbody></table>') +
         '<div class="pkg__ctas">' +
           '<a class="btn btn--gold pkg__cta" href="#invitation" data-scroll-to="#invitation"><span>Get My Free Treatment Plan</span></a>' +
