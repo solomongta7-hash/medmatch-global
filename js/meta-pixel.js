@@ -48,7 +48,7 @@
   "use strict";
 
   /* ── EDIT HERE ────────────────────────────────────────────── */
-  var PIXEL_ID = "";
+  var PIXEL_ID = "1602395124613242";
   /* ─────────────────────────────────────────────────────────── */
 
   /* Local dev must not land in the ad account's data. serve.ps1
