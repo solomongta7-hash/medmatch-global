@@ -905,6 +905,9 @@
         if (!data.ok) throw new Error("Request failed");
         setSending(false);
         showSuccess();
+        // Same Lead signal book.html already sends. Fired only on a confirmed
+        // ok from Apps Script, so a failed submit never counts as a lead.
+        if (window.mmLead) window.mmLead();
       })
       .catch(function () {
         setSending(false);
