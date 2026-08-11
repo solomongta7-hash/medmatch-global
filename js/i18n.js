@@ -1136,6 +1136,26 @@
     Object.keys(T8[l]).forEach(function (k) { T[l][k] = T8[l][k]; });
   });
 
+  /* ── T9 — the Answers section ──────────────────────────────────
+     One key, nine languages. Only index.html carries data-i18n, so
+     this covers the burger menu and the footer; /answers/ itself is
+     English-only for now, like every other standalone page.         */
+  var T9 = {
+    tr: { "nav.answers": "Yanıtlar" },
+    de: { "nav.answers": "Antworten" },
+    fr: { "nav.answers": "Réponses" },
+    ru: { "nav.answers": "Ответы" },
+    zh: { "nav.answers": "问答" },
+    fa: { "nav.answers": "پاسخ‌ها" },
+    hi: { "nav.answers": "उत्तर" },
+    es: { "nav.answers": "Respuestas" },
+    pt: { "nav.answers": "Respostas" }
+  };
+  Object.keys(T9).forEach(function (l) {
+    if (!T[l]) T[l] = {};
+    Object.keys(T9[l]).forEach(function (k) { T[l][k] = T9[l][k]; });
+  });
+
   var nodes = null;
   function collect() {
     if (!nodes) {
