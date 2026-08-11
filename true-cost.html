@@ -7,10 +7,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>True Cost Calculator — What Treatment Abroad Actually Costs</title>
 <meta name="description" content="Flights, hotel, days off work and the second trip included — compared honestly against home and against the nearest alternative. Sometimes the answer is to stay closer to home." />
-<!-- Kept out of search until the market-average prices have been audited.
-     Remove this tag AND the true-cost.html line in robots.txt to open it up;
-     doing only one is how a page stays invisible by accident. -->
-<meta name="robots" content="noindex, follow" />
+<!-- Opened to search 2026-08-11. The market-average prices were audited on
+     2026-08-07 (see true-cost-calculator/PRICE-AUDIT.md) and held up, which
+     was the only condition on this page staying hidden. The matching
+     Disallow in robots.txt was removed in the same change — this page needs
+     both open, and doing only one is how a page stays invisible by accident. -->
+<meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://medmatchglobal.info/true-cost.html" />
 <meta property="og:url" content="https://medmatchglobal.info/true-cost.html" />
 <meta property="og:title" content="True Cost Calculator — What Treatment Abroad Actually Costs" />
@@ -347,7 +349,10 @@
     }
   })();
 </script>
-<script src="js/true-cost/pricing.js"></script>
-<script src="js/true-cost/app.js"></script>
+<!-- Cache-busts added 2026-08-11. These two had none, so a price edit stayed
+     invisible to anyone who had loaded the page before. Bump pricing.js whenever
+     a figure changes. -->
+<script src="js/true-cost/pricing.js?v=2"></script>
+<script src="js/true-cost/app.js?v=1"></script>
 </body>
 </html>

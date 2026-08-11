@@ -1,12 +1,53 @@
 User-agent: *
 Allow: /
-# True Cost Calculator: market-average prices pending audit.
-# Remove this Disallow AND the noindex meta in true-cost.html to open it up.
-Disallow: /true-cost.html
 
 # Staging area for Instagram. Meta has to fetch media from a public URL, so files
 # land here for a few minutes before publishing. Nothing here is meant for search,
 # and interview clips must never turn up in Google results.
 Disallow: /media/
+
+# Note: /stories/ is deliberately NOT disallowed here. story-template.html
+# already carries "noindex, nofollow", and a crawler blocked by robots.txt can
+# never read that tag — a disallowed URL can still surface as a bare link.
+# Letting crawlers fetch it is what actually keeps it out of the index.
+
+# --- AI assistants -----------------------------------------------------------
+# These are already covered by the Allow above; they are named explicitly so the
+# intent survives future edits. Assistants that answer patient questions by
+# fetching live pages are how most people will meet this site, and the fixed
+# prices and FAQ answers here are exactly what they quote. Do not block these
+# without deciding to give up that traffic.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: bingbot
+Allow: /
 
 Sitemap: https://medmatchglobal.info/sitemap.xml
