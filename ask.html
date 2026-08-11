@@ -243,9 +243,12 @@
   .hint { margin-top: 8px; font-size: 12.5px; color: var(--ink-soft); line-height: 1.55; }
   .honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
+  /* Tinted panel with a hairline, matching how the rest of the site marks an
+     aside. Deliberately not a thick coloured bar down one edge — nothing else
+     on medmatchglobal.info does that. */
   .note {
     display: none; margin-top: 14px; padding: 14px 16px; border-radius: 12px;
-    background: var(--amber-bg); border-left: 3px solid var(--amber);
+    background: var(--amber-bg); border: 1px solid rgba(180, 122, 46, 0.3);
     font-size: 13.5px; line-height: 1.65; color: #6A4A18;
   }
   .note.is-on { display: block; }
