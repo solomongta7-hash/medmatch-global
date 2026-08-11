@@ -147,6 +147,47 @@
   .intro__skip a { color: var(--teal); border-bottom: 1px solid rgba(18, 112, 123, 0.35); }
   .intro__skip a:hover { color: var(--turquoise); }
 
+  /* ── campaign intro: shown only when the visitor arrives from a treatment ad,
+        so the page opens by confirming the number the ad promised ── */
+  .camp { display: none; }
+  .camp.is-on { display: block; }
+  .camp.is-on ~ .intro__default { display: none; }
+
+  .priced {
+    margin-top: 30px; border: 1px solid var(--line); border-radius: 16px;
+    background: var(--shell); overflow: hidden;
+  }
+  .priced__head {
+    padding: 14px 22px; border-bottom: 1px solid var(--line-soft);
+    font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--teal); font-weight: 500;
+  }
+  .priced__row {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+    padding: 16px 22px;
+  }
+  .priced__row + .priced__row { border-top: 1px solid var(--line-soft); }
+  .priced__row--here { background: var(--foam); }
+  .priced__fig {
+    font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 5vw, 34px);
+    line-height: 1; color: var(--ink);
+  }
+  .priced__row--here .priced__fig { color: var(--teal); }
+  .priced__unit { font-size: 12.5px; color: var(--ink-soft); margin-left: 8px; letter-spacing: 0.04em; }
+  .priced__where {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-soft); text-align: right; flex: none; max-width: 45%;
+  }
+  .priced__foot {
+    padding: 14px 22px; border-top: 1px solid var(--line-soft);
+    font-size: 12.5px; color: var(--ink-soft); line-height: 1.6;
+  }
+  .priced__foot a { color: var(--teal); border-bottom: 1px solid rgba(18, 112, 123, 0.35); }
+  @media (max-width: 420px) {
+    .priced__row { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .priced__where { text-align: left; max-width: none; }
+  }
+
   /* ── question ── */
   .q { display: none; }
   .q.is-active { display: block; animation: rise 0.45s var(--ease); }
@@ -297,11 +338,42 @@
 
     <!-- ══════════ INTRO ══════════ -->
     <section class="intro" id="intro">
+
+      <!-- Dental campaign opener. Hidden unless ?utm_content=*dental*, so the page
+           restates the figure the ad promised instead of making them hunt for it. -->
+      <div class="camp" id="camp-dental">
+        <p class="eyebrow">DENTAL IMPLANTS · BEFORE YOU BOOK</p>
+        <h1 class="display">That $550 is real. Here's what's behind it.</h1>
+        <p class="intro__lede">Same implant brands your dentist at home would use. What a price can't
+        tell you is whether <em>your</em> mouth is a $550 case or a much bigger one.</p>
+
+        <div class="priced">
+          <div class="priced__head">Price per implant — placed by a licensed dentist</div>
+          <div class="priced__row">
+            <span><span class="priced__fig">$3,000</span><span class="priced__unit">– $6,000 each</span></span>
+            <span class="priced__where">U.S. / Canada</span>
+          </div>
+          <div class="priced__row priced__row--here">
+            <span><span class="priced__fig">$550</span><span class="priced__unit">– $1,070 each, all-in</span></span>
+            <span class="priced__where">Türkiye · MedMatch</span>
+          </div>
+          <p class="priced__foot">Estimated typical self-pay prices. The gap is clinic overhead, not a
+          cheaper implant. Your figure depends on how many teeth, bone grafting and brand —
+          <a href="/blog/dental-implants-turkey-cost-us.html">full breakdown here</a>.</p>
+        </div>
+
+        <p class="intro__lede">So before anyone quotes you: nine questions. We'll say plainly if you're
+        ready, what to fix first, or if a clinician should see your history — even when that costs us
+        the booking.</p>
+      </div>
+
+      <div class="intro__default">
       <p class="eyebrow">BEFORE YOU BOOK</p>
       <h1 class="display">Is treatment in Türkiye actually right for you?</h1>
       <p class="intro__lede">Most agencies will book a call with anyone who has a pulse. We'd rather
       not waste your afternoon. Answer nine questions and we'll tell you plainly which of three
       things is true — and we'll say so even when the answer costs us the booking.</p>
+      </div>
 
       <ul class="intro__list">
         <li><strong>You're ready.</strong> Book the call and we'll come to it prepared.</li>
@@ -365,6 +437,19 @@ var REF = (function () {
     return decodeURIComponent(m[1]).replace(/[^A-Za-z0-9]/g, "").slice(0, 12);
   } catch (e) {
     return m[1].replace(/[^A-Za-z0-9]/g, "").slice(0, 12); /* malformed %-escape */
+  }
+})();
+
+/* Which ad sent them, from ?utm_content= (safe_dental, numbers_dental, …).
+   Read exactly like REF above: off the URL, never trusted as-is — lowercased,
+   letters/digits/underscore only, capped at 24, empty when absent. */
+var CAMPAIGN = (function () {
+  var m = /[?&]utm_content=([^&#]*)/.exec(location.search);
+  if (!m) return "";
+  try {
+    return decodeURIComponent(m[1]).toLowerCase().replace(/[^a-z0-9_]/g, "").slice(0, 24);
+  } catch (e) {
+    return m[1].toLowerCase().replace(/[^a-z0-9_]/g, "").slice(0, 24); /* malformed %-escape */
   }
 })();
 
@@ -528,6 +613,28 @@ var elIntro = document.getElementById("intro");
 var elQs    = document.getElementById("questions");
 var elRes   = document.getElementById("result");
 var elBar   = document.getElementById("bar");
+
+/* Arrived from a dental ad: open on the price they were shown, and start them
+   on "Dental treatment" already ticked. It stays a normal question they can
+   change — clicking a dental ad is a strong hint, not a decision on their behalf. */
+if (CAMPAIGN.indexOf("dental") > -1) {
+  var campEl = document.getElementById("camp-dental");
+  if (campEl) {
+    campEl.classList.add("is-on");
+    document.title = "Dental implants from $550 — Before You Book — MedMatch Global";
+    answers.treatment = "dental";
+
+    /* The dental opener is taller than the default one, which would push Begin
+       below the fold — the exact fault this page exists to avoid. Move the real
+       button (not a copy, so its listener comes with it) up under the price, and
+       let the three outcomes read as "here is what you get" underneath it.
+       Final order: price → Begin → the three outcomes → skip link. */
+    var cta  = document.querySelector(".intro__cta");
+    var skip = document.querySelector(".intro__skip");
+    if (cta)  campEl.appendChild(cta);
+    if (skip) elIntro.appendChild(skip);
+  }
+}
 
 document.getElementById("start").addEventListener("click", function () {
   elIntro.style.display = "none";
@@ -806,7 +913,8 @@ function submit() {
     treatment: TREATMENTS[answers.treatment || "other"].label,
     /* The Apps Script routes on `page`, not `source`. */
     page: ("Pre-Qualification · " + VERDICT_TAG[v] + " · readiness " + readiness() + "/11" +
-           (REF ? " · ref " + REF : "")).slice(0, 400),
+           (REF ? " · ref " + REF : "") +
+           (CAMPAIGN ? " · ad " + CAMPAIGN : "")).slice(0, 400),
     message: ("VERDICT: " + VERDICT_TAG[v] + "  (readiness " + readiness() + "/11)\n\n" +
               transcript() +
               (note ? "\n\nTHEIR NOTE:\n" + note : "")).slice(0, 4000),
