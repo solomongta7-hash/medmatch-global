@@ -732,12 +732,24 @@ var REF      = (function () {
 
 /* ═══════════════════════════════════════════════════════════════
    TREATMENTS
-   `band` figures come from the site's own published true-cost model:
-   indicative market rates for the TREATMENT ONLY. They are not
-   MedMatch partner pricing, which is advisor-gated, and they are
-   never presented as a quote. If you change a number here, change
-   it in medmatch-global/js/true-cost/pricing.js too — or the two
-   pages will disagree in front of a patient.
+   `band` figures are indicative market rates, never a quote, and never
+   MedMatch partner pricing (that is advisor-gated). They come from two
+   different sources, and which one applies depends on whether an ad
+   sends traffic here:
+
+   - dental (and the "other" fallback, which reuses it): the ALL-IN
+     package figure. These must equal the tooth-count ad creative
+     (ad-creatives/build9.mjs) and book.html's dental campaign opener,
+     which both say "$550 – $1,070 each, all-in". Changed 2026-08-11:
+     this block used to carry the treatment-only figures below, so a
+     click from that ad moved the price in front of the reader.
+
+   - rhinoplasty, knee, hair: TREATMENT ONLY, from
+     medmatch-global/js/true-cost/pricing.js. Change a number there and
+     change it here too, or the two pages disagree in front of a patient.
+
+   The rule when these conflict: whatever an ad promised wins, because
+   the reader saw it first.
    ═══════════════════════════════════════════════════════════════ */
 var T = {
   dental: {
@@ -748,8 +760,8 @@ var T = {
           "worrying you — a patient advisor writes back within one business day.",
     ph: "e.g. I've been quoted $28,000 for six implants at home. Is that a fair thing to compare, and what would you need from me to say?",
     head: "One dental implant, placed — indicative price",
-    home: { fig: "$2,900 – $5,000", unit: "each", where: "U.S. / Canada" },
-    here: { fig: "$450 – $890", unit: "each, treatment only", where: "Türkiye" }
+    home: { fig: "$3,000 – $6,000", unit: "each", where: "U.S. / Canada" },
+    here: { fig: "$550 – $1,070", unit: "each, all-in", where: "Türkiye" }
   },
   hair: {
     label: "Hair transplant",
@@ -792,8 +804,8 @@ var T = {
           "back within one business day — even when the honest answer costs us the booking.",
     ph: "e.g. What would you need to know from me before you could tell me whether this is worth doing?",
     head: "One dental implant, placed — indicative price",
-    home: { fig: "$2,900 – $5,000", unit: "each", where: "U.S. / Canada" },
-    here: { fig: "$450 – $890", unit: "each, treatment only", where: "Türkiye" }
+    home: { fig: "$3,000 – $6,000", unit: "each", where: "U.S. / Canada" },
+    here: { fig: "$550 – $1,070", unit: "each, all-in", where: "Türkiye" }
   }
 };
 
