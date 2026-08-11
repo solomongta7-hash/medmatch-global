@@ -229,7 +229,9 @@
       </svg>
       <span class="choice__name" data-i18n="ch.nose">Nose</span>
       <span class="choice__sub" data-i18n="ch.nose.sub">Rhinoplasty, revision</span>
-      <span class="choice__from"><em data-i18n="t.from">from</em> $3,200</span>
+      <!-- €3,000 partner hospital list x 1.15 = $3,450, + the $300 coordination
+           fee = $3,750. Was $3,200, which was below the hospital price alone. -->
+      <span class="choice__from"><em data-i18n="t.from">from</em> $3,750</span>
     </a>
     <a class="choice" href="#estimate" data-scroll-to="#estimate" data-goto-calc="hair">
       <svg class="choice__ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -241,7 +243,9 @@
       </svg>
       <span class="choice__name" data-i18n="ch.hair">Hair</span>
       <span class="choice__sub" data-i18n="ch.hair.sub">Transplant, Sapphire FUE</span>
-      <span class="choice__from"><em data-i18n="t.from">from</em> $2,100</span>
+      <!-- FUE with hotel, €2,500 x 1.15 = $2,875, + $300 coordination = $3,175,
+           rounded up. Was $2,100, which matched no option in the calculator. -->
+      <span class="choice__from"><em data-i18n="t.from">from</em> $3,200</span>
     </a>
     <a class="choice" href="#estimate" data-scroll-to="#estimate" data-goto-calc="knee">
       <svg class="choice__ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -348,10 +352,14 @@
           rhinoplasties in a year than a typical U.S. surgeon does in a decade. Ultrasonic and
           preservation techniques come as standard.</p>
           <div class="tpanel__meta">
-            <div><em data-i18n="t.from">from</em><strong>$3,200</strong><span data-i18n="t.allinc">all-inclusive</span></div>
+            <!-- Rhinoplasty is a hospital-list price, not a package: main.js sends
+                 it to INCLUDES_TEXT.hospital, so hotel is NOT included. It cannot
+                 carry "all-inclusive" or the t.includes hotel claim. Reusing the
+                 t5 keys, which already say the truthful thing in every language. -->
+            <div><em data-i18n="t.from">from</em><strong>$3,750</strong><span data-i18n="t5.unit">hospital price list</span></div>
             <div class="tpanel__save" data-i18n="t1.save">VS. $8,000–$15,000 IN THE U.S.</div>
           </div>
-          <p class="tpanel__includes" data-i18n="t.includes">Fixed price includes surgery, hospital, hotel, transfers &amp; aftercare.</p>
+          <p class="tpanel__includes" data-i18n="t5.includes">Hotel included only where stated, your care and coordination is a flat $300.</p>
           <a class="tpanel__link magnetic" href="#estimate" data-scroll-to="#estimate" data-goto-calc="rhinoplasty"><span data-i18n="t.calc">Calculate My Price</span> ↓</a>
         </div>
       </article>
@@ -424,7 +432,9 @@
           <p data-i18n="t4.desc">Istanbul is the hair-restoration capital of the world. Your procedure is performed by
           the surgeon, not a technician, with natural hairline design and a written growth guarantee.</p>
           <div class="tpanel__meta">
-            <div><em data-i18n="t.from">from</em><strong>$2,100</strong><span data-i18n="t4.unit">all-inclusive package</span></div>
+            <!-- The hotel-inclusive FUE option, so "all-inclusive package" and the
+                 t.includes hotel claim below are both true at this price. -->
+            <div><em data-i18n="t.from">from</em><strong>$3,200</strong><span data-i18n="t4.unit">all-inclusive package</span></div>
             <div class="tpanel__save" data-i18n="t4.save">VS. $12,000–$20,000 IN THE U.S.</div>
           </div>
           <p class="tpanel__includes" data-i18n="t.includes">Fixed price includes surgery, hospital, hotel, transfers &amp; aftercare.</p>
@@ -1264,7 +1274,7 @@
 <script src="js/packages-data.js?v=6"></script>
 <script src="js/packages.js?v=5"></script>
 <script src="js/main.js?v=4.5"></script>
-<script src="js/chat.js?v=3.4"></script>
+<script src="js/chat.js?v=3.5"></script>
 
 <!-- i18n is 170 KB of translation tables for 8 languages. An English-speaking
      visitor should never download it; it loads on demand when a language is

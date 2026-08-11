@@ -11,7 +11,10 @@
   var EMAIL_URL = "mailto:contact@medmatchglobal.info";
 
   var ANSWERS = {
-    prices: "Rhinoplasty from $3,200, dental veneers from $2,400, knee surgery from $3,000 and hair transplants from $2,100 — all fixed, all-inclusive of surgery, hospital, hotel, transfers and aftercare. Typical savings are 50–70% versus U.S. prices.",
+    // Keep these in step with the "from" figures on index.html. Dental, knee and
+    // hair are genuine all-inclusive packages; rhinoplasty is a hospital-list
+    // price with the hotel quoted separately, so it cannot be described the same way.
+    prices: "Dental veneers from $2,400, knee surgery from $3,000 and hair transplants from $3,200 — fixed and all-inclusive of surgery, hospital, hotel, transfers and aftercare. Rhinoplasty is from $3,750: the fixed hospital price plus our flat $300 coordination fee, with your hotel quoted separately. Typical savings are 50–70% versus U.S. prices.",
     safety: "Türkiye has one of the largest groups of JCI-accredited hospitals outside the U.S. — the same standard leading American hospitals hold. We only work with board-certified surgeons, and you meet yours on video before paying anything.",
     how: "You start with a free video consultation, then receive one fixed all-inclusive quote in writing. Once you accept, we handle your hospital, hotel, transfers and a personal care coordinator from arrival to aftercare back home.",
     duration: "It depends on the procedure: hair transplants need 2–4 days, dental work 5–7 days, rhinoplasty 7–8 days, and knee surgery 10–14 days including physiotherapy.",

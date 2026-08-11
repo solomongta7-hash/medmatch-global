@@ -86,7 +86,10 @@ var HAIR_TECH = [
 ];
 
 var NOSE_TYPE = [
-  { id: "primary", label: "Primary rhinoplasty", note: "First operation on an un-operated nose.",              price: { turkiye: 3300, usa: 11500, canada: 10000, mexico: 4500 } },
+  // turkiye was 3300; raised to the partner hospital's actual list price
+  // (€3,000 x 1.15) so the tool and the price list state one number. This moves
+  // Türkiye slightly against itself, which is the safe direction for this tool.
+  { id: "primary", label: "Primary rhinoplasty", note: "First operation on an un-operated nose.",              price: { turkiye: 3450, usa: 11500, canada: 10000, mexico: 4500 } },
   { id: "septo",   label: "Septorhinoplasty",    note: "Appearance plus septum and breathing corrected together.", price: { turkiye: 3850, usa: 14000, canada: 12000, mexico: 5400 } },
   { id: "revision",label: "Revision rhinoplasty",note: "Correcting a previous operation. Harder, and priced that way.", price: { turkiye: 5200, usa: 18500, canada: 16000, mexico: 7500 } }
 ];
