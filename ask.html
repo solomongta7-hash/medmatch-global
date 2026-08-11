@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ask a question about treatment in Türkiye — MedMatch Global</title>
+<meta name="description" content="One page, one form. Tell us what you're considering and what you're worried about. A patient advisor writes back within one business day. No cold calls, nothing sold on this page. For patients travelling from the United States and Canada." />
+
+<!-- Paid-traffic landing page. Kept out of search, and out of sitemap.xml, on
+     purpose: it must never compete with the real pages for the same queries.
+     It is also deliberately absent from the site nav — an ad landing page with
+     an exit menu is an ad landing page that leaks. -->
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://medmatchglobal.info/ask.html" />
+<meta name="theme-color" content="#06333B" />
+
+<meta property="og:title" content="Ask a question about treatment in Türkiye — MedMatch Global" />
+<meta property="og:description" content="Tell us what you're considering and what you're worried about. A real advisor writes back within one business day — even when the answer costs us the booking." />
+<meta property="og:url" content="https://medmatchglobal.info/ask.html" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://medmatchglobal.info/img/antalya-turquoise-coast-hero.jpg" />
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- The site's shared scripts, not a copy of them: one place to change the pixel
+     ID, and js/meta-pixel.js is what defines window.mmLead. Deferred, so they run
+     after the inline script below is parsed — mmLead is only ever called later,
+     inside the submit callback, exactly as book.html does it. -->
+<script src="js/analytics.js?v=1" defer></script>
+<script src="js/meta-pixel.js?v=1" defer></script>
+
+<style>
+  :root {
+    color-scheme: only light;
+    --foam:       #F4FAF9;
+    --shell:      #FFFFFF;
+    --sand:       #F2EFE7;
+    --sea-deep:   #06333B;
+    --sea:        #0B4A54;
+    --teal:       #12707B;
+    --turquoise:  #2FA9A4;
+    --aqua:       #8FD6D0;
+    --ink:        #0C2B30;
+    --ink-soft:   #4E6A6D;
+    --line:       rgba(12, 43, 48, 0.15);
+    --line-soft:  rgba(12, 43, 48, 0.08);
+    --amber:      #B47A2E;
+    --amber-bg:   #FBF4E8;
+    --err:        #A2413F;
+    --err-bg:     #FBEDED;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans:  "Jost", "Segoe UI", sans-serif;
+    --ease:  cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--foam);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--turquoise); color: var(--shell); }
+  img { max-width: 100%; display: block; }
+
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.38em; font-weight: 500;
+    color: var(--turquoise); text-transform: uppercase;
+  }
+  .display {
+    font-family: var(--serif); font-weight: 600; color: var(--ink);
+    line-height: 1.08; letter-spacing: -0.012em;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 5vw; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 17px 32px; border-radius: 999px; border: 1px solid transparent;
+    font-family: var(--sans); font-size: 12px; letter-spacing: 0.2em;
+    text-transform: uppercase; font-weight: 500; cursor: pointer;
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease),
+                color 0.3s, border-color 0.3s, opacity 0.3s;
+  }
+  .btn--main {
+    background: linear-gradient(120deg, var(--turquoise), var(--teal)); color: var(--shell);
+    box-shadow: 0 14px 30px -14px rgba(18, 112, 123, 0.55);
+    width: 100%;
+  }
+  .btn--main:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 18px 38px -14px rgba(18, 112, 123, 0.65); }
+  .btn--main:disabled { opacity: 0.6; cursor: progress; }
+  .btn--ghost { border-color: var(--line); color: var(--ink); background: transparent; }
+  .btn--ghost:hover { border-color: var(--turquoise); color: var(--teal); }
+  @media (max-width: 480px) {
+    .btn { white-space: normal; text-align: center; line-height: 1.5; padding: 16px 20px; font-size: 11px; letter-spacing: 0.14em; }
+  }
+
+  /* ══════════ header — no nav links on purpose: paid traffic has one job here ══════════ */
+  .head {
+    position: relative; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 18px 5vw;
+  }
+  .head__brand { display: flex; flex-direction: column; line-height: 1.2; }
+  .head__name { font-size: 13px; letter-spacing: 0.26em; font-weight: 500; color: var(--shell); }
+  .head__sub  { font-size: 8px; letter-spacing: 0.5em; color: var(--aqua); font-weight: 500; margin-top: 4px; }
+  .head__note {
+    font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(244, 250, 249, 0.72); text-align: right;
+  }
+  @media (max-width: 520px) {
+    .head { padding: 15px 5vw; }
+    .head__name { font-size: 11px; letter-spacing: 0.2em; }
+    .head__note { font-size: 9px; letter-spacing: 0.14em; max-width: 44%; }
+  }
+
+  /* ══════════ hero ══════════ */
+  .hero { position: relative; background: var(--sea-deep); color: var(--foam); overflow: hidden; }
+  .hero__bg { position: absolute; inset: 0; }
+  .hero__bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.42; }
+  .hero__bg::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(6,51,59,0.72) 0%, rgba(6,51,59,0.55) 40%, rgba(6,51,59,0.92) 100%),
+      radial-gradient(80% 60% at 20% 30%, rgba(47,169,164,0.18), transparent 70%);
+  }
+  /* Desktop: copy left with the stats beneath it, form card right and full height.
+     Mobile (below): the card jumps ahead of the stats, so a phone visitor meets
+     the form without scrolling for it. That reorder is the whole reason the
+     stats are a grid child here rather than nested inside .hero__copy. */
+  .hero__grid {
+    position: relative; z-index: 10;
+    display: grid; grid-template-columns: 1.05fr 0.95fr;
+    /* Row 1 is exactly as tall as the copy. Without pinning it, the taller card
+       spanning both rows makes the grid share its extra height between the rows,
+       and the stats drift by 100px+ depending on how long that treatment's
+       intro paragraph happens to be. */
+    grid-template-rows: min-content 1fr;
+    column-gap: 56px; row-gap: 6px;
+    align-items: start;
+    padding: 42px 0 70px;
+  }
+  .hero__copy { padding-top: 18px; grid-column: 1; grid-row: 1; }
+  .hero__mini { grid-column: 1; grid-row: 2; align-self: start; }
+  .card       { grid-column: 2; grid-row: 1 / span 2; align-self: start; }
+  .hero h1 { font-size: clamp(33px, 4.6vw, 55px); color: var(--shell); margin-top: 18px; }
+  .hero h1 em { font-style: normal; color: var(--aqua); }
+  .hero__lede {
+    margin-top: 22px; font-size: 17px; font-weight: 300; line-height: 1.75;
+    color: rgba(244, 250, 249, 0.86); max-width: 30em;
+  }
+
+  .chips { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 9px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 15px; border-radius: 999px;
+    border: 1px solid rgba(143, 214, 208, 0.32);
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 12px; letter-spacing: 0.05em; color: rgba(244, 250, 249, 0.9);
+  }
+  .chip svg { width: 13px; height: 13px; flex: none; stroke: var(--aqua); }
+
+  .hero__mini {
+    margin-top: 34px; padding-top: 26px; border-top: 1px solid rgba(143, 214, 208, 0.22);
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  .mini__fig {
+    font-family: var(--serif); font-size: 27px; font-weight: 600; color: var(--aqua); line-height: 1;
+  }
+  .mini__lab {
+    margin-top: 8px; font-size: 12px; line-height: 1.5; color: rgba(244, 250, 249, 0.7);
+  }
+
+  @media (max-width: 940px) {
+    .hero__grid { grid-template-columns: 1fr; grid-template-rows: auto; row-gap: 30px; padding: 22px 0 44px; }
+    .hero__copy { padding-top: 0; grid-column: 1; grid-row: auto; order: 1; }
+    .card       { grid-column: 1; grid-row: auto; order: 2; }
+    .hero__mini { grid-column: 1; grid-row: auto; order: 3; margin-top: 0; padding-top: 24px; gap: 14px; }
+    .mini__fig { font-size: 22px; }
+    .mini__lab { font-size: 11px; }
+  }
+  /* Phones: the hero is deliberately compact so the first thing they have to
+     do — pick a treatment — is on screen without a scroll. */
+  @media (max-width: 620px) {
+    .hero__grid { padding: 14px 0 40px; row-gap: 24px; }
+    .hero h1 { font-size: 30px; margin-top: 14px; }
+    .hero__lede { margin-top: 16px; font-size: 15.5px; line-height: 1.7; }
+    .chips { margin-top: 20px; gap: 7px; }
+    .chip { padding: 7px 12px; font-size: 11.5px; }
+    .chip svg { width: 12px; height: 12px; }
+  }
+
+  /* ══════════ the form card — the whole point of the page ══════════ */
+  .card {
+    background: var(--shell); color: var(--ink);
+    border-radius: 22px; padding: 30px 30px 28px;
+    box-shadow: 0 50px 100px -45px rgba(3, 28, 33, 0.75);
+    scroll-margin-top: 20px;
+  }
+  .card__top { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+  .card h2 { font-family: var(--serif); font-size: 30px; font-weight: 600; line-height: 1.15; }
+  .card__time { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--turquoise); }
+  .card__sub { margin-top: 11px; font-size: 14px; color: var(--ink-soft); line-height: 1.65; }
+
+  .fset { margin-top: 19px; border: 0; }
+  .fset__lab {
+    display: block; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 10px;
+  }
+  .fset__lab span { text-transform: none; letter-spacing: 0; color: var(--turquoise); }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    padding: 11px 17px; border-radius: 999px; border: 1px solid var(--line);
+    background: var(--shell); font-family: var(--sans); font-size: 14px; color: var(--ink);
+    cursor: pointer; transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s var(--ease);
+  }
+  .pill:hover { border-color: var(--turquoise); }
+  .pill.is-on {
+    border-color: var(--teal); background: var(--teal); color: var(--shell);
+    box-shadow: 0 8px 18px -10px rgba(18, 112, 123, 0.7);
+  }
+  .pill:focus-visible { outline: 2px solid var(--turquoise); outline-offset: 2px; }
+
+  .in {
+    width: 100%; padding: 15px 17px; border-radius: 13px; border: 1px solid var(--line);
+    background: var(--shell); font-family: var(--sans); font-size: 16px; color: var(--ink);
+    transition: border-color 0.22s, box-shadow 0.22s;
+  }
+  .in:focus { outline: none; border-color: var(--turquoise); box-shadow: 0 0 0 3px rgba(47, 169, 164, 0.14); }
+  .in::placeholder { color: #9AAFB1; }
+  textarea.in { min-height: 108px; resize: vertical; line-height: 1.6; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 560px) { .row2 { grid-template-columns: 1fr; } }
+  .hint { margin-top: 8px; font-size: 12.5px; color: var(--ink-soft); line-height: 1.55; }
+  .honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+  .note {
+    display: none; margin-top: 14px; padding: 14px 16px; border-radius: 12px;
+    background: var(--amber-bg); border-left: 3px solid var(--amber);
+    font-size: 13.5px; line-height: 1.65; color: #6A4A18;
+  }
+  .note.is-on { display: block; }
+  .note strong { font-weight: 500; }
+
+  .err {
+    display: none; margin-top: 16px; padding: 13px 16px; border-radius: 11px;
+    background: var(--err-bg); color: var(--err); font-size: 14px;
+  }
+  .err.is-on { display: block; }
+
+  .submit { margin-top: 21px; }
+  .fine { margin-top: 13px; font-size: 12px; color: var(--ink-soft); line-height: 1.6; }
+  .fine a { color: var(--teal); border-bottom: 1px solid rgba(18, 112, 123, 0.35); }
+
+  /* success state, swapped in where the form was */
+  .done { display: none; }
+  .done.is-on { display: block; animation: rise 0.5s var(--ease); }
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  .done__tick {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: #EAF7F6; display: flex; align-items: center; justify-content: center;
+  }
+  .done__tick svg { width: 22px; height: 22px; stroke: var(--teal); }
+  .done h2 { margin-top: 20px; }
+  .steps { list-style: none; margin-top: 26px; }
+  .steps li {
+    position: relative; padding: 15px 0 15px 42px; border-top: 1px solid var(--line-soft);
+    font-size: 14.5px; color: var(--ink-soft); line-height: 1.65;
+  }
+  .steps li strong { color: var(--ink); font-weight: 500; }
+  .steps__n {
+    position: absolute; left: 0; top: 15px;
+    width: 25px; height: 25px; border-radius: 50%; border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11.5px; color: var(--teal);
+  }
+  .done__actions { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .done__actions .btn { width: auto; }
+
+  @media (max-width: 940px) {
+    .card { padding: 28px 22px; border-radius: 18px; }
+    .card h2 { font-size: 26px; }
+  }
+
+  /* ══════════ light sections ══════════ */
+  .sec { padding: 76px 0; }
+  .sec--sand { background: var(--sand); }
+  .sec--shell { background: var(--shell); }
+  .sec__head { max-width: 640px; }
+  .sec__head h2 { font-family: var(--serif); font-size: clamp(27px, 3.6vw, 40px); font-weight: 600; line-height: 1.14; margin-top: 16px; }
+  .sec__head p { margin-top: 18px; font-size: 16px; color: var(--ink-soft); line-height: 1.75; }
+  @media (max-width: 640px) { .sec { padding: 56px 0; } }
+
+  /* trust grid */
+  .trust { margin-top: 42px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); border-radius: 18px; overflow: hidden; }
+  .trust > div { background: var(--foam); padding: 28px 26px; }
+  .sec--shell .trust > div { background: var(--shell); }
+  .trust h3 { font-size: 15px; font-weight: 500; letter-spacing: 0.01em; }
+  .trust h3 span { display: block; font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--turquoise); margin-bottom: 10px; }
+  .trust p { margin-top: 10px; font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+  @media (max-width: 700px) { .trust { grid-template-columns: 1fr; } }
+
+  /* price honesty */
+  .band { margin-top: 38px; border: 1px solid var(--line); border-radius: 18px; background: var(--shell); overflow: hidden; }
+  .band__head {
+    padding: 15px 24px; border-bottom: 1px solid var(--line-soft);
+    font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--teal); font-weight: 500;
+  }
+  .band__row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 16px 24px; }
+  .band__row + .band__row { border-top: 1px solid var(--line-soft); }
+  .band__row--here { background: var(--foam); }
+  .band__fig { font-family: var(--serif); font-weight: 600; font-size: clamp(24px, 4.4vw, 31px); line-height: 1; }
+  .band__row--here .band__fig { color: var(--teal); }
+  .band__unit { font-size: 12.5px; color: var(--ink-soft); margin-left: 9px; letter-spacing: 0.02em; }
+  .band__where { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); text-align: right; flex: none; max-width: 46%; }
+  .band__foot { padding: 15px 24px; border-top: 1px solid var(--line-soft); font-size: 12.5px; color: var(--ink-soft); line-height: 1.65; }
+  .band__foot a { color: var(--teal); border-bottom: 1px solid rgba(18, 112, 123, 0.35); }
+  @media (max-width: 430px) {
+    .band__row { flex-direction: column; align-items: flex-start; gap: 3px; }
+    .band__where { text-align: left; max-width: none; }
+  }
+
+  /* faq */
+  .faq { margin-top: 38px; border-top: 1px solid var(--line-soft); }
+  .faq details { border-bottom: 1px solid var(--line-soft); }
+  .faq summary {
+    list-style: none; cursor: pointer; padding: 20px 40px 20px 0; position: relative;
+    font-size: 16.5px; font-weight: 400; color: var(--ink);
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: ""; position: absolute; right: 6px; top: 27px;
+    width: 9px; height: 9px; border-right: 1.5px solid var(--turquoise); border-bottom: 1.5px solid var(--turquoise);
+    transform: rotate(45deg); transition: transform 0.3s var(--ease);
+  }
+  .faq details[open] summary::after { transform: rotate(-135deg); top: 29px; }
+  .faq summary:hover { color: var(--teal); }
+  .faq__a { padding: 0 8px 24px 0; font-size: 15px; color: var(--ink-soft); line-height: 1.78; max-width: 62em; }
+  .faq__a a { color: var(--teal); border-bottom: 1px solid rgba(18, 112, 123, 0.35); }
+  .faq__a strong { color: var(--ink); font-weight: 500; }
+  .faq__a p + p { margin-top: 12px; }
+
+  /* closing call to action */
+  .close { background: var(--sea-deep); color: var(--foam); padding: 78px 0; text-align: center; }
+  .close h2 { font-family: var(--serif); font-size: clamp(28px, 4vw, 44px); font-weight: 600; color: var(--shell); line-height: 1.12; }
+  .close p { margin: 20px auto 0; max-width: 40em; font-size: 16.5px; font-weight: 300; color: rgba(244, 250, 249, 0.82); line-height: 1.75; }
+  .close .btn { width: auto; margin-top: 34px; }
+
+  /* footer */
+  .foot { background: #042A31; color: rgba(244, 250, 249, 0.62); padding: 46px 0 34px; font-size: 12.5px; }
+  .foot__brand { font-size: 13px; letter-spacing: 0.26em; font-weight: 500; color: var(--foam); }
+  .foot__brand span { display: block; font-size: 8.5px; letter-spacing: 0.45em; color: var(--aqua); margin-top: 7px; }
+  .foot__rows { margin-top: 26px; padding-top: 20px; border-top: 1px solid rgba(244, 250, 249, 0.12); display: flex; flex-wrap: wrap; gap: 10px 26px; }
+  .foot a { color: rgba(244, 250, 249, 0.8); border-bottom: 1px solid rgba(143, 214, 208, 0.3); }
+  .foot__dis { margin-top: 16px; line-height: 1.7; max-width: 62em; color: rgba(244, 250, 249, 0.5); }
+
+  /* sticky mobile bar — the single biggest lever on phone traffic */
+  .bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 300;
+    display: none; align-items: center; gap: 12px;
+    padding: 11px 4vw calc(11px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(14px) saturate(1.2);
+    box-shadow: 0 -1px 0 var(--line-soft), 0 -12px 30px -20px rgba(6, 51, 59, 0.4);
+    transform: translateY(110%); transition: transform 0.4s var(--ease);
+  }
+  .bar.is-on { transform: none; }
+  .bar__txt { flex: 1; font-size: 12.5px; line-height: 1.4; color: var(--ink-soft); }
+  .bar__txt strong { display: block; color: var(--ink); font-weight: 500; font-size: 13.5px; }
+  .bar .btn { width: auto; flex: none; padding: 14px 22px; }
+  @media (max-width: 940px) { .bar { display: flex; } body { padding-bottom: 0; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════ HERO ══════════════════════════ -->
+<section class="hero">
+  <div class="hero__bg">
+    <picture>
+      <source type="image/avif" media="(max-width: 900px)" srcset="/img/rs/hero-1100.avif" />
+      <source type="image/avif" srcset="/img/rs/hero-1920.avif" />
+      <img src="/img/antalya-turquoise-coast-hero.jpg" alt="The turquoise coast near Antalya, Türkiye" width="1920" height="1080" fetchpriority="high" />
+    </picture>
+  </div>
+
+  <header class="head">
+    <div class="head__brand">
+      <span class="head__name">MEDMATCH&nbsp;GLOBAL</span>
+      <span class="head__sub">THE&nbsp;ACADEMY</span>
+    </div>
+    <span class="head__note">Private · Nothing is sold on this page</span>
+  </header>
+
+  <div class="wrap">
+    <div class="hero__grid">
+
+      <div class="hero__copy">
+        <p class="eyebrow" id="eyebrow">ASK A REAL PERSON</p>
+        <h1 class="display" id="h1">Ask us anything about treatment in Türkiye. <em>A person answers — not a brochure.</em></h1>
+        <p class="hero__lede" id="lede">Tell us what you're considering and what's worrying you. A patient advisor
+        reads it and writes back within one business day — even when the honest answer costs us the booking.</p>
+
+        <div class="chips">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>One business day, by email</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>No cold calls, ever</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Free, and no account</span>
+        </div>
+
+      </div>
+
+      <!-- ── THE FORM ── -->
+      <div class="card" id="ask">
+
+        <form id="form" novalidate>
+          <div class="card__top">
+            <h2>Ask your question.</h2>
+            <span class="card__time">About 40 seconds</span>
+          </div>
+          <p class="card__sub" id="cardsub">Five short things. The question is the one that matters — write it the way
+          you'd say it out loud, and vague is fine.</p>
+
+          <fieldset class="fset">
+            <legend class="fset__lab">What are you looking into?</legend>
+            <div class="pills" id="pt">
+              <button type="button" class="pill" data-v="dental">Teeth</button>
+              <button type="button" class="pill" data-v="hair">Hair</button>
+              <button type="button" class="pill" data-v="nose">Nose</button>
+              <button type="button" class="pill" data-v="knee">Knee</button>
+              <button type="button" class="pill" data-v="other">Something else</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="fset">
+            <legend class="fset__lab">Where do you live?</legend>
+            <div class="pills" id="pc">
+              <button type="button" class="pill" data-v="ca">Canada</button>
+              <button type="button" class="pill" data-v="us">United States</button>
+              <button type="button" class="pill" data-v="other">Somewhere else</button>
+            </div>
+            <div class="note" id="regionnote">
+              <strong>We only look after patients travelling from the US and Canada.</strong> Our partner
+              agreements and our aftercare all assume that. Send this anyway if you like and we'll point you
+              towards someone who does cover your region — but we won't take your details and go quiet.
+            </div>
+          </fieldset>
+
+          <fieldset class="fset">
+            <legend class="fset__lab">Your question <span>— the part we actually answer</span></legend>
+            <textarea class="in" id="fq" rows="4" aria-label="Your question" placeholder="e.g. I've been quoted $28,000 for six implants at home. Is that a fair thing to compare, and what would you need from me to say?"></textarea>
+          </fieldset>
+
+          <fieldset class="fset">
+            <legend class="fset__lab">Where do we send the answer?</legend>
+            <div class="row2">
+              <input class="in" id="fn" type="text" autocomplete="given-name" aria-label="First name" placeholder="First name" />
+              <input class="in" id="fe" type="email" autocomplete="email" inputmode="email" aria-label="Email address" placeholder="Email" />
+            </div>
+            <div style="margin-top:12px">
+              <input class="in" id="fp" type="tel" autocomplete="tel" inputmode="tel" aria-label="Phone or WhatsApp number, optional" placeholder="Phone or WhatsApp (optional)" />
+            </div>
+            <p class="hint">We reply by email. The number is only used if you ask us to call.</p>
+          </fieldset>
+
+          <input class="honey" id="fh" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="err" id="err" role="alert" aria-live="assertive"></div>
+
+          <div class="submit">
+            <button class="btn btn--main" id="send" type="submit">Send my question</button>
+          </div>
+          <p class="fine">Your details go to a patient advisor. They are never sold and never passed to
+          anyone but the hospital you choose. <a href="/privacy.html" target="_blank" rel="noopener">Privacy&nbsp;policy&nbsp;→</a></p>
+        </form>
+
+        <!-- swapped in after a successful send -->
+        <div class="done" id="done">
+          <div class="done__tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h2 id="donetitle">Got it. It's with an advisor.</h2>
+          <p class="card__sub" id="donesub">Nothing else is needed from you right now.</p>
+          <ol class="steps">
+            <li><span class="steps__n">1</span><strong>A person reads it — today or tomorrow.</strong> Not an
+            auto-responder pretending to be one.</li>
+            <li><span class="steps__n">2</span><strong>You get a written answer within one business day</strong>
+            from contact@medmatchglobal.info. If we can't answer it without a clinician, we'll say that instead
+            of guessing.</li>
+            <li><span class="steps__n">3</span><strong>Only then, if you want one, a call.</strong> You'll never
+            get a call you didn't ask for.</li>
+          </ol>
+          <div class="done__actions">
+            <a class="btn btn--main" id="wa" href="#" target="_blank" rel="noopener">Add to it on WhatsApp</a>
+            <a class="btn btn--ghost" href="/true-cost.html" target="_blank" rel="noopener">Work out your real cost</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sits under the copy on desktop, under the form on a phone. See .hero__grid. -->
+      <div class="hero__mini">
+        <div>
+          <p class="mini__fig">4</p>
+          <p class="mini__lab">Treatments only — teeth, hair, nose, knee. We say no to the rest.</p>
+        </div>
+        <div>
+          <p class="mini__fig">JCI</p>
+          <p class="mini__lab">Partner hospitals hold JCI accreditation or an equivalent standard.</p>
+        </div>
+        <div>
+          <p class="mini__fig">$300</p>
+          <p class="mini__lab">Our whole fee, fixed. Treatment is paid to the clinic, not to us.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ WHY NO PRICE ══════════════════════════ -->
+<section class="sec sec--shell">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="eyebrow">STRAIGHT ABOUT MONEY</p>
+      <h2>Why there isn't a price at the top of this page.</h2>
+      <p>Because we don't know yours yet, and neither does anyone who puts one in an ad. What it
+      costs depends on the details — how many teeth, how many grafts, whether a nose is a first
+      operation or somebody else's to correct, whether a knee is partial or total — and no honest
+      figure exists before someone has looked at yours. What we can show you is the published market
+      range, so you can see whether this is even the right conversation to be having.</p>
+    </div>
+
+    <div class="band" id="band">
+      <div class="band__head" id="bandhead">Typical price of treatment — indicative</div>
+      <div class="band__row" id="bandhome">
+        <span><span class="band__fig">—</span><span class="band__where"></span></span>
+      </div>
+      <div class="band__row band__row--here" id="bandhere"></div>
+      <p class="band__foot">Indicative market rates for the treatment itself. <strong>Not a quote, and not
+      MedMatch partner pricing</strong> — flights, hotel and the days you're not earning are not in these
+      figures, and implants usually need a second trip on top. Our
+      <a href="/true-cost.html" target="_blank" rel="noopener">true-cost estimate</a>
+      puts all of that in, including the case where the answer is that travelling isn't worth it for you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ WHAT WE ACTUALLY DO ══════════════════════════ -->
+<section class="sec sec--sand">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="eyebrow">BEFORE YOU TRUST ANYONE WITH THIS</p>
+      <h2>What has to be true before we'll put a hospital in front of you.</h2>
+      <p>These are the four things we check, and the four things you should demand from any operator —
+      including the ones who reply faster than we do.</p>
+    </div>
+
+    <div class="trust">
+      <div>
+        <h3><span>One</span>The surgeon's licence is verified at the source.</h3>
+        <p>Medical degree, specialty board certification and licence confirmed with the issuing body — not
+        taken off a CV or the clinic's own website. Those documents are on file and yours on request,
+        before you pay anything.</p>
+      </div>
+      <div>
+        <h3><span>Two</span>The hospital holds JCI accreditation or an equivalent.</h3>
+        <p>JCI audits what protects you mid-procedure: infection control, medication safety, surgical
+        checklists, and whether intensive care and a full anaesthesiology team are on site rather than
+        on call from across town.</p>
+      </div>
+      <div>
+        <h3><span>Three</span>The surgeon is high-volume in your exact procedure.</h3>
+        <p>Not the broad specialty — the specific operation and technique. A general surgeon who
+        occasionally does rhinoplasty does not pass, because outcomes track repetition closely.</p>
+      </div>
+      <div>
+        <h3><span>Four</span>The revision policy is in writing before you pay.</h3>
+        <p>The written complication and revision policy for your specific procedure, in your hands
+        beforehand. You can also ask us for the date of a partner's last audit, and to speak with past
+        patients who've agreed to it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ FAQ ══════════════════════════ -->
+<section class="sec sec--shell">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="eyebrow">THE QUESTIONS EVERYONE ASKS</p>
+      <h2>Answered here, so you don't have to ask us for them.</h2>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>What does MedMatch charge me?</summary>
+        <div class="faq__a"><p>A fixed <strong>$300 Patient Care &amp; Coordination Fee</strong>. That's the whole
+        of it. Your treatment is paid <strong>directly to the clinic</strong>, not through us, and flights are
+        quoted separately so you can see what they really cost. If anyone in this industry won't tell you their
+        fee in one sentence, that's your answer about them.</p></div>
+      </details>
+      <details>
+        <summary>Will someone phone me if I fill this in?</summary>
+        <div class="faq__a"><p>No. You get a written answer by email. We phone only if you ask us to, and we
+        don't hand your number to a call centre — there isn't one. If you'd rather talk it through, there's a
+        WhatsApp link after you send this and a free call you can book whenever you want one.</p></div>
+      </details>
+      <details>
+        <summary>What if something goes wrong after I'm home?</summary>
+        <div class="faq__a"><p>Two honest parts to that. First, the written complication and revision policy for
+        your procedure is given to you before you pay, so you know what the clinic covers rather than hoping.
+        Second, the part most pages skip: <strong>a trip back costs real money</strong> — the flight, the days
+        off, the stay. That's precisely why our
+        <a href="/true-cost.html" target="_blank" rel="noopener">true-cost estimate</a>
+        prices a return trip out loud instead of hiding it. On smaller cases it sometimes makes travelling not
+        worth it, and we'd rather you learn that from us than after you've paid a deposit.</p></div>
+      </details>
+      <details>
+        <summary>Do I have to decide anything to send this?</summary>
+        <div class="faq__a"><p>No. There's nothing to buy on this page, no deposit, no account and no
+        obligation. Plenty of people ask one question, get an answer, and decide treatment abroad isn't for
+        them. That's a perfectly good outcome and it costs you nothing.</p></div>
+      </details>
+      <details>
+        <summary>Which treatments do you actually handle?</summary>
+        <div class="faq__a"><p>Four: <strong>dental work</strong> (implants, veneers, crowns, full-mouth),
+        <strong>hair transplant</strong>, <strong>rhinoplasty</strong> and <strong>knee replacement</strong>. If
+        you're after something else, pick "Something else" and ask anyway — we'll tell you honestly whether it's
+        something we can help with rather than saying yes and working it out later.</p></div>
+      </details>
+      <details>
+        <summary>I'm not in the US or Canada. Can you help?</summary>
+        <div class="faq__a"><p>Properly? No. Our partner agreements, our aftercare and our follow-up all assume
+        you're flying from North America, and we'd be pretending otherwise. Ask anyway and we'll point you
+        towards someone who covers your region — but we won't take your details and disappear.</p></div>
+      </details>
+      <details>
+        <summary>Is my information safe?</summary>
+        <div class="faq__a"><p>Your details go to a patient advisor and, if you choose to go ahead, to the
+        hospital you pick. They are never sold and never passed to anyone else. Don't type your full medical
+        history into this box — if a clinician needs it, we'll tell you exactly which records and how to send
+        them. Full terms are in the
+        <a href="/privacy.html" target="_blank" rel="noopener">privacy policy</a>.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ CLOSE ══════════════════════════ -->
+<section class="close">
+  <div class="wrap">
+    <h2 id="closeh">One question. One business day. One person reading it.</h2>
+    <p>You've probably had a form take your details and give you a sales sequence. This one gives you an
+    answer — including the answer that you shouldn't travel for this, if that's what's true.</p>
+    <a class="btn btn--main" href="#ask" id="closebtn">Ask your question</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__brand">MEDMATCH GLOBAL<span>THE ACADEMY OF MEDICAL TRAVEL</span></p>
+    <div class="foot__rows">
+      <span>© 2026 MedMatch Global. All rights reserved.</span>
+      <span>Suleyman MedMatch Global Advisory</span>
+      <a href="/privacy.html" target="_blank" rel="noopener">Privacy policy</a>
+      <a href="/" target="_blank" rel="noopener">medmatchglobal.info</a>
+    </div>
+    <p class="foot__dis">This page is information, not medical advice, and nothing here is a diagnosis or a
+    promise of a result. MedMatch Global coordinates care with independent, accredited hospitals and clinics in
+    Türkiye; the treating surgeon and hospital are responsible for your clinical care. Prices shown are
+    indicative market ranges, not quotes.</p>
+  </div>
+</footer>
+
+<!-- sticky mobile bar -->
+<div class="bar" id="bar">
+  <div class="bar__txt"><strong>Free, no obligation</strong>Answer in one business day</div>
+  <a class="btn btn--main" href="#ask">Ask a question</a>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   CONFIG — the only block you normally edit.
+   ═══════════════════════════════════════════════════════════════ */
+var CONFIG = {
+  /* Same Apps Script web app the live site posts to, so these land in the
+     same Leads sheet with the same owner alert and patient auto-reply. */
+  endpoint: "https://script.google.com/macros/s/AKfycbx8G_Drl8SkJfAqJ1YTjOl-muJqLssAkdtyqZyGFobQ2SDt0ompH-jK2ciq_UL5uB4B/exec",
+  whatsapp: "https://wa.me/14375951735",
+  email:    "contact@medmatchglobal.info"
+
+  /* No pixel ID here on purpose — js/meta-pixel.js owns it, so there is exactly
+     one place on the whole site to change it. */
+};
+
+/* ═══════════════════════════════════════════════════════════════
+   URL → which ad sent them.
+     ?t=dental|hair|nose|knee   swaps the headline and the price band
+     ?utm_content=...           recorded on the lead so ads can be judged
+     ?ref=CODE                  partner clinic referral card
+   Every one is read off the URL and therefore never trusted as-is.
+   ═══════════════════════════════════════════════════════════════ */
+function param(name, allowed, max) {
+  var m = new RegExp("[?&]" + name + "=([^&#]*)").exec(location.search);
+  if (!m) return "";
+  var v;
+  try { v = decodeURIComponent(m[1]); } catch (e) { v = m[1]; }
+  v = v.toLowerCase().replace(allowed, "").slice(0, max);
+  return v;
+}
+var URL_T    = param("t", /[^a-z]/g, 10);
+var CAMPAIGN = param("utm_content", /[^a-z0-9_]/g, 24);
+var REF      = (function () {
+  var m = /[?&]ref=([^&#]*)/.exec(location.search);
+  if (!m) return "";
+  var v; try { v = decodeURIComponent(m[1]); } catch (e) { v = m[1]; }
+  return v.replace(/[^A-Za-z0-9]/g, "").slice(0, 12);
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   TREATMENTS
+   `band` figures come from the site's own published true-cost model:
+   indicative market rates for the TREATMENT ONLY. They are not
+   MedMatch partner pricing, which is advisor-gated, and they are
+   never presented as a quote. If you change a number here, change
+   it in medmatch-global/js/true-cost/pricing.js too — or the two
+   pages will disagree in front of a patient.
+   ═══════════════════════════════════════════════════════════════ */
+var T = {
+  dental: {
+    label: "Dental treatment",
+    eyebrow: "DENTAL WORK IN TÜRKIYE",
+    h1: "Ask us anything about dental work in Türkiye. <em>A dentist's answer, not a price list.</em>",
+    lede: "Implants, veneers, crowns, full-mouth. Tell us what you've been quoted at home and what's " +
+          "worrying you — a patient advisor writes back within one business day.",
+    ph: "e.g. I've been quoted $28,000 for six implants at home. Is that a fair thing to compare, and what would you need from me to say?",
+    head: "One dental implant, placed — indicative price",
+    home: { fig: "$2,900 – $5,000", unit: "each", where: "U.S. / Canada" },
+    here: { fig: "$450 – $890", unit: "each, treatment only", where: "Türkiye" }
+  },
+  hair: {
+    label: "Hair transplant",
+    eyebrow: "HAIR TRANSPLANT IN TÜRKIYE",
+    h1: "Ask us anything about a hair transplant in Türkiye. <em>Graft counts included.</em>",
+    lede: "Sapphire FUE or DHI, and the question nobody answers straight: how many grafts you actually " +
+          "need. Ask, and an advisor writes back within one business day.",
+    ph: "e.g. Two clinics have quoted me for 4,000 grafts and one says 2,500. Who's telling me the truth?",
+    head: "Sapphire FUE, per graft — indicative price",
+    home: { fig: "$5.50 – $6.00", unit: "per graft", where: "U.S. / Canada" },
+    here: { fig: "$1.10", unit: "per graft, treatment only", where: "Türkiye" }
+  },
+  nose: {
+    label: "Rhinoplasty",
+    eyebrow: "RHINOPLASTY IN TÜRKIYE",
+    h1: "Ask us anything about rhinoplasty in Türkiye. <em>Including whether you should.</em>",
+    lede: "Cosmetic, functional, or a revision of someone else's work. Tell us what you want changed and " +
+          "what's worrying you — an advisor writes back within one business day.",
+    ph: "e.g. I had a rhinoplasty eight years ago and I still can't breathe through one side. Is that a revision case?",
+    head: "Primary rhinoplasty — indicative price",
+    home: { fig: "$10,000 – $11,500", unit: "", where: "U.S. / Canada" },
+    here: { fig: "$3,300", unit: "treatment only", where: "Türkiye" }
+  },
+  knee: {
+    label: "Knee replacement",
+    eyebrow: "KNEE REPLACEMENT IN TÜRKIYE",
+    h1: "Ask us anything about knee replacement in Türkiye. <em>Straight answers, including the hard one.</em>",
+    lede: "Two to three weeks away from home, and someone travelling with you. Serious surgery, so ask the " +
+          "serious questions — an advisor writes back within one business day.",
+    ph: "e.g. I'm 61, my surgeon says partial not total. Would a Turkish surgeon agree, and what would they need to see?",
+    head: "Total knee replacement — indicative price",
+    home: { fig: "$33,000 – $40,000", unit: "", where: "U.S. / Canada" },
+    here: { fig: "$10,200", unit: "treatment only", where: "Türkiye" }
+  },
+  other: {
+    label: "Something else",
+    eyebrow: "ASK A REAL PERSON",
+    h1: "Ask us anything about treatment in Türkiye. <em>A person answers — not a brochure.</em>",
+    lede: "Tell us what you're considering and what's worrying you. A patient advisor reads it and writes " +
+          "back within one business day — even when the honest answer costs us the booking.",
+    ph: "e.g. What would you need to know from me before you could tell me whether this is worth doing?",
+    head: "One dental implant, placed — indicative price",
+    home: { fig: "$2,900 – $5,000", unit: "each", where: "U.S. / Canada" },
+    here: { fig: "$450 – $890", unit: "each, treatment only", where: "Türkiye" }
+  }
+};
+
+var COUNTRY = { ca: "Canada", us: "United States", other: "Outside North America" };
+
+/* ═══════════════════════════════════════════════════════════════
+   STATE
+   ═══════════════════════════════════════════════════════════════ */
+var picked  = { t: "", c: "" };
+var sending = false;
+
+var $ = function (id) { return document.getElementById(id); };
+
+/* ── dress the page for whichever ad sent them ───────────────── */
+function bandRow(r) {
+  return '<span><span class="band__fig">' + r.fig + '</span>' +
+         (r.unit ? '<span class="band__unit">' + r.unit + '</span>' : '') +
+         '</span><span class="band__where">' + r.where + '</span>';
+}
+
+function dress(key) {
+  var d = T[key] || T.other;
+
+  $("eyebrow").textContent = d.eyebrow;
+  $("h1").innerHTML        = d.h1;
+  $("lede").textContent    = d.lede;
+  $("fq").placeholder      = d.ph;
+
+  $("bandhead").textContent = d.head;
+  $("bandhome").innerHTML = bandRow(d.home);
+  $("bandhere").innerHTML = bandRow(d.here);
+
+  if (key !== "other") {
+    document.title = d.label + " in Türkiye — ask a question — MedMatch Global";
+  }
+}
+
+/* Clicking a dental ad is a strong hint about what they want, not a decision
+   made on their behalf: the pill is pre-selected and they can change it. */
+if (T[URL_T]) {
+  picked.t = URL_T;
+  dress(URL_T);
+} else {
+  dress("other");
+}
+
+/* ── pills ──────────────────────────────────────────────────── */
+function pills(wrapId, key, after) {
+  var box = $(wrapId);
+  Array.prototype.forEach.call(box.querySelectorAll(".pill"), function (b) {
+    b.setAttribute("aria-pressed", picked[key] === b.dataset.v ? "true" : "false");
+    if (picked[key] === b.dataset.v) b.classList.add("is-on");
+    b.addEventListener("click", function () {
+      Array.prototype.forEach.call(box.querySelectorAll(".pill"), function (x) {
+        x.classList.remove("is-on");
+        x.setAttribute("aria-pressed", "false");
+      });
+      b.classList.add("is-on");
+      b.setAttribute("aria-pressed", "true");
+      picked[key] = b.dataset.v;
+      hideErr();
+      if (after) after(b.dataset.v);
+    });
+  });
+}
+pills("pt", "t", function (v) { dress(v); });
+pills("pc", "c", function (v) {
+  /* Say it now, on the page, rather than in a reply three days later. */
+  $("regionnote").classList.toggle("is-on", v === "other");
+});
+
+/* ── errors ─────────────────────────────────────────────────── */
+function showErr(msg, focusId) {
+  var e = $("err");
+  e.textContent = msg;                    /* text, never HTML — user input can reach here */
+  e.classList.add("is-on");
+  if (focusId) { try { $(focusId).focus(); } catch (x) {} }
+}
+/* The one error where telling them to use WhatsApp is no use without the link. */
+function showSendFail() {
+  var e = $("err");
+  e.innerHTML = "We couldn't send that just now — nothing is lost. Tap the button again, or " +
+    '<a href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener" ' +
+    'style="color:inherit;font-weight:500;border-bottom:1px solid currentColor">message us on WhatsApp</a>' +
+    " and we'll pick it up from there.";
+  e.classList.add("is-on");
+}
+function hideErr() { $("err").classList.remove("is-on"); }
+
+/* ── the send ───────────────────────────────────────────────── */
+$("form").addEventListener("submit", function (ev) {
+  ev.preventDefault();
+  if (sending) return;
+
+  var name  = ($("fn").value || "").trim();
+  var email = ($("fe").value || "").trim();
+  var phone = ($("fp").value || "").trim();
+  var ques  = ($("fq").value || "").trim();
+
+  if ($("fh").value) return;                       /* bot */
+
+  if (!picked.t) return showErr("Pick what you're looking into first — one tap.");
+  if (!picked.c) return showErr("Tell us where you live, so we can be straight with you about whether we're the right people.");
+  if (!ques)     return showErr("Write your question — that's the part we answer.", "fq");
+  if (!name)     return showErr("We need a first name to reply to.", "fn");
+  if (!email || email.indexOf("@") < 1 || email.indexOf(".") < 2) {
+    return showErr("That email doesn't look right, and it's the only way we can reach you.", "fe");
+  }
+  hideErr();
+
+  sending = true;
+  $("send").disabled = true;
+  $("send").textContent = "Sending…";
+
+  /* The Apps Script routes on `page`, not `source`. */
+  var page = ("Ad Landing · " + (T[picked.t] || T.other).label +
+              " · " + COUNTRY[picked.c] +
+              (CAMPAIGN ? " · ad " + CAMPAIGN : "") +
+              (REF ? " · ref " + REF : "")).slice(0, 400);
+
+  var message = ("THEIR QUESTION:\n" + ques +
+                 "\n\n— — —\nLives in: " + COUNTRY[picked.c] +
+                 "\nLooking into: " + (T[picked.t] || T.other).label +
+                 "\nCame from: ad landing page" + (CAMPAIGN ? " (" + CAMPAIGN + ")" : "") +
+                 (picked.c === "other" ? "\n\n⚠ OUTSIDE NORTH AMERICA — tell them straight, refer them on." : "")
+                ).slice(0, 4000);
+
+  var payload = {
+    name: name,
+    email: email,
+    phone: phone,
+    treatment: (T[picked.t] || T.other).label,
+    page: page,
+    message: message,
+    _honey: ""
+  };
+
+  /* No headers: Apps Script web apps don't answer a CORS preflight, so this
+     has to stay a "simple request". And the script answers 200 even when it
+     rejects the lead, so success is `data.ok`, never `res.ok`. */
+  fetch(CONFIG.endpoint, { method: "POST", body: JSON.stringify(payload) })
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      if (!data || !data.ok) throw new Error("rejected");
+      succeed(name);
+      if (window.mmLead) window.mmLead();          /* a lead once it has landed, not before */
+    })
+    .catch(function () {
+      sending = false;
+      $("send").disabled = false;
+      $("send").textContent = "Try that again";
+      showSendFail();
+    });
+});
+
+function succeed(name) {
+  $("form").style.display = "none";
+  $("donetitle").textContent = "Got it, " + name + ". It's with an advisor.";
+  if (picked.c === "other") {
+    $("donesub").textContent = "One thing said plainly: you're outside the US and Canada, so we'll most " +
+      "likely be pointing you elsewhere rather than taking this on. You'll still get a real answer.";
+  }
+  $("wa").href = CONFIG.whatsapp;
+  $("done").classList.add("is-on");
+  $("bar").classList.remove("is-on");
+  $("ask").scrollIntoView({ block: "start", behavior: "smooth" });
+}
+
+/* ── sticky mobile bar: appears once the form has scrolled past ── */
+(function () {
+  var bar = $("bar"), card = $("ask");
+  if (!("IntersectionObserver" in window)) return;
+  new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if ($("done").classList.contains("is-on")) return;
+      bar.classList.toggle("is-on", !e.isIntersecting);
+    });
+  }, { rootMargin: "-40% 0px 0px 0px" }).observe(card);
+})();
+
+/* Tapping the bar or the closing button should land on the first thing
+   they have to do, not on the top of a card they then have to scroll. */
+Array.prototype.forEach.call(document.querySelectorAll('a[href="#ask"]'), function (a) {
+  a.addEventListener("click", function () {
+    setTimeout(function () { try { $("pt").querySelector(".pill").focus({ preventScroll: true }); } catch (x) {} }, 500);
+  });
+});
+
+/* The Meta pixel lives in js/meta-pixel.js, loaded in the head. It defines
+   window.mmLead, which submit() calls above once the lead has actually reached
+   the sheet. Read the header of that file before changing what it sends: two
+   events only, and a bare Lead with no parameters — never the treatment, the
+   question, a name or an email. All of those describe somebody's health or
+   identity, and that is not something you hand to an ad platform. */
+</script>
+
+</body>
+</html>
