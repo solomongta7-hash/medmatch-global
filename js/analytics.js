@@ -41,7 +41,17 @@
     "#inviteForm",  // homepage lead form — name, email, phone, free-text history
     "#applyForm",   // advisor-hub application — name, email, phone, free text
     "#joinForm",    // blog email capture
-    ".chat-panel"   // chat widget, built at runtime by js/chat.js
+    ".chat-panel",  // chat widget, built at runtime by js/chat.js
+
+    /* book.html and ask.html carried none of the four selectors above,
+       and Clarity's automatic masking did not cover them either: it
+       masks what is TYPED into inputs and dropdowns, which cannot be
+       switched off, but it does not mask what the page RENDERS. On
+       these two pages the sensitive part is not typed — it is chosen
+       and then drawn back onto the page as text and button states. */
+    "#questions",   // book.html — the nine questions and which answers were picked
+    "#result",      // book.html — the verdict (READY / CLINICAL REVIEW / OUT OF REGION)
+    "#pt"           // ask.html — treatment picker: Teeth / Hair / Nose / Knee
   ];
 
   /* Local dev must not pollute real session data. serve.ps1 runs on

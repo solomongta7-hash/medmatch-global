@@ -826,7 +826,10 @@ function bandRow(r) {
          '</span><span class="band__where">' + r.where + '</span>';
 }
 
-function dress(key) {
+/* fromAd: true only when the treatment came in on the URL, i.e. the ad
+   already knew it before this visitor typed anything. See the title
+   note at the bottom of this function. */
+function dress(key, fromAd) {
   var d = T[key] || T.other;
 
   $("eyebrow").textContent = d.eyebrow;
@@ -838,7 +841,21 @@ function dress(key) {
   $("bandhome").innerHTML = bandRow(d.home);
   $("bandhere").innerHTML = bandRow(d.here);
 
-  if (key !== "other") {
+  /* The tab title is set only for an ad-driven visit, never from the
+     pill the visitor clicks themselves.
+
+     Everything above this line reacts to the pill, and should: it is
+     what makes the page feel like it is about them. But the title is
+     different in kind. Clarity stores the page title as session
+     metadata, which means it shows in the session LIST and can be
+     filtered and exported — so a visitor-set title would turn "watch
+     a recording and infer what they wanted" into "sort every visitor
+     by the treatment they asked about". The headline is inside the
+     recording; the title is an index of it.
+
+     When the treatment arrives on the URL there is nothing to leak:
+     the ad already targeted it before this person did anything. */
+  if (key !== "other" && fromAd) {
     document.title = d.label + " in Türkiye — ask a question — MedMatch Global";
   }
 }
@@ -847,7 +864,7 @@ function dress(key) {
    made on their behalf: the pill is pre-selected and they can change it. */
 if (T[URL_T]) {
   picked.t = URL_T;
-  dress(URL_T);
+  dress(URL_T, true);          // came from the ad — safe to title
 } else {
   dress("other");
 }
