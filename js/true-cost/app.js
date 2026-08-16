@@ -752,6 +752,13 @@
           .then(function (data) {
             if (!data || !data.ok) throw new Error(data && data.error || "rejected");
             track("lead_ok");
+            /* Meta's Lead event, fired once the lead has actually reached the
+               sheet — never on submit. Same contract as ask.html and book.html:
+               window.mmLead is defined by js/meta-pixel.js and sends a bare
+               Lead with no parameters, so nothing about the estimate leaves
+               with it. This call was missing until 2026-08-16, which is why
+               the pixel had recorded PageViews and not one single Lead. */
+            if (window.mmLead) window.mmLead();
             btn.disabled = true;
             msg.className = "msg is-ok";
             msg.textContent = "Sent. Suleyman will come back to you personally, usually the same day.";
