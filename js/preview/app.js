@@ -12,6 +12,7 @@ import { applyTeeth } from "./sim-teeth.js";
 import { applyNose }  from "./sim-nose.js";
 import { applyHair }  from "./sim-hair.js";
 import { buildCard, saveCard } from "./export.js";
+import { describe, money } from "./estimate.js";
 
 /* Where "Ask a surgeon" goes. Resolved against the current page so it
    works on the live domain, on a preview deploy, and locally. */
@@ -374,7 +375,6 @@ function buildSliders() {
   $("#btn-book").href = bookLink(def.utm);
   $("#tag-after").textContent = def.afterTag;
   $("#disc").innerHTML = def.disclaimer;
-  $("#readout").hidden = state.treatment !== "hair";
 
   state.params = {};
   const host = $("#sliders");
@@ -474,23 +474,46 @@ function render(draft) {
   if (state.treatment === "hair") {
     const r = applyHair(g, lm, state.params);
     if (!r.ok) noteProblem(r.reason);
-    showGrafts(r);
+    showSummary({ grafts: r.grafts, areaCm2: r.areaCm2 });
+  } else {
+    showSummary();
   }
 }
 
-/* The graft estimate is the number a clinic quotes on, so it is the
-   most useful thing this screen can hand the patient — and the easiest
-   to over-trust, hence the range and the wording. */
-function showGrafts(r) {
-  const el = $("#readout");
-  if (!r.ok || !r.applied || !r.grafts || !r.grafts[1]) {
-    el.innerHTML = "<span class='ro__hint'>Move the slider to plan a new hairline.</span>";
+/* Says what the picture is showing and roughly what it costs.
+
+   This is also the only thing a screen reader can read: the result is
+   two canvases, which are empty boxes to assistive technology. The same
+   sentence therefore goes into the after-canvas aria-label, into a
+   polite live region so changes are announced, and onto the saved card.
+   One description, three jobs. */
+function showSummary(extra) {
+  const el = $("#summary");
+  if (!el) return;
+
+  const d = describe(state.treatment, state.params, extra);
+  state.summary = d;
+
+  /* Describe the picture to anyone who cannot see it. */
+  cvAfter.setAttribute("aria-label", d.alt);
+  cvBefore.setAttribute("aria-label", "Your photo, before any change.");
+
+  if (d.idle) {
+    el.innerHTML = `<p class="sum__idle">${d.detail}</p>`;
     return;
   }
+
+  const price = d.fromUsd
+    ? `<p class="sum__price"><span>Closest package</span>` +
+      `<b>${d.packageName || d.service}</b>` +
+      `<strong>from ${money(d.fromUsd)}</strong></p>` +
+      (d.note ? `<span class="sum__note">${d.note}</span>` : "") +
+      `<a class="sum__quote" href="${bookLink(TREATMENTS[state.treatment].utm)}">` +
+      `Get your free written quote &rsaquo;</a>`
+    : "";
+
   el.innerHTML =
-    `<span class="ro__n">${r.grafts[0].toLocaleString()}&ndash;${r.grafts[1].toLocaleString()}</span>` +
-    `<span class="ro__l">grafts, roughly, to cover ${r.areaCm2.toFixed(1)}&nbsp;cm&sup2;` +
-    `<em>Estimated from the photo. A clinic measures this properly.</em></span>`;
+    `<p class="sum__what"><b>${d.service}</b>${d.detail ? " — " + d.detail : ""}</p>` + price;
 }
 
 /* A render that throws used to leave the sliders looking dead with
@@ -624,7 +647,7 @@ $("#btn-save").addEventListener("click", () => {
   const def = TREATMENTS[state.treatment];
   let card;
   try {
-    card = buildCard(cvBefore, cvAfter, def.label, def.afterTag, focusPoint());
+    card = buildCard(cvBefore, cvAfter, def.label, def.afterTag, focusPoint(), cardSummary());
   } catch (e) {
     alert("Could not build the image on this device.");
     return;
@@ -644,6 +667,16 @@ $("#btn-save").addEventListener("click", () => {
       alert("Could not save the image on this device. You can still take a screenshot.");
     });
 });
+
+/* The saved card needs the price already formatted — export.js draws to
+   a canvas and has no access to the currency settings. */
+function cardSummary() {
+  const d = state.summary;
+  if (!d) return null;
+  return Object.assign({}, d, {
+    priceLabel: d.fromUsd ? money(d.fromUsd) : null
+  });
+}
 
 /* Full-screen image with an instruction. The reliable way to get a
    picture into an iPhone's camera roll when the share sheet is not

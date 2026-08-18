@@ -257,23 +257,33 @@ input[type=range]::-moz-range-thumb{
   border:1px solid var(--line);box-shadow:0 2px 7px rgba(12,43,48,.22);
 }
 
-/* graft estimate readout */
-.ro{
-  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+/* What the picture shows, and what it would cost.
+   Doubles as the screen-reader description via aria-live. */
+.sum{
   background:var(--shell);border:1px solid var(--line-soft);
   border-radius:12px;padding:14px 16px;margin:2px 0 14px;
 }
-.ro[hidden]{display:none}
-.ro__n{
-  font-family:var(--serif);font-size:30px;font-weight:500;
-  color:var(--sea-deep);line-height:1;font-variant-numeric:tabular-nums;
+.sum__idle{margin:0;font-size:13px;color:var(--ink-soft)}
+.sum__what{margin:0;font-size:13.5px;line-height:1.5;color:var(--ink-soft)}
+.sum__what b{display:block;font-size:15.5px;color:var(--ink);font-weight:500;margin-bottom:1px}
+.sum__price{
+  display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;
+  margin:12px 0 0;padding-top:12px;border-top:1px solid var(--line-soft);
 }
-.ro__l{font-size:13px;color:var(--ink-soft);line-height:1.45}
-.ro__l em{
-  display:block;font-style:normal;font-size:11.5px;
-  color:var(--teal);margin-top:2px;
+.sum__price span{
+  flex:0 0 100%;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--teal);font-weight:500;
 }
-.ro__hint{font-size:13px;color:var(--ink-soft)}
+.sum__price b{font-size:14px;font-weight:500;color:var(--ink)}
+.sum__price strong{
+  margin-left:auto;font-family:var(--serif);font-size:24px;font-weight:600;
+  color:var(--sea-deep);white-space:nowrap;
+}
+.sum__note{display:block;font-size:11.5px;color:var(--ink-soft);margin-top:4px}
+.sum__quote{
+  display:inline-block;margin-top:10px;font-size:13.5px;color:var(--teal);
+  text-decoration:underline;text-underline-offset:3px;
+}
 
 .disc{
   margin:6px 0 16px;padding:13px 15px;border-radius:12px;
