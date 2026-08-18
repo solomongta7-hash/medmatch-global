@@ -51,7 +51,16 @@
        and then drawn back onto the page as text and button states. */
     "#questions",   // book.html — the nine questions and which answers were picked
     "#result",      // book.html — the verdict (READY / CLINICAL REVIEW / OUT OF REGION)
-    "#pt"           // ask.html — treatment picker: Teeth / Hair / Nose / Knee
+    "#pt",          // ask.html — treatment picker: Teeth / Hair / Nose / Knee
+
+    /* preview.html — the patient's own face, live camera and simulated
+       result. The photo itself never leaves the device, and a session
+       recording must not become the exception that carries it off. The
+       graft estimate is masked for the same reason: it is a number
+       derived from their scalp. */
+    ".cam",         // live camera feed and the framing overlay
+    ".stage",       // the before/after canvases
+    "#readout"      // hairline plan — estimated graft count
   ];
 
   /* Local dev must not pollute real session data. serve.ps1 runs on

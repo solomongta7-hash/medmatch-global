@@ -12,6 +12,11 @@ $mime = @{
   ".js"="application/javascript; charset=utf-8"; ".svg"="image/svg+xml"
   ".png"="image/png"; ".jpg"="image/jpeg"; ".ico"="image/x-icon"
   ".json"="application/json"; ".woff2"="font/woff2"
+  # preview.html loads ES modules, a WASM face model and a .task model file.
+  # Without these three the tool works on GitHub Pages but not in local preview,
+  # which is the kind of difference that wastes an afternoon.
+  ".mjs"="application/javascript; charset=utf-8"
+  ".wasm"="application/wasm"; ".task"="application/octet-stream"
 }
 
 while ($listener.IsListening) {

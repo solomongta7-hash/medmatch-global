@@ -1156,6 +1156,26 @@
     Object.keys(T9[l]).forEach(function (k) { T[l][k] = T9[l][k]; });
   });
 
+  /* ── T10 — the photo preview tool ──────────────────────────────
+     Same shape as T9. preview.html itself is English-only, like every
+     other standalone page; this covers index.html's nav, burger menu
+     and footer.                                                     */
+  var T10 = {
+    tr: { "nav.preview": "Sonucu Gör" },
+    de: { "nav.preview": "Ergebnis ansehen" },
+    fr: { "nav.preview": "Voir un résultat" },
+    ru: { "nav.preview": "Посмотреть результат" },
+    zh: { "nav.preview": "查看效果" },
+    fa: { "nav.preview": "دیدن نتیجه" },
+    hi: { "nav.preview": "परिणाम देखें" },
+    es: { "nav.preview": "Ver un resultado" },
+    pt: { "nav.preview": "Ver um resultado" }
+  };
+  Object.keys(T10).forEach(function (l) {
+    if (!T[l]) T[l] = {};
+    Object.keys(T10[l]).forEach(function (k) { T[l][k] = T10[l][k]; });
+  });
+
   var nodes = null;
   function collect() {
     if (!nodes) {

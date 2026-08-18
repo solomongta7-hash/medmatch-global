@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>See a Possible Result — Photo Preview | MedMatch Global</title>
+<meta name="description" content="Take a photo and see an illustration of what dental work or rhinoplasty could look like, plus a hairline plan with a graft estimate. Runs entirely on your phone — the photo is never uploaded.">
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://medmatchglobal.info/preview.html" />
+<meta property="og:url" content="https://medmatchglobal.info/preview.html" />
+<meta property="og:title" content="See a Possible Result — MedMatch Global" />
+<meta property="og:description" content="A picture of a goal, not a promise. Your photo never leaves your phone." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://medmatchglobal.info/img/antalya-turquoise-coast-hero.jpg" />
+<meta name="theme-color" content="#06333B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="css/preview.css">
+<script src="js/analytics.js?v=1" defer></script>
+<script src="js/meta-pixel.js?v=1" defer></script>
+</head>
+<body>
+<div class="app">
+
+  <header class="hdr">
+    <a class="hdr__brand" href="/" aria-label="MedMatch Global — home"><b>MedMatch</b><span> Global</span></a>
+    <div class="hdr__privacy">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+      Stays on your phone
+    </div>
+  </header>
+
+  <!-- ── 1. pick a treatment ─────────────────────────────────────── -->
+  <section class="screen is-on" id="s-pick">
+    <div class="pick">
+      <h1>See a <em>possible</em> result before you decide.</h1>
+      <p class="pick__sub">Take a photo, move the sliders, and get a picture of what you are actually asking a surgeon for.</p>
+
+      <div class="tiles">
+        <button class="tile" data-treat="dental">
+          <span class="tile__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M12 3C8.5 3 7 4.5 5.5 4.5S3 6 3 9c0 4 1.5 12 3 12s1.5-6 3-6h6c1.5 0 1.5 6 3 6s3-8 3-12c0-3-1-4.5-2.5-4.5S15.5 3 12 3z"/>
+            </svg>
+          </span>
+          <span>
+            <span class="tile__t">Teeth</span>
+            <span class="tile__b">Whitening, crowns, veneers</span>
+          </span>
+          <span class="tile__go">&rsaquo;</span>
+        </button>
+
+        <button class="tile" data-treat="nose">
+          <span class="tile__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M12 3v7l-3 5c-.6 1 .1 2.3 1.3 2.3h3.4c1.2 0 1.9-1.3 1.3-2.3l-3-5"/>
+              <path d="M8 17.5c1 1.3 2.4 2 4 2s3-.7 4-2"/>
+            </svg>
+          </span>
+          <span>
+            <span class="tile__t">Nose</span>
+            <span class="tile__b">Bridge, width, tip</span>
+          </span>
+          <span class="tile__go">&rsaquo;</span>
+        </button>
+
+        <button class="tile" data-treat="hair">
+          <span class="tile__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M4 13c0-5 3.6-8 8-8s8 3 8 8"/>
+              <path d="M4 13c1.5-2 3-3 5-3s3 1 3 1 1-1 3-1 3.5 1 5 3"/>
+              <path d="M6 13v6M18 13v6"/>
+            </svg>
+          </span>
+          <span>
+            <span class="tile__t">Hair</span>
+            <span class="tile__b">Hairline plan + graft estimate</span>
+          </span>
+          <span class="tile__go">&rsaquo;</span>
+        </button>
+
+        <button class="tile" data-treat="knee" data-nosim>
+          <span class="tile__ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M9 3v6a3 3 0 0 0 6 0"/><path d="M9 21v-6a3 3 0 0 1 6 0"/>
+              <circle cx="12" cy="12" r="2.5"/>
+            </svg>
+          </span>
+          <span>
+            <span class="tile__t">Knee</span>
+            <span class="tile__b">Replacement, meniscus</span>
+          </span>
+          <span class="tile__go">No photo</span>
+        </button>
+      </div>
+
+      <p class="note">
+        <b>This is a drawing, not a diagnosis.</b> It is a filter running on your
+        phone, the same way a camera app works. It has not been checked by a
+        doctor and it cannot see your bone, your gums or your health. Use it to
+        show a surgeon what you want — never as a reason to expect a result.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── 2. camera ───────────────────────────────────────────────── -->
+  <section class="screen" id="s-cam">
+    <div class="cam">
+      <video class="cam__video" id="video" playsinline muted autoplay></video>
+      <canvas class="cam__guide" id="guide"></canvas>
+      <p class="cam__hint" id="hint">Starting camera…</p>
+
+      <div class="cam__bar">
+        <button class="cam__side" id="btn-upload">Upload</button>
+        <button class="shutter" id="btn-shoot" disabled aria-label="Take photo"></button>
+        <button class="cam__side" id="btn-flip">Flip</button>
+      </div>
+
+      <div class="boot" id="boot">
+        <div>
+          <div class="boot__spin"></div>
+          <p id="boot-msg">Loading the face model — about 15&nbsp;MB, once only. Nothing is uploaded.</p>
+        </div>
+      </div>
+    </div>
+    <input type="file" id="file" accept="image/*" hidden>
+  </section>
+
+  <!-- ── 3. result ───────────────────────────────────────────────── -->
+  <section class="screen" id="s-res">
+    <div class="res">
+      <div class="stage" id="stage">
+        <canvas id="cv-before"></canvas>
+        <canvas id="cv-after"></canvas>
+        <span class="tag tag--a">Today</span>
+        <span class="tag tag--b" id="tag-after">Illustration</span>
+        <div class="handle" id="handle"></div>
+        <div class="stage__grab" id="grab"></div>
+        <div class="busy" id="busy" hidden>Rendering…</div>
+      </div>
+
+      <div class="ctl">
+        <button class="back" id="btn-back">&lsaquo; Start over</button>
+        <div class="ctl__hd">
+          <h2 id="res-title">Teeth</h2>
+          <button class="ctl__reset" id="btn-reset">Reset</button>
+        </div>
+        <div id="sliders"></div>
+
+        <div class="ro" id="readout" hidden></div>
+
+        <p class="disc" id="disc"></p>
+      </div>
+
+      <div class="acts">
+        <a class="btn btn--go" id="btn-book" href="#">Ask a surgeon what is realistic</a>
+        <button class="btn btn--gh" id="btn-save">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <path d="M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          Save
+        </button>
+        <button class="btn btn--gh" id="btn-retake">Retake</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 4. knee: no photo simulation ────────────────────────────── -->
+  <section class="screen" id="s-knee">
+    <div class="nosim">
+      <button class="back" id="btn-back2">&lsaquo; Back</button>
+      <h1>A knee does not show up in a photo.</h1>
+      <p>
+        We could draw you something. It would be meaningless — a knee
+        replacement changes how you move, not how you look. So here is the
+        thing that actually matters instead.
+      </p>
+      <ul class="tl">
+        <li>
+          <div class="tl__w">Day 1&ndash;2</div>
+          <div class="tl__t">On your feet, with a frame</div>
+          <div class="tl__b">Standing the day after surgery is normal and expected. The physio starts before you leave the room.</div>
+        </li>
+        <li>
+          <div class="tl__w">Week 1</div>
+          <div class="tl__t">Stairs, slowly</div>
+          <div class="tl__b">Most people manage a flight of stairs with a rail before they fly home. This is the week you are still in Turkey.</div>
+        </li>
+        <li>
+          <div class="tl__w">Week 6</div>
+          <div class="tl__t">Walking without a stick</div>
+          <div class="tl__b">Indoors first, then short distances outside. Swelling is still normal at this point.</div>
+        </li>
+        <li>
+          <div class="tl__w">Month 3</div>
+          <div class="tl__t">Back to ordinary days</div>
+          <div class="tl__b">Shopping, driving, a normal walk. The pain you came in with is usually gone by here.</div>
+        </li>
+        <li>
+          <div class="tl__w">Month 12</div>
+          <div class="tl__t">As good as it gets</div>
+          <div class="tl__b">Full recovery takes a year. Cycling and swimming, yes. Running and jumping, generally not.</div>
+        </li>
+      </ul>
+      <p class="disc" style="margin-top:18px">
+        <b>Typical, not promised.</b> These are ordinary timelines for an
+        uncomplicated knee replacement. Age, weight, other conditions and how
+        the joint looked before surgery all change them. Your surgeon gives you
+        your timeline — this one is only here so you know what to ask about.
+      </p>
+    </div>
+    <div class="acts">
+      <a class="btn btn--go" id="btn-book2" href="#">Talk to us about a knee</a>
+    </div>
+  </section>
+
+</div>
+
+<script type="module" src="js/preview/app.js"></script>
+</body>
+</html>
