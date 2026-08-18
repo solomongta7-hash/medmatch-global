@@ -650,21 +650,36 @@ $("#btn-save").addEventListener("click", () => {
    available is for the person to press and hold it themselves. */
 function showForLongPress(blob) {
   const url = URL.createObjectURL(blob);
+
   const wrap = document.createElement("div");
   wrap.className = "saveover";
-  wrap.innerHTML =
-    '<p class="saveover__tip">Press and hold the picture, then choose ' +
-    '<b>Save to Photos</b>.</p>' +
-    '<img alt="Your preview, ready to save">' +
-    '<button class="saveover__close" type="button">Done</button>';
-  wrap.querySelector("img").src = url;
+
+  const tip = document.createElement("p");
+  tip.className = "saveover__tip";
+  tip.append("Press and hold the picture, then choose ");
+  const strong = document.createElement("b");
+  strong.textContent = "Save to Photos";
+  tip.append(strong, ".");
+
+  /* Built with its src already set, so the element never exists in a
+     state where it could paint as a broken image. */
+  const img = document.createElement("img");
+  img.alt = "Your preview, ready to save";
+  img.src = url;
+
+  const done = document.createElement("button");
+  done.className = "saveover__close";
+  done.type = "button";
+  done.textContent = "Done";
 
   const close = () => {
     wrap.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
-  wrap.querySelector("button").addEventListener("click", close);
+  done.addEventListener("click", close);
   wrap.addEventListener("click", e => { if (e.target === wrap) close(); });
+
+  wrap.append(tip, img, done);
   document.querySelector(".app").appendChild(wrap);
 }
 
