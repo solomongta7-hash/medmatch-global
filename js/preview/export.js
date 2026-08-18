@@ -160,25 +160,75 @@ function roundRect(g, x, y, w, h, r) {
   g.closePath();
 }
 
-/** Save, or hand to the OS share sheet on a phone where that exists. */
-export async function saveCard(canvas, filename) {
-  const blob = await new Promise(res => canvas.toBlob(res, "image/jpeg", 0.92));
-  if (!blob) return false;
+/* Save the card.
 
-  const file = new File([blob], filename, { type: "image/jpeg" });
-  if (navigator.canShare && navigator.canShare({ files: [file] })) {
-    try {
-      await navigator.share({ files: [file] });
-      return true;
-    } catch (e) {
-      if (e && e.name === "AbortError") return true;   // user cancelled
-    }
+   This must stay SYNCHRONOUS up to the navigator.share() call. Safari
+   only allows share() while the page still holds "transient user
+   activation" from the tap, and an `await` gives that up — the earlier
+   version awaited canvas.toBlob() first, so on iPhone share() threw
+   NotAllowedError every time. It then fell through to an <a download>,
+   which iOS Safari does not honour for blob URLs either, so the button
+   did nothing at all and said nothing about it.
+
+   toDataURL() is synchronous, so the blob is built from that instead and
+   share() is reached inside the same task as the click.
+
+   Called directly from the click handler — do not await anything before
+   this function. */
+export function saveCard(canvas, filename) {
+  let blob;
+  try {
+    blob = dataURLToBlob(canvas.toDataURL("image/jpeg", 0.92));
+  } catch (e) {
+    return Promise.resolve({ ok: false, how: "encode-failed" });
   }
 
-  const url = URL.createObjectURL(blob);
+  const file = new File([blob], filename, { type: "image/jpeg" });
+
+  /* 1. The share sheet — the only route that reliably reaches an
+        iPhone's camera roll. Still inside the user gesture here. */
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    return navigator.share({ files: [file] })
+      .then(() => ({ ok: true, how: "share" }))
+      .catch(e => {
+        if (e && e.name === "AbortError") return { ok: true, how: "cancelled" };
+        return downloadOrShow(blob, filename);
+      });
+  }
+
+  return Promise.resolve(downloadOrShow(blob, filename));
+}
+
+/* 2. A normal download, which is what desktop and Android want. If the
+      browser ignores the download attribute — iOS Safari does — the
+      caller falls back to showing the image so it can be long-pressed,
+      which is how saving a picture works on an iPhone anyway. */
+function downloadOrShow(blob, filename) {
   const a = document.createElement("a");
-  a.href = url; a.download = filename;
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 4000);
-  return true;
+  if (typeof a.download === "undefined" || isIOS()) {
+    return { ok: true, how: "longpress", blob };
+  }
+  const url = URL.createObjectURL(blob);
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 8000);
+  return { ok: true, how: "download" };
+}
+
+function isIOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    /* iPadOS 13+ reports itself as a Mac; the touch points give it away. */
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+}
+
+function dataURLToBlob(dataURL) {
+  const [head, b64] = dataURL.split(",");
+  const mime = /:(.*?);/.exec(head)[1];
+  const bin = atob(b64);
+  const buf = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+  return new Blob([buf], { type: mime });
 }

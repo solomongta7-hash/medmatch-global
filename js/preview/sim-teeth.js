@@ -19,6 +19,7 @@
    Drop any one of them and it reads as edited. */
 
 import { IDX, pt, dist, polygon, bounds, mouthOpenRatio } from "./face.js";
+import { drawBlurred, blurInPlace } from "./blur.js";
 
 /**
  * @param {CanvasRenderingContext2D} ctx  canvas already holding the photo
@@ -78,7 +79,6 @@ function buildMask(poly, ox, oy, w, h) {
 
   g.fillStyle = "#000";
   g.fillRect(0, 0, w, h);
-  g.filter = `blur(${Math.max(1, Math.round(Math.min(w, h) * 0.05))}px)`;
   g.fillStyle = "#fff";
   g.beginPath();
   poly.forEach((p, i) => {
@@ -87,6 +87,7 @@ function buildMask(poly, ox, oy, w, h) {
   });
   g.closePath();
   g.fill();
+  blurInPlace(c, Math.max(1, Math.round(Math.min(w, h) * 0.05)));
 
   const d = g.getImageData(0, 0, w, h).data;
   const m = new Float32Array(w * h);
@@ -370,8 +371,7 @@ function drawArch(img, tooth, mask, lm, ox, oy, w, h, amount) {
   const soft = document.createElement("canvas");
   soft.width = w; soft.height = h;
   const sg = soft.getContext("2d", { willReadFrequently: true });
-  sg.filter = `blur(${Math.max(0.5, mouthW * 0.005)}px)`;
-  sg.drawImage(c, 0, 0);
+  drawBlurred(sg, c, Math.max(0.5, mouthW * 0.005));
   const arch = sg.getImageData(0, 0, w, h).data;
 
   /* Relight with the mouth's own shading. */
@@ -419,8 +419,7 @@ function highFrequency(lum, w, h) {
   const b = document.createElement("canvas");
   b.width = w; b.height = h;
   const bg = b.getContext("2d", { willReadFrequently: true });
-  bg.filter = `blur(${Math.max(1, Math.round(Math.min(w, h) * 0.03))}px)`;
-  bg.drawImage(c, 0, 0);
+  drawBlurred(bg, c, Math.max(1, Math.round(Math.min(w, h) * 0.03)));
   const bd = bg.getImageData(0, 0, w, h).data;
 
   const out = new Float32Array(w * h);
@@ -476,8 +475,7 @@ function luminanceEnvelope(lum, mask, w, h) {
   const blur = document.createElement("canvas");
   blur.width = w; blur.height = h;
   const bg = blur.getContext("2d", { willReadFrequently: true });
-  bg.filter = `blur(${Math.max(2, Math.round(Math.min(w, h) * 0.22))}px)`;
-  bg.drawImage(c, 0, 0);
+  drawBlurred(bg, c, Math.max(2, Math.round(Math.min(w, h) * 0.22)));
 
   const bd = bg.getImageData(0, 0, w, h).data;
   const env = new Float32Array(w * h);
