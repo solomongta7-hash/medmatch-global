@@ -144,6 +144,9 @@
   .intro__cta { margin-top: 40px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
   .intro__time { font-size: 13px; color: var(--ink-soft); }
   .intro__skip { margin-top: 28px; font-size: 13.5px; color: var(--ink-soft); }
+  .qskip { margin-top: 26px; font-size: 13px; color: var(--ink-soft); }
+  .qskip a { color: var(--teal); border-bottom: 1px solid rgba(18, 112, 123, 0.35); }
+  .qskip a:hover { color: var(--turquoise); }
   .intro__skip a { color: var(--teal); border-bottom: 1px solid rgba(18, 112, 123, 0.35); }
   .intro__skip a:hover { color: var(--turquoise); }
 
@@ -387,8 +390,13 @@
         <span class="intro__time">About two minutes. No account, no payment.</span>
       </div>
 
+      <!-- The old version of this line offered only the calendar, which is a bigger
+           commitment than the nine questions, not a smaller one. Somebody who won't
+           answer nine questions is not going to book a call either. ask.html is the
+           actual smaller step, so it goes first. -->
       <p class="intro__skip">Rather not answer questions?
-        <a href="/book-call.html">Go straight to the calendar</a> — the call is free either way.</p>
+        <a href="/ask.html" id="skipask">Just ask us one instead</a>, or
+        <a href="/book-call.html">go straight to the calendar</a>. Both are free.</p>
     </section>
 
     <!-- ══════════ QUESTIONS (rendered by script) ══════════ -->
@@ -459,6 +467,74 @@ var CAMPAIGN = (function () {
    `score` is readiness only — how close this person is to being able
    to act. It is never a judgement of who deserves care.
    ═══════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   FUNNEL
+
+   Nine questions is a lot to ask of somebody who arrived from an advert
+   thirty seconds ago, and until now there was no way to know whether
+   they refused at the intro or gave up at question six. Same event names
+   and wire format ask.html and the True Cost Calculator use, so the
+   Events sheet needs no changes:
+
+     view          opened the page
+     step2         pressed Begin - agreed to the nine questions
+     step3         reached the contact form, having answered all of them
+     lead_submit   pressed send
+     lead_ok       reached the sheet
+     lead_fail     did not
+
+   `page` carries the furthest question reached when the event fired, so
+   the gap between step2 and step3 says how many start and never finish.
+
+   A random per-tab id and the campaign. Never an answer, never a word
+   they typed - the answers here are health information and belong only
+   in the lead itself.
+   ═══════════════════════════════════════════════════════════ */
+var firedEv = {};
+var deepest = 0;
+
+function sessionId() {
+  var id = null;
+  try { id = sessionStorage.getItem("mm_sid"); } catch (e) {}
+  if (!id) {
+    id = "s" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+    try { sessionStorage.setItem("mm_sid", id); } catch (e) {}
+  }
+  return id;
+}
+
+function trackingOn() {
+  if (!CONFIG.endpoint) return false;
+  var h = location.hostname;
+  var local = !h || h === "localhost" || h === "127.0.0.1" || location.protocol === "file:";
+  if (!local) return true;
+  /* To exercise this from a local server: sessionStorage.mm_track_test = "1" */
+  try { return sessionStorage.getItem("mm_track_test") === "1"; } catch (e) { return false; }
+}
+
+function track(event) {
+  if (!trackingOn()) return;
+  if (firedEv[event]) return;
+  firedEv[event] = true;
+
+  var payload = {
+    action: "event",
+    event: event,
+    session: sessionId(),
+    treatment: "Before You Book",
+    page: ("Before You Book · reached q" + (deepest + 1) +
+           (CAMPAIGN ? " · ad " + CAMPAIGN : "")).slice(0, 400)
+  };
+
+  try {
+    fetch(CONFIG.endpoint, { method: "POST", body: JSON.stringify(payload), keepalive: true })
+      .catch(function () {});
+  } catch (e) {}
+}
+
+/* The top of the funnel. Everything else is measured against this. */
+track("view");
+
 var TREATMENTS = {
   nose:   { label: "Rhinoplasty",      stay: "7 to 10 days" },
   dental: { label: "Dental treatment", stay: "5 to 12 days, sometimes split over two trips" },
@@ -637,7 +713,25 @@ if (CAMPAIGN.indexOf("dental") > -1) {
   }
 }
 
+/* Carry the advert across to ask.html, otherwise everyone who takes the smaller
+   step lands there anonymous and the campaign looks like it produced nothing. */
+function askHref() {
+  var qs = [];
+  if (CAMPAIGN) qs.push("utm_content=" + encodeURIComponent(CAMPAIGN));
+  var t = ["dental", "hair", "nose", "knee"].filter(function (k) {
+    return CAMPAIGN.indexOf(k) > -1;
+  })[0];
+  if (t) qs.push("t=" + t);
+  return qs.length ? "/ask.html?" + qs.join("&") : "/ask.html";
+}
+
+(function () {
+  var link = document.getElementById("skipask");
+  if (link) link.href = askHref();
+})();
+
 document.getElementById("start").addEventListener("click", function () {
+  track("step2");                     /* agreed to the nine questions */
   elIntro.style.display = "none";
   order = QUESTIONS.map(function (q) { return q.id; });
   go(0);
@@ -647,6 +741,8 @@ function q(id) { for (var i = 0; i < QUESTIONS.length; i++) if (QUESTIONS[i].id 
 
 function go(n) {
   idx = n;
+  if (n > deepest) deepest = n;       /* how far they actually got */
+  if (q(order[n]) && q(order[n]).type === "form") track("step3");
   elBar.style.width = Math.round((n / order.length) * 100) + "%";
   render(q(order[n]), n);
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -714,6 +810,15 @@ function render(def, n) {
         (def.type === "form" ? 'See my answer' : 'Continue') + '</button>') +
       (n > 0 ? '<button class="back" id="back">← Back</button>' : '') +
     '</div>' +
+    /* From the middle onwards, offer the smaller step. Somebody who stalls at
+       question six currently leaves and we get nothing at all; this turns them
+       into an answerable question instead. Not offered earlier, because the
+       nine questions are the point of the page. */
+    (n >= 3 && def.type !== "form"
+      ? '<p class="qskip">Longer than you expected? ' +
+        '<a href="' + askHref() + '">Ask us one question instead</a> — ' +
+        'we answer either way.</p>'
+      : '') +
   '</section>';
 
   elQs.innerHTML = html;
@@ -900,6 +1005,8 @@ function submit() {
 
   answers.contact = { name: name, email: email, phone: phone, note: note };
 
+  track("lead_submit");
+
   var v = verdict();
   showResult(v);
 
@@ -933,9 +1040,11 @@ function submit() {
          when the form was filled in — a lead that never arrived is not one.
          Deliberately no arguments: see the header of js/meta-pixel.js for why
          the verdict must never travel with this. */
+      track("lead_ok");
       if (window.mmLead) window.mmLead();
     })
     .catch(function () {
+      track("lead_fail");
       var box = document.getElementById("sendfail");
       if (box) box.style.display = "block";
     });
