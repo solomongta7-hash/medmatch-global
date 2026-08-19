@@ -852,6 +852,70 @@ var sending = false;
 
 var $ = function (id) { return document.getElementById(id); };
 
+/* ══════════════════════════════════════════════════════════════
+   FUNNEL
+
+   272 people reached this page from ads and none of them finished, and
+   there was no way to tell whether they left at the headline, at the
+   pills, or with their email half typed. Guessing cost a month.
+
+   Same five event names and the same wire format the True Cost
+   Calculator already uses, so the Events sheet and funnelReport() in
+   EVENTS-PATCH-ONEPASTE.gs need no changes at all:
+
+     view          opened the page
+     step2         picked a treatment — the first real engagement
+     step3         touched a contact field — actually trying to convert
+     lead_submit   pressed send and passed validation
+     lead_ok       it reached the sheet
+     lead_fail     it did not
+
+   A random per-session id, the step, the treatment and the campaign.
+   No cookies, no third party, and never a word the patient typed.
+   ═════════════════════════════════════════════════════════════ */
+var fired = {};
+
+function sessionId() {
+  var id = null;
+  try { id = sessionStorage.getItem("mm_sid"); } catch (e) {}
+  if (!id) {
+    id = "s" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+    try { sessionStorage.setItem("mm_sid", id); } catch (e) {}
+  }
+  return id;
+}
+
+function trackingOn() {
+  if (!CONFIG.endpoint) return false;
+  var h = location.hostname;
+  var local = !h || h === "localhost" || h === "127.0.0.1" || location.protocol === "file:";
+  if (!local) return true;
+  /* To exercise this from a local server: sessionStorage.mm_track_test = "1" */
+  try { return sessionStorage.getItem("mm_track_test") === "1"; } catch (e) { return false; }
+}
+
+function track(event) {
+  if (!trackingOn()) return;
+  if (fired[event]) return;          /* a funnel counts people, not tab-flips */
+  fired[event] = true;
+
+  var payload = {
+    action: "event",
+    event: event,
+    session: sessionId(),
+    treatment: picked.t ? (T[picked.t] || T.other).label : "not picked",
+    page: ("Ad Landing" + (CAMPAIGN ? " · ad " + CAMPAIGN : "")).slice(0, 400)
+  };
+
+  try {
+    /* keepalive so an event fired as they leave still lands. No headers,
+       same reason as the lead POST: it has to stay a simple request.
+       Errors are swallowed — analytics never shows a patient a failure. */
+    fetch(CONFIG.endpoint, { method: "POST", body: JSON.stringify(payload), keepalive: true })
+      .catch(function () {});
+  } catch (e) {}
+}
+
 /* ── dress the page for whichever ad sent them ───────────────── */
 function bandRow(r) {
   return '<span><span class="band__fig">' + r.fig + '</span>' +
@@ -946,11 +1010,14 @@ function pills(wrapId, key, after) {
     });
   });
 }
-pills("pt", "t", function (v) { dress(v); });
+pills("pt", "t", function (v) { dress(v); track("step2"); });
 pills("pc", "c", function (v) {
   /* Say it now, on the page, rather than in a reply three days later. */
   $("regionnote").classList.toggle("is-on", v === "other");
 });
+
+/* The top of the funnel. Everything else is measured against this. */
+track("view");
 
 /* ── errors ─────────────────────────────────────────────────── */
 function showErr(msg, focusId) {
@@ -971,6 +1038,12 @@ function showSendFail() {
 function hideErr() { $("err").classList.remove("is-on"); }
 
 /* ── the send ───────────────────────────────────────────────── */
+/* step3 is the moment they start giving us a way to reach them. Focus,
+   not keystrokes: we never want to know what they typed. */
+["fn", "fe", "fp"].forEach(function (id) {
+  $(id).addEventListener("focus", function () { track("step3"); });
+});
+
 $("form").addEventListener("submit", function (ev) {
   ev.preventDefault();
   if (sending) return;
@@ -989,6 +1062,8 @@ $("form").addEventListener("submit", function (ev) {
     return showErr("That email doesn't look right, and it's the only way we can reach you.", "fe");
   }
   hideErr();
+
+  track("lead_submit");
 
   sending = true;
   $("send").disabled = true;
@@ -1030,10 +1105,12 @@ $("form").addEventListener("submit", function (ev) {
     .then(function (res) { return res.json(); })
     .then(function (data) {
       if (!data || !data.ok) throw new Error("rejected");
+      track("lead_ok");
       succeed(name);
       if (window.mmLead) window.mmLead();          /* a lead once it has landed, not before */
     })
     .catch(function () {
+      track("lead_fail");
       sending = false;
       $("send").disabled = false;
       $("send").textContent = "Try that again";
