@@ -230,6 +230,19 @@
   }
   .pill:focus-visible { outline: 2px solid var(--turquoise); outline-offset: 2px; }
 
+  /* One-tap questions. Deliberately quieter than .pill: these are a way past
+     the blank box, not a fifth thing to decide. */
+  .qpick { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 10px; }
+  .qchip {
+    font: inherit; font-size: 12.5px; line-height: 1.25; text-align: left;
+    padding: 8px 12px; border-radius: 999px; cursor: pointer;
+    border: 1px dashed rgba(18, 112, 123, 0.45);
+    background: rgba(18, 112, 123, 0.05); color: var(--teal);
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+  }
+  .qchip:hover { border-style: solid; border-color: var(--turquoise); background: rgba(18, 112, 123, 0.1); }
+  .qchip:focus-visible { outline: 2px solid var(--turquoise); outline-offset: 2px; }
+
   .in {
     width: 100%; padding: 15px 17px; border-radius: 13px; border: 1px solid var(--line);
     background: var(--shell); font-family: var(--sans); font-size: 16px; color: var(--ink);
@@ -433,8 +446,8 @@
             <h2>Ask your question.</h2>
             <span class="card__time">About 40 seconds</span>
           </div>
-          <p class="card__sub" id="cardsub">Five short things. The question is the one that matters — write it the way
-          you'd say it out loud, and vague is fine.</p>
+          <p class="card__sub" id="cardsub">Two taps and your email. Write a question if you have one — tap one of ours
+          if you'd rather, and vague is fine.</p>
 
           <fieldset class="fset">
             <legend class="fset__lab">What are you looking into?</legend>
@@ -462,7 +475,8 @@
           </fieldset>
 
           <fieldset class="fset">
-            <legend class="fset__lab">Your question <span>— the part we actually answer</span></legend>
+            <legend class="fset__lab">Your question <span>— or tap one</span></legend>
+            <div class="qpick" id="qpick"></div>
             <textarea class="in" id="fq" rows="4" aria-label="Your question" placeholder="e.g. I've been quoted $28,000 for six implants at home. Is that a fair thing to compare, and what would you need from me to say?"></textarea>
           </fieldset>
 
@@ -811,6 +825,25 @@ var T = {
 
 var COUNTRY = { ca: "Canada", us: "United States", other: "Outside North America" };
 
+/* One-tap questions, per treatment.
+
+   The written question used to be required, and it was the most expensive
+   thing on this page. A cold click off a price ad had to compose a paragraph
+   before it could become a lead, with a placeholder modelling a long and
+   articulate one. 272 people reached this page from ads and none of them
+   finished it.
+
+   Tapping one of these writes it into the box, still editable. It is their
+   question either way, and someone who taps "What would this cost me?" is
+   telling us as much as someone who types it. */
+var QS = {
+  dental: ["What would this cost me?", "Is my case too big for one trip?", "How do I know the dentist is any good?"],
+  hair:   ["How many grafts do I actually need?", "What would this cost me?", "Will it look obvious?"],
+  nose:   ["What would this cost me?", "Is mine a revision case?", "How long before I look normal?"],
+  knee:   ["What would this cost me?", "How long would I be away?", "Is it safe to fly afterwards?"],
+  other:  ["What would this cost me?", "Is this worth doing abroad at all?", "What do you need to know from me?"]
+};
+
 /* ═══════════════════════════════════════════════════════════════
    STATE
    ═══════════════════════════════════════════════════════════════ */
@@ -836,6 +869,7 @@ function dress(key, fromAd) {
   $("h1").innerHTML        = d.h1;
   $("lede").textContent    = d.lede;
   $("fq").placeholder      = d.ph;
+  drawQs(key);
 
   $("bandhead").textContent = d.head;
   $("bandhome").innerHTML = bandRow(d.home);
@@ -867,6 +901,30 @@ if (T[URL_T]) {
   dress(URL_T, true);          // came from the ad — safe to title
 } else {
   dress("other");
+}
+
+/* ── one-tap questions ──────────────────────── */
+function drawQs(key) {
+  var box = $("qpick");
+  if (!box) return;
+  var list = QS[key] || QS.other;
+  box.innerHTML = "";
+  list.forEach(function (q) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "qchip";
+    b.textContent = q;
+    b.addEventListener("click", function () {
+      var fq = $("fq");
+      /* Never overwrite something they wrote themselves. */
+      if (fq.value.trim() && fq.value.trim() !== fq.dataset.chip) return fq.focus();
+      fq.value = q;
+      fq.dataset.chip = q;
+      hideErr();
+      fq.focus();
+    });
+    box.appendChild(b);
+  });
 }
 
 /* ── pills ──────────────────────────────────────────────────── */
@@ -926,7 +984,6 @@ $("form").addEventListener("submit", function (ev) {
 
   if (!picked.t) return showErr("Pick what you're looking into first — one tap.");
   if (!picked.c) return showErr("Tell us where you live, so we can be straight with you about whether we're the right people.");
-  if (!ques)     return showErr("Write your question — that's the part we answer.", "fq");
   if (!name)     return showErr("We need a first name to reply to.", "fn");
   if (!email || email.indexOf("@") < 1 || email.indexOf(".") < 2) {
     return showErr("That email doesn't look right, and it's the only way we can reach you.", "fe");
@@ -943,7 +1000,13 @@ $("form").addEventListener("submit", function (ev) {
               (CAMPAIGN ? " · ad " + CAMPAIGN : "") +
               (REF ? " · ref " + REF : "")).slice(0, 400);
 
-  var message = ("THEIR QUESTION:\n" + ques +
+  /* An empty box is no longer a reason to refuse the lead. The advisor is
+     told plainly there was not one, and what to open with instead. */
+  var noQ = "— they didn't write one. Open with what " +
+            (T[picked.t] || T.other).label.toLowerCase() +
+            " actually costs, then ask what's worrying them.";
+
+  var message = ("THEIR QUESTION:\n" + (ques || noQ) +
                  "\n\n— — —\nLives in: " + COUNTRY[picked.c] +
                  "\nLooking into: " + (T[picked.t] || T.other).label +
                  "\nCame from: ad landing page" + (CAMPAIGN ? " (" + CAMPAIGN + ")" : "") +
