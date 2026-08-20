@@ -825,6 +825,43 @@ var T = {
 
 var COUNTRY = { ca: "Canada", us: "United States", other: "Outside North America" };
 
+/* Some ads promise a particular case rather than the entry price, and the page
+   has to answer with the same number or the click has been lied to.
+
+   The full-arch ad says All-on-4 is $5,530 against $24,000-$30,000 at home.
+   Landing that click on "$550 - $1,070 each" is a different subject entirely:
+   it reads as a cheaper, smaller thing than the one they clicked, which is the
+   bait-and-switch this site is supposed to never do.
+
+   Keyed on a substring of utm_content, so a new ad opts in by being named for
+   the case it sells. Figures here must match the creative and
+   answers/all-on-4-vs-all-on-6-turkey.html. Change one, change all three. */
+var CAMPAIGN_CASE = {
+  fullarch: {
+    /* Only dresses the dental pill. Without this the override outlived the
+       treatment: arriving on the full-arch ad and then tapping Knee left
+       All-on-4 dental prices sitting under a knee heading. */
+    t: "dental",
+    eyebrow: "FULL-ARCH DENTAL IN TÜRKIYE",
+    h1: "Ask us anything about a full arch in Türkiye. <em>Including whether your case is big enough.</em>",
+    lede: "All-on-4, All-on-6, full mouth. Tell us what you've been quoted at home and what's worrying " +
+          "you — a patient advisor writes back within one business day.",
+    ph: "e.g. I've been quoted $27,000 for an upper arch at home. What would the same work cost with you, and how many trips?",
+    head: "All-on-4, one arch — indicative price",
+    home: { fig: "$24,000 – $30,000", unit: "one arch", where: "U.S. / Canada" },
+    here: { fig: "$5,530", unit: "all-in, per jaw", where: "Türkiye" }
+  }
+};
+
+function caseOverride(key) {
+  var keys = Object.keys(CAMPAIGN_CASE);
+  for (var i = 0; i < keys.length; i++) {
+    var c = CAMPAIGN_CASE[keys[i]];
+    if (CAMPAIGN.indexOf(keys[i]) > -1 && c.t === key) return c;
+  }
+  return null;
+}
+
 /* One-tap questions, per treatment.
 
    The written question used to be required, and it was the most expensive
@@ -928,6 +965,15 @@ function bandRow(r) {
    note at the bottom of this function. */
 function dress(key, fromAd) {
   var d = T[key] || T.other;
+
+  /* The ad named a case: answer with that case's numbers, not the entry price. */
+  var ov = caseOverride(key);
+  if (ov) {
+    var merged = {};
+    Object.keys(d).forEach(function (k) { merged[k] = d[k]; });
+    Object.keys(ov).forEach(function (k) { merged[k] = ov[k]; });
+    d = merged;
+  }
 
   $("eyebrow").textContent = d.eyebrow;
   $("h1").innerHTML        = d.h1;
