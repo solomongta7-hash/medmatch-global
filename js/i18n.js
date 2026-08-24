@@ -174,20 +174,24 @@
     ".lang-pick select{position:absolute;inset:0;width:100%;height:100%;min-height:44px;" +
       "opacity:0;cursor:pointer;font-size:16px}" +   /* 16px stops iOS zooming on focus */
     ".lang-pick:focus-within{outline:2px solid currentColor;outline-offset:4px;border-radius:6px}" +
-    ".lang-pick--float{position:fixed;right:14px;bottom:14px;z-index:9999;background:#06333B;" +
+    ".lang-pick--float{position:fixed;right:14px;bottom:14px;z-index:9999;background:var(--sea-deep,#06333B);" +
       "color:#fff;padding:10px 16px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.28)}" +
 
+    /* Matches the site's own callout idiom — .callout in true-cost.css and
+       .note in preview.css both use an even hairline border over a tinted
+       ground. No side accent: the heaviest rule anywhere on the site is 3px,
+       and every other border-left here is a 1px divider. */
     ".i18n-notice{display:flex;align-items:center;gap:16px;flex-wrap:wrap;" +
-      "margin:0 0 34px;padding:18px 22px;border:1px solid rgba(11,110,120,.28);" +
-      "border-left:4px solid #0B6E78;border-radius:12px;background:rgba(11,110,120,.06)}" +
-    ".i18n-notice svg{width:26px;height:26px;color:#0B6E78;flex:none}" +
+      "margin:0 0 34px;padding:18px 22px;border:1px solid rgba(18,112,123,.22);" +
+      "border-radius:12px;background:rgba(18,112,123,.05)}" +
+    ".i18n-notice svg{width:26px;height:26px;color:var(--teal,#12707B);flex:none}" +
     ".i18n-notice p{margin:0;flex:1 1 300px;display:flex;flex-direction:column;gap:4px}" +
-    ".i18n-notice strong{font:600 17px/1.4 var(--sans,system-ui,sans-serif);color:#06333B}" +
+    ".i18n-notice strong{font:600 17px/1.4 var(--sans,system-ui,sans-serif);color:var(--sea-deep,#06333B)}" +
     ".i18n-notice span{font:400 16px/1.55 var(--sans,system-ui,sans-serif);opacity:.85}" +
     ".i18n-notice__cta{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;" +
-      "border-radius:999px;background:#0B6E78;color:#fff;text-decoration:none;" +
+      "border-radius:999px;background:var(--teal,#12707B);color:#fff;text-decoration:none;" +
       "font:600 16px/1 var(--sans,system-ui,sans-serif);white-space:nowrap}" +
-    ".i18n-notice__cta:hover,.i18n-notice__cta:focus{background:#06333B}" +
+    ".i18n-notice__cta:hover,.i18n-notice__cta:focus{background:var(--sea-deep,#06333B)}" +
     "@media(prefers-color-scheme:dark){.i18n-notice strong{color:inherit}}";
 
   function mountStyles() {
