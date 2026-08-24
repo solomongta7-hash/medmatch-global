@@ -6,6 +6,11 @@
 (function () {
   "use strict";
 
+  /* Translate before anything reads the DOM. The headline below is split
+     letter by letter for the reveal, so the swap has to land first or the
+     animation would be built out of the English text. */
+  if (window.MMi18n) window.MMi18n.apply();
+
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var hasGsap = typeof gsap !== "undefined";
   var isTouch = window.matchMedia("(hover: none)").matches;

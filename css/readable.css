@@ -1,0 +1,638 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   MEDMATCH GLOBAL — readability layer
+   ───────────────────────────────────────────────────────────────────────
+   Our patients are mostly between fifty and seventy and are reading about
+   surgery, often on a phone. This file does three things:
+
+     1. Puts a floor under the type. Nothing that carries meaning is
+        allowed below 12.5px; the site had text at 9px.
+     2. Makes everything you can tap at least 44px tall.
+     3. Gives keyboard and screen-reader users a focus ring they can see.
+
+   The design itself is untouched — same fonts, same colours, same layout.
+   Sizes below were generated from the existing stylesheets, so a rule here
+   exists only where the original was genuinely too small to read.
+
+   Load LAST, after every other stylesheet.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ───────── 1. a floor under the type ───────── */
+
+/* was 7px */
+.nav__brand-sub { font-size: 12.5px; }
+
+/* was 8px */
+.head__sub { font-size: 12.5px; }
+
+/* was 8.5px */
+.foot__brand span,
+.partner__lock,
+.tpanel__save { font-size: 12.5px; }
+
+/* was 9px */
+.ba__tag,
+.footer__brand span,
+.head__note,
+.mm-badge__text,
+.module__free,
+.pkg__clinic,
+.portal-top .brand span { font-size: 12.5px; }
+
+/* was 9.5px */
+.doctor__field,
+.flow__label,
+.hero__eyebrow,
+.hero__proof span,
+.nav__cta,
+.pkg__tag,
+.tier__flag { font-size: 12.5px; }
+
+/* was 10px */
+.article-hero__tag,
+.choice__from em,
+.hero__scrollcue span,
+.jcard__tag,
+.mods li span:last-child,
+.module__num,
+.module__time,
+.partner__type,
+.pkg__headline em,
+.pkg__inc li::before,
+.pkgrow span:nth-child(2)::before,
+.pkgrow__earn::before,
+.prog__num,
+.pstep__media-cap,
+.res__label,
+.rphoto figcaption,
+.soon__badge,
+.spotlight__type,
+.steps__b,
+.steps__b i,
+.tier__list li::before,
+.tpanel__meta div > span { font-size: 12.5px; }
+
+/* was 10.5px */
+.accreditation,
+.bar__label,
+.btn,
+.campus__role,
+.disc__tech,
+.earn__result em,
+.ffield label,
+.footer__legal,
+.gplaceholder span,
+.pkgrow--head,
+.pkgrow--head span:first-child,
+.story--soon .story__meta strong,
+.story-hero__tag,
+.sum__price span,
+.tag,
+.tile[data-nosim] .tile__go,
+.verdict__tag { font-size: 12.5px; }
+
+/* was 11px */
+#signOut,
+.article-related h4,
+.auth-tabs button,
+.band__head,
+.band__where,
+.case__who,
+.crumbs,
+.currency__btn,
+.doctor__title,
+.foot__m,
+.footer__col h4,
+.fset__lab,
+.hdr__privacy,
+.head__name,
+.hero__cta .btn,
+.hero__stat span,
+.invitation__points li::before,
+.jcard__date,
+.lbl,
+.loader__word,
+.mini__lab,
+.nav__brand-name,
+.nav__note,
+.numbers__item > span,
+.partner__img--soon span,
+.pkg__fine,
+.pkg__table .free,
+.plist__count,
+.plist__table td span,
+.priced__head,
+.priced__where,
+.ptag,
+.q__count,
+.rcard__img,
+.res__bar span,
+.story__meta span,
+.tcc .eyebrow,
+.tier__name,
+.tl__w,
+.treatments::after,
+.trust h3 span,
+.verdict__why h3,
+table.ct thead th { font-size: 13px; }
+
+/* was 11.5px */
+.chat-panel__header p,
+.chip,
+.cmp thead th,
+.footer__base,
+.invitation__microcopy,
+.partner__addr,
+.prog__go,
+.qa__label,
+.sld__hint,
+.steps__n,
+.sum__note,
+.toc__label { font-size: 13px; }
+
+/* was 12px */
+.auth-foot,
+.auth-top a,
+.back,
+.cam__side,
+.card__time,
+.chat-chip,
+.disc,
+.earn__fine,
+.eyebrow,
+.field label,
+.field__label label,
+.fine,
+.hubcard__go,
+.jcard__read,
+.jump__chip,
+.lang-pick select,
+.ledger__h span,
+.mobilebar__btn,
+.nav__links a,
+.opt__p,
+.pagehead a.back,
+.partner__link,
+.pfine,
+.pkg__hbtn,
+.portal-top nav,
+.res__save em,
+.sld__vl,
+.spotlight__cta,
+.tab,
+.tpanel__link,
+.voice figcaption span,
+th { font-size: 14px; }
+
+/* was 12.5px */
+.addon b,
+.article-footnote,
+.article-hero__date, .article-hero__read,
+.ba figcaption,
+.band__foot,
+.band__unit,
+.bar__sub,
+.bar__txt,
+.cases__note,
+.choice__sub,
+.ctl__reset,
+.foot,
+.footer__loc,
+.fx button,
+.hint,
+.joinband__note,
+.ledger__note,
+.line__l small,
+.opt__t small,
+.pkg__free span,
+.pkg__headline span,
+.pkg__more > summary,
+.pkg__table td,
+.priced__foot,
+.priced__unit,
+.qchip,
+.residence__note,
+.spotlight__facts li,
+.spotlight__note,
+.tcc .btn,
+.tiers__note,
+.tile__b { font-size: 14px; }
+
+/* was 13px */
+.auth-alt,
+.auth-alt button,
+.boot__err button,
+.busy,
+.campus__addr,
+.ct__caption,
+.ct__note,
+.field__hint,
+.flow__step p,
+.foot-note,
+.foot__brand,
+.foot__d,
+.footer__link,
+.intro__time,
+.mmenu a,
+.opt__b,
+.partner__desc,
+.pcalc-out div em,
+.pkg__inc li,
+.pkgrows__note,
+.qskip,
+.rcard__body p,
+.sample-banner,
+.story-quote cite,
+.sum__idle,
+.summary h2,
+.tbadge,
+.tl__b,
+.verified,
+.viewtabs button,
+.voice figcaption strong,
+footer { font-size: 15px; }
+
+/* was 13.5px */
+.auth-msg,
+.bar__txt strong,
+.boot p,
+.cam__hint,
+.chat-bubble,
+.chat-panel__form input,
+.check span,
+.chooser__alt,
+.doctor__bio,
+.footer__desc,
+.intro__skip,
+.module p,
+.note,
+.opt__sub,
+.pkg__desc,
+.pkg__hnote,
+.pkg__table .total td,
+.plist__table td,
+.rate__suf,
+.sld__lb,
+.story__meta strong,
+.sum__quote,
+.sum__what { font-size: 15px; }
+
+/* ───────── 2. tracking on small capitals ─────────
+   0.42em between letters reads as separate letters, not a word, once
+   the type is this small. Eased, not removed — it is still the brand. */
+.accreditation,
+.doctor__field,
+.earn__result em,
+.ffield label,
+.flow__label,
+.foot__brand span,
+.footer__brand span,
+.footer__col h4,
+.head__sub,
+.hero__scrollcue span,
+.loader__word,
+.module__num,
+.nav__brand-sub,
+.partner__img--soon span,
+.partner__type,
+.pkg__tag,
+.pkgrow--head,
+.portal-top .brand span,
+.prog__num,
+.q__count,
+.res__label,
+.soon__badge,
+.spotlight__type,
+.tcc .eyebrow,
+.tier__flag,
+.tier__name,
+.verdict__why h3 { letter-spacing: 0.26em; }
+
+/* ───────── 3. anything you can tap is at least 44px ─────────
+   Apple's and Google's own floor. Several nav links and chips were 31px,
+   which is a real miss for anyone whose hands are less steady. */
+
+.nav__links a,
+.nav__brand,
+.mmenu a,
+.footer a,
+.jump__chip,
+.chat-chip,
+.chat-panel__close,
+.spotlight__cta,
+.currency__btn,
+.pkg__hbtn,
+.tpanel__link,
+.partner__link,
+.btn,
+button:not(.u-bare),
+select,
+input[type="submit"],
+input[type="button"] {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+/* The chat chips wrap their own padding and landed at 43px — one pixel short
+   of the floor is still short. */
+.chat-chip, .chat-panel__close { min-height: 44px; padding-block: 10px; }
+.chat-panel__close { min-width: 44px; justify-content: center; }
+
+/* Inline links inside a paragraph must NOT become 44px blocks — that would
+   break the line box. They are exempt; the rule above is for standalone controls. */
+p a, li a, .prose a, .answer a, td a, .i18n-notice a {
+  min-height: 0;
+  display: inline;
+}
+
+/* Form fields: room to hit, and 16px so iOS does not zoom the page on focus. */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+textarea,
+select {
+  min-height: 46px;
+  font-size: 16px;
+}
+textarea { min-height: 92px; }
+
+/* ───────── 4. a focus ring you can actually see ─────────
+   Only nine focus rules existed across seven stylesheets. Someone navigating
+   by keyboard could not tell where they were. */
+
+:focus-visible {
+  outline: 3px solid var(--turquoise, #2FA9A4);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.btn:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--sea-deep, #06333B);
+  outline-offset: 3px;
+}
+
+/* Skip link — the first thing a screen reader meets, invisible to everyone else. */
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 10000;
+  background: var(--sea-deep, #06333B); color: #fff;
+  padding: 14px 22px; border-radius: 0 0 8px 0;
+  font: 600 16px/1 var(--sans, system-ui, sans-serif);
+}
+.skip-link:focus { left: 0; }
+
+/* ───────── 5. the reader's own choice ─────────
+   Set by the A/A+ control in the header and remembered on this device.
+   Layout is not touched, only type, so nothing can overflow. */
+
+html.text-larger body { font-size: 18px; line-height: 1.7; }
+html.text-larger p,
+html.text-larger li,
+html.text-larger td,
+html.text-larger label,
+html.text-larger .prose,
+html.text-larger .answer p { font-size: 1.06em; line-height: 1.75; }
+html.text-larger .hero__sub { font-size: 19px; }
+
+/* every size raised above, raised once more for the 'Larger' setting */
+html.text-larger .nav__brand-sub { font-size: 14.8px; }
+
+html.text-larger .head__sub { font-size: 14.8px; }
+
+html.text-larger .foot__brand span,
+html.text-larger .partner__lock,
+html.text-larger .tpanel__save { font-size: 14.8px; }
+
+html.text-larger .ba__tag,
+html.text-larger .footer__brand span,
+html.text-larger .head__note,
+html.text-larger .mm-badge__text,
+html.text-larger .module__free,
+html.text-larger .pkg__clinic,
+html.text-larger .portal-top .brand span { font-size: 14.8px; }
+
+html.text-larger .doctor__field,
+html.text-larger .flow__label,
+html.text-larger .hero__eyebrow,
+html.text-larger .hero__proof span,
+html.text-larger .nav__cta,
+html.text-larger .pkg__tag,
+html.text-larger .tier__flag { font-size: 14.8px; }
+
+html.text-larger .article-hero__tag,
+html.text-larger .choice__from em,
+html.text-larger .hero__scrollcue span,
+html.text-larger .jcard__tag,
+html.text-larger .mods li span:last-child,
+html.text-larger .module__num,
+html.text-larger .module__time,
+html.text-larger .partner__type,
+html.text-larger .pkg__headline em,
+html.text-larger .pkg__inc li::before,
+html.text-larger .pkgrow span:nth-child(2)::before,
+html.text-larger .pkgrow__earn::before,
+html.text-larger .prog__num,
+html.text-larger .pstep__media-cap,
+html.text-larger .res__label,
+html.text-larger .rphoto figcaption,
+html.text-larger .soon__badge,
+html.text-larger .spotlight__type,
+html.text-larger .steps__b,
+html.text-larger .steps__b i,
+html.text-larger .tier__list li::before,
+html.text-larger .tpanel__meta div > span { font-size: 14.8px; }
+
+html.text-larger .accreditation,
+html.text-larger .bar__label,
+html.text-larger .btn,
+html.text-larger .campus__role,
+html.text-larger .disc__tech,
+html.text-larger .earn__result em,
+html.text-larger .ffield label,
+html.text-larger .footer__legal,
+html.text-larger .gplaceholder span,
+html.text-larger .pkgrow--head,
+html.text-larger .pkgrow--head span:first-child,
+html.text-larger .story--soon .story__meta strong,
+html.text-larger .story-hero__tag,
+html.text-larger .sum__price span,
+html.text-larger .tag,
+html.text-larger .tile[data-nosim] .tile__go,
+html.text-larger .verdict__tag { font-size: 14.8px; }
+
+html.text-larger #signOut,
+html.text-larger .article-related h4,
+html.text-larger .auth-tabs button,
+html.text-larger .band__head,
+html.text-larger .band__where,
+html.text-larger .case__who,
+html.text-larger .crumbs,
+html.text-larger .currency__btn,
+html.text-larger .doctor__title,
+html.text-larger .foot__m,
+html.text-larger .footer__col h4,
+html.text-larger .fset__lab,
+html.text-larger .hdr__privacy,
+html.text-larger .head__name,
+html.text-larger .hero__cta .btn,
+html.text-larger .hero__stat span,
+html.text-larger .invitation__points li::before,
+html.text-larger .jcard__date,
+html.text-larger .lbl,
+html.text-larger .loader__word,
+html.text-larger .mini__lab,
+html.text-larger .nav__brand-name,
+html.text-larger .nav__note,
+html.text-larger .numbers__item > span,
+html.text-larger .partner__img--soon span,
+html.text-larger .pkg__fine,
+html.text-larger .pkg__table .free,
+html.text-larger .plist__count,
+html.text-larger .plist__table td span,
+html.text-larger .priced__head,
+html.text-larger .priced__where,
+html.text-larger .ptag,
+html.text-larger .q__count,
+html.text-larger .rcard__img,
+html.text-larger .res__bar span,
+html.text-larger .story__meta span,
+html.text-larger .tcc .eyebrow,
+html.text-larger .tier__name,
+html.text-larger .tl__w,
+html.text-larger .treatments::after,
+html.text-larger .trust h3 span,
+html.text-larger .verdict__why h3,
+html.text-larger table.ct thead th { font-size: 15.3px; }
+
+html.text-larger .chat-panel__header p,
+html.text-larger .chip,
+html.text-larger .cmp thead th,
+html.text-larger .footer__base,
+html.text-larger .invitation__microcopy,
+html.text-larger .partner__addr,
+html.text-larger .prog__go,
+html.text-larger .qa__label,
+html.text-larger .sld__hint,
+html.text-larger .steps__n,
+html.text-larger .sum__note,
+html.text-larger .toc__label { font-size: 15.3px; }
+
+html.text-larger .auth-foot,
+html.text-larger .auth-top a,
+html.text-larger .back,
+html.text-larger .cam__side,
+html.text-larger .card__time,
+html.text-larger .chat-chip,
+html.text-larger .disc,
+html.text-larger .earn__fine,
+html.text-larger .eyebrow,
+html.text-larger .field label,
+html.text-larger .field__label label,
+html.text-larger .fine,
+html.text-larger .hubcard__go,
+html.text-larger .jcard__read,
+html.text-larger .jump__chip,
+html.text-larger .lang-pick select,
+html.text-larger .ledger__h span,
+html.text-larger .mobilebar__btn,
+html.text-larger .nav__links a,
+html.text-larger .opt__p,
+html.text-larger .pagehead a.back,
+html.text-larger .partner__link,
+html.text-larger .pfine,
+html.text-larger .pkg__hbtn,
+html.text-larger .portal-top nav,
+html.text-larger .res__save em,
+html.text-larger .sld__vl,
+html.text-larger .spotlight__cta,
+html.text-larger .tab,
+html.text-larger .tpanel__link,
+html.text-larger .voice figcaption span,
+html.text-larger th { font-size: 16.5px; }
+
+html.text-larger .addon b,
+html.text-larger .article-footnote,
+html.text-larger .article-hero__date, .article-hero__read,
+html.text-larger .ba figcaption,
+html.text-larger .band__foot,
+html.text-larger .band__unit,
+html.text-larger .bar__sub,
+html.text-larger .bar__txt,
+html.text-larger .cases__note,
+html.text-larger .choice__sub,
+html.text-larger .ctl__reset,
+html.text-larger .foot,
+html.text-larger .footer__loc,
+html.text-larger .fx button,
+html.text-larger .hint,
+html.text-larger .joinband__note,
+html.text-larger .ledger__note,
+html.text-larger .line__l small,
+html.text-larger .opt__t small,
+html.text-larger .pkg__free span,
+html.text-larger .pkg__headline span,
+html.text-larger .pkg__more > summary,
+html.text-larger .pkg__table td,
+html.text-larger .priced__foot,
+html.text-larger .priced__unit,
+html.text-larger .qchip,
+html.text-larger .residence__note,
+html.text-larger .spotlight__facts li,
+html.text-larger .spotlight__note,
+html.text-larger .tcc .btn,
+html.text-larger .tiers__note,
+html.text-larger .tile__b { font-size: 16.5px; }
+
+html.text-larger .auth-alt,
+html.text-larger .auth-alt button,
+html.text-larger .boot__err button,
+html.text-larger .busy,
+html.text-larger .campus__addr,
+html.text-larger .ct__caption,
+html.text-larger .ct__note,
+html.text-larger .field__hint,
+html.text-larger .flow__step p,
+html.text-larger .foot-note,
+html.text-larger .foot__brand,
+html.text-larger .foot__d,
+html.text-larger .footer__link,
+html.text-larger .intro__time,
+html.text-larger .mmenu a,
+html.text-larger .opt__b,
+html.text-larger .partner__desc,
+html.text-larger .pcalc-out div em,
+html.text-larger .pkg__inc li,
+html.text-larger .pkgrows__note,
+html.text-larger .qskip,
+html.text-larger .rcard__body p,
+html.text-larger .sample-banner,
+html.text-larger .story-quote cite,
+html.text-larger .sum__idle,
+html.text-larger .summary h2,
+html.text-larger .tbadge,
+html.text-larger .tl__b,
+html.text-larger .verified,
+html.text-larger .viewtabs button,
+html.text-larger .voice figcaption strong,
+html.text-larger footer { font-size: 17.7px; }
+
+html.text-larger .auth-msg,
+html.text-larger .bar__txt strong,
+html.text-larger .boot p,
+html.text-larger .cam__hint,
+html.text-larger .chat-bubble,
+html.text-larger .chat-panel__form input,
+html.text-larger .check span,
+html.text-larger .chooser__alt,
+html.text-larger .doctor__bio,
+html.text-larger .footer__desc,
+html.text-larger .intro__skip,
+html.text-larger .module p,
+html.text-larger .note,
+html.text-larger .opt__sub,
+html.text-larger .pkg__desc,
+html.text-larger .pkg__hnote,
+html.text-larger .pkg__table .total td,
+html.text-larger .plist__table td,
+html.text-larger .rate__suf,
+html.text-larger .sld__lb,
+html.text-larger .story__meta strong,
+html.text-larger .sum__quote,
+html.text-larger .sum__what { font-size: 17.7px; }
+

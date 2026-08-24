@@ -22,13 +22,16 @@
 <script src="js/packages-data.js?v=1" defer></script>
 <script src="js/analytics.js?v=1" defer></script>
 <script src="js/meta-pixel.js?v=1" defer></script>
+<script src="/js/i18n.js?v=22"></script>
+<link rel="stylesheet" href="/css/readable.css?v=1" />
+<script src="/js/readable.js?v=1"></script>
 </head>
 <body>
 <div class="app">
 
   <header class="hdr">
-    <a class="hdr__brand" href="/" aria-label="MedMatch Global — home"><b>MedMatch</b><span> Global</span></a>
-    <div class="hdr__privacy">
+    <a data-i18n-attr="aria-label:6017c716" class="hdr__brand" href="/" aria-label="MedMatch Global — home"><b data-i18n="31ff48d6">MedMatch</b><span data-i18n="4cc6684d"> Global</span></a>
+    <div data-i18n="045cacfd" class="hdr__privacy">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
       </svg>
@@ -39,8 +42,8 @@
   <!-- ── 1. pick a treatment ─────────────────────────────────────── -->
   <section class="screen is-on" id="s-pick">
     <div class="pick">
-      <h1>See a <em>possible</em> result before you decide.</h1>
-      <p class="pick__sub">Take a photo, move the sliders, and get a picture of what you are actually asking a surgeon for.</p>
+      <h1 data-i18n="71251344">See a <em>possible</em> result before you decide.</h1>
+      <p data-i18n="5b2c1065" class="pick__sub">Take a photo, move the sliders, and get a picture of what you are actually asking a surgeon for.</p>
 
       <div class="tiles">
         <button class="tile" data-treat="dental">
@@ -50,8 +53,8 @@
             </svg>
           </span>
           <span>
-            <span class="tile__t">Teeth</span>
-            <span class="tile__b">Whitening, crowns, veneers</span>
+            <span data-i18n="c15be25e" class="tile__t">Teeth</span>
+            <span data-i18n="803c3370" class="tile__b">Whitening, crowns, veneers</span>
           </span>
           <span class="tile__go">&rsaquo;</span>
         </button>
@@ -64,8 +67,8 @@
             </svg>
           </span>
           <span>
-            <span class="tile__t">Nose</span>
-            <span class="tile__b">Bridge, width, tip</span>
+            <span data-i18n="4432170f" class="tile__t">Nose</span>
+            <span data-i18n="d2fd6d0f" class="tile__b">Bridge, width, tip</span>
           </span>
           <span class="tile__go">&rsaquo;</span>
         </button>
@@ -79,8 +82,8 @@
             </svg>
           </span>
           <span>
-            <span class="tile__t">Hair</span>
-            <span class="tile__b">Hairline plan + graft estimate</span>
+            <span data-i18n="c2ad21c0" class="tile__t">Hair</span>
+            <span data-i18n="17a9f654" class="tile__b">Hairline plan + graft estimate</span>
           </span>
           <span class="tile__go">&rsaquo;</span>
         </button>
@@ -93,14 +96,14 @@
             </svg>
           </span>
           <span>
-            <span class="tile__t">Knee</span>
-            <span class="tile__b">Replacement, meniscus</span>
+            <span data-i18n="e50c79ca" class="tile__t">Knee</span>
+            <span data-i18n="dcc9bf97" class="tile__b">Replacement, meniscus</span>
           </span>
-          <span class="tile__go">No photo</span>
+          <span data-i18n="160b8f6c" class="tile__go">No photo</span>
         </button>
       </div>
 
-      <p class="note">
+      <p data-i18n="4d8ffd48" class="note">
         <b>This is a drawing, not a diagnosis.</b> It is a filter running on your
         phone, the same way a camera app works. It has not been checked by a
         doctor and it cannot see your bone, your gums or your health. Use it to
@@ -114,18 +117,18 @@
     <div class="cam">
       <video class="cam__video" id="video" playsinline muted autoplay></video>
       <canvas class="cam__guide" id="guide"></canvas>
-      <p class="cam__hint" id="hint">Starting camera…</p>
+      <p data-i18n="4fdde520" class="cam__hint" id="hint">Starting camera…</p>
 
       <div class="cam__bar">
-        <button class="cam__side" id="btn-upload">Upload</button>
-        <button class="shutter" id="btn-shoot" disabled aria-label="Take photo"></button>
-        <button class="cam__side" id="btn-flip">Flip</button>
+        <button data-i18n="91412465" class="cam__side" id="btn-upload">Upload</button>
+        <button data-i18n-attr="aria-label:dcba0db8" class="shutter" id="btn-shoot" disabled aria-label="Take photo"></button>
+        <button data-i18n="9ffbd422" class="cam__side" id="btn-flip">Flip</button>
       </div>
 
       <div class="boot" id="boot">
         <div>
           <div class="boot__spin"></div>
-          <p id="boot-msg">Loading the face model — about 15&nbsp;MB, once only. Nothing is uploaded.</p>
+          <p data-i18n="5677dc1c" id="boot-msg">Loading the face model — about 15&nbsp;MB, once only. Nothing is uploaded.</p>
         </div>
       </div>
     </div>
@@ -136,26 +139,26 @@
   <section class="screen" id="s-res">
     <div class="res">
       <div class="stage" id="stage">
-        <canvas id="cv-before" role="img" aria-label="Your photo, before any change."></canvas>
-        <canvas id="cv-after" role="img" aria-label="Simulated result."></canvas>
-        <span class="tag tag--a">Today</span>
-        <span class="tag tag--b" id="tag-after">Illustration</span>
+        <canvas data-i18n-attr="aria-label:6bfb650d" id="cv-before" role="img" aria-label="Your photo, before any change."></canvas>
+        <canvas data-i18n-attr="aria-label:51f2e1fe" id="cv-after" role="img" aria-label="Simulated result."></canvas>
+        <span data-i18n="1dd1c5fb" class="tag tag--a">Today</span>
+        <span data-i18n="33dca68e" class="tag tag--b" id="tag-after">Illustration</span>
         <div class="handle" id="handle"></div>
         <div class="stage__grab" id="grab"></div>
-        <div class="busy" id="busy" hidden>Rendering…</div>
+        <div data-i18n="e00d9774" class="busy" id="busy" hidden>Rendering…</div>
       </div>
 
-      <div class="viewtabs" role="group" aria-label="Compare before and after">
-        <button type="button" data-view="before">Before</button>
-        <button type="button" data-view="wipe" class="is-on">Slide</button>
-        <button type="button" data-view="after">After</button>
+      <div data-i18n-attr="aria-label:e5408b37" class="viewtabs" role="group" aria-label="Compare before and after">
+        <button data-i18n="9060587e" type="button" data-view="before">Before</button>
+        <button data-i18n="6160a53e" type="button" data-view="wipe" class="is-on">Slide</button>
+        <button data-i18n="7bfcadb5" type="button" data-view="after">After</button>
       </div>
 
       <div class="ctl">
-        <button class="back" id="btn-back">&lsaquo; Start over</button>
+        <button data-i18n="f8188239" class="back" id="btn-back">&lsaquo; Start over</button>
         <div class="ctl__hd">
-          <h2 id="res-title">Teeth</h2>
-          <button class="ctl__reset" id="btn-reset">Reset</button>
+          <h2 data-i18n="c15be25e" id="res-title">Teeth</h2>
+          <button data-i18n="526d688f" class="ctl__reset" id="btn-reset">Reset</button>
         </div>
         <div id="sliders"></div>
 
@@ -165,15 +168,15 @@
       </div>
 
       <div class="acts">
-        <a class="btn btn--go" id="btn-book" href="#">Ask a surgeon what is realistic</a>
-        <button class="btn btn--gh" id="btn-save">
+        <a data-i18n="38f9f44c" class="btn btn--go" id="btn-book" href="#">Ask a surgeon what is realistic</a>
+        <button data-i18n="b86ca807" class="btn btn--gh" id="btn-save">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
             <path d="M7 10l5 5 5-5M12 15V3"/>
           </svg>
           Save
         </button>
-        <button class="btn btn--gh" id="btn-retake">Retake</button>
+        <button data-i18n="84cf2799" class="btn btn--gh" id="btn-retake">Retake</button>
       </div>
     </div>
   </section>
@@ -181,41 +184,41 @@
   <!-- ── 4. knee: no photo simulation ────────────────────────────── -->
   <section class="screen" id="s-knee">
     <div class="nosim">
-      <button class="back" id="btn-back2">&lsaquo; Back</button>
-      <h1>A knee does not show up in a photo.</h1>
-      <p>
+      <button data-i18n="dc106d31" class="back" id="btn-back2">&lsaquo; Back</button>
+      <h1 data-i18n="1492d468">A knee does not show up in a photo.</h1>
+      <p data-i18n="a93fff33">
         We could draw you something. It would be meaningless — a knee
         replacement changes how you move, not how you look. So here is the
         thing that actually matters instead.
       </p>
       <ul class="tl">
         <li>
-          <div class="tl__w">Day 1&ndash;2</div>
-          <div class="tl__t">On your feet, with a frame</div>
-          <div class="tl__b">Standing the day after surgery is normal and expected. The physio starts before you leave the room.</div>
+          <div data-i18n="23a992fb" class="tl__w">Day 1&ndash;2</div>
+          <div data-i18n="4671ecff" class="tl__t">On your feet, with a frame</div>
+          <div data-i18n="8a709ec5" class="tl__b">Standing the day after surgery is normal and expected. The physio starts before you leave the room.</div>
         </li>
         <li>
-          <div class="tl__w">Week 1</div>
-          <div class="tl__t">Stairs, slowly</div>
-          <div class="tl__b">Most people manage a flight of stairs with a rail before they fly home. This is the week you are still in Turkey.</div>
+          <div data-i18n="d6f637a6" class="tl__w">Week 1</div>
+          <div data-i18n="8edcd004" class="tl__t">Stairs, slowly</div>
+          <div data-i18n="0d4d89cb" class="tl__b">Most people manage a flight of stairs with a rail before they fly home. This is the week you are still in Turkey.</div>
         </li>
         <li>
-          <div class="tl__w">Week 6</div>
-          <div class="tl__t">Walking without a stick</div>
-          <div class="tl__b">Indoors first, then short distances outside. Swelling is still normal at this point.</div>
+          <div data-i18n="1936a279" class="tl__w">Week 6</div>
+          <div data-i18n="c1e0fea9" class="tl__t">Walking without a stick</div>
+          <div data-i18n="e96b7125" class="tl__b">Indoors first, then short distances outside. Swelling is still normal at this point.</div>
         </li>
         <li>
-          <div class="tl__w">Month 3</div>
-          <div class="tl__t">Back to ordinary days</div>
-          <div class="tl__b">Shopping, driving, a normal walk. The pain you came in with is usually gone by here.</div>
+          <div data-i18n="dc645f72" class="tl__w">Month 3</div>
+          <div data-i18n="2c3a4a12" class="tl__t">Back to ordinary days</div>
+          <div data-i18n="4d72607e" class="tl__b">Shopping, driving, a normal walk. The pain you came in with is usually gone by here.</div>
         </li>
         <li>
-          <div class="tl__w">Month 12</div>
-          <div class="tl__t">As good as it gets</div>
-          <div class="tl__b">Full recovery takes a year. Cycling and swimming, yes. Running and jumping, generally not.</div>
+          <div data-i18n="0359ffa2" class="tl__w">Month 12</div>
+          <div data-i18n="6e922d15" class="tl__t">As good as it gets</div>
+          <div data-i18n="a0bf84d3" class="tl__b">Full recovery takes a year. Cycling and swimming, yes. Running and jumping, generally not.</div>
         </li>
       </ul>
-      <p class="disc" style="margin-top:18px">
+      <p data-i18n="b7cc696a" class="disc" style="margin-top:18px">
         <b>Typical, not promised.</b> These are ordinary timelines for an
         uncomplicated knee replacement. Age, weight, other conditions and how
         the joint looked before surgery all change them. Your surgeon gives you
@@ -223,7 +226,7 @@
       </p>
     </div>
     <div class="acts">
-      <a class="btn btn--go" id="btn-book2" href="#">Talk to us about a knee</a>
+      <a data-i18n="b1502995" class="btn btn--go" id="btn-book2" href="#">Talk to us about a knee</a>
     </div>
   </section>
 
