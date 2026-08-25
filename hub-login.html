@@ -52,48 +52,51 @@
   .auth-soon .btn { display: inline-flex; }
   .auth-foot { text-align: center; padding: 22px 5vw 30px; font-size: 12px; color: rgba(244,250,249,0.45); }
 </style>
+<script src="/js/i18n.js?v=22"></script>
+<link rel="stylesheet" href="/css/readable.css?v=1" />
+<script src="/js/readable.js?v=1"></script>
 </head>
 <body>
 <div class="auth-page">
 
   <div class="auth-top">
-    <a href="advisor-hub.html">← Advisor Hub</a>
-    <a href="index.html">MedMatch Global</a>
+    <a data-i18n="85f4cf05" href="advisor-hub.html">← Advisor Hub</a>
+    <a data-i18n="f2c80c94" href="index.html">MedMatch Global</a>
   </div>
 
   <div class="auth-wrap">
     <div class="auth-card">
-      <p class="eyebrow eyebrow--light">THE ADVISOR HUB</p>
-      <h1 class="auth-title">Your advisor account.</h1>
-      <p class="auth-sub">Training, live pricing and your commission record — in one place.</p>
+      <p data-i18n="39af659e" class="eyebrow eyebrow--light">THE ADVISOR HUB</p>
+      <h1 data-i18n="aa892ca8" class="auth-title">Your advisor account.</h1>
+      <p data-i18n="3294b38e" class="auth-sub">Training, live pricing and your commission record — in one place.</p>
 
       <!-- visible until Firebase config is added in js/auth.js -->
       <div class="auth-soon" id="authSoon">
-        <p>Advisor accounts are opening shortly. Apply now and we will
+        <p data-i18n="678c86bb">Advisor accounts are opening shortly. Apply now and we will
         open yours personally — you lose nothing by being early.</p>
-        <a class="btn btn--gold" href="advisor-hub.html#apply"><span>Apply to Join the Hub</span></a>
+        <a class="btn btn--gold" href="advisor-hub.html#apply"><span data-i18n="28e08a21">Apply to Join the Hub</span></a>
       </div>
 
       <div id="authLive" style="display:none;">
         <div class="auth-tabs" role="tablist">
-          <button type="button" id="tabLogin" class="is-on">Log in</button>
-          <button type="button" id="tabSignup">Create account</button>
+          <button data-i18n="bffe9a3c" type="button" id="tabLogin" class="is-on">Log in</button>
+          <button data-i18n="42369faa" type="button" id="tabSignup">Create account</button>
         </div>
 
         <p class="auth-msg" id="authMsg"></p>
 
         <form class="auth-form is-on" id="loginForm" novalidate>
-          <div class="ffield"><label for="l-email">Email</label><input id="l-email" type="email" autocomplete="email" required /></div>
-          <div class="ffield"><label for="l-pass">Password</label><input id="l-pass" type="password" autocomplete="current-password" required /></div>
-          <button class="btn btn--gold" type="submit"><span>Log In</span></button>
-          <p class="auth-alt">Forgot your password? <button type="button" id="resetBtn">Send a reset email</button></p>
+          <div class="ffield"><label data-i18n="ce8ae9da" for="l-email">Email</label><input id="l-email" type="email" autocomplete="email" required /></div>
+          <div class="ffield"><label data-i18n="dc647eb6" for="l-pass">Password</label><input id="l-pass" type="password" autocomplete="current-password" required /></div>
+          <button class="btn btn--gold" type="submit"><span data-i18n="3bbbad63">Log In</span></button>
+          <p data-i18n="9b4911ae" class="auth-alt">Forgot your password? <button type="button" id="resetBtn">Send a reset email</button></p>
         </form>
 
         <form class="auth-form" id="signupForm" novalidate>
-          <div class="ffield"><label for="s-name">Full name</label><input id="s-name" type="text" autocomplete="name" required /></div>
-          <div class="ffield"><label for="s-email">Email</label><input id="s-email" type="email" autocomplete="email" required /></div>
-          <div class="ffield"><label for="s-pass">Password (8+ characters)</label><input id="s-pass" type="password" autocomplete="new-password" minlength="8" required /></div>
-          <div class="ffield"><label for="s-program">Program of interest</label>
+          <div class="ffield"><label data-i18n="f11b368c" for="s-name">Full name</label><input id="s-name" type="text" autocomplete="name" required /></div>
+          <div class="ffield"><label data-i18n="ce8ae9da" for="s-email">Email</label><input id="s-email" type="email" autocomplete="email" required /></div>
+          <div class="ffield"><label data-i18n="aeac4431" for="s-pass">Password (8+ characters)</label><input id="s-pass" type="password" autocomplete="new-password" minlength="8" required /></div>
+          <div class="ffield"><label data-i18n="9b068fb0" for="s-program">Program of interest</label>
             <div class="select-wrap select-wrap--light">
               <select id="s-program">
                 <option>The Dental Advisory</option>
@@ -103,14 +106,14 @@
               </select>
             </div>
           </div>
-          <button class="btn btn--ivory" type="submit"><span>Create My Account</span></button>
+          <button class="btn btn--ivory" type="submit"><span data-i18n="e925abca">Create My Account</span></button>
         </form>
       </div>
 
     </div>
   </div>
 
-  <div class="auth-foot">© 2026 MedMatch Global · Questions? <a href="advisor-hub.html#hfaq" style="color:var(--aqua);">Read the FAQ</a></div>
+  <div data-i18n="f507454a" class="auth-foot">© 2026 MedMatch Global · Questions? <a href="advisor-hub.html#hfaq" style="color:var(--aqua);">Read the FAQ</a></div>
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js" integrity="sha384-ZaR6mWzmJtrRibZ1Vm7SoHFr8OXjyAuGAXalGDKqbxFT18oi/z+oZLIRFkpeNor1" crossorigin="anonymous"></script>

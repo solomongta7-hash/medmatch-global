@@ -7,6 +7,13 @@
 (function () {
   "use strict";
 
+  /* Everything this widget says is built in JavaScript, so the page tagger
+     never saw it and it used to stay English on a translated page. t() looks
+     the sentence up in the visitor's language and falls back to the English
+     it was handed. */
+  function t(s) { return (window.MMi18n && window.MMi18n.t) ? window.MMi18n.t(s) : s; }
+  function lang() { return (window.MMi18n && window.MMi18n.lang) || "en"; }
+
   var WHATSAPP_URL = "https://wa.me/14375951735?text=Hello%20MedMatch%20Global%2C%20I%27d%20like%20a%20free%20quote.";
   var EMAIL_URL = "mailto:contact@medmatchglobal.info";
 
@@ -31,14 +38,58 @@
     { label: "Talk to a human", key: "fallback" }
   ];
 
-  var KEYWORDS = [
-    { key: "prices", test: /price|cost|how much|expensive|fee/i },
-    { key: "safety", test: /safe|safety|risk|danger|accredit/i },
-    { key: "duration", test: /long|stay|days|time|how many/i },
-    { key: "doctors", test: /doctor|surgeon|who/i },
-    { key: "visa", test: /visa|passport|entry/i },
-    { key: "how", test: /how.*work|process|step/i }
-  ];
+  /* Routing the typed question. The English patterns alone meant a Spanish
+     visitor typing "precio" or a Turk typing "fiyat" always fell through to
+     the generic answer, which reads as the widget ignoring them. Each language
+     carries its own words, and English is always also matched because plenty
+     of people switch mid-sentence. */
+  var KEYWORDS = {
+    en: [
+      { key: "prices",   test: /price|cost|how much|expensive|fee/i },
+      { key: "safety",   test: /safe|safety|risk|danger|accredit/i },
+      { key: "duration", test: /long|stay|days|time|how many/i },
+      { key: "doctors",  test: /doctor|surgeon|who/i },
+      { key: "visa",     test: /visa|passport|entry/i },
+      { key: "how",      test: /how.*work|process|step/i }
+    ],
+    es: [
+      { key: "prices",   test: /precio|coste|costo|cu[áa]nto|caro|tarifa|presupuesto/i },
+      { key: "safety",   test: /segur|riesgo|peligro|acredit|fiable/i },
+      { key: "duration", test: /cu[áa]nto tiempo|d[íi]as|dura|estancia|noches/i },
+      { key: "doctors",  test: /m[ée]dico|cirujano|doctor|qui[ée]n/i },
+      { key: "visa",     test: /visado|visa|pasaporte|entrada/i },
+      { key: "how",      test: /c[óo]mo funciona|proceso|paso/i }
+    ],
+    fr: [
+      { key: "prices",   test: /prix|co[ûu]t|combien|cher|tarif|devis/i },
+      { key: "safety",   test: /s[ûu]r|s[ée]curit|risque|danger|accr[ée]dit/i },
+      { key: "duration", test: /combien de temps|jours|dur[ée]e|s[ée]jour|nuits/i },
+      { key: "doctors",  test: /m[ée]decin|chirurgien|docteur|qui/i },
+      { key: "visa",     test: /visa|passeport|entr[ée]e/i },
+      { key: "how",      test: /comment.*march|processus|[ée]tape/i }
+    ],
+    de: [
+      { key: "prices",   test: /preis|kosten|wie viel|teuer|geb[üu]hr|angebot/i },
+      { key: "safety",   test: /sicher|risiko|gefahr|akkredit/i },
+      { key: "duration", test: /wie lange|tage|dauer|aufenthalt|n[äa]chte/i },
+      { key: "doctors",  test: /arzt|[äa]rzt|chirurg|wer/i },
+      { key: "visa",     test: /visum|reisepass|einreise/i },
+      { key: "how",      test: /wie.*funktion|ablauf|schritt/i }
+    ],
+    tr: [
+      { key: "prices",   test: /fiyat|[üu]cret|ne kadar|maliyet|pahal[ıi]|teklif/i },
+      { key: "safety",   test: /g[üu]venli|risk|tehlike|akredit/i },
+      { key: "duration", test: /ne kadar s[üu]r|g[üu]n|kal[ıi][şs]|gece|s[üu]re/i },
+      { key: "doctors",  test: /doktor|cerrah|hekim|kim/i },
+      { key: "visa",     test: /vize|pasaport|giri[şs]/i },
+      { key: "how",      test: /nas[ıi]l|s[üu]re[çc]|ad[ıi]m/i }
+    ]
+  };
+
+  function matchers() {
+    var own = KEYWORDS[lang()] || [];
+    return own.concat(KEYWORDS.en);
+  }
 
   var launcher, panel, body, quickWrap, form, input;
   var isOpen = false;
@@ -66,17 +117,17 @@
   function addActionChips() {
     var wrap = el("div", "chat-chips");
 
-    var wa = el("a", "chat-chip chat-chip--action", "💬 WhatsApp us");
+    var wa = el("a", "chat-chip chat-chip--action", t("💬 WhatsApp us"));
     wa.href = WHATSAPP_URL;
     wa.target = "_blank";
     wa.rel = "noopener";
     wrap.appendChild(wa);
 
-    var em = el("a", "chat-chip chat-chip--action", "Email us");
+    var em = el("a", "chat-chip chat-chip--action", t("Email us"));
     em.href = EMAIL_URL;
     wrap.appendChild(em);
 
-    var quote = el("button", "chat-chip chat-chip--action", "Get my free quote");
+    var quote = el("button", "chat-chip chat-chip--action", t("Get my free quote"));
     quote.type = "button";
     quote.addEventListener("click", function () {
       closePanel();
@@ -92,7 +143,7 @@
   }
 
   function answerFor(key) {
-    return ANSWERS[key] || ANSWERS.fallback;
+    return t(ANSWERS[key] || ANSWERS.fallback);
   }
 
   function respond(key, userLabel) {
@@ -104,7 +155,7 @@
   function buildLauncher() {
     launcher = el("button", "chat-launcher");
     launcher.type = "button";
-    launcher.setAttribute("aria-label", "Open MedMatch concierge chat");
+    launcher.setAttribute("aria-label", t("Open MedMatch concierge chat"));
     launcher.innerHTML =
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
       '<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>' +
@@ -116,14 +167,14 @@
   function buildPanel() {
     panel = el("div", "chat-panel");
     panel.setAttribute("role", "dialog");
-    panel.setAttribute("aria-label", "MedMatch concierge chat");
+    panel.setAttribute("aria-label", t("MedMatch concierge chat"));
 
     var header = el("div", "chat-panel__header");
     header.innerHTML =
-      "<div><h3>MedMatch Concierge</h3><p>Typically replies in minutes on WhatsApp</p></div>";
+      "<div><h3>MedMatch Concierge</h3><p>" + t("Typically replies in minutes on WhatsApp") + "</p></div>";
     var closeBtn = el("button", "chat-panel__close", "&times;");
     closeBtn.type = "button";
-    closeBtn.setAttribute("aria-label", "Close chat");
+    closeBtn.setAttribute("aria-label", t("Close chat"));
     closeBtn.addEventListener("click", closePanel);
     header.appendChild(closeBtn);
     panel.appendChild(header);
@@ -133,9 +184,9 @@
 
     quickWrap = el("div", "chat-panel__quick");
     CHIPS.forEach(function (c) {
-      var chip = el("button", "chat-chip", c.label);
+      var chip = el("button", "chat-chip", t(c.label));
       chip.type = "button";
-      chip.addEventListener("click", function () { respond(c.key, c.label); });
+      chip.addEventListener("click", function () { respond(c.key, t(c.label)); });
       quickWrap.appendChild(chip);
     });
     panel.appendChild(quickWrap);
@@ -143,11 +194,11 @@
     form = el("form", "chat-panel__form");
     input = el("input");
     input.type = "text";
-    input.placeholder = "Type your question…";
-    input.setAttribute("aria-label", "Type your question");
+    input.placeholder = t("Type your question…");
+    input.setAttribute("aria-label", t("Type your question"));
     var sendBtn = el("button");
     sendBtn.type = "submit";
-    sendBtn.setAttribute("aria-label", "Send");
+    sendBtn.setAttribute("aria-label", t("Send"));
     sendBtn.innerHTML =
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>';
     form.appendChild(input);
@@ -156,7 +207,7 @@
       e.preventDefault();
       var text = input.value.trim();
       if (!text) return;
-      var match = KEYWORDS.find(function (k) { return k.test.test(text); });
+      var match = matchers().find(function (k) { return k.test.test(text); });
       respond(match ? match.key : "fallback", text);
       input.value = "";
     });
@@ -165,7 +216,7 @@
     document.body.appendChild(panel);
 
     // greeting
-    addBubble("Hello — I'm the MedMatch concierge. What would you like to know?");
+    addBubble(t("Hello — I'm the MedMatch concierge. What would you like to know?"));
   }
 
   function openPanel() {

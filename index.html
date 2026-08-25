@@ -60,6 +60,9 @@
 </script>
 <script src="js/analytics.js?v=1" defer></script>
 <script src="js/meta-pixel.js?v=1" defer></script>
+<script src="/js/i18n.js?v=22"></script>
+<link rel="stylesheet" href="/css/readable.css?v=1" />
+<script src="/js/readable.js?v=1"></script>
 </head>
 <body>
 
@@ -73,7 +76,7 @@
       <circle cx="60" cy="60" r="46" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
       <text x="60" y="72" text-anchor="middle" class="loader__mono">MG</text>
     </svg>
-    <p class="loader__word">MEDMATCH&nbsp;GLOBAL</p>
+    <p data-i18n="1e2f9b1c" class="loader__word">MEDMATCH&nbsp;GLOBAL</p>
     <p class="loader__pct"><span id="loaderPct">0</span></p>
   </div>
 </div>
@@ -87,76 +90,64 @@
 <!-- ══════════ NAVIGATION ══════════ -->
 <header class="nav" id="nav">
   <a class="nav__brand" href="#top" data-scroll-to="#top">
-    <span class="nav__brand-name">MEDMATCH&nbsp;GLOBAL</span>
-    <span class="nav__brand-sub">THE&nbsp;ACADEMY</span>
+    <span data-i18n="1e2f9b1c" class="nav__brand-name">MEDMATCH&nbsp;GLOBAL</span>
+    <span data-i18n="f120dcdc" class="nav__brand-sub">THE&nbsp;ACADEMY</span>
   </a>
   <nav class="nav__links">
-    <a href="#standard" data-scroll-to="#standard" data-i18n="nav.why">Why Us</a>
-    <a href="#treatments" data-scroll-to="#treatments" data-i18n="nav.treatments">Treatments</a>
-    <a href="#partners" data-scroll-to="#partners" data-i18n="nav.partners">Our Partners</a>
-    <a href="#estimate" data-scroll-to="#estimate" data-i18n="nav.pricing">Pricing</a>
-    <a href="#packages" data-scroll-to="#packages" data-i18n="nav.packages">Packages</a>
-    <a href="blog/" data-i18n="nav.journal">Journal</a>
-    <a href="true-cost.html" data-i18n="nav.truecost">True Cost</a>
-    <a href="preview.html" data-i18n="nav.preview">See a Result</a>
-    <a href="book.html" data-i18n="nav.book">Book a Call</a>
-    <a href="advisor-hub.html" data-i18n="nav.advisor">Advisor Hub</a>
-    <a href="#faq" data-scroll-to="#faq" data-i18n="nav.faq">FAQ</a>
+    <a data-i18n="eab07532" href="#standard" data-scroll-to="#standard">Why Us</a>
+    <a data-i18n="dca8ed72" href="#treatments" data-scroll-to="#treatments">Treatments</a>
+    <a data-i18n="1db8783c" href="#partners" data-scroll-to="#partners">Our Partners</a>
+    <a data-i18n="e22ac25b" href="#estimate" data-scroll-to="#estimate">Pricing</a>
+    <a data-i18n="27fe4eb3" href="#packages" data-scroll-to="#packages">Packages</a>
+    <a data-i18n="6b2b5614" href="blog/">Journal</a>
+    <a data-i18n="6c573cc3" href="true-cost.html">True Cost</a>
+    <a data-i18n="73a92871" href="preview.html">See a Result</a>
+    <a data-i18n="e2d35937" href="book.html">Book a Call</a>
+    <a data-i18n="cccaf5f3" href="advisor-hub.html">Advisor Hub</a>
+    <a data-i18n="1fe917b0" href="#faq" data-scroll-to="#faq">FAQ</a>
   </nav>
-  <div class="lang-pick" title="Choose language">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
-    <select id="langSelect" aria-label="Choose language">
-      <option value="en">English</option>
-      <option value="tr">Türkçe</option>
-      <option value="de">Deutsch</option>
-      <option value="fr">Français</option>
-      <option value="ru">Русский</option>
-      <option value="zh">中文</option>
-      <option value="es">Español</option>
-      <option value="pt">Português</option>
-      <option value="fa">فارسی</option>
-      <option value="hi">हिन्दी</option>
-    </select>
+  <div class="lang-pick">
+    <!-- Built by js/i18n.js so the language list is identical on all 37 pages. -->
   </div>
-  <a class="btn btn--gold nav__cta magnetic" href="#invitation" data-scroll-to="#invitation"><span data-i18n="nav.cta">Get My Free Quote</span></a>
-  <button class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+  <a class="btn btn--gold nav__cta magnetic" href="#invitation" data-scroll-to="#invitation"><span data-i18n="837456d0">Get My Free Quote</span></a>
+  <button data-i18n-attr="aria-label:b6154120" class="nav__burger" id="burger" aria-label="Menu"><span></span><span></span></button>
 </header>
 
 <!-- mobile menu -->
 <div class="mmenu" id="mmenu">
   <nav>
-    <a href="#standard" data-scroll-to="#standard" data-i18n="nav.why">Why Us</a>
-    <a href="#treatments" data-scroll-to="#treatments" data-i18n="nav.treatments">Treatments</a>
-    <a href="#partners" data-scroll-to="#partners" data-i18n="nav.partners">Our Partners</a>
-    <a href="#estimate" data-scroll-to="#estimate" data-i18n="nav.pricing">Pricing</a>
-    <a href="#packages" data-scroll-to="#packages" data-i18n="nav.packages">Packages</a>
-    <a href="vetting.html" data-i18n="nav.standard">The Standard</a>
-    <a href="blog/" data-i18n="nav.journal">Journal</a>
-    <a href="/answers/" data-i18n="nav.answers">Answers</a>
-    <a href="/preview.html" data-i18n="nav.preview">See a Result</a>
-    <a href="true-cost.html" data-i18n="nav.truecost">True Cost Calculator</a>
-    <a href="book.html" data-i18n="nav.book">Book a Call</a>
-    <a href="advisor-hub.html" data-i18n="nav.advisor">Advisor Hub</a>
-    <a href="#passage" data-scroll-to="#passage" data-i18n="nav.howitworks">How It Works</a>
-    <a href="#faq" data-scroll-to="#faq" data-i18n="nav.faq">FAQ</a>
-    <a href="#invitation" data-scroll-to="#invitation" data-i18n="nav.cta">Get My Free Quote</a>
+    <a data-i18n="eab07532" href="#standard" data-scroll-to="#standard">Why Us</a>
+    <a data-i18n="dca8ed72" href="#treatments" data-scroll-to="#treatments">Treatments</a>
+    <a data-i18n="1db8783c" href="#partners" data-scroll-to="#partners">Our Partners</a>
+    <a data-i18n="e22ac25b" href="#estimate" data-scroll-to="#estimate">Pricing</a>
+    <a data-i18n="27fe4eb3" href="#packages" data-scroll-to="#packages">Packages</a>
+    <a data-i18n="9b2af85f" href="vetting.html">The Standard</a>
+    <a data-i18n="6b2b5614" href="blog/">Journal</a>
+    <a data-i18n="7d5a6969" href="/answers/">Answers</a>
+    <a data-i18n="73a92871" href="/preview.html">See a Result</a>
+    <a data-i18n="22e2d0c7" href="true-cost.html">True Cost Calculator</a>
+    <a data-i18n="e2d35937" href="book.html">Book a Call</a>
+    <a data-i18n="cccaf5f3" href="advisor-hub.html">Advisor Hub</a>
+    <a data-i18n="aabda4ec" href="#passage" data-scroll-to="#passage">How It Works</a>
+    <a data-i18n="1fe917b0" href="#faq" data-scroll-to="#faq">FAQ</a>
+    <a data-i18n="837456d0" href="#invitation" data-scroll-to="#invitation">Get My Free Quote</a>
   </nav>
 </div>
 
 <!-- ══════════ STICKY SECTION JUMP BAR ══════════
      Appears once the hero is passed. Gives a long page the map it otherwise
      lacks: where am I, and how do I get to the part I care about. -->
-<nav class="jump" id="jumpNav" aria-label="Jump to section">
+<nav data-i18n-attr="aria-label:8a63e357" class="jump" id="jumpNav" aria-label="Jump to section">
   <div class="jump__track">
-    <a class="jump__chip" href="#start" data-scroll-to="#start" data-jump="start" data-i18n="j.start">Start here</a>
-    <a class="jump__chip" href="#standard" data-scroll-to="#standard" data-jump="standard" data-i18n="j.trust">Why trust us</a>
-    <a class="jump__chip" href="#treatments" data-scroll-to="#treatments" data-jump="treatments" data-i18n="j.treat">Treatments</a>
-    <a class="jump__chip" href="#estimate" data-scroll-to="#estimate" data-jump="estimate" data-i18n="j.price">Prices</a>
-    <a class="jump__chip" href="#passage" data-scroll-to="#passage" data-jump="passage" data-i18n="j.how">How it works</a>
-    <a class="jump__chip" href="#voices" data-scroll-to="#voices" data-jump="voices" data-i18n="j.reviews">Reviews</a>
-    <a class="jump__chip" href="#faq" data-scroll-to="#faq" data-jump="faq" data-i18n="j.faq">FAQ</a>
+    <a data-i18n="8b6db1ec" class="jump__chip" href="#start" data-scroll-to="#start" data-jump="start">Start here</a>
+    <a data-i18n="f42d5802" class="jump__chip" href="#standard" data-scroll-to="#standard" data-jump="standard">Why trust us</a>
+    <a data-i18n="dca8ed72" class="jump__chip" href="#treatments" data-scroll-to="#treatments" data-jump="treatments">Treatments</a>
+    <a data-i18n="e16dd6e1" class="jump__chip" href="#estimate" data-scroll-to="#estimate" data-jump="estimate">Prices</a>
+    <a data-i18n="9ffdb952" class="jump__chip" href="#passage" data-scroll-to="#passage" data-jump="passage">How it works</a>
+    <a data-i18n="34e80a79" class="jump__chip" href="#voices" data-scroll-to="#voices" data-jump="voices">Reviews</a>
+    <a data-i18n="1fe917b0" class="jump__chip" href="#faq" data-scroll-to="#faq" data-jump="faq">FAQ</a>
   </div>
-  <button class="jump__menu" id="jumpMenu" aria-label="Open menu" aria-expanded="false">
+  <button data-i18n-attr="aria-label:64d2cc43" class="jump__menu" id="jumpMenu" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -176,51 +167,51 @@
   <div class="hero__inner">
     <p class="hero__eyebrow" data-fade>
       <svg viewBox="0 0 24 24" class="crest"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1"/><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="0.8"/></svg>
-      <span data-i18n="hero.eyebrow">FOR PATIENTS FROM THE U.S. &amp; CANADA&ensp;·&ensp;ISTANBUL &amp; ANTALYA, TÜRKIYE</span>
+      <span data-i18n="45b986ac">FOR PATIENTS FROM THE U.S. &amp; CANADA&ensp;·&ensp;ISTANBUL &amp; ANTALYA, TÜRKIYE</span>
     </p>
     <h1 class="hero__title">
-      <span class="hero__line" data-reveal="chars">Your premium healthcare advisor in Turkey.</span>
-      <span class="hero__line hero__line--em" data-reveal="chars">Without the guesswork.</span>
+      <span data-i18n="d6efee80" class="hero__line" data-reveal="chars">Your premium healthcare advisor in Turkey.</span>
+      <span data-i18n="77828497" class="hero__line hero__line--em" data-reveal="chars">Without the guesswork.</span>
     </h1>
-    <p class="hero__sub" data-fade data-i18n="hero.sub">We match you with a board-certified surgeon, put one fixed
+    <p data-i18n="0a968d46" class="hero__sub" data-fade>We match you with a board-certified surgeon, put one fixed
     all-inclusive price in writing, and stay with you from the first call to full recovery.</p>
     <ul class="hero__proof" data-fade>
-      <li><strong>4,200+</strong><span data-i18n="hp.1">patients guided</span></li>
-      <li><strong>12</strong><span data-i18n="hp.2">JCI hospitals</span></li>
-      <li><strong>50–70%</strong><span data-i18n="hp.3">below U.S. prices</span></li>
-      <li><strong>48 hrs</strong><span data-i18n="hp.4">to your quote</span></li>
+      <li><strong>4,200+</strong><span data-i18n="fc9cb8a0">patients guided</span></li>
+      <li><strong>12</strong><span data-i18n="6202c751">JCI hospitals</span></li>
+      <li><strong>50–70%</strong><span data-i18n="d68c9fb7">below U.S. prices</span></li>
+      <li><strong data-i18n="0c8991cc">48 hrs</strong><span data-i18n="83d5d878">to your quote</span></li>
     </ul>
     <div class="hero__cta" data-fade>
-      <a class="btn btn--gold magnetic" href="#start" data-scroll-to="#start"><span data-i18n="hero.cta1">See My Price</span></a>
-      <a class="btn btn--ghost magnetic" href="https://wa.me/14375951735?text=Hello%20MedMatch%20Global%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener"><span data-i18n="hero.cta2">Ask on WhatsApp</span></a>
+      <a class="btn btn--gold magnetic" href="#start" data-scroll-to="#start"><span data-i18n="332b15bf">See My Price</span></a>
+      <a class="btn btn--ghost magnetic" href="https://wa.me/14375951735?text=Hello%20MedMatch%20Global%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener"><span data-i18n="226d1ab2">Ask on WhatsApp</span></a>
     </div>
   </div>
   <div class="hero__foot">
-    <div class="hero__scrollcue" data-fade><span>SCROLL</span><i></i></div>
+    <div class="hero__scrollcue" data-fade><span data-i18n="71574275">SCROLL</span><i></i></div>
   </div>
 </section>
 
 <!-- ══════════ MARQUEE ══════════ -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee__track" id="marqueeTrack">
-    <span>Rhinoplasty <i>✦</i> Dental Veneers &amp; Implants <i>✦</i> Plastic Surgery <i>✦</i> iLASIK &amp; SMILE <i>✦</i> Knee Surgery <i>✦</i> Hair Transplant <i>✦</i> Gastric Sleeve &amp; Balloon <i>✦</i> Executive Check-Ups <i>✦</i> JCI-Accredited Hospitals <i>✦</i> Fixed Transparent Prices <i>✦</i> 24/7 Care Coordinator <i>✦</i> </span>
-    <span>Rhinoplasty <i>✦</i> Dental Veneers &amp; Implants <i>✦</i> Plastic Surgery <i>✦</i> iLASIK &amp; SMILE <i>✦</i> Knee Surgery <i>✦</i> Hair Transplant <i>✦</i> Gastric Sleeve &amp; Balloon <i>✦</i> Executive Check-Ups <i>✦</i> JCI-Accredited Hospitals <i>✦</i> Fixed Transparent Prices <i>✦</i> 24/7 Care Coordinator <i>✦</i> </span>
+    <span data-i18n="586c47a2">Rhinoplasty <i>✦</i> Dental Veneers &amp; Implants <i>✦</i> Plastic Surgery <i>✦</i> iLASIK &amp; SMILE <i>✦</i> Knee Surgery <i>✦</i> Hair Transplant <i>✦</i> Gastric Sleeve &amp; Balloon <i>✦</i> Executive Check-Ups <i>✦</i> JCI-Accredited Hospitals <i>✦</i> Fixed Transparent Prices <i>✦</i> 24/7 Care Coordinator <i>✦</i> </span>
+    <span data-i18n="586c47a2">Rhinoplasty <i>✦</i> Dental Veneers &amp; Implants <i>✦</i> Plastic Surgery <i>✦</i> iLASIK &amp; SMILE <i>✦</i> Knee Surgery <i>✦</i> Hair Transplant <i>✦</i> Gastric Sleeve &amp; Balloon <i>✦</i> Executive Check-Ups <i>✦</i> JCI-Accredited Hospitals <i>✦</i> Fixed Transparent Prices <i>✦</i> 24/7 Care Coordinator <i>✦</i> </span>
   </div>
 </div>
 
 <!-- ══════════ CHOOSER — the one decision that routes everything ══════════ -->
 <section class="chooser" id="start">
   <div class="chooser__head">
-    <h2 class="chooser__q" data-i18n="ch.q">What do you need?</h2>
-    <p class="chooser__hint" data-i18n="ch.hint">Tap one. You'll get the price in about ten seconds.</p>
+    <h2 data-i18n="a434528a" class="chooser__q">What do you need?</h2>
+    <p data-i18n="99b1e654" class="chooser__hint">Tap one. You'll get the price in about ten seconds.</p>
   </div>
   <div class="chooser__grid">
     <a class="choice" href="#estimate" data-scroll-to="#estimate" data-goto-calc="dental">
       <svg class="choice__ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
         <path d="M17 11c-4 .8-6.4 4.8-6 10.4.6 8 3.2 17.6 5.6 20.8 1.2 1.6 3.2 1.2 3.6-.8.6-3.2.8-7.2 3.2-7.2h1.2c2.4 0 2.6 4 3.2 7.2.4 2 2.4 2.4 3.6.8 2.4-3.2 5-12.8 5.6-20.8.4-5.6-2-9.6-6-10.4-3.2-.6-5.6 1.2-8.8 1.2S20.2 10.4 17 11z"/>
       </svg>
-      <span class="choice__name" data-i18n="ch.dental">Teeth</span>
-      <span class="choice__sub" data-i18n="ch.dental.sub">Full arch, All-on-4, veneer sets</span>
+      <span data-i18n="c15be25e" class="choice__name">Teeth</span>
+      <span data-i18n="208f4b3a" class="choice__sub">Full arch, All-on-4, veneer sets</span>
       <!-- $5,530 is All-on-4 for one arch, the cheapest full-mouth option on the
            site (a 20-unit veneer set is $6,900), so "from" is true for the
            full-mouth work this tile now names.
@@ -232,7 +223,7 @@
            Leading on $550 recruited exactly the cases the calculator then tells
            to stay home. The $550 is still real and still quoted on
            packages.html and in the calculator; it is just not the hook. -->
-      <span class="choice__from"><em data-i18n="t.from">from</em> $5,530</span>
+      <span data-i18n="deabdcd7" class="choice__from"><em>from</em> $5,530</span>
     </a>
     <a class="choice" href="#estimate" data-scroll-to="#estimate" data-goto-calc="rhinoplasty">
       <svg class="choice__ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -241,11 +232,11 @@
         <path d="M24.3 33.3c-.6 2.4.3 4 2.4 4.7"/>
         <path d="M26 40.5c-1.4 1.4-3.2 2.2-5.3 2.4"/>
       </svg>
-      <span class="choice__name" data-i18n="ch.nose">Nose</span>
-      <span class="choice__sub" data-i18n="ch.nose.sub">Rhinoplasty, revision</span>
+      <span data-i18n="4432170f" class="choice__name">Nose</span>
+      <span data-i18n="48882769" class="choice__sub">Rhinoplasty, revision</span>
       <!-- €3,000 partner hospital list x 1.15 = $3,450, + the $300 coordination
            fee = $3,750. Was $3,200, which was below the hospital price alone. -->
-      <span class="choice__from"><em data-i18n="t.from">from</em> $3,750</span>
+      <span data-i18n="e1b41010" class="choice__from"><em>from</em> $3,750</span>
     </a>
     <a class="choice" href="#estimate" data-scroll-to="#estimate" data-goto-calc="hair">
       <svg class="choice__ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -255,11 +246,11 @@
         <path d="M14 24c2.2-6.4 6-9.6 10-9.6s7.8 3.2 10 9.6"/>
         <path d="M19 14.6c.4-2.4 1.6-4 3-4.8M25.6 12.8c1-2 2.4-3.2 4-3.6" opacity="0.75"/>
       </svg>
-      <span class="choice__name" data-i18n="ch.hair">Hair</span>
-      <span class="choice__sub" data-i18n="ch.hair.sub">Transplant, Sapphire FUE</span>
+      <span data-i18n="c2ad21c0" class="choice__name">Hair</span>
+      <span data-i18n="f4f53b98" class="choice__sub">Transplant, Sapphire FUE</span>
       <!-- FUE with hotel, €2,500 x 1.15 = $2,875, + $300 coordination = $3,175,
            rounded up. Was $2,100, which matched no option in the calculator. -->
-      <span class="choice__from"><em data-i18n="t.from">from</em> $3,200</span>
+      <span data-i18n="a793d79e" class="choice__from"><em>from</em> $3,200</span>
     </a>
     <a class="choice" href="#estimate" data-scroll-to="#estimate" data-goto-calc="knee">
       <svg class="choice__ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -270,67 +261,67 @@
         <path d="M19 29.5 24 41" stroke-width="2.2"/>
         <path d="M25.5 28.5 30 39" stroke-width="2.2" opacity="0.45"/>
       </svg>
-      <span class="choice__name" data-i18n="ch.knee">Knee</span>
-      <span class="choice__sub" data-i18n="ch.knee.sub">Replacement, arthroscopy</span>
-      <span class="choice__from"><em data-i18n="t.from">from</em> $3,000</span>
+      <span data-i18n="e50c79ca" class="choice__name">Knee</span>
+      <span data-i18n="23ca8b30" class="choice__sub">Replacement, arthroscopy</span>
+      <span data-i18n="e3ab2926" class="choice__from"><em>from</em> $3,000</span>
     </a>
   </div>
   <div class="chooser__foot">
-    <a class="chooser__alt" href="#treatments" data-scroll-to="#treatments" data-i18n="ch.other">Something else, eyes, plastic surgery, weight loss, check-ups →</a>
-    <a class="chooser__alt chooser__alt--strong" href="#invitation" data-scroll-to="#invitation" data-i18n="ch.unsure">Not sure yet? Tell us what's wrong and we'll advise →</a>
+    <a data-i18n="68d0b7e5" class="chooser__alt" href="#treatments" data-scroll-to="#treatments">Something else, eyes, plastic surgery, weight loss, check-ups →</a>
+    <a data-i18n="3deb3725" class="chooser__alt chooser__alt--strong" href="#invitation" data-scroll-to="#invitation">Not sure yet? Tell us what's wrong and we'll advise →</a>
   </div>
 </section>
 
 <!-- ══════════ THE STANDARD ══════════ -->
 <section class="standard" id="standard">
   <div class="section-head">
-    <p class="eyebrow" data-fade data-i18n="std.eyebrow">WHY PATIENTS TRUST US</p>
-    <h2 class="display" data-reveal="words" data-i18n="std.heading">Your safety is our whole business model.</h2>
+    <p data-i18n="3fd9c42c" class="eyebrow" data-fade>WHY PATIENTS TRUST US</p>
+    <h2 data-i18n="ed40d380" class="display" data-reveal="words">Your safety is our whole business model.</h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade data-i18n="std.lede">Scared about surgery abroad? You should be careful, which is exactly why
+    <p data-i18n="216e4a2c" class="lede" data-fade>Scared about surgery abroad? You should be careful, which is exactly why
     you meet your surgeon, and hold a fixed written price, before you pay anything. Here is what we
     guarantee, and what you can check yourself.</p>
   </div>
   <div class="standard__grid">
     <article class="pillar" data-fade>
-      <span class="pillar__num">I</span>
-      <h3 data-i18n="std.p1h">Vetted surgeons, with proof</h3>
-      <p data-i18n="std.p1b">We accept fewer than 1 in 10 clinics that apply. Every surgeon is board-certified and
+      <span data-i18n="dd753679" class="pillar__num">I</span>
+      <h3 data-i18n="3316340c">Vetted surgeons, with proof</h3>
+      <p data-i18n="d5f09d14">We accept fewer than 1 in 10 clinics that apply. Every surgeon is board-certified and
       operates only in JCI-accredited hospitals, the same standard leading American hospitals hold.
       Ask for any surgeon's credentials and case history: we send them before you pay anything.</p>
     </article>
     <article class="pillar" data-fade>
-      <span class="pillar__num">II</span>
-      <h3 data-i18n="std.p2h">Meet your surgeon before you pay</h3>
-      <p data-i18n="std.p2b">A private video consultation with your actual surgeon, not a salesperson, before any
+      <span data-i18n="66cc12e3" class="pillar__num">II</span>
+      <h3 data-i18n="f1664f58">Meet your surgeon before you pay</h3>
+      <p data-i18n="4f787826">A private video consultation with your actual surgeon, not a salesperson, before any
       money changes hands. If anything feels off, you walk away. No deposit, no pressure.</p>
     </article>
     <article class="pillar" data-fade>
-      <span class="pillar__num">III</span>
-      <h3 data-i18n="std.p3h">One fixed price, in writing</h3>
-      <p data-i18n="std.p3b">Surgery, hospital, hotel, transfers, aftercare, one all-inclusive quote confirmed before
+      <span data-i18n="51ac4581" class="pillar__num">III</span>
+      <h3 data-i18n="a70ed0c4">One fixed price, in writing</h3>
+      <p data-i18n="1e966781">Surgery, hospital, hotel, transfers, aftercare, one all-inclusive quote confirmed before
       you book flights. The price you accept is the price you pay. No surprise invoices, ever.</p>
     </article>
     <article class="pillar" data-fade>
-      <span class="pillar__num">IV</span>
-      <h3 data-i18n="std.p4h">Aftercare that crosses the ocean</h3>
-      <p data-i18n="std.p4b">Scheduled video follow-ups with your surgeon after you're home, coordination with your
+      <span data-i18n="cf482c58" class="pillar__num">IV</span>
+      <h3 data-i18n="0a1c3b30">Aftercare that crosses the ocean</h3>
+      <p data-i18n="82e391c2">Scheduled video follow-ups with your surgeon after you're home, coordination with your
       local doctor, and a written plan for the rare case something needs correcting.</p>
     </article>
   </div>
-  <a class="partner__link" style="display:inline-block;margin:44px 7vw 0;" href="vetting.html" data-fade data-i18n="std.more">Read the full MedMatch Standard →</a>
+  <a data-i18n="8604987e" class="partner__link" style="display:inline-block;margin:44px 7vw 0;" href="vetting.html" data-fade>Read the full MedMatch Standard →</a>
 </section>
 
 <!-- ══════════ OUR STORY — compact founder strip ══════════ -->
 <section class="story-band" id="ourstory">
   <div class="section-head">
-    <p class="eyebrow" data-fade>OUR STORY</p>
-    <h2 class="display" data-reveal="words">We don't own clinics.<br/><em>That's the whole point.</em></h2>
+    <p data-i18n="ab374f2f" class="eyebrow" data-fade>OUR STORY</p>
+    <h2 data-i18n="7604bfe8" class="display" data-reveal="words">We don't own clinics.<br/><em>That's the whole point.</em></h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade>A clinic can only sell you what it does. We're independent, we match you to the
+    <p data-i18n="01ca656c" class="lede" data-fade>A clinic can only sell you what it does. We're independent, we match you to the
     right specialist for your case, from partners we vetted in person, at a price we put in writing. Twenty
     years in medical travel, 4,200 patients, and now our own name on the door.</p>
-    <p class="story-band__sig" data-fade>— Suleyman Suleymanoglu · Founder, MedMatch Global</p>
+    <p data-i18n="0e3cbefa" class="story-band__sig" data-fade>— Suleyman Suleymanoglu · Founder, MedMatch Global</p>
   </div>
 </section>
 
@@ -340,9 +331,9 @@
     <div class="htrack" id="htrack">
 
       <article class="tpanel tpanel--intro">
-        <p class="eyebrow" data-i18n="treat.eyebrow">TREATMENTS &amp; PRICES</p>
-        <h2 class="display" data-i18n="treat.heading">Four signature treatments.<br/><em>And a full hospital behind them.</em></h2>
-        <p class="lede" data-i18n="treat.lede">The four procedures where Türkiye's specialists genuinely lead the world.
+        <p data-i18n="b11741f4" class="eyebrow">TREATMENTS &amp; PRICES</p>
+        <h2 data-i18n="6379bd86" class="display">Four signature treatments.<br/><em>And a full hospital behind them.</em></h2>
+        <p data-i18n="c27e6467" class="lede">The four procedures where Türkiye's specialists genuinely lead the world.
         Through our Istanbul hospital group we also arrange plastic surgery, eye surgery, weight loss and
         check-ups at official hospital prices.</p>
         <div class="tpanel__arrow">⟶</div>
@@ -361,8 +352,8 @@
         </div>
         <div class="tpanel__body">
           <span class="tpanel__num">01</span>
-          <h3 class="tpanel__title" data-i18n="t1.title">Rhinoplasty</h3>
-          <p data-i18n="t1.desc">Türkiye's nose surgeons are among the most experienced anywhere, many perform more
+          <h3 data-i18n="242792db" class="tpanel__title">Rhinoplasty</h3>
+          <p data-i18n="32c70056">Türkiye's nose surgeons are among the most experienced anywhere, many perform more
           rhinoplasties in a year than a typical U.S. surgeon does in a decade. Ultrasonic and
           preservation techniques come as standard.</p>
           <div class="tpanel__meta">
@@ -370,11 +361,11 @@
                  it to INCLUDES_TEXT.hospital, so hotel is NOT included. It cannot
                  carry "all-inclusive" or the t.includes hotel claim. Reusing the
                  t5 keys, which already say the truthful thing in every language. -->
-            <div><em data-i18n="t.from">from</em><strong>$3,750</strong><span data-i18n="t5.unit">hospital price list</span></div>
-            <div class="tpanel__save" data-i18n="t1.save">VS. $8,000–$15,000 IN THE U.S.</div>
+            <div><em data-i18n="d98a07f8">from</em><strong>$3,750</strong><span data-i18n="e7f3dde4">hospital price list</span></div>
+            <div data-i18n="2cb5502c" class="tpanel__save">VS. $8,000–$15,000 IN THE U.S.</div>
           </div>
-          <p class="tpanel__includes" data-i18n="t5.includes">Hotel included only where stated, your care and coordination is a flat $300.</p>
-          <a class="tpanel__link magnetic" href="#estimate" data-scroll-to="#estimate" data-goto-calc="rhinoplasty"><span data-i18n="t.calc">Calculate My Price</span> ↓</a>
+          <p data-i18n="862a924b" class="tpanel__includes">Hotel included only where stated, your care and coordination is a flat $300.</p>
+          <a data-i18n="2e9f2d6c" class="tpanel__link magnetic" href="#estimate" data-scroll-to="#estimate" data-goto-calc="rhinoplasty"><span>Calculate My Price</span> ↓</a>
         </div>
       </article>
 
@@ -389,16 +380,16 @@
         </div>
         <div class="tpanel__body">
           <span class="tpanel__num">02</span>
-          <h3 class="tpanel__title" data-i18n="t2.title">Full-Arch Dental &amp; Veneers</h3>
-          <p data-i18n="t2.desc">A full arch of fixed teeth on four or six implants, in a single trip. Flights cost
+          <h3 data-i18n="04df3f00" class="tpanel__title">Full-Arch Dental &amp; Veneers</h3>
+          <p data-i18n="27960193">A full arch of fixed teeth on four or six implants, in a single trip. Flights cost
           the same whether you fix one tooth or a whole jaw — so we take on full-mouth work, and
           tell people with one bad tooth to have it done at home.</p>
           <div class="tpanel__meta">
-            <div><em data-i18n="t.from">from</em><strong>$5,530</strong><span data-i18n="t2.unit">full arch, per jaw</span></div>
-            <div class="tpanel__save" data-i18n="t2.save">VS. $24,000–$30,000 IN THE U.S.</div>
+            <div><em data-i18n="d98a07f8">from</em><strong>$5,530</strong><span data-i18n="dd1ac009">full arch, per jaw</span></div>
+            <div data-i18n="dc6fbfbe" class="tpanel__save">VS. $24,000–$30,000 IN THE U.S.</div>
           </div>
-          <p class="tpanel__includes" data-i18n="t.includes">Fixed price includes surgery, hospital, hotel, transfers &amp; aftercare.</p>
-          <a class="tpanel__link magnetic" href="#estimate" data-scroll-to="#estimate" data-goto-calc="dental"><span data-i18n="t.calc">Calculate My Price</span> ↓</a>
+          <p data-i18n="3f1b4a1b" class="tpanel__includes">Fixed price includes surgery, hospital, hotel, transfers &amp; aftercare.</p>
+          <a data-i18n="2e9f2d6c" class="tpanel__link magnetic" href="#estimate" data-scroll-to="#estimate" data-goto-calc="dental"><span>Calculate My Price</span> ↓</a>
         </div>
       </article>
 
@@ -416,15 +407,15 @@
         </div>
         <div class="tpanel__body">
           <span class="tpanel__num">03</span>
-          <h3 class="tpanel__title" data-i18n="t3.title">Knee Surgery &amp; Replacement</h3>
-          <p data-i18n="t3.desc">The same U.S.-made implants, Zimmer Biomet, Smith+Nephew, placed by high-volume
+          <h3 data-i18n="5d86e8c3" class="tpanel__title">Knee Surgery &amp; Replacement</h3>
+          <p data-i18n="de919831">The same U.S.-made implants, Zimmer Biomet, Smith+Nephew, placed by high-volume
           orthopedic teams, with daily physiotherapy at your recovery hotel before you fly home.</p>
           <div class="tpanel__meta">
-            <div><em data-i18n="t.from">from</em><strong>$3,000</strong><span data-i18n="t.allinc">all-inclusive</span></div>
-            <div class="tpanel__save" data-i18n="t3.save">VS. $30,000–$50,000 IN THE U.S.</div>
+            <div><em data-i18n="d98a07f8">from</em><strong>$3,000</strong><span data-i18n="f53db6e4">all-inclusive</span></div>
+            <div data-i18n="00746617" class="tpanel__save">VS. $30,000–$50,000 IN THE U.S.</div>
           </div>
-          <p class="tpanel__includes" data-i18n="t.includes">Fixed price includes surgery, hospital, hotel, transfers &amp; aftercare.</p>
-          <a class="tpanel__link magnetic" href="#estimate" data-scroll-to="#estimate" data-goto-calc="knee"><span data-i18n="t.calc">Calculate My Price</span> ↓</a>
+          <p data-i18n="3f1b4a1b" class="tpanel__includes">Fixed price includes surgery, hospital, hotel, transfers &amp; aftercare.</p>
+          <a data-i18n="2e9f2d6c" class="tpanel__link magnetic" href="#estimate" data-scroll-to="#estimate" data-goto-calc="knee"><span>Calculate My Price</span> ↓</a>
         </div>
       </article>
 
@@ -442,17 +433,17 @@
         </div>
         <div class="tpanel__body">
           <span class="tpanel__num">04</span>
-          <h3 class="tpanel__title" data-i18n="t4.title">Hair Transplant</h3>
-          <p data-i18n="t4.desc">Istanbul is the hair-restoration capital of the world. Your procedure is performed by
+          <h3 data-i18n="d7d34b25" class="tpanel__title">Hair Transplant</h3>
+          <p data-i18n="31fc7e2c">Istanbul is the hair-restoration capital of the world. Your procedure is performed by
           the surgeon, not a technician, with natural hairline design and a written growth guarantee.</p>
           <div class="tpanel__meta">
             <!-- The hotel-inclusive FUE option, so "all-inclusive package" and the
                  t.includes hotel claim below are both true at this price. -->
-            <div><em data-i18n="t.from">from</em><strong>$3,200</strong><span data-i18n="t4.unit">all-inclusive package</span></div>
-            <div class="tpanel__save" data-i18n="t4.save">VS. $12,000–$20,000 IN THE U.S.</div>
+            <div><em data-i18n="d98a07f8">from</em><strong>$3,200</strong><span data-i18n="197153a5">all-inclusive package</span></div>
+            <div data-i18n="396bb91e" class="tpanel__save">VS. $12,000–$20,000 IN THE U.S.</div>
           </div>
-          <p class="tpanel__includes" data-i18n="t.includes">Fixed price includes surgery, hospital, hotel, transfers &amp; aftercare.</p>
-          <a class="tpanel__link magnetic" href="#estimate" data-scroll-to="#estimate" data-goto-calc="hair"><span data-i18n="t.calc">Calculate My Price</span> ↓</a>
+          <p data-i18n="3f1b4a1b" class="tpanel__includes">Fixed price includes surgery, hospital, hotel, transfers &amp; aftercare.</p>
+          <a data-i18n="2e9f2d6c" class="tpanel__link magnetic" href="#estimate" data-scroll-to="#estimate" data-goto-calc="hair"><span>Calculate My Price</span> ↓</a>
         </div>
       </article>
 
@@ -468,16 +459,16 @@
         </div>
         <div class="tpanel__body">
           <span class="tpanel__num">05</span>
-          <h3 class="tpanel__title" data-i18n="t5.title">Beyond the Four, full hospital care</h3>
-          <p data-i18n="t5.desc">Plastic surgery, iLASIK &amp; SMILE eye surgery, gastric sleeve and balloon, executive
+          <h3 data-i18n="07434399" class="tpanel__title">Beyond the Four, full hospital care</h3>
+          <p data-i18n="93260184">Plastic surgery, iLASIK &amp; SMILE eye surgery, gastric sleeve and balloon, executive
           health check-ups and advanced imaging, performed at our partner hospital group, one of
           Türkiye's largest, at official prices paid directly to the hospital.</p>
           <div class="tpanel__meta">
-            <div><em data-i18n="t.from">from</em><strong>€300</strong><span data-i18n="t5.unit">hospital price list</span></div>
-            <div class="tpanel__save" data-i18n="t5.save">60+ PROCEDURES, PRICED IN WRITING</div>
+            <div><em data-i18n="d98a07f8">from</em><strong>€300</strong><span data-i18n="e7f3dde4">hospital price list</span></div>
+            <div data-i18n="1d0d7ab3" class="tpanel__save">60+ PROCEDURES, PRICED IN WRITING</div>
           </div>
-          <p class="tpanel__includes" data-i18n="t5.includes">Hotel included only where stated, your care and coordination is a flat $300.</p>
-          <a class="tpanel__link magnetic" href="partner-hospital.html"><span data-i18n="t5.cta">See the Full Price List</span> ⟶</a>
+          <p data-i18n="862a924b" class="tpanel__includes">Hotel included only where stated, your care and coordination is a flat $300.</p>
+          <a data-i18n="213d4aa9" class="tpanel__link magnetic" href="partner-hospital.html"><span>See the Full Price List</span> ⟶</a>
         </div>
       </article>
 
@@ -489,7 +480,7 @@
      Deliberately OUTSIDE #treatments: that section is GSAP-pinned on desktop,
      so anything placed inside it sits below the fold for the whole pin. -->
 <section class="toolnote">
-  <p data-fade>Before comparing prices anywhere, count the flights. Our True Cost Calculator
+  <p data-i18n="185eb577" data-fade>Before comparing prices anywhere, count the flights. Our True Cost Calculator
     adds travel, time off work and the second trip &mdash; and on small cases it will tell you
     to stay closer to home.
     <a href="true-cost.html">Work out your true cost &rarr;</a></p>
@@ -498,106 +489,106 @@
 <!-- ══════════ NUMBERS ══════════ -->
 <section class="numbers">
   <div class="numbers__grid">
-    <div class="numbers__item" data-fade><strong><span data-count="4200">4,200</span>+</strong><span data-i18n="num.1">Patients from the U.S. &amp; Canada</span></div>
-    <div class="numbers__item" data-fade><strong><span data-count="97">97</span>%</strong><span data-i18n="num.2">Would recommend us</span></div>
-    <div class="numbers__item" data-fade><strong><span data-count="12">12</span></strong><span data-i18n="num.3">JCI-accredited partner hospitals</span></div>
-    <div class="numbers__item" data-fade><strong>$<span data-count="18400">18,400</span></strong><span data-i18n="num.4">Average saving per patient</span></div>
+    <div class="numbers__item" data-fade><strong><span data-count="4200">4,200</span>+</strong><span data-i18n="0e7e65f9">Patients from the U.S. &amp; Canada</span></div>
+    <div class="numbers__item" data-fade><strong><span data-count="97">97</span>%</strong><span data-i18n="c50d6732">Would recommend us</span></div>
+    <div class="numbers__item" data-fade><strong><span data-count="12">12</span></strong><span data-i18n="113c5b5a">JCI-accredited partner hospitals</span></div>
+    <div class="numbers__item" data-fade><strong>$<span data-count="18400">18,400</span></strong><span data-i18n="69dca86c">Average saving per patient</span></div>
   </div>
 </section>
 
 <!-- ══════════ OUR PARTNERS ══════════ -->
 <section class="faculty" id="partners">
   <div class="section-head">
-    <p class="eyebrow" data-fade data-i18n="partners.eyebrow">OUR PARTNERS</p>
-    <h2 class="display" data-reveal="words" data-i18n="partners.heading">The hands you are in.</h2>
+    <p data-i18n="f128aff9" class="eyebrow" data-fade>OUR PARTNERS</p>
+    <h2 data-i18n="b57e90a8" class="display" data-reveal="words">The hands you are in.</h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade data-i18n="partners.lede">Four partners, all visited and vetted in person. You get each one by
+    <p data-i18n="73e5faaa" class="lede" data-fade>Four partners, all visited and vetted in person. You get each one by
     name, credentials, address, case results, inside your treatment plan, and you meet your doctor on
     video before you pay.</p>
   </div>
 
   <div class="partners__grid">
     <article class="partner" data-fade>
-      <div class="partner__img partner__img--dental" role="img" aria-label="Partner dental clinic reception, Antalya"></div>
+      <div data-i18n-attr="aria-label:449bf1dd" class="partner__img partner__img--dental" role="img" aria-label="Partner dental clinic reception, Antalya"></div>
       <div class="partner__body">
-        <p class="partner__type" data-i18n="partner.dental1.type">DENTAL CLINIC, ANTALYA</p>
-        <h3>Signature Dental Partner <span class="partner__lock" title="Partner identity is shared with your personal quote">✦ NAME WITH YOUR QUOTE</span></h3>
-        <p class="partner__desc" data-i18n="partner.dental1.desc">Our dedicated dental partner, full-mouth implants, veneers and smile
+        <p data-i18n="8df42f39" class="partner__type">DENTAL CLINIC, ANTALYA</p>
+        <h3 data-i18n="1e9ab585">Signature Dental Partner <span data-i18n-attr="title:b4cc6a98" class="partner__lock" title="Partner identity is shared with your personal quote">✦ NAME WITH YOUR QUOTE</span></h3>
+        <p data-i18n="37c383a5" class="partner__desc">Our dedicated dental partner, full-mouth implants, veneers and smile
         makeovers, delivered by a board-certified team we have personally vetted, in-clinic.</p>
-        <p class="partner__addr">Lara district, Muratpaşa / Antalya, full clinic details with your treatment plan</p>
-        <a class="partner__link" href="packages.html" data-i18n="partner.dental1.link">Dental packages &amp; prices →</a>
+        <p data-i18n="d4e12b2a" class="partner__addr">Lara district, Muratpaşa / Antalya, full clinic details with your treatment plan</p>
+        <a data-i18n="58720578" class="partner__link" href="packages.html">Dental packages &amp; prices →</a>
       </div>
     </article>
     <article class="partner" data-fade>
-      <div class="partner__img partner__img--smile" role="img" aria-label="Partner smile studio clinic building"></div>
+      <div data-i18n-attr="aria-label:7a4e1cd5" class="partner__img partner__img--smile" role="img" aria-label="Partner smile studio clinic building"></div>
       <div class="partner__body">
-        <p class="partner__type" data-i18n="partner.dental2.type">DENTAL CLINIC, ANTALYA · ISTANBUL · DIDIM</p>
-        <h3>Award-Winning Smile Studio <span class="partner__lock" title="Partner identity is shared with your personal quote">✦ NAME WITH YOUR QUOTE</span></h3>
-        <p class="partner__desc" data-i18n="partner.dental2.desc">An award-winning smile studio with more than twenty years of experience in
+        <p data-i18n="0e142578" class="partner__type">DENTAL CLINIC, ANTALYA · ISTANBUL · DIDIM</p>
+        <h3 data-i18n="19d27bfe">Award-Winning Smile Studio <span data-i18n-attr="title:b4cc6a98" class="partner__lock" title="Partner identity is shared with your personal quote">✦ NAME WITH YOUR QUOTE</span></h3>
+        <p data-i18n="10eb0ed3" class="partner__desc">An award-winning smile studio with more than twenty years of experience in
         veneers, crowns and implants on a fully digital workflow. Ask us for real patient results
         during your free consultation.</p>
-        <p class="partner__addr">Antalya · Istanbul · Didim, full clinic details with your treatment plan</p>
-        <a class="partner__link" href="#invitation" data-scroll-to="#invitation" data-i18n="partner.dental2.link">Request an introduction →</a>
+        <p data-i18n="f5c97b5f" class="partner__addr">Antalya · Istanbul · Didim, full clinic details with your treatment plan</p>
+        <a data-i18n="890d9307" class="partner__link" href="#invitation" data-scroll-to="#invitation">Request an introduction →</a>
       </div>
     </article>
     <article class="partner" data-fade>
-      <div class="partner__img partner__img--mira" role="img" aria-label="Mira Dental Clinic interior, Antalya"></div>
+      <div data-i18n-attr="aria-label:51dac0c4" class="partner__img partner__img--mira" role="img" aria-label="Mira Dental Clinic interior, Antalya"></div>
       <div class="partner__body">
-        <p class="partner__type">DENTAL CLINIC, ANTALYA</p>
-        <h3>Mira Dental Clinic</h3>
-        <p class="partner__desc">Our second Antalya dental partner, and the only one who prices full mouth
+        <p data-i18n="8df42f39" class="partner__type">DENTAL CLINIC, ANTALYA</p>
+        <h3 data-i18n="9599d912">Mira Dental Clinic</h3>
+        <p data-i18n="573741d8" class="partner__desc">Our second Antalya dental partner, and the only one who prices full mouth
         rather than per jaw, implants, zirconium and E-max crowns, with hotel and VIP transfers covered
         by the clinic itself.</p>
-        <p class="partner__addr">Antalya, full clinic details with your treatment plan</p>
-        <a class="partner__link" href="#mira" data-scroll-to="#mira">See their before &amp; after results →</a>
+        <p data-i18n="62579ff4" class="partner__addr">Antalya, full clinic details with your treatment plan</p>
+        <a data-i18n="5c92caf5" class="partner__link" href="#mira" data-scroll-to="#mira">See their before &amp; after results →</a>
       </div>
     </article>
     <article class="partner" data-fade>
-      <div class="partner__img partner__img--campus" role="img" aria-label="Partner hospital campus, Istanbul"></div>
+      <div data-i18n-attr="aria-label:4ac3d3e0" class="partner__img partner__img--campus" role="img" aria-label="Partner hospital campus, Istanbul"></div>
       <div class="partner__body">
-        <p class="partner__type" data-i18n="partner.hospital.type">HOSPITAL GROUP, ISTANBUL</p>
-        <h3>JCI-Accredited Hospital Group <span class="partner__lock" title="Partner identity is shared with your personal quote">✦ NAME WITH YOUR QUOTE</span></h3>
-        <p class="partner__desc" data-i18n="partner.hospital.desc">One of Türkiye's largest private healthcare groups, plastic surgery, eye
+        <p data-i18n="d6330f0c" class="partner__type">HOSPITAL GROUP, ISTANBUL</p>
+        <h3 data-i18n="3d99996b">JCI-Accredited Hospital Group <span data-i18n-attr="title:b4cc6a98" class="partner__lock" title="Partner identity is shared with your personal quote">✦ NAME WITH YOUR QUOTE</span></h3>
+        <p data-i18n="6b9a788e" class="partner__desc">One of Türkiye's largest private healthcare groups, plastic surgery, eye
         surgery, hair transplantation, bariatric procedures, executive check-ups and imaging, all inside
         full hospitals with intensive care on site.</p>
-        <p class="partner__addr">Three hospital campuses across Istanbul, named in your written quote</p>
-        <a class="partner__link" href="partner-hospital.html" data-i18n="partner.hospital.link">Procedures &amp; advisor access →</a>
+        <p data-i18n="46a04837" class="partner__addr">Three hospital campuses across Istanbul, named in your written quote</p>
+        <a data-i18n="f23c7321" class="partner__link" href="partner-hospital.html">Procedures &amp; advisor access →</a>
       </div>
     </article>
   </div>
 
   <!-- Dental faculty roster is advisor-only; full block preserved in the private repo archive -->
-  <p class="faculty__team" data-fade>Six board-certified specialists review your case before you fly.
+  <p data-i18n="27147d49" class="faculty__team" data-fade>Six board-certified specialists review your case before you fly.
     <a href="#invitation" data-scroll-to="#invitation">Meet your team →</a></p>
 </section>
 
 <!-- ══════════ THE LEDGER — CALCULATORS ══════════ -->
 <section class="ledger" id="estimate">
   <div class="section-head">
-    <p class="eyebrow" data-fade data-i18n="pricing.eyebrow">PRICING</p>
-    <h2 class="display" data-reveal="words" data-i18n="pricing.heading">Transparent to the cent.</h2>
+    <p data-i18n="99ff3467" class="eyebrow" data-fade>PRICING</p>
+    <h2 data-i18n="b5150b6b" class="display" data-reveal="words">Transparent to the cent.</h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade data-i18n="pricing.lede">Build your estimate, compared honestly against private-pay prices at home.
+    <p data-i18n="b78ea994" class="lede" data-fade>Build your estimate, compared honestly against private-pay prices at home.
     Dental and knee include hotel, transfers and your coordinator; hospital treatments show the official
     fixed price.</p>
   </div>
 
   <div class="ledger__bar">
     <div class="tabs" role="tablist" id="calcTabs">
-      <button class="tab" role="tab" data-calc="dental" aria-selected="false"><span>Dental</span></button>
-      <button class="tab" role="tab" data-calc="rhinoplasty" aria-selected="false"><span>Rhinoplasty</span></button>
-      <button class="tab" role="tab" data-calc="plastic" aria-selected="false"><span>Plastic</span></button>
-      <button class="tab" role="tab" data-calc="eye" aria-selected="false"><span>Eyes</span></button>
-      <button class="tab" role="tab" data-calc="obesity" aria-selected="false"><span>Weight Loss</span></button>
-      <button class="tab" role="tab" data-calc="checkup" aria-selected="false"><span>Check-Up</span></button>
-      <button class="tab" role="tab" data-calc="knee" aria-selected="false"><span>Knee</span></button>
-      <button class="tab" role="tab" data-calc="hair" aria-selected="false"><span>Hair</span></button>
+      <button class="tab" role="tab" data-calc="dental" aria-selected="false"><span data-i18n="a3ff0f10">Dental</span></button>
+      <button class="tab" role="tab" data-calc="rhinoplasty" aria-selected="false"><span data-i18n="242792db">Rhinoplasty</span></button>
+      <button class="tab" role="tab" data-calc="plastic" aria-selected="false"><span data-i18n="1c230158">Plastic</span></button>
+      <button class="tab" role="tab" data-calc="eye" aria-selected="false"><span data-i18n="ae6e9b63">Eyes</span></button>
+      <button class="tab" role="tab" data-calc="obesity" aria-selected="false"><span data-i18n="bcdc01d8">Weight Loss</span></button>
+      <button class="tab" role="tab" data-calc="checkup" aria-selected="false"><span data-i18n="a347dc1b">Check-Up</span></button>
+      <button class="tab" role="tab" data-calc="knee" aria-selected="false"><span data-i18n="e50c79ca">Knee</span></button>
+      <button class="tab" role="tab" data-calc="hair" aria-selected="false"><span data-i18n="c2ad21c0">Hair</span></button>
       <span class="tabs__ink" id="tabsInk"></span>
     </div>
     <div class="currency" id="currencyToggle">
-      <button class="currency__btn is-active" data-cur="USD">USD $</button>
-      <button class="currency__btn" data-cur="CAD">CAD $</button>
-      <button class="currency__btn" data-cur="GBP">GBP £</button>
+      <button data-i18n="fe023358" class="currency__btn is-active" data-cur="USD">USD $</button>
+      <button data-i18n="5d3d101c" class="currency__btn" data-cur="CAD">CAD $</button>
+      <button data-i18n="aee109bd" class="currency__btn" data-cur="GBP">GBP £</button>
     </div>
   </div>
 
@@ -607,21 +598,21 @@
     <div class="calc__panel" data-panel="dental">
       <div class="calc__inputs">
         <div class="field">
-          <div class="field__label"><label for="d-implants">Dental implants</label><output id="d-implants-out">0</output></div>
+          <div data-i18n="5ce15e4e" class="field__label"><label for="d-implants">Dental implants</label><output id="d-implants-out">0</output></div>
           <input type="range" id="d-implants" min="0" max="12" step="1" value="0" data-recalc/>
-          <div class="field__hint">Premium brands, Straumann, Nobel Biocare</div>
+          <div data-i18n="c7bf163c" class="field__hint">Premium brands, Straumann, Nobel Biocare</div>
         </div>
         <div class="field">
-          <div class="field__label"><label for="d-veneers">Porcelain veneers</label><output id="d-veneers-out">8</output></div>
+          <div data-i18n="06727e8c" class="field__label"><label for="d-veneers">Porcelain veneers</label><output id="d-veneers-out">8</output></div>
           <input type="range" id="d-veneers" min="0" max="20" step="1" value="8" data-recalc/>
-          <div class="field__hint">Hand-layered, shade-matched to your smile</div>
+          <div data-i18n="fd4a8670" class="field__hint">Hand-layered, shade-matched to your smile</div>
         </div>
         <div class="field">
-          <div class="field__label"><label for="d-crowns">Crowns</label><output id="d-crowns-out">0</output></div>
+          <div data-i18n="e46a16d2" class="field__label"><label for="d-crowns">Crowns</label><output id="d-crowns-out">0</output></div>
           <input type="range" id="d-crowns" min="0" max="20" step="1" value="0" data-recalc/>
         </div>
         <div class="field">
-          <div class="field__label"><label for="d-material">Material</label></div>
+          <div class="field__label"><label data-i18n="d92a8333" for="d-material">Material</label></div>
           <div class="select-wrap">
             <select id="d-material" data-recalc>
               <option value="zirconia">Premium Zirconia</option>
@@ -632,7 +623,7 @@
         <label class="switch">
           <input type="checkbox" id="d-whitening" data-recalc/>
           <span class="switch__track"><span class="switch__thumb"></span></span>
-          <span class="switch__text">Add professional whitening</span>
+          <span data-i18n="1c825cf9" class="switch__text">Add professional whitening</span>
         </label>
       </div>
       <div class="calc__result"></div>
@@ -642,18 +633,18 @@
     <div class="calc__panel" data-panel="rhinoplasty">
       <div class="calc__inputs">
         <div class="field">
-          <div class="field__label"><label for="r-type">Procedure</label></div>
+          <div class="field__label"><label data-i18n="8c4271e6" for="r-type">Procedure</label></div>
           <div class="select-wrap">
             <select id="r-type" data-recalc>
               <option value="primary">Primary Rhinoplasty, €3,000</option>
               <option value="complex">Complex Rhinoplasty, €3,500</option>
             </select>
           </div>
-          <div class="field__hint">Official partner-hospital price, performed in a full hospital, Istanbul</div>
+          <div data-i18n="f632e560" class="field__hint">Official partner-hospital price, performed in a full hospital, Istanbul</div>
         </div>
         <div class="field">
-          <div class="field__label"><label>Good to know</label></div>
-          <div class="field__hint" style="margin-top:6px;">Revision and ethnic cases are usually quoted as
+          <div class="field__label"><label data-i18n="7dadd2a4">Good to know</label></div>
+          <div data-i18n="1cf03afb" class="field__hint" style="margin-top:6px;">Revision and ethnic cases are usually quoted as
           Complex. Your exact price is confirmed in writing by the hospital after your photos are reviewed,
           before you book anything.</div>
         </div>
@@ -665,15 +656,15 @@
     <div class="calc__panel" data-panel="plastic">
       <div class="calc__inputs">
         <div class="field">
-          <div class="field__label"><label for="p-proc">Procedure</label></div>
+          <div class="field__label"><label data-i18n="8c4271e6" for="p-proc">Procedure</label></div>
           <div class="select-wrap">
             <select id="p-proc" data-recalc></select>
           </div>
-          <div class="field__hint">Official partner-hospital prices, quoted in €, paid directly to the hospital</div>
+          <div data-i18n="53f73ea0" class="field__hint">Official partner-hospital prices, quoted in €, paid directly to the hospital</div>
         </div>
         <div class="field">
-          <div class="field__label"><label>Good to know</label></div>
-          <div class="field__hint" style="margin-top:6px;">Every procedure is performed in a full partner
+          <div class="field__label"><label data-i18n="7dadd2a4">Good to know</label></div>
+          <div data-i18n="e54d24e5" class="field__hint" style="margin-top:6px;">Every procedure is performed in a full partner
           hospital, with anesthesiology teams and intensive care on site, never in an office suite.
           Combination surgeries are quoted individually.</div>
         </div>
@@ -685,15 +676,15 @@
     <div class="calc__panel" data-panel="eye">
       <div class="calc__inputs">
         <div class="field">
-          <div class="field__label"><label for="e-proc">Procedure</label></div>
+          <div class="field__label"><label data-i18n="8c4271e6" for="e-proc">Procedure</label></div>
           <div class="select-wrap">
             <select id="e-proc" data-recalc></select>
           </div>
-          <div class="field__hint">Partner eye-surgery hospital, Istanbul, both eyes, official hospital prices</div>
+          <div data-i18n="348df0ca" class="field__hint">Partner eye-surgery hospital, Istanbul, both eyes, official hospital prices</div>
         </div>
         <div class="field">
-          <div class="field__label"><label>Good to know</label></div>
-          <div class="field__hint" style="margin-top:6px;">Laser packages marked “+ hotel” include two hotel
+          <div class="field__label"><label data-i18n="7dadd2a4">Good to know</label></div>
+          <div data-i18n="3df17fae" class="field__hint" style="margin-top:6px;">Laser packages marked “+ hotel” include two hotel
           nights; the cataract hotel package includes five. Suitability is confirmed with a corneal
           tomography (Pentacam, €400) on arrival.</div>
         </div>
@@ -705,15 +696,15 @@
     <div class="calc__panel" data-panel="obesity">
       <div class="calc__inputs">
         <div class="field">
-          <div class="field__label"><label for="o-proc">Procedure</label></div>
+          <div class="field__label"><label data-i18n="8c4271e6" for="o-proc">Procedure</label></div>
           <div class="select-wrap">
             <select id="o-proc" data-recalc></select>
           </div>
-          <div class="field__hint">Weight-loss surgery at our partner hospital, official prices, quoted in €</div>
+          <div data-i18n="c0bb6b54" class="field__hint">Weight-loss surgery at our partner hospital, official prices, quoted in €</div>
         </div>
         <div class="field">
-          <div class="field__label"><label>Good to know</label></div>
-          <div class="field__hint" style="margin-top:6px;">Gastric sleeve and bypass packages include five
+          <div class="field__label"><label data-i18n="7dadd2a4">Good to know</label></div>
+          <div data-i18n="b1014851" class="field__hint" style="margin-top:6px;">Gastric sleeve and bypass packages include five
           hotel nights. Every surgical candidate is reviewed by the hospital's weight-management team:
           endocrinology, nutrition and psychology, before a date is confirmed.</div>
         </div>
@@ -725,15 +716,15 @@
     <div class="calc__panel" data-panel="checkup">
       <div class="calc__inputs">
         <div class="field">
-          <div class="field__label"><label for="c-proc">Package</label></div>
+          <div class="field__label"><label data-i18n="209802fb" for="c-proc">Package</label></div>
           <div class="select-wrap">
             <select id="c-proc" data-recalc></select>
           </div>
-          <div class="field__hint">Hospital check-up packages &amp; imaging, results reviewed with an English-speaking physician</div>
+          <div data-i18n="51cddf2c" class="field__hint">Hospital check-up packages &amp; imaging, results reviewed with an English-speaking physician</div>
         </div>
         <div class="field">
-          <div class="field__label"><label>Good to know</label></div>
-          <div class="field__hint" style="margin-top:6px;">Most check-up packages are completed in a single
+          <div class="field__label"><label data-i18n="7dadd2a4">Good to know</label></div>
+          <div data-i18n="ba69eb1f" class="field__hint" style="margin-top:6px;">Most check-up packages are completed in a single
           day, with written results in English. Perfect to combine with a holiday, or with another
           treatment on this page.</div>
         </div>
@@ -745,7 +736,7 @@
     <div class="calc__panel" data-panel="knee">
       <div class="calc__inputs">
         <div class="field">
-          <div class="field__label"><label for="k-proc">Procedure</label></div>
+          <div class="field__label"><label data-i18n="8c4271e6" for="k-proc">Procedure</label></div>
           <div class="select-wrap">
             <select id="k-proc" data-recalc>
               <option value="arthro">Knee Arthroscopy</option>
@@ -756,7 +747,7 @@
           </div>
         </div>
         <div class="field">
-          <div class="field__label"><label for="k-implant">Implant tier</label></div>
+          <div class="field__label"><label data-i18n="bd690603" for="k-implant">Implant tier</label></div>
           <div class="select-wrap">
             <select id="k-implant" data-recalc>
               <option value="standard">Standard, Zimmer Biomet</option>
@@ -765,14 +756,14 @@
           </div>
         </div>
         <div class="field">
-          <div class="field__label"><label for="k-physio">On-site physiotherapy</label><output id="k-physio-out">1 week</output></div>
+          <div data-i18n="9af7a55d" class="field__label"><label for="k-physio">On-site physiotherapy</label><output id="k-physio-out">1 week</output></div>
           <input type="range" id="k-physio" min="0" max="3" step="1" value="1" data-recalc/>
-          <div class="field__hint">Daily sessions at your recovery hotel</div>
+          <div data-i18n="73a0c5b8" class="field__hint">Daily sessions at your recovery hotel</div>
         </div>
         <label class="switch">
           <input type="checkbox" id="k-companion" data-recalc/>
           <span class="switch__track"><span class="switch__thumb"></span></span>
-          <span class="switch__text">Bring a companion, travel &amp; stay included</span>
+          <span data-i18n="85bdce5d" class="switch__text">Bring a companion, travel &amp; stay included</span>
         </label>
       </div>
       <div class="calc__result"></div>
@@ -782,23 +773,23 @@
     <div class="calc__panel" data-panel="hair">
       <div class="calc__inputs">
         <div class="field">
-          <div class="field__label"><label for="h-tech">Technique</label></div>
+          <div class="field__label"><label data-i18n="22a70073" for="h-tech">Technique</label></div>
           <div class="select-wrap">
             <select id="h-tech" data-recalc>
               <option value="fue">FUE, Follicular Unit Extraction</option>
               <option value="dhi">DHI, Direct Hair Implantation</option>
             </select>
           </div>
-          <div class="field__hint">Performed at our partner hospital campuses in Istanbul, full hospital, not a hair studio</div>
+          <div data-i18n="c68bbff6" class="field__hint">Performed at our partner hospital campuses in Istanbul, full hospital, not a hair studio</div>
         </div>
         <label class="switch">
           <input type="checkbox" id="h-hotel" data-recalc checked/>
           <span class="switch__track"><span class="switch__thumb"></span></span>
-          <span class="switch__text">Include 2 hotel nights in the package</span>
+          <span data-i18n="1b41eadf" class="switch__text">Include 2 hotel nights in the package</span>
         </label>
         <div class="field">
-          <div class="field__label"><label>Good to know</label></div>
-          <div class="field__hint" style="margin-top:6px;">One fixed hospital price per technique, no
+          <div class="field__label"><label data-i18n="7dadd2a4">Good to know</label></div>
+          <div data-i18n="42d2f15e" class="field__hint" style="margin-top:6px;">One fixed hospital price per technique, no
           per-graft surprises. Your exact plan is confirmed in writing by the hospital before you book.</div>
         </div>
       </div>
@@ -806,7 +797,7 @@
     </div>
 
   </div>
-  <p class="ledger__note" data-fade>Estimates are indicative and confirmed only after review of your records by our surgical board.
+  <p data-i18n="d86bda66" class="ledger__note" data-fade>Estimates are indicative and confirmed only after review of your records by our surgical board.
   Home-market figures reflect published U.S. &amp; Canadian private-pay averages, 2025–26. Partner-hospital
   prices are quoted in euros (€) and shown here converted at €1 ≈ US$1.15, exact € figures are
   confirmed in writing with your <a href="partner-hospital.html" style="color:var(--teal);">free quote</a>.</p>
@@ -815,16 +806,16 @@
 <!-- ══════════ PACKAGES — transparent breakdown ══════════ -->
 <section class="pkgs" id="packages">
   <div class="section-head">
-    <p class="eyebrow" data-fade data-i18n="packages.eyebrow">DENTAL PACKAGES, ANTALYA</p>
-    <h2 class="display" data-reveal="words" data-i18n="packages.heading">Every dollar, itemized.</h2>
+    <p data-i18n="ee4d2950" class="eyebrow" data-fade>DENTAL PACKAGES, ANTALYA</p>
+    <h2 data-i18n="2bee5139" class="display" data-reveal="words">Every dollar, itemized.</h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade data-i18n="packages.lede">You pay the clinic directly for your treatment, we never mark up medical
+    <p data-i18n="862b3bcf" class="lede" data-fade>You pay the clinic directly for your treatment, we never mark up medical
     prices. Choose your hotel, see the full breakdown, and know your total before you ever
     book a flight.</p>
     <div id="pkgBadge" data-badge-slot></div>
   </div>
   <div class="pkgs__bar">
-    <p class="pkgs__note" style="font-size:13px;color:var(--ink-soft);max-width:520px;">You pay your doctor directly at our partner
+    <p data-i18n="a0d7227b" class="pkgs__note" style="font-size:13px;color:var(--ink-soft);max-width:520px;">You pay your doctor directly at our partner
     clinic in Antalya, introduced by name with your plan. Hotel, transfers and your host are arranged by us.</p>
     <div class="currency" id="pkgCurrency"></div>
   </div>
@@ -835,8 +826,8 @@
 <!-- ══════════ THE PASSAGE — JOURNEY ══════════ -->
 <section class="passage" id="passage">
   <div class="section-head">
-    <p class="eyebrow" data-fade data-i18n="passage.eyebrow">HOW IT WORKS</p>
-    <h2 class="display" data-reveal="words" data-i18n="passage.heading">From your door, and back again.</h2>
+    <p data-i18n="a0783f08" class="eyebrow" data-fade>HOW IT WORKS</p>
+    <h2 data-i18n="0f6e8955" class="display" data-reveal="words">From your door, and back again.</h2>
     <div class="rule" data-rule></div>
   </div>
   <div class="passage__layout">
@@ -845,33 +836,33 @@
       <li class="pstep" data-step>
         <span class="pstep__num">01</span>
         <div>
-          <h3 data-i18n="ps1h">The Consultation</h3>
-          <p data-i18n="ps1b">A private video consultation from home. Your records are reviewed by no fewer than
+          <h3 data-i18n="7e91c54e">The Consultation</h3>
+          <p data-i18n="7953e756">A private video consultation from home. Your records are reviewed by no fewer than
           three surgeons before any recommendation is made.</p>
         </div>
       </li>
       <li class="pstep" data-step>
         <span class="pstep__num">02</span>
-        <div><h3 data-i18n="ps2h">The Fixed Quote</h3>
-        <p data-i18n="ps2b">You receive one fixed, all-inclusive quote, surgery, hospital, suite, transfers, host.
+        <div><h3 data-i18n="e025cf20">The Fixed Quote</h3>
+        <p data-i18n="827c3afb">You receive one fixed, all-inclusive quote, surgery, hospital, suite, transfers, host.
         The price you accept is the price you pay. It is signed, and it is final.</p></div>
       </li>
       <li class="pstep" data-step>
         <span class="pstep__num">03</span>
-        <div><h3 data-i18n="ps3h">The Arrival</h3>
-        <p data-i18n="ps3b">Met at the aircraft door in Istanbul. Private transfer to a five-star hotel on the
+        <div><h3 data-i18n="4f796581">The Arrival</h3>
+        <p data-i18n="b9859f87">Met at the aircraft door in Istanbul. Private transfer to a five-star hotel on the
         Bosphorus. Your host, fluent, discreet, on call, is with you from this moment on.</p></div>
       </li>
       <li class="pstep" data-step>
         <span class="pstep__num">04</span>
-        <div><h3 data-i18n="ps4h">The Procedure</h3>
-        <p data-i18n="ps4b">Treatment in a JCI-accredited hospital with an English-speaking clinical team. Your host
+        <div><h3 data-i18n="ca95f067">The Procedure</h3>
+        <p data-i18n="d3d834db">Treatment in a JCI-accredited hospital with an English-speaking clinical team. Your host
         remains at the hospital; your family receives updates at every stage.</p></div>
       </li>
       <li class="pstep" data-step>
         <span class="pstep__num">05</span>
-        <div><h3 data-i18n="ps5h">The Return</h3>
-        <p data-i18n="ps5b">Fit-to-fly checks before departure, then scheduled video follow-ups with your surgeon and
+        <div><h3 data-i18n="62808304">The Return</h3>
+        <p data-i18n="f69c53d7">Fit-to-fly checks before departure, then scheduled video follow-ups with your surgeon and
         coordination with your physicians in the U.S. or Canada, for as long as you need us.</p></div>
       </li>
     </ol>
@@ -881,53 +872,53 @@
 <!-- ══════════ THE RESIDENCE — partner hotel ══════════ -->
 <section class="residence" id="hotel">
   <div class="section-head">
-    <p class="eyebrow" data-fade>WHERE YOU'LL STAY</p>
-    <h2 class="display" data-reveal="words">Recover like a guest.<br/><em>Not like a patient.</em></h2>
+    <p data-i18n="9d09ea52" class="eyebrow" data-fade>WHERE YOU'LL STAY</p>
+    <h2 data-i18n="647b0346" class="display" data-reveal="words">Recover like a guest.<br/><em>Not like a patient.</em></h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade>The Avion Suite Hotel in Antalya, a quiet boutique property minutes from the sea,
+    <p data-i18n="74624e2a" class="lede" data-fade>The Avion Suite Hotel in Antalya, a quiet boutique property minutes from the sea,
     with its own restaurant downstairs. Your stay is inside your fixed quote, never a surprise line item.</p>
   </div>
   <div class="residence__gallery">
-    <figure class="rphoto rphoto--tall" data-fade><picture><source type="image/avif" srcset="img/rs/hotel/avion-01-700.avif 700w, img/rs/hotel/avion-01-900.avif 900w" sizes="(max-width: 900px) 92vw, 30vw"/><img src="img/hotel/avion-01.jpg" alt="Avion Suite Hotel at sunset, Antalya" loading="lazy" decoding="async" width="899" height="1600"/></picture><figcaption>The hotel at dusk</figcaption></figure>
-    <figure class="rphoto" data-fade><picture><source type="image/avif" srcset="img/rs/hotel/avion-06-700.avif 700w, img/rs/hotel/avion-06-1200.avif 1200w" sizes="(max-width: 900px) 92vw, 30vw"/><img src="img/hotel/avion-06.jpg" alt="Junior suite with king bed and lounge sofa" loading="lazy" decoding="async" width="1600" height="1068"/></picture><figcaption>Junior suite</figcaption></figure>
-    <figure class="rphoto" data-fade><picture><source type="image/avif" srcset="img/rs/hotel/avion-03-700.avif 700w, img/rs/hotel/avion-03-1200.avif 1200w" sizes="(max-width: 900px) 92vw, 30vw"/><img src="img/hotel/avion-03.jpg" alt="Aerial view of the Düden district, sea and waterfall minutes away" loading="lazy" decoding="async" width="1600" height="1142"/></picture><figcaption>Düden district, sea &amp; waterfall minutes away</figcaption></figure>
+    <figure class="rphoto rphoto--tall" data-fade><picture><source type="image/avif" srcset="img/rs/hotel/avion-01-700.avif 700w, img/rs/hotel/avion-01-900.avif 900w" sizes="(max-width: 900px) 92vw, 30vw"/><img data-i18n-attr="alt:2871220b" src="img/hotel/avion-01.jpg" alt="Avion Suite Hotel at sunset, Antalya" loading="lazy" decoding="async" width="899" height="1600"/></picture><figcaption data-i18n="cfee2b6c">The hotel at dusk</figcaption></figure>
+    <figure class="rphoto" data-fade><picture><source type="image/avif" srcset="img/rs/hotel/avion-06-700.avif 700w, img/rs/hotel/avion-06-1200.avif 1200w" sizes="(max-width: 900px) 92vw, 30vw"/><img data-i18n-attr="alt:171ff2bf" src="img/hotel/avion-06.jpg" alt="Junior suite with king bed and lounge sofa" loading="lazy" decoding="async" width="1600" height="1068"/></picture><figcaption data-i18n="41aa5bc0">Junior suite</figcaption></figure>
+    <figure class="rphoto" data-fade><picture><source type="image/avif" srcset="img/rs/hotel/avion-03-700.avif 700w, img/rs/hotel/avion-03-1200.avif 1200w" sizes="(max-width: 900px) 92vw, 30vw"/><img data-i18n-attr="alt:3ea39e16" src="img/hotel/avion-03.jpg" alt="Aerial view of the Düden district, sea and waterfall minutes away" loading="lazy" decoding="async" width="1600" height="1142"/></picture><figcaption data-i18n="07297f5e">Düden district, sea &amp; waterfall minutes away</figcaption></figure>
   </div>
 </section>
 
 <!-- ══════════ VOICES ══════════ -->
 <section class="voices" id="voices">
   <div class="section-head">
-    <p class="eyebrow" data-fade data-i18n="voices.eyebrow">PATIENT STORIES</p>
-    <h2 class="display" data-reveal="words" data-i18n="voices.heading">They arrived as patients.<br/>They returned as advocates.</h2>
+    <p data-i18n="9850fe56" class="eyebrow" data-fade>PATIENT STORIES</p>
+    <h2 data-i18n="7d31320d" class="display" data-reveal="words">They arrived as patients.<br/>They returned as advocates.</h2>
     <div class="rule" data-rule></div>
   </div>
   <div class="voices__grid">
     <figure class="voice" data-fade>
       <div class="voice__mark">“</div>
-      <blockquote data-i18n="v1q">I was quoted $31,000 for veneers in Manhattan. MedMatch arranged the same work, honestly,
+      <blockquote data-i18n="19dac56d">I was quoted $31,000 for veneers in Manhattan. MedMatch arranged the same work, honestly,
       finer work, for a fifth of that, with a week on the Bosphorus. My dentist at home asked
       where I'd had it done.</blockquote>
-      <figcaption><strong>Elaine S.</strong><span data-i18n="v1cap">New York, Dental Aesthetics</span></figcaption>
+      <figcaption><strong data-i18n="d4ace71c">Elaine S.</strong><span data-i18n="83e40e48">New York, Dental Aesthetics</span></figcaption>
     </figure>
     <figure class="voice" data-fade>
       <div class="voice__mark">“</div>
-      <blockquote data-i18n="v2q">The part no one tells you about is the fear of being alone in a foreign hospital. I never
+      <blockquote data-i18n="cdc91019">The part no one tells you about is the fear of being alone in a foreign hospital. I never
       was. Ayşe was outside my door every single morning. My knee is perfect; the care was better
       than home.</blockquote>
-      <figcaption><strong>Marcus D.</strong><span data-i18n="v2cap">Dallas, Total Knee Replacement</span></figcaption>
+      <figcaption><strong data-i18n="ba5904b4">Marcus D.</strong><span data-i18n="7a0812ea">Dallas, Total Knee Replacement</span></figcaption>
     </figure>
     <figure class="voice" data-fade>
       <div class="voice__mark">“</div>
-      <blockquote data-i18n="v3q">Two years after my hair transplant, the surgeon still answers my messages himself. Try
+      <blockquote data-i18n="7d1de558">Two years after my hair transplant, the surgeon still answers my messages himself. Try
       getting that in Vancouver, at any price. This is the only way I'd ever do it.</blockquote>
-      <figcaption><strong>Rebecca T.</strong><span data-i18n="v3cap">Vancouver, Sapphire FUE</span></figcaption>
+      <figcaption><strong data-i18n="ea93534a">Rebecca T.</strong><span data-i18n="61540801">Vancouver, Sapphire FUE</span></figcaption>
     </figure>
   </div>
   <div class="accreditation" data-fade>
-    <span>JCI ACCREDITED PARTNERS</span><i>✦</i>
-    <span>ISO 9001 : 2015</span><i>✦</i>
-    <span>TURKISH MINISTRY OF HEALTH LICENSED</span><i>✦</i>
-    <span>INTERNATIONAL PATIENT DEPT. CERTIFIED</span>
+    <span data-i18n="24560a88">JCI ACCREDITED PARTNERS</span><i>✦</i>
+    <span data-i18n="8ce9a3aa">ISO 9001 : 2015</span><i>✦</i>
+    <span data-i18n="8c6ef22d">TURKISH MINISTRY OF HEALTH LICENSED</span><i>✦</i>
+    <span data-i18n="d9674f0f">INTERNATIONAL PATIENT DEPT. CERTIFIED</span>
   </div>
 </section>
 
@@ -936,92 +927,92 @@
      Mira Dental Clinic and published with their permission. -->
 <section class="spotlight" id="mira">
   <div class="section-head">
-    <p class="eyebrow" data-fade>PARTNER SPOTLIGHT, VERIFIED RESULTS</p>
-    <h2 class="display" data-reveal="words">Proof, not promises.</h2>
+    <p data-i18n="0c9b59a3" class="eyebrow" data-fade>PARTNER SPOTLIGHT, VERIFIED RESULTS</p>
+    <h2 data-i18n="a4d9c087" class="display" data-reveal="words">Proof, not promises.</h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade>Most clinics ask you to take the results on faith. Our Antalya dental partner
+    <p data-i18n="1dbc53f3" class="lede" data-fade>Most clinics ask you to take the results on faith. Our Antalya dental partner
     agreed to put theirs on the record, real patients, unretouched, published here with the clinic's
     written permission.</p>
   </div>
 
   <div class="spotlight__clinic" data-fade>
     <div class="spotlight__photo">
-      <img src="img/partners/mira/clinic-exterior.webp" width="1200" height="900" loading="lazy" decoding="async"
+      <img data-i18n-attr="alt:55d6130f" src="img/partners/mira/clinic-exterior.webp" width="1200" height="900" loading="lazy" decoding="async"
            alt="Mira Dental Clinic building entrance in Antalya, Türkiye" />
     </div>
     <div class="spotlight__intro">
-      <p class="spotlight__type">DENTAL PARTNER, ANTALYA, TÜRKİYE</p>
-      <h3>Mira Dental Clinic</h3>
-      <p class="spotlight__desc">A purpose-built dental clinic in Antalya, implants, zirconium and E-max
+      <p data-i18n="e17b4bd0" class="spotlight__type">DENTAL PARTNER, ANTALYA, TÜRKİYE</p>
+      <h3 data-i18n="9599d912">Mira Dental Clinic</h3>
+      <p data-i18n="f51de334" class="spotlight__desc">A purpose-built dental clinic in Antalya, implants, zirconium and E-max
       crowns, veneers and full-mouth restorations, delivered on a digital workflow. Visited in person by
       MedMatch Global before we placed a single patient.</p>
       <ul class="spotlight__facts">
-        <li>Turkish Ministry of Health licensed</li>
-        <li>Four treatment rooms, on-site imaging and sterilisation</li>
-        <li>English-speaking coordination throughout your stay</li>
+        <li data-i18n="f2dcb976">Turkish Ministry of Health licensed</li>
+        <li data-i18n="cd35814e">Four treatment rooms, on-site imaging and sterilisation</li>
+        <li data-i18n="9074a1ed">English-speaking coordination throughout your stay</li>
       </ul>
-      <a class="spotlight__cta" href="#invitation" data-scroll-to="#invitation">Get a quote from this clinic →</a>
+      <a data-i18n="0381d261" class="spotlight__cta" href="#invitation" data-scroll-to="#invitation">Get a quote from this clinic →</a>
     </div>
   </div>
 
-  <h3 class="spotlight__galleryhead" data-fade>Before &amp; after, five recent patients</h3>
+  <h3 data-i18n="0e70a7ea" class="spotlight__galleryhead" data-fade>Before &amp; after, five recent patients</h3>
 
   <div class="spotlight__grid">
     <figure class="ba" data-fade>
       <div class="ba__frame">
-        <img src="img/partners/mira/case-1.webp" width="720" height="746" loading="lazy" decoding="async"
+        <img data-i18n-attr="alt:9f66af9a" src="img/partners/mira/case-1.webp" width="720" height="746" loading="lazy" decoding="async"
              alt="Before and after: severely worn and decayed upper and lower teeth restored to a full white smile" />
-        <span class="ba__tag ba__tag--before">BEFORE</span>
-        <span class="ba__tag ba__tag--after">AFTER</span>
+        <span data-i18n="35253172" class="ba__tag ba__tag--before">BEFORE</span>
+        <span data-i18n="c130fda0" class="ba__tag ba__tag--after">AFTER</span>
       </div>
-      <figcaption>Full-mouth restoration, upper and lower arches</figcaption>
+      <figcaption data-i18n="ef77eed3">Full-mouth restoration, upper and lower arches</figcaption>
     </figure>
     <figure class="ba" data-fade>
       <div class="ba__frame">
-        <img src="img/partners/mira/case-2.webp" width="720" height="720" loading="lazy" decoding="async"
+        <img data-i18n-attr="alt:950140df" src="img/partners/mira/case-2.webp" width="720" height="720" loading="lazy" decoding="async"
              alt="Before and after: discoloured, uneven teeth replaced with matched full-arch crowns" />
-        <span class="ba__tag ba__tag--before">BEFORE</span>
-        <span class="ba__tag ba__tag--after">AFTER</span>
+        <span data-i18n="35253172" class="ba__tag ba__tag--before">BEFORE</span>
+        <span data-i18n="c130fda0" class="ba__tag ba__tag--after">AFTER</span>
       </div>
-      <figcaption>Full-arch crowns, colour and alignment corrected</figcaption>
+      <figcaption data-i18n="56c820f3">Full-arch crowns, colour and alignment corrected</figcaption>
     </figure>
     <figure class="ba" data-fade>
       <div class="ba__frame">
-        <img src="img/partners/mira/case-3.webp" width="720" height="720" loading="lazy" decoding="async"
+        <img data-i18n-attr="alt:f973cc67" src="img/partners/mira/case-3.webp" width="720" height="720" loading="lazy" decoding="async"
              alt="Before and after: an upper arch with most teeth missing, rebuilt into a complete smile" />
-        <span class="ba__tag ba__tag--before">BEFORE</span>
-        <span class="ba__tag ba__tag--after">AFTER</span>
+        <span data-i18n="35253172" class="ba__tag ba__tag--before">BEFORE</span>
+        <span data-i18n="c130fda0" class="ba__tag ba__tag--after">AFTER</span>
       </div>
-      <figcaption>Upper arch rebuilt from extensive tooth loss</figcaption>
+      <figcaption data-i18n="118f0c18">Upper arch rebuilt from extensive tooth loss</figcaption>
     </figure>
     <figure class="ba" data-fade>
       <div class="ba__frame">
-        <img src="img/partners/mira/case-4.webp" width="720" height="726" loading="lazy" decoding="async"
+        <img data-i18n-attr="alt:1e7f4fea" src="img/partners/mira/case-4.webp" width="720" height="726" loading="lazy" decoding="async"
              alt="Before and after: gapped and undersized front teeth reshaped into an even smile" />
-        <span class="ba__tag ba__tag--before">BEFORE</span>
-        <span class="ba__tag ba__tag--after">AFTER</span>
+        <span data-i18n="35253172" class="ba__tag ba__tag--before">BEFORE</span>
+        <span data-i18n="c130fda0" class="ba__tag ba__tag--after">AFTER</span>
       </div>
-      <figcaption>Front teeth, spacing and shape corrected</figcaption>
+      <figcaption data-i18n="74dae251">Front teeth, spacing and shape corrected</figcaption>
     </figure>
     <figure class="ba" data-fade>
       <div class="ba__frame">
-        <img src="img/partners/mira/case-5.webp" width="720" height="726" loading="lazy" decoding="async"
+        <img data-i18n-attr="alt:58b706b8" src="img/partners/mira/case-5.webp" width="720" height="726" loading="lazy" decoding="async"
              alt="Before and after: failing old crowns and missing teeth replaced with a full new smile" />
-        <span class="ba__tag ba__tag--before">BEFORE</span>
-        <span class="ba__tag ba__tag--after">AFTER</span>
+        <span data-i18n="35253172" class="ba__tag ba__tag--before">BEFORE</span>
+        <span data-i18n="c130fda0" class="ba__tag ba__tag--after">AFTER</span>
       </div>
-      <figcaption>Failing older crowns replaced and gaps closed</figcaption>
+      <figcaption data-i18n="7878ab97">Failing older crowns replaced and gaps closed</figcaption>
     </figure>
     <figure class="ba ba--room" data-fade>
       <div class="ba__frame ba__frame--room">
-        <img src="img/partners/mira/clinic-surgery.webp" width="1200" height="900" loading="lazy" decoding="async"
+        <img data-i18n-attr="alt:1a4e0e4b" src="img/partners/mira/clinic-surgery.webp" width="1200" height="900" loading="lazy" decoding="async"
              alt="Treatment room at Mira Dental Clinic, Antalya" />
       </div>
-      <figcaption>The room these results were done in.</figcaption>
+      <figcaption data-i18n="812d9234">The room these results were done in.</figcaption>
     </figure>
   </div>
 
-  <p class="spotlight__note" data-fade>Photographs supplied by Mira Dental Clinic and published with the
+  <p data-i18n="a51323c4" class="spotlight__note" data-fade>Photographs supplied by Mira Dental Clinic and published with the
   clinic's written permission. These are individual patients, every mouth is different, and your own
   result depends on your bone, your gums and the plan your dentist agrees with you. Nothing here is a
   guarantee of outcome. Ask us for your own written treatment plan before you commit to anything.</p>
@@ -1030,63 +1021,63 @@
 <!-- ══════════ RECENT CASES — anonymized results ══════════ -->
 <section class="cases" id="stories">
   <div class="section-head">
-    <p class="eyebrow" data-fade>RECENT PATIENT RESULTS</p>
-    <h2 class="display" data-reveal="words">The ledger doesn't lie.</h2>
+    <p data-i18n="343add75" class="eyebrow" data-fade>RECENT PATIENT RESULTS</p>
+    <h2 data-i18n="91854692" class="display" data-reveal="words">The ledger doesn't lie.</h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade>Recent journeys, kept anonymous the way medical records should be. Want to
+    <p data-i18n="d246bb94" class="lede" data-fade>Recent journeys, kept anonymous the way medical records should be. Want to
     see the work itself? <a href="#mira" data-scroll-to="#mira">Partner before-and-afters are above</a>,
     and we'll send further cases matched to your own mouth on WhatsApp.</p>
   </div>
   <ul class="cases__list">
     <li class="case" data-fade>
-      <div class="case__what"><span class="case__proc">Full-mouth restoration</span><span class="case__who">Patient from Toronto, ON · 5 nights in Antalya</span></div>
-      <div class="case__figures"><s class="case__home">$54,000 quoted at home</s><strong class="case__saved">paid a fraction, in writing</strong></div>
+      <div class="case__what"><span data-i18n="68ecb537" class="case__proc">Full-mouth restoration</span><span data-i18n="c920f1d0" class="case__who">Patient from Toronto, ON · 5 nights in Antalya</span></div>
+      <div data-i18n="526cfbfe" class="case__figures"><s class="case__home">$54,000 quoted at home</s><strong class="case__saved">paid a fraction, in writing</strong></div>
     </li>
     <li class="case" data-fade>
-      <div class="case__what"><span class="case__proc">Total knee replacement</span><span class="case__who">Patient from Dallas, TX · 12 nights incl. physiotherapy</span></div>
-      <div class="case__figures"><s class="case__home">$38,500 quoted at home</s><strong class="case__saved">same U.S.-made implant</strong></div>
+      <div class="case__what"><span data-i18n="c1ef3db2" class="case__proc">Total knee replacement</span><span data-i18n="cb0cc964" class="case__who">Patient from Dallas, TX · 12 nights incl. physiotherapy</span></div>
+      <div data-i18n="c40a8477" class="case__figures"><s class="case__home">$38,500 quoted at home</s><strong class="case__saved">same U.S.-made implant</strong></div>
     </li>
     <li class="case" data-fade>
-      <div class="case__what"><span class="case__proc">Primary rhinoplasty</span><span class="case__who">Patient from New York, NY · 7 nights in Istanbul</span></div>
-      <div class="case__figures"><s class="case__home">$12,000 quoted at home</s><strong class="case__saved">fixed hospital price, no extras</strong></div>
+      <div class="case__what"><span data-i18n="e97a1e6a" class="case__proc">Primary rhinoplasty</span><span data-i18n="53fe3839" class="case__who">Patient from New York, NY · 7 nights in Istanbul</span></div>
+      <div data-i18n="50ec071f" class="case__figures"><s class="case__home">$12,000 quoted at home</s><strong class="case__saved">fixed hospital price, no extras</strong></div>
     </li>
     <li class="case" data-fade>
-      <div class="case__what"><span class="case__proc">Sapphire FUE hair transplant</span><span class="case__who">Patient from Vancouver, BC · 3 nights in Istanbul</span></div>
-      <div class="case__figures"><s class="case__home">$15,000 quoted at home</s><strong class="case__saved">surgeon-performed, guaranteed</strong></div>
+      <div class="case__what"><span data-i18n="3fe533f0" class="case__proc">Sapphire FUE hair transplant</span><span data-i18n="54de6cf5" class="case__who">Patient from Vancouver, BC · 3 nights in Istanbul</span></div>
+      <div data-i18n="3040e2ea" class="case__figures"><s class="case__home">$15,000 quoted at home</s><strong class="case__saved">surgeon-performed, guaranteed</strong></div>
     </li>
   </ul>
-  <p class="cases__note" data-fade>Home-market figures reflect each patient's own written quote. Your exact prices appear
+  <p data-i18n="fb209b1c" class="cases__note" data-fade>Home-market figures reflect each patient's own written quote. Your exact prices appear
   in your personal written quote, compare them against any quote you already have.</p>
 </section>
 
 <!-- ══════════ FAQ ══════════ -->
 <section class="faq" id="faq">
   <div class="section-head">
-    <p class="eyebrow" data-fade data-i18n="faq.eyebrow">HONEST ANSWERS</p>
-    <h2 class="display" data-reveal="words" data-i18n="faq.heading">The questions every smart patient asks.</h2>
+    <p data-i18n="baed057a" class="eyebrow" data-fade>HONEST ANSWERS</p>
+    <h2 data-i18n="e6e58b1b" class="display" data-reveal="words">The questions every smart patient asks.</h2>
     <div class="rule" data-rule></div>
-    <p class="lede" data-fade data-i18n="faq.lede">Including the uncomfortable ones. If yours isn't here, message us, a care
+    <p data-i18n="5df800e2" class="lede" data-fade>Including the uncomfortable ones. If yours isn't here, message us, a care
     coordinator, not a salesperson, answers within a day.</p>
   </div>
   <div class="faq__list" data-fade>
     <details class="faq__item" name="faq-group">
-      <summary><span data-i18n="q1">Is it actually safe to have surgery in Turkey?</span><i class="faq__icon">+</i></summary>
-      <div class="faq__answer"><p data-i18n="a1">Türkiye is one of the most established medical-travel destinations in
+      <summary><span data-i18n="939b941d">Is it actually safe to have surgery in Turkey?</span><i class="faq__icon">+</i></summary>
+      <div class="faq__answer"><p data-i18n="8b41af08">Türkiye is one of the most established medical-travel destinations in
       the world, with one of the largest groups of JCI-accredited hospitals outside the United States.
       But safety is never about a country, it is about the surgeon and the hospital. That is the part
       we control: we work only with board-certified surgeons in JCI-accredited hospitals, you meet your
       surgeon on video before paying anything, and a coordinator stays with you through every step.</p></div>
     </details>
     <details class="faq__item" name="faq-group">
-      <summary><span data-i18n="q2">Who will my surgeon be, and can I speak with them before I pay?</span><i class="faq__icon">+</i></summary>
-      <div class="faq__answer"><p data-i18n="a2">Yes, always. Once we review your records, we name your surgeon and
+      <summary><span data-i18n="7e4b98ee">Who will my surgeon be, and can I speak with them before I pay?</span><i class="faq__icon">+</i></summary>
+      <div class="faq__answer"><p data-i18n="06f3e782">Yes, always. Once we review your records, we name your surgeon and
       share their credentials, experience and case photos. You then have a free video consultation
       with them, not with a salesperson. If you are not completely comfortable, you do not proceed,
       and it costs you nothing.</p></div>
     </details>
     <details class="faq__item" name="faq-group">
-      <summary><span>Why aren't your partner clinics named on the site?</span><i class="faq__icon">+</i></summary>
-      <div class="faq__answer"><p>Because our agreements with each clinic and hospital include negotiated fixed rates
+      <summary><span data-i18n="2185dd6a">Why aren't your partner clinics named on the site?</span><i class="faq__icon">+</i></summary>
+      <div class="faq__answer"><p data-i18n="84e63b9b">Because our agreements with each clinic and hospital include negotiated fixed rates
       that are lower than their public prices, and publishing who charges what would break them. This is
       standard practice for medical-travel advisors. What matters is that nothing stays hidden from
       <em>you</em>: your personal quote names the clinic, the hospital campus, and your surgeon, with full
@@ -1094,55 +1085,55 @@
       before you pay a cent.</p></div>
     </details>
     <details class="faq__item" name="faq-group">
-      <summary><span data-i18n="q3">What exactly does the fixed price include?</span><i class="faq__icon">+</i></summary>
-      <div class="faq__answer"><p data-i18n="a3">Your written quote lists everything: the surgery and surgeon's fee,
+      <summary><span data-i18n="69f60656">What exactly does the fixed price include?</span><i class="faq__icon">+</i></summary>
+      <div class="faq__answer"><p data-i18n="158d307f">Your written quote lists everything: the surgery and surgeon's fee,
       hospital and anesthesia, pre-operative tests, medications, your hotel, all airport and clinic
       transfers, your personal care coordinator, and follow-up care. Flights are quoted separately so
       you can use points or find your own deal, we are happy to help you book.</p></div>
     </details>
     <details class="faq__item" name="faq-group">
-      <summary><span data-i18n="q4">What happens if there is a complication after I fly home?</span><i class="faq__icon">+</i></summary>
-      <div class="faq__answer"><p data-i18n="a4">Before you leave Türkiye, your surgeon confirms you are fit to fly.
+      <summary><span data-i18n="63d0e44c">What happens if there is a complication after I fly home?</span><i class="faq__icon">+</i></summary>
+      <div class="faq__answer"><p data-i18n="98f9d989">Before you leave Türkiye, your surgeon confirms you are fit to fly.
       After you are home, you have scheduled video follow-ups and a direct line to your surgical team.
       Your written aftercare plan sets out exactly what is covered if a revision is ever medically
       necessary, and we coordinate with your local doctor throughout your recovery.</p></div>
     </details>
     <details class="faq__item" name="faq-group">
-      <summary><span data-i18n="q5">How long do I need to stay in Turkey?</span><i class="faq__icon">+</i></summary>
-      <div class="faq__answer"><p data-i18n="a5">It depends on the procedure: hair transplants typically need 2–4 days,
+      <summary><span data-i18n="88292a15">How long do I need to stay in Turkey?</span><i class="faq__icon">+</i></summary>
+      <div class="faq__answer"><p data-i18n="74a89a43">It depends on the procedure: hair transplants typically need 2–4 days,
       dental work 5–7 days, rhinoplasty 7–8 days, and knee surgery 10–14 days including physiotherapy.
       Your personal plan gives you exact dates before you book anything.</p></div>
     </details>
     <details class="faq__item" name="faq-group">
-      <summary><span data-i18n="q6">Do I need a visa?</span><i class="faq__icon">+</i></summary>
-      <div class="faq__answer"><p data-i18n="a6">Most U.S. and Canadian passport holders can currently enter Türkiye
+      <summary><span data-i18n="71449f34">Do I need a visa?</span><i class="faq__icon">+</i></summary>
+      <div class="faq__answer"><p data-i18n="63ea5d23">Most U.S. and Canadian passport holders can currently enter Türkiye
       without a visa for short stays. We confirm the current requirements for your passport and handle
       any paperwork as part of your travel plan, it is one of the simplest parts of the journey.</p></div>
     </details>
     <details class="faq__item" name="faq-group">
-      <summary><span data-i18n="q7">Can I bring my partner or a friend?</span><i class="faq__icon">+</i></summary>
-      <div class="faq__answer"><p data-i18n="a7">Please do, most of our patients travel with someone. Your hotel room
+      <summary><span data-i18n="339eee9c">Can I bring my partner or a friend?</span><i class="faq__icon">+</i></summary>
+      <div class="faq__answer"><p data-i18n="e24aebdb">Please do, most of our patients travel with someone. Your hotel room
       accommodates two, and companion packages cover their transfers and stay. Many companions treat
       the week as a vacation on the Turquoise Coast while you recover.</p></div>
     </details>
     <details class="faq__item" name="faq-group">
-      <summary><span data-i18n="q8">How and when do I pay?</span><i class="faq__icon">+</i></summary>
-      <div class="faq__answer"><p data-i18n="a8">Never everything upfront. You pay nothing until you have met your
+      <summary><span data-i18n="8c636be4">How and when do I pay?</span><i class="faq__icon">+</i></summary>
+      <div class="faq__answer"><p data-i18n="9fb3f3e8">Never everything upfront. You pay nothing until you have met your
       surgeon on video and accepted a written fixed quote. A booking payment secures your dates, and
       the balance is paid at the clinic, by card or transfer. If your plan changes before treatment,
       your booking payment is transferable to new dates.</p></div>
     </details>
     <details class="faq__item" name="faq-group">
-      <summary><span data-i18n="q9">Why is there a $300 coordination fee?</span><i class="faq__icon">+</i></summary>
-      <div class="faq__answer"><p data-i18n="a9">Because it replaces the hidden
+      <summary><span data-i18n="edd2d7e1">Why is there a $300 coordination fee?</span><i class="faq__icon">+</i></summary>
+      <div class="faq__answer"><p data-i18n="f62b48dc">Because it replaces the hidden
       markups most medical-travel agencies build into "package prices." You pay the clinic directly for your
       treatment; we never touch or inflate medical prices. Your fixed Patient Care &amp; Coordination Fee covers:</p>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin:14px 0 4px;">
-        <li data-i18n="l1">✦ Free consultation and a personalized treatment plan</li>
-        <li data-i18n="l2">✦ Matching you with the right doctor for your case</li>
-        <li data-i18n="l3">✦ All appointment scheduling, hotel and VIP transfer booking</li>
-        <li data-i18n="l4">✦ A personal English-speaking host &amp; translator during your trip</li>
-        <li data-i18n="l5">✦ 24/7 WhatsApp support and aftercare follow-up once you're home</li>
+        <li data-i18n="9da10a5f">✦ Free consultation and a personalized treatment plan</li>
+        <li data-i18n="ac250fe6">✦ Matching you with the right doctor for your case</li>
+        <li data-i18n="fc301be4">✦ All appointment scheduling, hotel and VIP transfer booking</li>
+        <li data-i18n="d2fafddc">✦ A personal English-speaking host &amp; translator during your trip</li>
+        <li data-i18n="35fb8bf8">✦ 24/7 WhatsApp support and aftercare follow-up once you're home</li>
       </ul></div>
     </details>
   </div>
@@ -1152,29 +1143,29 @@
 <section class="interlude interlude--short">
   <div class="interlude__img interlude__img--kas" data-parallax></div>
   <div class="interlude__veil"></div>
-  <p class="interlude__quote" data-fade data-i18n="il.3">“The Mediterranean has been healing travelers<br/>for three thousand years.”</p>
+  <p data-i18n="4ea7f239" class="interlude__quote" data-fade>“The Mediterranean has been healing travelers<br/>for three thousand years.”</p>
 </section>
 
 <!-- ══════════ INVITATION ══════════ -->
 <section class="invitation" id="invitation">
   <div class="invitation__card" data-fade>
     <div class="invitation__left">
-      <p class="eyebrow eyebrow--light" data-i18n="inv.eyebrow">GET STARTED</p>
-      <h2 class="display display--light" data-reveal="words" data-i18n="inv.heading">Get your free quote.</h2>
-      <p class="lede lede--light" data-i18n="inv.lede">Tell us what you're considering. Within 48 hours you'll receive a private
+      <p data-i18n="7e79e287" class="eyebrow eyebrow--light">GET STARTED</p>
+      <h2 data-i18n="089df455" class="display display--light" data-reveal="words">Get your free quote.</h2>
+      <p data-i18n="98043911" class="lede lede--light">Tell us what you're considering. Within 48 hours you'll receive a private
       assessment and a fixed, all-inclusive quote, free, no obligation, and your details are never sold.</p>
       <ul class="invitation__points">
-        <li data-i18n="inv.p1">Reply within 48 hours</li>
-        <li data-i18n="inv.p2">Reviewed by specialist surgeons</li>
-        <li data-i18n="inv.p3">Fixed quote, no surprises</li>
+        <li data-i18n="91e0288a">Reply within 48 hours</li>
+        <li data-i18n="92e0badb">Reviewed by specialist surgeons</li>
+        <li data-i18n="9b72856d">Fixed quote, no surprises</li>
       </ul>
     </div>
     <form class="invitation__form" id="inviteForm" novalidate>
       <input type="text" id="f-honey" name="_honey" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true"/>
-      <div class="ffield"><label for="f-name" data-i18n="f.name">Full name</label><input id="f-name" type="text" autocomplete="name" required placeholder="Alexandra Whitmore"/></div>
-      <div class="ffield"><label for="f-email" data-i18n="f.email">Email</label><input id="f-email" type="email" autocomplete="email" required placeholder="you@example.com"/></div>
-      <div class="ffield"><label for="f-phone" data-i18n="f.phone">Phone / WhatsApp</label><input id="f-phone" type="tel" autocomplete="tel" placeholder="+1 (___) ___-____"/></div>
-      <div class="ffield"><label for="f-treatment" data-i18n="f.treatment">Treatment of interest</label>
+      <div class="ffield"><label data-i18n="f11b368c" for="f-name">Full name</label><input data-i18n-attr="placeholder:8f14827c" id="f-name" type="text" autocomplete="name" required placeholder="Alexandra Whitmore"/></div>
+      <div class="ffield"><label data-i18n="ce8ae9da" for="f-email">Email</label><input data-i18n-attr="placeholder:4fca794d" id="f-email" type="email" autocomplete="email" required placeholder="you@example.com"/></div>
+      <div class="ffield"><label data-i18n="6a5ff35a" for="f-phone">Phone / WhatsApp</label><input id="f-phone" type="tel" autocomplete="tel" placeholder="+1 (___) ___-____"/></div>
+      <div class="ffield"><label data-i18n="b25d2cad" for="f-treatment">Treatment of interest</label>
         <div class="select-wrap select-wrap--light">
           <select id="f-treatment">
             <option>Rhinoplasty</option><option>Dental Veneers &amp; Implants</option>
@@ -1184,15 +1175,15 @@
           </select>
         </div>
       </div>
-      <div class="ffield"><label for="f-msg" data-i18n="f.msg">Anything we should know?</label><textarea id="f-msg" rows="3" placeholder="Optional, your timeline, questions, or history"></textarea></div>
-      <button class="btn btn--ivory magnetic" type="submit"><span data-i18n="f.submit">Get My Free Quote, No Obligation</span></button>
-      <p class="invitation__microcopy" data-i18n="f.micro">Free · Reply within 48 hours · Never sold, shared only with the hospital you choose</p>
-      <p class="invitation__success" id="inviteSuccess" data-i18n="f.success">Thank you. Your request has been received.<br/>Expect our reply within 48 hours. <em>— MedMatch Global</em></p>
+      <div class="ffield"><label data-i18n="d1a9e1cd" for="f-msg">Anything we should know?</label><textarea data-i18n-attr="placeholder:5f35ca2c" id="f-msg" rows="3" placeholder="Optional, your timeline, questions, or history"></textarea></div>
+      <button class="btn btn--ivory magnetic" type="submit"><span data-i18n="3df0daa0">Get My Free Quote, No Obligation</span></button>
+      <p data-i18n="99a46c33" class="invitation__microcopy">Free · Reply within 48 hours · Never sold, shared only with the hospital you choose</p>
+      <p data-i18n="5737de33" class="invitation__success" id="inviteSuccess">Thank you. Your request has been received.<br/>Expect our reply within 48 hours. <em>— MedMatch Global</em></p>
       <div class="invitation__error" id="inviteError">
-        <p>Something went wrong. Message us directly:</p>
+        <p data-i18n="79ae672b">Something went wrong. Message us directly:</p>
         <div class="invitation__error-links">
-          <a class="btn btn--ivory magnetic" href="https://wa.me/14375951735?text=Hello%20MedMatch%20Global%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener"><span>WhatsApp Us</span></a>
-          <a class="btn btn--ghost magnetic" href="mailto:contact@medmatchglobal.info"><span>Email Us</span></a>
+          <a class="btn btn--ivory magnetic" href="https://wa.me/14375951735?text=Hello%20MedMatch%20Global%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener"><span data-i18n="f6c5d707">WhatsApp Us</span></a>
+          <a class="btn btn--ghost magnetic" href="mailto:contact@medmatchglobal.info"><span data-i18n="46e02aa7">Email Us</span></a>
         </div>
       </div>
     </form>
@@ -1203,67 +1194,67 @@
 
 <!-- ══════════ FOOTER ══════════ -->
 <footer class="footer">
-  <div class="footer__word" aria-hidden="true"><span>MEDMATCH</span></div>
+  <div class="footer__word" aria-hidden="true"><span data-i18n="104bb653">MEDMATCH</span></div>
   <div class="footer__cols">
     <div>
-      <p class="footer__brand">MEDMATCH GLOBAL<span data-i18n="ft.sub">THE ACADEMY OF MEDICAL TRAVEL</span></p>
-      <p class="footer__desc" data-i18n="footer.desc">Privately matching patients from the United States &amp; Canada with
+      <p data-i18n="ecfb391b" class="footer__brand">MEDMATCH GLOBAL<span>THE ACADEMY OF MEDICAL TRAVEL</span></p>
+      <p data-i18n="ea95bfd8" class="footer__desc">Privately matching patients from the United States &amp; Canada with
       Türkiye's most distinguished surgeons, built on more than twenty years of health-tourism
       experience.</p>
     </div>
     <div class="footer__col">
-      <h4 data-i18n="footer.treatments">Treatments</h4>
-      <a href="#treatments" data-scroll-to="#treatments" data-i18n="t1.title">Rhinoplasty</a>
-      <a href="#treatments" data-scroll-to="#treatments" data-i18n="t2.title">Dental Veneers &amp; Implants</a>
-      <a href="#treatments" data-scroll-to="#treatments" data-i18n="t3.title">Knee Surgery</a>
-      <a href="#treatments" data-scroll-to="#treatments" data-i18n="t4.title">Hair Transplant</a>
-      <a href="partner-hospital.html" data-i18n="ft.acb">Partner Hospital, Price List</a>
+      <h4 data-i18n="dca8ed72">Treatments</h4>
+      <a data-i18n="242792db" href="#treatments" data-scroll-to="#treatments">Rhinoplasty</a>
+      <a data-i18n="3db3e76b" href="#treatments" data-scroll-to="#treatments">Dental Veneers &amp; Implants</a>
+      <a data-i18n="370377a7" href="#treatments" data-scroll-to="#treatments">Knee Surgery</a>
+      <a data-i18n="d7d34b25" href="#treatments" data-scroll-to="#treatments">Hair Transplant</a>
+      <a data-i18n="2af3140f" href="partner-hospital.html">Partner Hospital, Price List</a>
     </div>
     <div class="footer__col">
-      <h4 data-i18n="footer.academy">The Academy</h4>
-      <a href="advisor-hub.html" data-i18n="ft.advisor">Advisor Hub, Join Us</a>
-      <a href="vetting.html" data-i18n="nav.standard">The Standard</a>
-      <a href="true-cost.html" data-i18n="nav.truecost">True Cost Calculator</a>
-      <a href="book.html" data-i18n="nav.book">Book a Call</a>
-      <a href="blog/" data-i18n="nav.journal">Journal</a>
-      <a href="/answers/" data-i18n="nav.answers">Answers</a>
-    <a href="/preview.html" data-i18n="nav.preview">See a Result</a>
-      <a href="#standard" data-scroll-to="#standard" data-i18n="nav.why">Why Us</a>
-      <a href="#partners" data-scroll-to="#partners" data-i18n="nav.partners">Our Partners</a>
-      <a href="#estimate" data-scroll-to="#estimate" data-i18n="nav.pricing">Pricing</a>
-      <a href="#faq" data-scroll-to="#faq" data-i18n="nav.faq">FAQ</a>
-      <a href="#invitation" data-scroll-to="#invitation" data-i18n="nav.cta">Get My Free Quote</a>
+      <h4 data-i18n="1c8fbf02">The Academy</h4>
+      <a data-i18n="49afb149" href="advisor-hub.html">Advisor Hub, Join Us</a>
+      <a data-i18n="9b2af85f" href="vetting.html">The Standard</a>
+      <a data-i18n="22e2d0c7" href="true-cost.html">True Cost Calculator</a>
+      <a data-i18n="e2d35937" href="book.html">Book a Call</a>
+      <a data-i18n="6b2b5614" href="blog/">Journal</a>
+      <a data-i18n="7d5a6969" href="/answers/">Answers</a>
+    <a data-i18n="73a92871" href="/preview.html">See a Result</a>
+      <a data-i18n="eab07532" href="#standard" data-scroll-to="#standard">Why Us</a>
+      <a data-i18n="1db8783c" href="#partners" data-scroll-to="#partners">Our Partners</a>
+      <a data-i18n="e22ac25b" href="#estimate" data-scroll-to="#estimate">Pricing</a>
+      <a data-i18n="1fe917b0" href="#faq" data-scroll-to="#faq">FAQ</a>
+      <a data-i18n="837456d0" href="#invitation" data-scroll-to="#invitation">Get My Free Quote</a>
     </div>
     <div class="footer__col">
-      <h4 data-i18n="footer.concierge">Concierge</h4>
-      <a href="mailto:contact@medmatchglobal.info">contact@medmatchglobal.info</a>
+      <h4 data-i18n="80e784c2">Concierge</h4>
+      <a data-i18n="025b6fa9" href="mailto:contact@medmatchglobal.info">contact@medmatchglobal.info</a>
       <a href="tel:+14375951735">+1 (437) 595-1735</a>
-      <a href="https://wa.me/14375951735?text=Hello%20MedMatch%20Global%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener" data-i18n="ft.wa">WhatsApp us</a>
-      <span class="footer__loc">Istanbul · Toronto</span>
+      <a data-i18n="6bc822d0" href="https://wa.me/14375951735?text=Hello%20MedMatch%20Global%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener">WhatsApp us</a>
+      <span data-i18n="9fed8b0c" class="footer__loc">Istanbul · Toronto</span>
     </div>
   </div>
   <div class="footer__base">
-    <span data-i18n="ft.rights">© 2026 MedMatch Global. All rights reserved.</span>
-    <a class="footer__legal" href="/privacy.html">Privacy</a>
-    <span class="footer__legal">Suleyman MedMatch Global Advisory</span>
-    <span data-i18n="ft.disc">Estimates are informational and do not constitute medical advice.</span>
+    <span data-i18n="8a45a93f">© 2026 MedMatch Global. All rights reserved.</span>
+    <a data-i18n="c5f29bb3" class="footer__legal" href="/privacy.html">Privacy</a>
+    <span data-i18n="1789fbb4" class="footer__legal">Suleyman MedMatch Global Advisory</span>
+    <span data-i18n="8dbc0a8c">Estimates are informational and do not constitute medical advice.</span>
   </div>
 </footer>
 
 <!-- ══════════ MOBILE STICKY CTA BAR ══════════ -->
 <div class="mobilebar" id="mobilebar">
-  <a class="mobilebar__btn mobilebar__btn--wa" href="https://wa.me/14375951735?text=Hello%20MedMatch%20Global%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener">WhatsApp</a>
-  <a class="mobilebar__btn mobilebar__btn--cta" href="#invitation" data-scroll-to="#invitation">Get Free Quote</a>
+  <a data-i18n="8b777ebc" class="mobilebar__btn mobilebar__btn--wa" href="https://wa.me/14375951735?text=Hello%20MedMatch%20Global%2C%20I%27d%20like%20a%20free%20quote." target="_blank" rel="noopener">WhatsApp</a>
+  <a data-i18n="62f1bb6d" class="mobilebar__btn mobilebar__btn--cta" href="#invitation" data-scroll-to="#invitation">Get Free Quote</a>
 </div>
 
 <!-- video lightbox -->
 <div class="lightbox" id="storyLightbox" aria-modal="true" role="dialog">
-  <button class="lightbox__close" aria-label="Close video">✕</button>
+  <button data-i18n-attr="aria-label:4b64df4b" class="lightbox__close" aria-label="Close video">✕</button>
   <div class="lightbox__frame"></div>
 </div>
 
 <!-- floating WhatsApp (desktop; mobile uses the sticky bar) -->
-<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"></a>
+<a data-i18n-attr="aria-label:e560af4f" class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"></a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
@@ -1292,40 +1283,6 @@
 <script src="js/main.js?v=4.5"></script>
 <script src="js/chat.js?v=3.5"></script>
 
-<!-- i18n is 170 KB of translation tables for 8 languages. An English-speaking
-     visitor should never download it; it loads on demand when a language is
-     picked, or immediately if the browser is already set to a language we carry. -->
-<script>
-(function () {
-  var sel = document.getElementById("langSelect");
-  if (!sel) return;
 
-  function loadI18n(then) {
-    var s = document.createElement("script");
-    s.src = "js/i18n.js?v=14";
-    if (then) s.onload = then;
-    document.body.appendChild(s);
-  }
-
-  // i18n.js applies the saved language itself on load, so a returning
-  // non-English visitor gets it immediately.
-  var saved = "en";
-  try { saved = localStorage.getItem("mm_lang") || "en"; } catch (e) {}
-  if (saved !== "en") { loadI18n(); return; }
-
-  // First non-English pick: fetch the tables, then replay the change so
-  // i18n.js's delegated listener on document sees it (hence bubbles: true).
-  // i18n.js resets the select to "en" while booting, so the chosen value has
-  // to be captured first and put back before the replay.
-  sel.addEventListener("change", function once() {
-    sel.removeEventListener("change", once);
-    var picked = sel.value;
-    loadI18n(function () {
-      sel.value = picked;
-      sel.dispatchEvent(new Event("change", { bubbles: true }));
-    });
-  });
-})();
-</script>
 </body>
 </html>

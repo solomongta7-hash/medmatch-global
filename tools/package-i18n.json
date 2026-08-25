@@ -1,0 +1,632 @@
+{
+ "1–2 days, single visit": {
+  "es": "1–2 días, una sola visita",
+  "fr": "1–2 jours, une seule visite",
+  "de": "1–2 Tage, ein einziger Besuch",
+  "tr": "1–2 gün, tek seferde"
+ },
+ "12 implants — 6 per jaw, both jaws": {
+  "es": "12 implantes — 6 por maxilar, ambos maxilares",
+  "fr": "12 implants — 6 par mâchoire, les deux mâchoires",
+  "de": "12 Implantate — 6 pro Kiefer, beide Kiefer",
+  "tr": "12 implant — çene başına 6, iki çene"
+ },
+ "2 visits, 8–10 weeks apart": {
+  "es": "2 visitas, con 8–10 semanas de diferencia",
+  "fr": "2 visites, à 8–10 semaines d’intervalle",
+  "de": "2 Besuche im Abstand von 8–10 Wochen",
+  "tr": "2 ziyaret, arasında 8–10 hafta"
+ },
+ "20 Ivoclar E-max veneers": {
+  "es": "20 carillas Ivoclar E-max",
+  "fr": "20 facettes Ivoclar E-max",
+  "de": "20 Ivoclar E-max Veneers",
+  "tr": "20 adet Ivoclar E-max lamina"
+ },
+ "20 premium zirconia crowns": {
+  "es": "20 coronas premium de circonio",
+  "fr": "20 couronnes premium en zircone",
+  "de": "20 Premium-Zirkonkronen",
+  "tr": "20 adet premium zirkonyum kron"
+ },
+ "3–4 days per visit": {
+  "es": "3–4 días por visita",
+  "fr": "3–4 jours par visite",
+  "de": "3–4 Tage pro Besuch",
+  "tr": "ziyaret başına 3–4 gün"
+ },
+ "3D CT scan & bone assessment": {
+  "es": "TAC 3D y evaluación ósea",
+  "fr": "Scanner 3D et évaluation osseuse",
+  "de": "3D-CT und Knochenbeurteilung",
+  "tr": "3D tomografi ve kemik değerlendirmesi"
+ },
+ "3D CT scan & full bone assessment": {
+  "es": "TAC 3D y evaluación ósea completa",
+  "fr": "Scanner 3D et évaluation osseuse complète",
+  "de": "3D-CT und vollständige Knochenbeurteilung",
+  "tr": "3D tomografi ve tam kemik değerlendirmesi"
+ },
+ "3D CT scan & panoramic X-ray": {
+  "es": "TAC 3D y radiografía panorámica",
+  "fr": "Scanner 3D et radiographie panoramique",
+  "de": "3D-CT und Panoramaröntgen",
+  "tr": "3D tomografi ve panoramik röntgen"
+ },
+ "3D CT scan & treatment simulation": {
+  "es": "TAC 3D y simulación del tratamiento",
+  "fr": "Scanner 3D et simulation du traitement",
+  "de": "3D-CT und Behandlungssimulation",
+  "tr": "3D tomografi ve tedavi simülasyonu"
+ },
+ "4 premium implants — one jaw": {
+  "es": "4 implantes premium — un maxilar",
+  "fr": "4 implants premium — une mâchoire",
+  "de": "4 Premium-Implantate — ein Kiefer",
+  "tr": "4 premium implant — tek çene"
+ },
+ "5–6 days per visit": {
+  "es": "5–6 días por visita",
+  "fr": "5–6 jours par visite",
+  "de": "5–6 Tage pro Besuch",
+  "tr": "ziyaret başına 5–6 gün"
+ },
+ "5–7 days, single visit": {
+  "es": "5–7 días, una sola visita",
+  "fr": "5–7 jours, une seule visite",
+  "de": "5–7 Tage, ein einziger Besuch",
+  "tr": "5–7 gün, tek seferde"
+ },
+ "6 premium implants — one jaw": {
+  "es": "6 implantes premium — un maxilar",
+  "fr": "6 implants premium — une mâchoire",
+  "de": "6 Premium-Implantate — ein Kiefer",
+  "tr": "6 premium implant — tek çene"
+ },
+ "6–7 days per visit": {
+  "es": "6–7 días por visita",
+  "fr": "6–7 jours par visite",
+  "de": "6–7 Tage pro Besuch",
+  "tr": "ziyaret başına 6–7 gün"
+ },
+ "A complete set of premium zirconia crowns — strength and aesthetics for a full smile renewal.": {
+  "es": "Un juego completo de coronas premium de circonio: resistencia y estética para renovar toda la sonrisa.",
+  "fr": "Un jeu complet de couronnes premium en zircone — solidité et esthétique pour renouveler tout le sourire.",
+  "de": "Ein kompletter Satz Premium-Zirkonkronen — Stabilität und Ästhetik für ein rundum erneuertes Lächeln.",
+  "tr": "Tam takım premium zirkonyum kron — gülüşünüzü baştan yenileyen dayanıklılık ve estetik."
+ },
+ "A full fixed arch on four implants — one jaw completely restored, upper or lower.": {
+  "es": "Una arcada fija completa sobre cuatro implantes: un maxilar totalmente restaurado, superior o inferior.",
+  "fr": "Une arcade fixe complète sur quatre implants — une mâchoire entièrement restaurée, supérieure ou inférieure.",
+  "de": "Ein komplett festsitzender Bogen auf vier Implantaten — ein Kiefer vollständig versorgt, oben oder unten.",
+  "tr": "Dört implant üzerine tam sabit çene — üst veya alt, bir çene bütünüyle yenilenir."
+ },
+ "All-on-4 Dental Implants — One Jaw": {
+  "es": "Implantes dentales All-on-4 — un maxilar",
+  "fr": "Implants dentaires All-on-4 — une mâchoire",
+  "de": "All-on-4 Zahnimplantate — ein Kiefer",
+  "tr": "All-on-4 diş implantı — tek çene"
+ },
+ "All-on-6 Dental Implants — One Jaw": {
+  "es": "Implantes dentales All-on-6 — un maxilar",
+  "fr": "Implants dentaires All-on-6 — une mâchoire",
+  "de": "All-on-6 Zahnimplantate — ein Kiefer",
+  "tr": "All-on-6 diş implantı — tek çene"
+ },
+ "Body": {
+  "es": "Cuerpo",
+  "fr": "Corps",
+  "de": "Körper",
+  "tr": "Vücut"
+ },
+ "Breast": {
+  "es": "Pecho",
+  "fr": "Poitrine",
+  "de": "Brust",
+  "tr": "Göğüs"
+ },
+ "Crowns": {
+  "es": "Coronas",
+  "fr": "Couronnes",
+  "de": "Kronen",
+  "tr": "Kronlar"
+ },
+ "Dental check-up & cleaning": {
+  "es": "Revisión dental y limpieza",
+  "fr": "Bilan dentaire et détartrage",
+  "de": "Zahnkontrolle und Reinigung",
+  "tr": "Diş kontrolü ve temizliği"
+ },
+ "Digital smile design preview": {
+  "es": "Previsualización del diseño digital de sonrisa",
+  "fr": "Aperçu du design numérique du sourire",
+  "de": "Digitale Smile-Design-Vorschau",
+  "tr": "Dijital gülüş tasarımı önizlemesi"
+ },
+ "E-max Veneers — Set of 20": {
+  "es": "Carillas E-max — juego de 20",
+  "fr": "Facettes E-max — lot de 20",
+  "de": "E-max Veneers — 20er-Set",
+  "tr": "E-max lamina — 20’li set"
+ },
+ "Eye Surgery — Partner Eye Hospital": {
+  "es": "Cirugía ocular — hospital oftalmológico asociado",
+  "fr": "Chirurgie oculaire — hôpital ophtalmologique partenaire",
+  "de": "Augenchirurgie — Partner-Augenklinik",
+  "tr": "Göz cerrahisi — partner göz hastanesi"
+ },
+ "Eye surgery hospital — Istanbul": {
+  "es": "Hospital de cirugía ocular — Estambul",
+  "fr": "Hôpital de chirurgie oculaire — Istanbul",
+  "de": "Augenklinik — Istanbul",
+  "tr": "Göz cerrahisi hastanesi — İstanbul"
+ },
+ "Face": {
+  "es": "Rostro",
+  "fr": "Visage",
+  "de": "Gesicht",
+  "tr": "Yüz"
+ },
+ "Filling & Lipofilling": {
+  "es": "Relleno y lipofilling",
+  "fr": "Comblement et lipofilling",
+  "de": "Filler und Lipofilling",
+  "tr": "Dolgu ve yağ enjeksiyonu"
+ },
+ "Final zirconia bridge on visit 2": {
+  "es": "Puente definitivo de circonio en la 2.ª visita",
+  "fr": "Bridge définitif en zircone à la 2e visite",
+  "de": "Endgültige Zirkonbrücke beim 2. Besuch",
+  "tr": "2. ziyarette kalıcı zirkonyum köprü"
+ },
+ "Final zirconia bridges on visit 2": {
+  "es": "Puentes definitivos de circonio en la 2.ª visita",
+  "fr": "Bridges définitifs en zircone à la 2e visite",
+  "de": "Endgültige Zirkonbrücken beim 2. Besuch",
+  "tr": "2. ziyarette kalıcı zirkonyum köprüler"
+ },
+ "Fixed temporary teeth same week": {
+  "es": "Dientes provisionales fijos la misma semana",
+  "fr": "Dents provisoires fixes la même semaine",
+  "de": "Feste Provisorien in derselben Woche",
+  "tr": "Aynı hafta sabit geçici dişler"
+ },
+ "Full Mouth Implants — Both Jaws": {
+  "es": "Implantes de boca completa — ambos maxilares",
+  "fr": "Implants bouche complète — les deux mâchoires",
+  "de": "Implantate für den ganzen Mund — beide Kiefer",
+  "tr": "Tam ağız implant — iki çene"
+ },
+ "Full smile makeover (up to 20 teeth)": {
+  "es": "Renovación completa de la sonrisa (hasta 20 dientes)",
+  "fr": "Transformation complète du sourire (jusqu’à 20 dents)",
+  "de": "Komplette Lächelerneuerung (bis zu 20 Zähne)",
+  "tr": "Tam gülüş yenileme (20 dişe kadar)"
+ },
+ "Hair restoration hospital — Istanbul": {
+  "es": "Hospital de trasplante capilar — Estambul",
+  "fr": "Hôpital de greffe de cheveux — Istanbul",
+  "de": "Klinik für Haartransplantation — Istanbul",
+  "tr": "Saç ekimi hastanesi — İstanbul"
+ },
+ "Hair Transplantation — Hospital Campus": {
+  "es": "Trasplante capilar — campus hospitalario",
+  "fr": "Greffe de cheveux — campus hospitalier",
+  "de": "Haartransplantation — Klinikcampus",
+  "tr": "Saç ekimi — hastane kampüsü"
+ },
+ "Hair Transplantation — Medical Center": {
+  "es": "Trasplante capilar — centro médico",
+  "fr": "Greffe de cheveux — centre médical",
+  "de": "Haartransplantation — medizinisches Zentrum",
+  "tr": "Saç ekimi — tıp merkezi"
+ },
+ "Health Check-Up": {
+  "es": "Chequeo médico",
+  "fr": "Bilan de santé",
+  "de": "Gesundheits-Check-up",
+  "tr": "Sağlık kontrolü"
+ },
+ "Hollywood Smile Makeover": {
+  "es": "Diseño de sonrisa Hollywood",
+  "fr": "Transformation Hollywood Smile",
+  "de": "Hollywood-Smile-Makeover",
+  "tr": "Hollywood gülüşü tasarımı"
+ },
+ "Hotel & VIP transfers covered by the clinic": {
+  "es": "Hotel y traslados VIP cubiertos por la clínica",
+  "fr": "Hôtel et transferts VIP pris en charge par la clinique",
+  "de": "Hotel und VIP-Transfers von der Klinik übernommen",
+  "tr": "Otel ve VIP transferler klinik tarafından karşılanır"
+ },
+ "Implants": {
+  "es": "Implantes",
+  "fr": "Implants",
+  "de": "Implantate",
+  "tr": "İmplantlar"
+ },
+ "In-clinic laser whitening — several shades brighter in a single session.": {
+  "es": "Blanqueamiento láser en clínica: varios tonos más claro en una sola sesión.",
+  "fr": "Blanchiment au laser en clinique — plusieurs teintes plus clair en une seule séance.",
+  "de": "Laser-Bleaching in der Klinik — mehrere Nuancen heller in einer einzigen Sitzung.",
+  "tr": "Klinikte lazerle beyazlatma — tek seansta birkaç ton açılır."
+ },
+ "In-clinic laser whitening session": {
+  "es": "Sesión de blanqueamiento láser en clínica",
+  "fr": "Séance de blanchiment au laser en clinique",
+  "de": "Laser-Bleaching-Sitzung in der Klinik",
+  "tr": "Klinikte lazerle beyazlatma seansı"
+ },
+ "Lifting": {
+  "es": "Lifting",
+  "fr": "Lifting",
+  "de": "Lifting",
+  "tr": "Germe"
+ },
+ "Liposuction": {
+  "es": "Liposucción",
+  "fr": "Liposuccion",
+  "de": "Fettabsaugung",
+  "tr": "Liposuction"
+ },
+ "One missing tooth, permanently restored — titanium implant, abutment and zirconia crown.": {
+  "es": "Un diente ausente, restaurado de forma permanente: implante de titanio, pilar y corona de circonio.",
+  "fr": "Une dent manquante, restaurée définitivement — implant en titane, pilier et couronne en zircone.",
+  "de": "Ein fehlender Zahn, dauerhaft ersetzt — Titanimplantat, Abutment und Zirkonkrone.",
+  "tr": "Eksik bir diş, kalıcı olarak tamamlanır — titanyum implant, abutment ve zirkonyum kron."
+ },
+ "Partner Hospital Group": {
+  "es": "Grupo hospitalario asociado",
+  "fr": "Groupe hospitalier partenaire",
+  "de": "Partner-Klinikgruppe",
+  "tr": "Partner hastane grubu"
+ },
+ "Patient Care & Coordination Fee": {
+  "es": "Tarifa de atención y coordinación al paciente",
+  "fr": "Frais de suivi et de coordination patient",
+  "de": "Gebühr für Patientenbetreuung und Koordination",
+  "tr": "Hasta bakım ve koordinasyon ücreti"
+ },
+ "Patient story — coming soon": {
+  "es": "Testimonio de paciente — próximamente",
+  "fr": "Témoignage de patient — bientôt disponible",
+  "de": "Patientengeschichte — folgt in Kürze",
+  "tr": "Hasta hikâyesi — çok yakında"
+ },
+ "Perfect add-on to a holiday": {
+  "es": "El complemento perfecto para unas vacaciones",
+  "fr": "Le complément parfait à des vacances",
+  "de": "Die perfekte Ergänzung zum Urlaub",
+  "tr": "Tatile eklemek için ideal"
+ },
+ "Prices are quoted in euros (€) by the hospital and paid directly to the hospital. Hotel nights are included only where stated. Your care and coordination with MedMatch is a flat Patient Care & Coordination Fee.": {
+  "es": "El hospital cotiza los precios en euros (€) y se pagan directamente al hospital. Las noches de hotel solo se incluyen cuando se indica. Su atención y coordinación con MedMatch es una tarifa fija de atención y coordinación al paciente.",
+  "fr": "Les prix sont indiqués en euros (€) par l’hôpital et réglés directement à l’hôpital. Les nuits d’hôtel ne sont incluses que lorsque cela est précisé. Votre suivi et votre coordination avec MedMatch font l’objet de frais fixes de suivi et de coordination patient.",
+  "de": "Die Preise werden vom Krankenhaus in Euro (€) angegeben und direkt an das Krankenhaus gezahlt. Hotelnächte sind nur dort enthalten, wo dies angegeben ist. Ihre Betreuung und Koordination mit MedMatch erfolgt zu einer pauschalen Gebühr für Patientenbetreuung und Koordination.",
+  "tr": "Fiyatlar hastane tarafından euro (€) olarak verilir ve doğrudan hastaneye ödenir. Otel konaklaması yalnızca belirtilen yerlerde dahildir. MedMatch ile bakım ve koordinasyonunuz sabit bir hasta bakım ve koordinasyon ücretidir."
+ },
+ "Professional Teeth Whitening": {
+  "es": "Blanqueamiento dental profesional",
+  "fr": "Blanchiment dentaire professionnel",
+  "de": "Professionelle Zahnaufhellung",
+  "tr": "Profesyonel diş beyazlatma"
+ },
+ "Radiology & Imaging": {
+  "es": "Radiología e imagen",
+  "fr": "Radiologie et imagerie",
+  "de": "Radiologie und Bildgebung",
+  "tr": "Radyoloji ve görüntüleme"
+ },
+ "Second Hospital Network": {
+  "es": "Segunda red hospitalaria",
+  "fr": "Deuxième réseau hospitalier",
+  "de": "Zweites Kliniknetzwerk",
+  "tr": "İkinci hastane ağı"
+ },
+ "Shade-matched by master ceramist": {
+  "es": "Color ajustado por un ceramista maestro",
+  "fr": "Teinte ajustée par un maître céramiste",
+  "de": "Farbe vom Meisterkeramiker angepasst",
+  "tr": "Usta seramik teknisyeni tarafından renk uyumu"
+ },
+ "Signature Dental Partner": {
+  "es": "Clínica dental de referencia",
+  "fr": "Partenaire dentaire de référence",
+  "de": "Zahnärztlicher Hauptpartner",
+  "tr": "Öne çıkan diş kliniği partneri"
+ },
+ "Single Dental Implant": {
+  "es": "Implante dental unitario",
+  "fr": "Implant dentaire unitaire",
+  "de": "Einzelzahnimplantat",
+  "tr": "Tek diş implantı"
+ },
+ "Six implants in one jaw for maximum stability — the gold standard for full-arch restoration.": {
+  "es": "Seis implantes en un maxilar para la máxima estabilidad: el estándar de oro en la restauración de arcada completa.",
+  "fr": "Six implants dans une mâchoire pour une stabilité maximale — la référence en matière de restauration d’arcade complète.",
+  "de": "Sechs Implantate in einem Kiefer für maximale Stabilität — der Goldstandard für die Versorgung des ganzen Bogens.",
+  "tr": "Maksimum stabilite için tek çenede altı implant — tam çene restorasyonunda altın standart."
+ },
+ "Smile Makeover": {
+  "es": "Diseño de sonrisa",
+  "fr": "Transformation du sourire",
+  "de": "Smile Makeover",
+  "tr": "Gülüş tasarımı"
+ },
+ "Straumann or Nobel Biocare implant": {
+  "es": "Implante Straumann o Nobel Biocare",
+  "fr": "Implant Straumann ou Nobel Biocare",
+  "de": "Straumann- oder Nobel-Biocare-Implantat",
+  "tr": "Straumann veya Nobel Biocare implant"
+ },
+ "Surgical & check-up campuses — Istanbul": {
+  "es": "Campus quirúrgico y de chequeos — Estambul",
+  "fr": "Campus chirurgical et de bilans — Istanbul",
+  "de": "Chirurgie- und Check-up-Campus — Istanbul",
+  "tr": "Cerrahi ve check-up kampüsleri — İstanbul"
+ },
+ "Take-home maintenance kit": {
+  "es": "Kit de mantenimiento para casa",
+  "fr": "Kit d’entretien à emporter",
+  "de": "Pflegeset für zu Hause",
+  "tr": "Eve götürülen bakım seti"
+ },
+ "Temporary teeth while lab works": {
+  "es": "Dientes provisionales mientras trabaja el laboratorio",
+  "fr": "Dents provisoires pendant le travail du laboratoire",
+  "de": "Provisorien, während das Labor arbeitet",
+  "tr": "Laboratuvar çalışırken geçici dişler"
+ },
+ "The complete transformation — crowns or veneers across your visible smile, designed to your face.": {
+  "es": "La transformación completa: coronas o carillas en toda la sonrisa visible, diseñadas para su rostro.",
+  "fr": "La transformation complète — couronnes ou facettes sur tout le sourire visible, dessinées pour votre visage.",
+  "de": "Die komplette Verwandlung — Kronen oder Veneers über Ihr sichtbares Lächeln, auf Ihr Gesicht abgestimmt.",
+  "tr": "Eksiksiz dönüşüm — görünen gülüşünüz boyunca kron veya lamina, yüzünüze göre tasarlanır."
+ },
+ "Twelve implants across both jaws — your entire mouth restored on the most stable full-arch foundation there is, with hotel and transfers covered by the clinic.": {
+  "es": "Doce implantes en ambos maxilares: toda la boca restaurada sobre la base de arcada completa más estable que existe, con hotel y traslados cubiertos por la clínica.",
+  "fr": "Douze implants sur les deux mâchoires — toute votre bouche restaurée sur la base d’arcade complète la plus stable qui soit, hôtel et transferts pris en charge par la clinique.",
+  "de": "Zwölf Implantate in beiden Kiefern — Ihr ganzer Mund auf dem stabilsten Fundament für den vollen Bogen versorgt, Hotel und Transfers übernimmt die Klinik.",
+  "tr": "İki çenede on iki implant — ağzınızın tamamı, var olan en sağlam tam çene temeli üzerine yenilenir; otel ve transferler klinik tarafından karşılanır."
+ },
+ "Ultra-thin, hand-layered E-max porcelain — the most natural-looking veneer made.": {
+  "es": "Porcelana E-max ultrafina, estratificada a mano: la carilla de aspecto más natural que existe.",
+  "fr": "Porcelaine E-max ultrafine, stratifiée à la main — la facette la plus naturelle qui soit.",
+  "de": "Hauchdünnes, von Hand geschichtetes E-max-Porzellan — das natürlichste Veneer, das es gibt.",
+  "tr": "Ultra ince, elde katmanlanmış E-max porselen — yapılabilecek en doğal görünümlü lamina."
+ },
+ "Veneers": {
+  "es": "Carillas",
+  "fr": "Facettes",
+  "de": "Veneers",
+  "tr": "Laminalar"
+ },
+ "Weight Loss": {
+  "es": "Pérdida de peso",
+  "fr": "Perte de poids",
+  "de": "Gewichtsabnahme",
+  "tr": "Kilo verme"
+ },
+ "Whitening": {
+  "es": "Blanqueamiento",
+  "fr": "Blanchiment",
+  "de": "Aufhellung",
+  "tr": "Beyazlatma"
+ },
+ "Whitening of remaining teeth": {
+  "es": "Blanqueamiento de los dientes restantes",
+  "fr": "Blanchiment des dents restantes",
+  "de": "Aufhellung der übrigen Zähne",
+  "tr": "Kalan dişlerin beyazlatılması"
+ },
+ "X-rays & aftercare kit included": {
+  "es": "Radiografías y kit de cuidados posteriores incluidos",
+  "fr": "Radiographies et kit de soins post-traitement inclus",
+  "de": "Röntgenaufnahmen und Nachsorge-Set inklusive",
+  "tr": "Röntgenler ve bakım seti dahil"
+ },
+ "X-rays & bite analysis included": {
+  "es": "Radiografías y análisis de la mordida incluidos",
+  "fr": "Radiographies et analyse de l’occlusion incluses",
+  "de": "Röntgenaufnahmen und Bissanalyse inklusive",
+  "tr": "Röntgenler ve kapanış analizi dahil"
+ },
+ "X-rays & try-in session included": {
+  "es": "Radiografías y sesión de prueba incluidas",
+  "fr": "Radiographies et séance d’essayage incluses",
+  "de": "Röntgenaufnahmen und Einprobe inklusive",
+  "tr": "Röntgenler ve prova seansı dahil"
+ },
+ "Zirconia crown included": {
+  "es": "Corona de circonio incluida",
+  "fr": "Couronne en zircone incluse",
+  "de": "Zirkonkrone inklusive",
+  "tr": "Zirkonyum kron dahil"
+ },
+ "Zirconia Crowns — Full Set": {
+  "es": "Coronas de circonio — juego completo",
+  "fr": "Couronnes en zircone — jeu complet",
+  "de": "Zirkonkronen — komplettes Set",
+  "tr": "Zirkonyum kronlar — tam takım"
+ },
+ "Hello MedMatch Global! I'm interested in the \"{pkg}\" package. Could you send me my free treatment plan?": {
+  "es": "¡Hola MedMatch Global! Me interesa el paquete «{pkg}». ¿Podrían enviarme mi plan de tratamiento gratuito?",
+  "fr": "Bonjour MedMatch Global ! Le forfait « {pkg} » m’intéresse. Pourriez-vous m’envoyer mon plan de traitement gratuit ?",
+  "de": "Hallo MedMatch Global! Ich interessiere mich für das Paket „{pkg}“. Könnten Sie mir meinen kostenlosen Behandlungsplan schicken?",
+  "tr": "Merhaba MedMatch Global! \"{pkg}\" paketiyle ilgileniyorum. Ücretsiz tedavi planımı gönderebilir misiniz?"
+ },
+ "100% Transparent Pricing — your treatment is paid directly to the clinic, never marked up. Our care and coordination is a flat {fee} for your whole journey.": {
+  "es": "Precios 100 % transparentes: su tratamiento se paga directamente a la clínica, sin recargo alguno. Nuestra atención y coordinación es una tarifa fija de {fee} para todo su viaje.",
+  "fr": "Tarifs 100 % transparents — votre traitement est réglé directement à la clinique, sans aucune majoration. Notre suivi et notre coordination coûtent un forfait de {fee} pour tout votre parcours.",
+  "de": "100 % transparente Preise — Ihre Behandlung zahlen Sie direkt an die Klinik, ohne jeden Aufschlag. Unsere Betreuung und Koordination kostet pauschal {fee} für Ihre gesamte Reise.",
+  "tr": "%100 şeffaf fiyat — tedavinizi doğrudan kliniğe ödersiniz, üzerine hiçbir şey eklenmez. Bakım ve koordinasyonumuz, yolculuğunuzun tamamı için sabit {fee}."
+ },
+ "Hotel, {n} nights with breakfast": {
+  "es": "Hotel, {n} noches con desayuno",
+  "fr": "Hôtel, {n} nuits avec petit-déjeuner",
+  "de": "Hotel, {n} Nächte mit Frühstück",
+  "tr": "Otel, kahvaltı dahil {n} gece"
+ },
+ "FREE": {
+  "es": "GRATIS",
+  "fr": "OFFERT",
+  "de": "GRATIS",
+  "tr": "ÜCRETSİZ"
+ },
+ "covered by the clinic": {
+  "es": "cubierto por la clínica",
+  "fr": "pris en charge par la clinique",
+  "de": "von der Klinik übernommen",
+  "tr": "klinik tarafından karşılanır"
+ },
+ "Hotel choice": {
+  "es": "Elección de hotel",
+  "fr": "Choix de l’hôtel",
+  "de": "Hotelauswahl",
+  "tr": "Otel seçimi"
+ },
+ "Hotel": {
+  "es": "Hotel",
+  "fr": "Hôtel",
+  "de": "Hotel",
+  "tr": "Otel"
+ },
+ "{n} nights, breakfast included": {
+  "es": "{n} noches, desayuno incluido",
+  "fr": "{n} nuits, petit-déjeuner inclus",
+  "de": "{n} Nächte, Frühstück inklusive",
+  "tr": "{n} gece, kahvaltı dahil"
+ },
+ "VIP Transfers": {
+  "es": "Traslados VIP",
+  "fr": "Transferts VIP",
+  "de": "VIP-Transfers",
+  "tr": "VIP transferler"
+ },
+ "airport ↔ hotel ↔ clinic, all appointments": {
+  "es": "aeropuerto ↔ hotel ↔ clínica, todas las citas",
+  "fr": "aéroport ↔ hôtel ↔ clinique, tous les rendez-vous",
+  "de": "Flughafen ↔ Hotel ↔ Klinik, alle Termine",
+  "tr": "havalimanı ↔ otel ↔ klinik, tüm randevular"
+ },
+ "Online Consultation &amp; Treatment Plan": {
+  "es": "Consulta online y plan de tratamiento",
+  "fr": "Consultation en ligne et plan de traitement",
+  "de": "Online-Beratung und Behandlungsplan",
+  "tr": "Online konsültasyon ve tedavi planı"
+ },
+ "Treatment — paid directly to your doctor at the clinic": {
+  "es": "Tratamiento: se paga directamente a su médico en la clínica",
+  "fr": "Traitement — réglé directement à votre médecin à la clinique",
+  "de": "Behandlung — direkt an Ihren Arzt in der Klinik gezahlt",
+  "tr": "Tedavi — klinikte doğrudan doktorunuza ödenir"
+ },
+ "On request": {
+  "es": "A consultar",
+  "fr": "Sur demande",
+  "de": "Auf Anfrage",
+  "tr": "Talep üzerine"
+ },
+ "Hotel ({n} nights, breakfast)": {
+  "es": "Hotel ({n} noches, desayuno)",
+  "fr": "Hôtel ({n} nuits, petit-déjeuner)",
+  "de": "Hotel ({n} Nächte, Frühstück)",
+  "tr": "Otel ({n} gece, kahvaltı)"
+ },
+ "Hotel ({star}★, {n} nights)": {
+  "es": "Hotel ({star}★, {n} noches)",
+  "fr": "Hôtel ({star}★, {n} nuits)",
+  "de": "Hotel ({star}★, {n} Nächte)",
+  "tr": "Otel ({star}★, {n} gece)"
+ },
+ "VIP airport &amp; clinic transfers": {
+  "es": "Traslados VIP al aeropuerto y a la clínica",
+  "fr": "Transferts VIP aéroport et clinique",
+  "de": "VIP-Transfers zu Flughafen und Klinik",
+  "tr": "VIP havalimanı ve klinik transferleri"
+ },
+ "Online consultation &amp; treatment plan": {
+  "es": "Consulta online y plan de tratamiento",
+  "fr": "Consultation en ligne et plan de traitement",
+  "de": "Online-Beratung und Behandlungsplan",
+  "tr": "Online konsültasyon ve tedavi planı"
+ },
+ "Estimated total, all in": {
+  "es": "Total estimado, todo incluido",
+  "fr": "Total estimé, tout compris",
+  "de": "Geschätzter Gesamtpreis, alles inklusive",
+  "tr": "Tahmini toplam, her şey dahil"
+ },
+ "from {total}": {
+  "es": "desde {total}",
+  "fr": "à partir de {total}",
+  "de": "ab {total}",
+  "tr": "başlangıç fiyatı {total}"
+ },
+ "Price on request": {
+  "es": "Precio a consultar",
+  "fr": "Prix sur demande",
+  "de": "Preis auf Anfrage",
+  "tr": "Fiyat talep üzerine"
+ },
+ "{days} in {city}": {
+  "es": "{days} en {city}",
+  "fr": "{days} à {city}",
+  "de": "{days} in {city}",
+  "tr": "{city}’da {days}"
+ },
+ "hotel, transfers": {
+  "es": "hotel, traslados",
+  "fr": "hôtel, transferts",
+  "de": "Hotel, Transfers",
+  "tr": "otel, transferler"
+ },
+ "{star}★ hotel, transfers": {
+  "es": "hotel {star}★, traslados",
+  "fr": "hôtel {star}★, transferts",
+  "de": "{star}★-Hotel, Transfers",
+  "tr": "{star}★ otel, transferler"
+ },
+ "&amp; fee included": {
+  "es": "y tarifa incluidos",
+  "fr": "et frais inclus",
+  "de": "und Gebühr inklusive",
+  "tr": "ve ücret dahil"
+ },
+ "See what’s included, itemized": {
+  "es": "Ver lo que incluye, desglosado",
+  "fr": "Voir le détail de ce qui est inclus",
+  "de": "Alles Enthaltene im Detail ansehen",
+  "tr": "Nelerin dahil olduğunu kalem kalem görün"
+ },
+ "Total estimated cost": {
+  "es": "Coste total estimado",
+  "fr": "Coût total estimé",
+  "de": "Geschätzte Gesamtkosten",
+  "tr": "Tahmini toplam maliyet"
+ },
+ "Get My Free Treatment Plan": {
+  "es": "Quiero mi plan de tratamiento gratuito",
+  "fr": "Obtenir mon plan de traitement gratuit",
+  "de": "Kostenlosen Behandlungsplan erhalten",
+  "tr": "Ücretsiz tedavi planımı al"
+ },
+ "WhatsApp Us": {
+  "es": "Escríbanos por WhatsApp",
+  "fr": "Écrivez-nous sur WhatsApp",
+  "de": "Schreiben Sie uns auf WhatsApp",
+  "tr": "WhatsApp’tan yazın"
+ },
+ "Final treatment price is confirmed by your doctor after your free consultation and X-ray review.": {
+  "es": "Su médico confirma el precio final del tratamiento tras la consulta gratuita y la revisión de las radiografías.",
+  "fr": "Le prix final du traitement est confirmé par votre médecin après votre consultation gratuite et l’examen de vos radiographies.",
+  "de": "Den endgültigen Behandlungspreis bestätigt Ihr Arzt nach der kostenlosen Beratung und der Auswertung Ihrer Röntgenbilder.",
+  "tr": "Nihai tedavi fiyatı, ücretsiz konsültasyon ve röntgen incelemesinden sonra doktorunuz tarafından onaylanır."
+ },
+ "See all {n} dental packages &amp; prices →": {
+  "es": "Ver los {n} paquetes dentales y precios →",
+  "fr": "Voir les {n} forfaits dentaires et leurs prix →",
+  "de": "Alle {n} Zahnpakete und Preise ansehen →",
+  "tr": "{n} diş paketinin tamamını ve fiyatları görün →"
+ }
+}
