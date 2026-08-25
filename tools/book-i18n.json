@@ -1,0 +1,668 @@
+{
+ "<strong>Knee replacement alone isn't advisable.</strong> You'll need help for the first week. Please plan to bring someone.": {
+  "es": "<strong>La sustitución de rodilla en solitario no es aconsejable.</strong> Necesitará ayuda la primera semana. Por favor, prevea venir acompañado.",
+  "fr": "<strong>Un remplacement du genou en solo n'est pas conseillé.</strong> Vous aurez besoin d'aide la première semaine. Prévoyez d'être accompagné.",
+  "de": "<strong>Ein Knieersatz allein ist nicht ratsam.</strong> In der ersten Woche brauchen Sie Hilfe. Bitte planen Sie eine Begleitung ein.",
+  "tr": "<strong>Diz protezini tek başına yaptırmak önerilmez.</strong> İlk hafta yardıma ihtiyacınız olacak. Lütfen yanınızda biri olacak şekilde planlayın."
+ },
+ "<strong>You can't be away for {stay}.</strong> That's the real constraint here. Flying home early is how good outcomes go wrong.": {
+  "es": "<strong>No puede ausentarse durante {stay}.</strong> Esa es la verdadera limitación aquí. Volver a casa antes de tiempo es como se estropean los buenos resultados.",
+  "fr": "<strong>Vous ne pouvez pas vous absenter {stay}.</strong> C'est la vraie contrainte ici. Rentrer trop tôt, c'est ainsi que de bons résultats tournent mal.",
+  "de": "<strong>Sie können nicht {stay} weg sein.</strong> Das ist hier die eigentliche Einschränkung. Zu früh nach Hause zu fliegen ist der Weg, auf dem gute Ergebnisse schieflaufen.",
+  "tr": "<strong>{stay} boyunca uzakta kalamıyorsunuz.</strong> Buradaki asıl kısıt bu. Erken dönmek, iyi sonuçların bozulma şeklidir."
+ },
+ "<strong>You don't have a date yet.</strong> Quotes move with the calendar and the exchange rate, so one issued today is stale by the time you're ready.": {
+  "es": "<strong>Todavía no tiene fecha.</strong> Los presupuestos cambian con el calendario y con el tipo de cambio, así que uno emitido hoy estará caducado cuando usted esté listo.",
+  "fr": "<strong>Vous n'avez pas encore de date.</strong> Les devis bougent avec le calendrier et le taux de change ; celui émis aujourd'hui sera périmé quand vous serez prêt.",
+  "de": "<strong>Sie haben noch keinen Termin.</strong> Kostenvoranschläge ändern sich mit dem Kalender und dem Wechselkurs — einer von heute ist veraltet, wenn Sie so weit sind.",
+  "tr": "<strong>Henüz bir tarihiniz yok.</strong> Fiyat teklifleri takvimle ve kurla değişir; bugün verilen bir teklif siz hazır olduğunuzda eskimiş olur."
+ },
+ "<strong>You have a written quote.</strong> Bring it. Comparing it line by line is the single fastest way to find out whether travelling is actually worth it for you.": {
+  "es": "<strong>Tiene un presupuesto por escrito.</strong> Tráigalo. Compararlo línea por línea es la forma más rápida de saber si viajar le compensa de verdad.",
+  "fr": "<strong>Vous avez un devis écrit.</strong> Apportez-le. Le comparer ligne par ligne est le moyen le plus rapide de savoir si le voyage en vaut vraiment la peine.",
+  "de": "<strong>Sie haben einen schriftlichen Kostenvoranschlag.</strong> Bringen Sie ihn mit. Ihn Zeile für Zeile zu vergleichen ist der schnellste Weg herauszufinden, ob sich die Reise für Sie wirklich lohnt.",
+  "tr": "<strong>Yazılı bir teklifiniz var.</strong> Onu getirin. Satır satır karşılaştırmak, seyahatin sizin için gerçekten değip değmediğini anlamanın en hızlı yoludur."
+ },
+ "<strong>You haven't been examined for this.</strong> No responsible surgeon quotes a final price without seeing you or your imaging.": {
+  "es": "<strong>No le han examinado para esto.</strong> Ningún cirujano responsable da un precio final sin verle a usted o sus pruebas de imagen.",
+  "fr": "<strong>Vous n'avez pas été examiné pour cela.</strong> Aucun chirurgien sérieux ne donne un prix définitif sans vous voir, vous ou vos images.",
+  "de": "<strong>Sie wurden dafür nicht untersucht.</strong> Kein verantwortungsvoller Chirurg nennt einen Endpreis, ohne Sie oder Ihre Aufnahmen gesehen zu haben.",
+  "tr": "<strong>Bunun için muayene olmamışsınız.</strong> Sorumlu hiçbir cerrah sizi ya da görüntülerinizi görmeden kesin fiyat vermez."
+ },
+ "<strong>You haven't seen real numbers yet.</strong> Run the <a href=\"/true-cost.html\">true-cost estimate</a> first — flights, hotel, and the second trip included — so the call starts from a real figure.": {
+  "es": "<strong>Todavía no ha visto cifras reales.</strong> Haga primero la <a href=\"/true-cost.html\">estimación del coste real</a> — vuelos, hotel y el segundo viaje incluidos — para que la llamada empiece desde una cifra real.",
+  "fr": "<strong>Vous n'avez pas encore vu de vrais chiffres.</strong> Faites d'abord l'<a href=\"/true-cost.html\">estimation du coût réel</a> — vols, hôtel et second voyage compris — pour que l'appel parte d'un chiffre réel.",
+  "de": "<strong>Sie haben noch keine echten Zahlen gesehen.</strong> Machen Sie zuerst die <a href=\"/true-cost.html\">Echtkosten-Schätzung</a> — Flüge, Hotel und die zweite Reise inklusive — damit das Gespräch von einer realen Zahl ausgeht.",
+  "tr": "<strong>Henüz gerçek rakamları görmediniz.</strong> Önce <a href=\"/true-cost.html\">gerçek maliyet tahminini</a> yapın — uçuşlar, otel ve ikinci yolculuk dahil — ki görüşme gerçek bir rakamla başlasın."
+ },
+ "<strong>You'd need financing.</strong> Sort that before you commit to a date. We don't lend and we don't take a cut from anyone who does.": {
+  "es": "<strong>Necesitaría financiación.</strong> Resuélvalo antes de comprometerse con una fecha. Nosotros no prestamos dinero ni nos llevamos comisión de quien lo hace.",
+  "fr": "<strong>Il vous faudrait un financement.</strong> Réglez cela avant de vous engager sur une date. Nous ne prêtons pas et ne touchons rien de ceux qui le font.",
+  "de": "<strong>Sie bräuchten eine Finanzierung.</strong> Klären Sie das, bevor Sie sich auf einen Termin festlegen. Wir vergeben keine Kredite und verdienen an niemandem mit, der das tut.",
+  "tr": "<strong>Finansmana ihtiyacınız olacak.</strong> Bir tarihe bağlanmadan önce bunu çözün. Biz kredi vermiyoruz ve verenlerden pay almıyoruz."
+ },
+ "<strong>You're 6 to 12 months out.</strong> Worth a call, but expect to redo the numbers closer to the time.": {
+  "es": "<strong>Le faltan de 6 a 12 meses.</strong> Merece la pena una llamada, pero cuente con rehacer los números más cerca de la fecha.",
+  "fr": "<strong>Vous êtes à 6 à 12 mois.</strong> Un appel vaut la peine, mais prévoyez de refaire les calculs plus près de la date.",
+  "de": "<strong>Sie sind noch 6 bis 12 Monate entfernt.</strong> Ein Gespräch lohnt sich, aber rechnen Sie damit, die Zahlen näher am Termin neu zu machen.",
+  "tr": "<strong>6-12 ay sonrasındasınız.</strong> Görüşmeye değer, ama tarihe yaklaşınca rakamları yeniden yapmayı bekleyin."
+ },
+ "<strong>You're not sure what you need yet.</strong> One local examination — even a paid one — will save you far more than it costs.": {
+  "es": "<strong>Todavía no sabe con seguridad qué necesita.</strong> Una sola revisión local — aunque sea de pago — le ahorrará mucho más de lo que cuesta.",
+  "fr": "<strong>Vous ne savez pas encore ce dont vous avez besoin.</strong> Un seul examen sur place — même payant — vous fera économiser bien plus qu'il ne coûte.",
+  "de": "<strong>Sie wissen noch nicht sicher, was Sie brauchen.</strong> Eine einzige Untersuchung vor Ort — auch eine kostenpflichtige — spart Ihnen weit mehr, als sie kostet.",
+  "tr": "<strong>Neye ihtiyacınız olduğundan henüz emin değilsiniz.</strong> Yerelde tek bir muayene — ücretli olsa bile — maliyetinden çok daha fazlasını kazandırır."
+ },
+ "14 to 21 days": {
+  "es": "de 14 a 21 días",
+  "fr": "14 à 21 jours",
+  "de": "14 bis 21 Tage",
+  "tr": "14-21 gün"
+ },
+ "4 to 6 days": {
+  "es": "de 4 a 6 días",
+  "fr": "4 à 6 jours",
+  "de": "4 bis 6 Tage",
+  "tr": "4-6 gün"
+ },
+ "5 to 12 days, sometimes split over two trips": {
+  "es": "de 5 a 12 días, a veces repartidos en dos viajes",
+  "fr": "5 à 12 jours, parfois répartis sur deux voyages",
+  "de": "5 bis 12 Tage, manchmal auf zwei Reisen verteilt",
+  "tr": "5-12 gün, bazen iki yolculuğa bölünerek"
+ },
+ "7 to 10 days": {
+  "es": "de 7 a 10 días",
+  "fr": "7 à 10 jours",
+  "de": "7 bis 10 Tage",
+  "tr": "7-10 gün"
+ },
+ "A call would help you, but it'll help more in a fortnight.": {
+  "es": "Una llamada le ayudaría, pero le ayudará más dentro de quince días.",
+  "fr": "Un appel vous aiderait, mais il vous aidera davantage dans quinze jours.",
+  "de": "Ein Gespräch würde Ihnen helfen, in zwei Wochen aber deutlich mehr.",
+  "tr": "Bir görüşme size yardımcı olur, ama iki hafta sonra çok daha fazla yardımcı olur."
+ },
+ "A sales call won't help you at this stage. These will.": {
+  "es": "Una llamada comercial no le ayudará en esta fase. Esto sí.",
+  "fr": "Un appel commercial ne vous aidera pas à ce stade. Ceci, oui.",
+  "de": "Ein Verkaufsgespräch hilft Ihnen in diesem Stadium nicht. Das hier schon.",
+  "tr": "Bu aşamada bir satış görüşmesi size yardımcı olmaz. Bunlar olur."
+ },
+ "An honest answer here changes what we do next. “Just looking” is a perfectly good answer.": {
+  "es": "Una respuesta sincera aquí cambia lo que hacemos después. «Solo estoy mirando» es una respuesta perfectamente válida.",
+  "fr": "Une réponse honnête ici change ce que nous faisons ensuite. « Je me renseigne » est une très bonne réponse.",
+  "de": "Eine ehrliche Antwort ändert hier, was wir als Nächstes tun. „Ich schaue mich nur um“ ist eine völlig gute Antwort.",
+  "tr": "Buradaki dürüst bir cevap, bundan sonra ne yapacağımızı değiştirir. “Sadece bakıyorum” gayet iyi bir cevaptır."
+ },
+ "Anything you want us to know": {
+  "es": "Algo que quiera contarnos",
+  "fr": "Ce que vous souhaitez nous dire",
+  "de": "Was wir sonst noch wissen sollten",
+  "tr": "Bilmemizi istediğiniz bir şey"
+ },
+ "Back": {
+  "es": "Atrás",
+  "fr": "Retour",
+  "de": "Zurück",
+  "tr": "Geri"
+ },
+ "Book the call — we'll come to it prepared.": {
+  "es": "Reserve la llamada: llegaremos preparados.",
+  "fr": "Réservez l'appel — nous y arriverons préparés.",
+  "de": "Buchen Sie das Gespräch — wir kommen vorbereitet.",
+  "tr": "Görüşmeyi ayırtın — hazırlıklı geleceğiz."
+ },
+ "Bring it to the call — comparing it line by line is the fastest way to see whether travelling is worth it": {
+  "es": "Tráigalo a la llamada: compararlo línea por línea es la forma más rápida de ver si viajar compensa",
+  "fr": "Apportez-le à l'appel — le comparer ligne par ligne est le plus rapide pour voir si le voyage en vaut la peine",
+  "de": "Bringen Sie ihn zum Gespräch mit — ihn Zeile für Zeile zu vergleichen zeigt am schnellsten, ob sich die Reise lohnt",
+  "tr": "Görüşmeye getirin — satır satır karşılaştırmak, seyahatin değip değmediğini görmenin en hızlı yolu"
+ },
+ "Canada": {
+  "es": "Canadá",
+  "fr": "Canada",
+  "de": "Kanada",
+  "tr": "Kanada"
+ },
+ "Clinical review first": {
+  "es": "Primero, revisión clínica",
+  "fr": "Avis clinique d'abord",
+  "de": "Zuerst die klinische Prüfung",
+  "tr": "Önce klinik değerlendirme"
+ },
+ "Close — one thing first": {
+  "es": "Cerca — una cosa antes",
+  "fr": "Presque — une chose d'abord",
+  "de": "Fast — eine Sache vorher",
+  "tr": "Yakın — önce bir şey"
+ },
+ "Continue": {
+  "es": "Continuar",
+  "fr": "Continuer",
+  "de": "Weiter",
+  "tr": "Devam"
+ },
+ "Cosmetic or functional nose surgery": {
+  "es": "Cirugía nasal estética o funcional",
+  "fr": "Chirurgie du nez esthétique ou fonctionnelle",
+  "de": "Ästhetische oder funktionelle Nasenoperation",
+  "tr": "Estetik veya fonksiyonel burun cerrahisi"
+ },
+ "Could you be away from home for the recovery period?": {
+  "es": "¿Podría estar fuera de casa durante el periodo de recuperación?",
+  "fr": "Pourriez-vous être absent de chez vous pendant la convalescence ?",
+  "de": "Könnten Sie für die Genesungszeit von zu Hause weg sein?",
+  "tr": "İyileşme süresi boyunca evden uzak kalabilir misiniz?"
+ },
+ "Dental treatment": {
+  "es": "Tratamiento dental",
+  "fr": "Soins dentaires",
+  "de": "Zahnbehandlung",
+  "tr": "Diş tedavisi"
+ },
+ "Does any of this apply to you?": {
+  "es": "¿Le afecta alguna de estas situaciones?",
+  "fr": "L'un de ces points vous concerne-t-il ?",
+  "de": "Trifft etwas davon auf Sie zu?",
+  "tr": "Bunlardan herhangi biri sizin için geçerli mi?"
+ },
+ "Email": {
+  "es": "Correo electrónico",
+  "fr": "E-mail",
+  "de": "E-Mail",
+  "tr": "E-posta"
+ },
+ "For {treatment}, plan on being in Türkiye {stay}. That is the clinic's schedule, not a sales figure.": {
+  "es": "Para {treatment}, cuente con estar en Türkiye {stay}. Ese es el calendario de la clínica, no una cifra comercial.",
+  "fr": "Pour {treatment}, prévoyez d'être en Türkiye {stay}. C'est le calendrier de la clinique, pas un argument de vente.",
+  "de": "Für {treatment} rechnen Sie damit, {stay} in Türkiye zu sein. Das ist der Zeitplan der Klinik, keine Verkaufszahl.",
+  "tr": "{treatment} için Türkiye'de {stay} kalmayı planlayın. Bu kliniğin takvimi, satış rakamı değil."
+ },
+ "For knee replacement we ask that you bring someone. For the others it's your preference, and travelling alone is common.": {
+  "es": "En la sustitución de rodilla pedimos que venga acompañado. En las demás es cosa suya, y viajar solo es habitual.",
+  "fr": "Pour le remplacement du genou, nous demandons que quelqu'un vous accompagne. Pour les autres, c'est votre choix, et voyager seul est courant.",
+  "de": "Beim Knieersatz bitten wir darum, dass Sie jemanden mitbringen. Bei den anderen ist es Ihre Entscheidung, und allein zu reisen ist üblich.",
+  "tr": "Diz protezinde yanınızda biri olmasını rica ediyoruz. Diğerlerinde bu size kalmış; tek başına seyahat etmek yaygın."
+ },
+ "FUE or DHI": {
+  "es": "FUE o DHI",
+  "fr": "FUE ou DHI",
+  "de": "FUE oder DHI",
+  "tr": "FUE veya DHI"
+ },
+ "Hair transplant": {
+  "es": "Injerto capilar",
+  "fr": "Greffe de cheveux",
+  "de": "Haartransplantation",
+  "tr": "Saç ekimi"
+ },
+ "Heart attack, stroke, or stent in the last 12 months": {
+  "es": "Infarto, ictus o stent en los últimos 12 meses",
+  "fr": "Infarctus, AVC ou stent au cours des 12 derniers mois",
+  "de": "Herzinfarkt, Schlaganfall oder Stent in den letzten 12 Monaten",
+  "tr": "Son 12 ayda kalp krizi, felç veya stent"
+ },
+ "How far along are you?": {
+  "es": "¿En qué punto se encuentra?",
+  "fr": "Où en êtes-vous ?",
+  "de": "Wie weit sind Sie?",
+  "tr": "Hangi aşamadasınız?"
+ },
+ "I don't know what it costs yet": {
+  "es": "Todavía no sé lo que cuesta",
+  "fr": "Je ne sais pas encore combien cela coûte",
+  "de": "Ich weiß noch nicht, was es kostet",
+  "tr": "Maliyetini henüz bilmiyorum"
+ },
+ "I have a bleeding or clotting disorder": {
+  "es": "Tengo un trastorno de la coagulación o hemorrágico",
+  "fr": "J'ai un trouble de la coagulation ou hémorragique",
+  "de": "Ich habe eine Blutungs- oder Gerinnungsstörung",
+  "tr": "Kanama veya pıhtılaşma bozukluğum var"
+ },
+ "I have a breathing problem as well as a cosmetic concern": {
+  "es": "Tengo un problema respiratorio además de una preocupación estética",
+  "fr": "J'ai un problème respiratoire en plus d'une gêne esthétique",
+  "de": "Ich habe neben dem ästhetischen Anliegen auch ein Atemproblem",
+  "tr": "Estetik kaygının yanı sıra bir solunum sorunum da var"
+ },
+ "I have diabetes that isn't well controlled": {
+  "es": "Tengo diabetes mal controlada",
+  "fr": "J'ai un diabète mal équilibré",
+  "de": "Ich habe schlecht eingestellten Diabetes",
+  "tr": "Kontrol altında olmayan diyabetim var"
+ },
+ "I haven't thought about it": {
+  "es": "No lo he pensado",
+  "fr": "Je n'y ai pas réfléchi",
+  "de": "Darüber habe ich noch nicht nachgedacht",
+  "tr": "Bunu düşünmedim"
+ },
+ "I know what I want, but haven't been examined for it yet": {
+  "es": "Sé lo que quiero, pero aún no me han examinado",
+  "fr": "Je sais ce que je veux, mais je n'ai pas encore été examiné",
+  "de": "Ich weiß, was ich will, wurde aber noch nicht untersucht",
+  "tr": "Ne istediğimi biliyorum ama henüz muayene olmadım"
+ },
+ "I smoke or vape daily": {
+  "es": "Fumo o vapeo a diario",
+  "fr": "Je fume ou je vapote tous les jours",
+  "de": "Ich rauche oder dampfe täglich",
+  "tr": "Her gün sigara veya elektronik sigara kullanıyorum"
+ },
+ "I take bisphosphonates or another bone-density medication": {
+  "es": "Tomo bifosfonatos u otro medicamento para la densidad ósea",
+  "fr": "Je prends des bisphosphonates ou un autre traitement pour la densité osseuse",
+  "de": "Ich nehme Bisphosphonate oder ein anderes Medikament für die Knochendichte",
+  "tr": "Bifosfonat veya başka bir kemik yoğunluğu ilacı kullanıyorum"
+ },
+ "I take blood thinners": {
+  "es": "Tomo anticoagulantes",
+  "fr": "Je prends des anticoagulants",
+  "de": "Ich nehme Blutverdünner",
+  "tr": "Kan sulandırıcı kullanıyorum"
+ },
+ "I'd need a payment plan or financing": {
+  "es": "Necesitaría un plan de pago o financiación",
+  "fr": "J'aurais besoin d'un paiement échelonné ou d'un financement",
+  "de": "Ich bräuchte einen Ratenplan oder eine Finanzierung",
+  "tr": "Taksit veya finansman gerekirdi"
+ },
+ "I'd need to check": {
+  "es": "Tendría que comprobarlo",
+  "fr": "Je devrais vérifier",
+  "de": "Das müsste ich prüfen",
+  "tr": "Kontrol etmem gerekir"
+ },
+ "I'm in active cancer treatment": {
+  "es": "Estoy en tratamiento oncológico activo",
+  "fr": "Je suis en traitement actif contre un cancer",
+  "de": "Ich bin in aktiver Krebsbehandlung",
+  "tr": "Aktif kanser tedavisi görüyorum"
+ },
+ "I'm not certain yet what I actually need": {
+  "es": "Todavía no tengo claro qué necesito exactamente",
+  "fr": "Je ne sais pas encore exactement ce dont j'ai besoin",
+  "de": "Ich bin mir noch nicht sicher, was ich eigentlich brauche",
+  "tr": "Aslında neye ihtiyacım olduğundan henüz emin değilim"
+ },
+ "I'm pregnant or breastfeeding": {
+  "es": "Estoy embarazada o en periodo de lactancia",
+  "fr": "Je suis enceinte ou j'allaite",
+  "de": "Ich bin schwanger oder stille",
+  "tr": "Hamileyim veya emziriyorum"
+ },
+ "I've been diagnosed with alopecia areata or scarring alopecia": {
+  "es": "Me han diagnosticado alopecia areata o alopecia cicatricial",
+  "fr": "On m'a diagnostiqué une pelade ou une alopécie cicatricielle",
+  "de": "Bei mir wurde Alopecia areata oder eine vernarbende Alopezie festgestellt",
+  "tr": "Alopesi areata veya sikatrisyel alopesi tanısı aldım"
+ },
+ "I've been examined and I have a written quote at home": {
+  "es": "Me han examinado y tengo un presupuesto por escrito en casa",
+  "fr": "J'ai été examiné et j'ai un devis écrit chez moi",
+  "de": "Ich wurde untersucht und habe zu Hause einen schriftlichen Kostenvoranschlag",
+  "tr": "Muayene oldum ve evimde yazılı bir teklifim var"
+ },
+ "I've been told I have gum disease or bone loss": {
+  "es": "Me han dicho que tengo enfermedad de las encías o pérdida ósea",
+  "fr": "On m'a dit que j'avais une maladie des gencives ou une perte osseuse",
+  "de": "Mir wurde gesagt, ich habe eine Zahnfleischerkrankung oder Knochenabbau",
+  "tr": "Diş eti hastalığım veya kemik kaybım olduğu söylendi"
+ },
+ "I've had a hair transplant before": {
+  "es": "Me he hecho un injerto capilar antes",
+  "fr": "J'ai déjà eu une greffe de cheveux",
+  "de": "Ich hatte schon einmal eine Haartransplantation",
+  "tr": "Daha önce saç ekimi yaptırdım"
+ },
+ "I've had an infection in the joint being replaced": {
+  "es": "He tenido una infección en la articulación que se va a sustituir",
+  "fr": "J'ai eu une infection dans l'articulation à remplacer",
+  "de": "Ich hatte eine Infektion in dem Gelenk, das ersetzt werden soll",
+  "tr": "Değiştirilecek eklemde enfeksiyon geçirdim"
+ },
+ "I've had nose surgery before": {
+  "es": "Me han operado la nariz antes",
+  "fr": "J'ai déjà été opéré du nez",
+  "de": "Ich wurde schon einmal an der Nase operiert",
+  "tr": "Daha önce burun ameliyatı oldum"
+ },
+ "I've seen a doctor about it, but have no written quote": {
+  "es": "He visto a un médico, pero no tengo presupuesto por escrito",
+  "fr": "J'ai vu un médecin, mais je n'ai pas de devis écrit",
+  "de": "Ich war bei einem Arzt, habe aber keinen schriftlichen Kostenvoranschlag",
+  "tr": "Bir doktora göründüm ama yazılı teklifim yok"
+ },
+ "If you decided to go ahead, could you fund it?": {
+  "es": "Si decidiera seguir adelante, ¿podría financiarlo?",
+  "fr": "Si vous décidiez d'y aller, pourriez-vous le financer ?",
+  "de": "Wenn Sie sich dafür entscheiden würden, könnten Sie es finanzieren?",
+  "tr": "Devam etmeye karar verseniz, bunu karşılayabilir miydiniz?"
+ },
+ "If you tell us where you are, we'll point you at someone who does cover it. No charge and no catch.": {
+  "es": "Si nos dice dónde está, le indicaremos a alguien que sí cubra esa zona. Sin coste y sin trampa.",
+  "fr": "Dites-nous où vous êtes et nous vous orienterons vers quelqu'un qui couvre votre zone. Sans frais et sans piège.",
+  "de": "Sagen Sie uns, wo Sie sind, und wir nennen Ihnen jemanden, der diese Region abdeckt. Kostenlos und ohne Haken.",
+  "tr": "Nerede olduğunuzu söylerseniz, orayı kapsayan birini gösterelim. Ücretsiz ve şartsız."
+ },
+ "If you're weighing up more than one, pick the one you'd do first.": {
+  "es": "Si está valorando más de uno, elija el que haría primero.",
+  "fr": "Si vous en envisagez plusieurs, choisissez celui que vous feriez en premier.",
+  "de": "Wenn Sie mehreres abwägen, wählen Sie das, was Sie zuerst machen würden.",
+  "tr": "Birden fazlasını düşünüyorsanız, önce yaptıracağınızı seçin."
+ },
+ "Implants, veneers, crowns, or full-mouth work": {
+  "es": "Implantes, carillas, coronas o tratamiento de boca completa",
+  "fr": "Implants, facettes, couronnes ou réhabilitation complète",
+  "de": "Implantate, Veneers, Kronen oder eine Komplettsanierung",
+  "tr": "İmplant, lamina, kron veya tam ağız tedavisi"
+ },
+ "In 3 to 6 months": {
+  "es": "Dentro de 3 a 6 meses",
+  "fr": "Dans 3 à 6 mois",
+  "de": "In 3 bis 6 Monaten",
+  "tr": "3-6 ay içinde"
+ },
+ "In 6 to 12 months": {
+  "es": "Dentro de 6 a 12 meses",
+  "fr": "Dans 6 à 12 mois",
+  "de": "In 6 bis 12 Monaten",
+  "tr": "6-12 ay içinde"
+ },
+ "It affects healing, and clinics will ask you to stop before and after": {
+  "es": "Afecta a la cicatrización, y las clínicas le pedirán que lo deje antes y después",
+  "fr": "Cela agit sur la cicatrisation, et les cliniques vous demanderont d'arrêter avant et après",
+  "de": "Es beeinflusst die Heilung, und Kliniken werden Sie bitten, davor und danach aufzuhören",
+  "tr": "İyileşmeyi etkiler ve klinikler öncesinde ve sonrasında bırakmanızı isteyecektir"
+ },
+ "It would be tight, but possible": {
+  "es": "Sería justo, pero posible",
+  "fr": "Ce serait juste, mais possible",
+  "de": "Es wäre knapp, aber machbar",
+  "tr": "Sıkışık olurdu ama mümkün"
+ },
+ "Knee replacement": {
+  "es": "Sustitución de rodilla",
+  "fr": "Remplacement du genou",
+  "de": "Knieersatz",
+  "tr": "Diz protezi"
+ },
+ "Most of it, and I could cover the rest": {
+  "es": "Casi todo, y podría cubrir el resto",
+  "fr": "L'essentiel, et je pourrais couvrir le reste",
+  "de": "Das meiste, den Rest könnte ich aufbringen",
+  "tr": "Çoğunu, kalanını da karşılayabilirim"
+ },
+ "My BMI is over 40": {
+  "es": "Mi IMC es superior a 40",
+  "fr": "Mon IMC dépasse 40",
+  "de": "Mein BMI liegt über 40",
+  "tr": "Vücut kitle indeksim 40'ın üzerinde"
+ },
+ "No — I can't be away that long": {
+  "es": "No — no puedo ausentarme tanto tiempo",
+  "fr": "Non — je ne peux pas m'absenter aussi longtemps",
+  "de": "Nein — so lange kann ich nicht weg sein",
+  "tr": "Hayır — o kadar uzun süre uzakta kalamam"
+ },
+ "No date in mind — I'm researching": {
+  "es": "Sin fecha en mente — estoy informándome",
+  "fr": "Pas de date en tête — je me renseigne",
+  "de": "Kein Termin im Kopf — ich informiere mich",
+  "tr": "Aklımda tarih yok — araştırıyorum"
+ },
+ "No, I'd travel alone": {
+  "es": "No, viajaría solo",
+  "fr": "Non, je voyagerais seul",
+  "de": "Nein, ich würde allein reisen",
+  "tr": "Hayır, tek başıma giderim"
+ },
+ "None of these rules you out. They change who needs to review your file and how long the planning takes. Leaving something out here only delays you later.": {
+  "es": "Ninguna de estas le descarta. Cambian quién debe revisar su historial y cuánto tarda la planificación. Omitir algo aquí solo le retrasa más adelante.",
+  "fr": "Aucun de ces points ne vous exclut. Ils changent qui doit examiner votre dossier et le temps que prend la planification. En omettre un ne fait que vous retarder plus tard.",
+  "de": "Nichts davon schließt Sie aus. Es ändert, wer Ihre Unterlagen prüfen muss und wie lange die Planung dauert. Etwas wegzulassen verzögert Sie nur später.",
+  "tr": "Bunların hiçbiri sizi elemez. Dosyanızı kimin incelemesi gerektiğini ve planlamanın ne kadar süreceğini değiştirir. Burada bir şeyi atlamak sizi yalnızca sonradan geciktirir."
+ },
+ "On your answers there's nothing standing between you and a real conversation. Pick a time below. You'll get a written summary and a fixed, all-inclusive quote within 48 hours of the call, whether or not you go ahead.": {
+  "es": "Según sus respuestas, no hay nada que le impida tener una conversación de verdad. Elija una hora abajo. Recibirá un resumen por escrito y un presupuesto fijo y con todo incluido en un plazo de 48 horas tras la llamada, decida seguir adelante o no.",
+  "fr": "D'après vos réponses, rien ne s'oppose à une vraie conversation. Choisissez un horaire ci-dessous. Vous recevrez un résumé écrit et un devis fixe tout compris dans les 48 heures suivant l'appel, que vous poursuiviez ou non.",
+  "de": "Nach Ihren Antworten steht einem echten Gespräch nichts im Weg. Wählen Sie unten eine Zeit. Sie erhalten innerhalb von 48 Stunden nach dem Gespräch eine schriftliche Zusammenfassung und einen festen All-inclusive-Kostenvoranschlag — ganz gleich, ob Sie es machen oder nicht.",
+  "tr": "Cevaplarınıza göre gerçek bir görüşmenin önünde hiçbir engel yok. Aşağıdan bir saat seçin. Devam etseniz de etmeseniz de, görüşmeden sonraki 48 saat içinde yazılı bir özet ve sabit, her şey dahil bir teklif alacaksınız."
+ },
+ "Only used if you ask us to call. We don't cold-call applicants.": {
+  "es": "Solo se usa si nos pide que le llamemos. No hacemos llamadas comerciales.",
+  "fr": "Utilisé uniquement si vous nous demandez d'appeler. Nous ne faisons pas de démarchage.",
+  "de": "Wird nur genutzt, wenn Sie um einen Anruf bitten. Wir rufen niemanden unaufgefordert an.",
+  "tr": "Yalnızca aramamızı isterseniz kullanılır. Kimseyi habersiz aramayız."
+ },
+ "optional": {
+  "es": "opcional",
+  "fr": "facultatif",
+  "de": "optional",
+  "tr": "isteğe bağlı"
+ },
+ "Our partner agreements, our aftercare, and our follow-up all assume you're flying from the United States or Canada. We can't serve you properly from anywhere else, so we're not going to take your details and disappear.": {
+  "es": "Nuestros acuerdos con clínicas asociadas, nuestro seguimiento y nuestra atención posterior dan por hecho que viaja desde Estados Unidos o Canadá. No podemos atenderle correctamente desde otro lugar, así que no vamos a quedarnos con sus datos y desaparecer.",
+  "fr": "Nos accords partenaires, notre suivi et notre accompagnement supposent que vous partez des États-Unis ou du Canada. Nous ne pouvons pas vous servir correctement depuis ailleurs, donc nous n'allons pas prendre vos coordonnées et disparaître.",
+  "de": "Unsere Partnervereinbarungen, unsere Nachsorge und unsere Betreuung setzen voraus, dass Sie aus den USA oder Kanada anreisen. Von anderswo können wir Sie nicht ordentlich betreuen — also nehmen wir auch nicht Ihre Daten und verschwinden.",
+  "tr": "Partner anlaşmalarımız, sonrasındaki bakım ve takibimiz, Amerika Birleşik Devletleri'nden veya Kanada'dan geldiğinizi varsayar. Başka bir yerden size gerektiği gibi hizmet edemeyiz; bu yüzden bilgilerinizi alıp ortadan kaybolmayacağız."
+ },
+ "Outside our region": {
+  "es": "Fuera de nuestra región",
+  "fr": "Hors de notre zone",
+  "de": "Außerhalb unserer Region",
+  "tr": "Bölgemizin dışında"
+ },
+ "Partial or total knee arthroplasty": {
+  "es": "Artroplastia de rodilla parcial o total",
+  "fr": "Arthroplastie du genou partielle ou totale",
+  "de": "Teilweiser oder vollständiger Knieersatz",
+  "tr": "Kısmi veya total diz protezi"
+ },
+ "Phone": {
+  "es": "Teléfono",
+  "fr": "Téléphone",
+  "de": "Telefon",
+  "tr": "Telefon"
+ },
+ "Prolia, Fosamax, Actonel, Reclast and similar": {
+  "es": "Prolia, Fosamax, Actonel, Reclast y similares",
+  "fr": "Prolia, Fosamax, Actonel, Reclast et similaires",
+  "de": "Prolia, Fosamax, Actonel, Reclast und ähnliche",
+  "tr": "Prolia, Fosamax, Actonel, Reclast ve benzerleri"
+ },
+ "Question {n} of {total}": {
+  "es": "Pregunta {n} de {total}",
+  "fr": "Question {n} sur {total}",
+  "de": "Frage {n} von {total}",
+  "tr": "Soru {n} / {total}"
+ },
+ "Recent HbA1c above about 8%, or you're not sure what it is": {
+  "es": "HbA1c reciente por encima de 8 %, o no sabe cuál es",
+  "fr": "HbA1c récente supérieure à environ 8 %, ou vous ne la connaissez pas",
+  "de": "Aktueller HbA1c über etwa 8 %, oder Sie kennen ihn nicht",
+  "tr": "Son HbA1c değeri yaklaşık %8'in üzerinde ya da bilmiyorsunuz"
+ },
+ "Rhinoplasty": {
+  "es": "Rinoplastia",
+  "fr": "Rhinoplastie",
+  "de": "Nasenkorrektur",
+  "tr": "Burun estetiği"
+ },
+ "See my answer": {
+  "es": "Ver mi respuesta",
+  "fr": "Voir ma réponse",
+  "de": "Meine Antwort ansehen",
+  "tr": "Cevabımı gör"
+ },
+ "Something else": {
+  "es": "Otra cosa",
+  "fr": "Autre chose",
+  "de": "Etwas anderes",
+  "tr": "Başka bir şey"
+ },
+ "Something in your history needs a clinician's eyes before anyone quotes you.": {
+  "es": "Hay algo en su historial que necesita la mirada de un clínico antes de que nadie le dé un precio.",
+  "fr": "Quelque chose dans vos antécédents doit être vu par un clinicien avant qu'on vous donne un prix.",
+  "de": "Etwas in Ihrer Vorgeschichte muss ein Arzt sehen, bevor Ihnen jemand einen Preis nennt.",
+  "tr": "Geçmişinizde, kimse size fiyat vermeden önce bir hekimin görmesi gereken bir şey var."
+ },
+ "Somewhere else": {
+  "es": "En otro lugar",
+  "fr": "Ailleurs",
+  "de": "Woanders",
+  "tr": "Başka bir yer"
+ },
+ "Tell us on the call": {
+  "es": "Se lo contamos en la llamada",
+  "fr": "Nous en parlerons pendant l'appel",
+  "de": "Erzählen Sie es uns im Gespräch",
+  "tr": "Görüşmede anlatın"
+ },
+ "This is not a no, and it's not a delay tactic — most people in this position do go on to treatment. It means a doctor reviews your file before a price or a date is put in front of you. Any operator willing to quote you today, without this step, is guessing with your health.": {
+  "es": "Esto no es un no, ni una táctica para ganar tiempo: la mayoría de las personas en esta situación acaban tratándose. Significa que un médico revisa su historial antes de ponerle delante un precio o una fecha. Cualquier operador dispuesto a darle un precio hoy, sin este paso, está jugando con su salud.",
+  "fr": "Ce n'est pas un refus, ni une manœuvre pour gagner du temps — la plupart des personnes dans ce cas se font finalement traiter. Cela veut dire qu'un médecin examine votre dossier avant qu'un prix ou une date ne vous soit proposé. Tout opérateur prêt à vous chiffrer aujourd'hui, sans cette étape, joue avec votre santé.",
+  "de": "Das ist kein Nein und keine Hinhaltetaktik — die meisten Menschen in dieser Lage lassen sich am Ende behandeln. Es bedeutet, dass ein Arzt Ihre Unterlagen prüft, bevor Ihnen ein Preis oder ein Termin vorgelegt wird. Wer Ihnen heute ohne diesen Schritt einen Preis nennt, spielt mit Ihrer Gesundheit.",
+  "tr": "Bu bir hayır değil, oyalama da değil — bu durumdaki çoğu kişi sonunda tedavi oluyor. Size bir fiyat ya da tarih sunulmadan önce bir hekimin dosyanızı incelemesi demek. Bu adımı atlayıp bugün size fiyat vermeye razı olan biri, sağlığınızla kumar oynuyordur."
+ },
+ "Too early for a call": {
+  "es": "Demasiado pronto para una llamada",
+  "fr": "Trop tôt pour un appel",
+  "de": "Zu früh für ein Gespräch",
+  "tr": "Görüşme için çok erken"
+ },
+ "United States": {
+  "es": "Estados Unidos",
+  "fr": "États-Unis",
+  "de": "Vereinigte Staaten",
+  "tr": "Amerika Birleşik Devletleri"
+ },
+ "Warfarin, apixaban, clopidogrel, or daily aspirin on doctor's orders": {
+  "es": "Warfarina, apixabán, clopidogrel o aspirina diaria por indicación médica",
+  "fr": "Warfarine, apixaban, clopidogrel ou aspirine quotidienne sur prescription",
+  "de": "Warfarin, Apixaban, Clopidogrel oder tägliches Aspirin auf ärztliche Anweisung",
+  "tr": "Doktor önerisiyle varfarin, apiksaban, klopidogrel veya günlük aspirin"
+ },
+ "We ask because a quote you can't act on helps nobody. There's no wrong answer and no credit check — nothing here affects what you're shown.": {
+  "es": "Lo preguntamos porque un presupuesto que no puede utilizar no ayuda a nadie. No hay respuesta incorrecta ni consulta de solvencia: nada de esto afecta a lo que se le muestra.",
+  "fr": "Nous le demandons parce qu'un devis inutilisable n'aide personne. Il n'y a pas de mauvaise réponse ni d'examen de solvabilité — rien ici ne change ce qui vous est présenté.",
+  "de": "Wir fragen, weil ein Kostenvoranschlag, mit dem Sie nichts anfangen können, niemandem hilft. Es gibt keine falsche Antwort und keine Bonitätsprüfung — nichts davon ändert, was Ihnen gezeigt wird.",
+  "tr": "Bunu soruyoruz çünkü kullanamayacağınız bir teklif kimseye fayda etmez. Yanlış cevap yok, kredi sorgusu da yok — buradaki hiçbir şey size gösterileni değiştirmez."
+ },
+ "We need a name and a working email to send your answer.": {
+  "es": "Necesitamos un nombre y un correo electrónico válido para enviarle su respuesta.",
+  "fr": "Il nous faut un nom et une adresse e-mail valide pour vous envoyer votre réponse.",
+  "de": "Wir brauchen einen Namen und eine funktionierende E-Mail-Adresse, um Ihnen Ihre Antwort zu schicken.",
+  "tr": "Cevabınızı gönderebilmemiz için bir isim ve çalışan bir e-posta adresi gerekiyor."
+ },
+ "We work with patients travelling from North America. If you're elsewhere we'll say so rather than take your details and go quiet.": {
+  "es": "Trabajamos con pacientes que viajan desde Norteamérica. Si está en otro lugar se lo diremos, en vez de quedarnos con sus datos y desaparecer.",
+  "fr": "Nous travaillons avec des patients qui voyagent depuis l'Amérique du Nord. Si vous êtes ailleurs, nous vous le dirons plutôt que de prendre vos coordonnées et de disparaître.",
+  "de": "Wir arbeiten mit Patienten, die aus Nordamerika anreisen. Wenn Sie woanders sind, sagen wir das — statt Ihre Daten zu nehmen und still zu werden.",
+  "tr": "Kuzey Amerika'dan gelen hastalarla çalışıyoruz. Başka bir yerdeyseniz, bilgilerinizi alıp sessizleşmek yerine bunu size söyleriz."
+ },
+ "We're not the right people for you, and we'd rather say it now.": {
+  "es": "No somos las personas adecuadas para usted, y preferimos decírselo ahora.",
+  "fr": "Nous ne sommes pas les bonnes personnes pour vous, et nous préférons vous le dire maintenant.",
+  "de": "Wir sind nicht die Richtigen für Sie, und das sagen wir Ihnen lieber jetzt.",
+  "tr": "Sizin için doğru kişiler değiliz ve bunu şimdi söylemeyi tercih ederiz."
+ },
+ "What are you looking into?": {
+  "es": "¿Qué está valorando?",
+  "fr": "Qu'envisagez-vous ?",
+  "de": "Worum geht es bei Ihnen?",
+  "tr": "Neyi araştırıyorsunuz?"
+ },
+ "When would you want the treatment done?": {
+  "es": "¿Cuándo querría hacerse el tratamiento?",
+  "fr": "Quand souhaiteriez-vous être traité ?",
+  "de": "Wann möchten Sie die Behandlung machen lassen?",
+  "tr": "Tedaviyi ne zaman yaptırmak istersiniz?"
+ },
+ "Where do you live?": {
+  "es": "¿Dónde vive?",
+  "fr": "Où habitez-vous ?",
+  "de": "Wo wohnen Sie?",
+  "tr": "Nerede yaşıyorsunuz?"
+ },
+ "Where should we send your answer?": {
+  "es": "¿Adónde le enviamos su respuesta?",
+  "fr": "Où devons-nous envoyer votre réponse ?",
+  "de": "Wohin sollen wir Ihre Antwort schicken?",
+  "tr": "Cevabınızı nereye gönderelim?"
+ },
+ "Within 3 months": {
+  "es": "En menos de 3 meses",
+  "fr": "D'ici 3 mois",
+  "de": "Innerhalb von 3 Monaten",
+  "tr": "3 ay içinde"
+ },
+ "Would someone travel with you?": {
+  "es": "¿Viajaría alguien con usted?",
+  "fr": "Quelqu'un voyagerait-il avec vous ?",
+  "de": "Würde jemand mit Ihnen reisen?",
+  "tr": "Yanınızda biri gelir mi?"
+ },
+ "Yes — the money is set aside": {
+  "es": "Sí — el dinero está apartado",
+  "fr": "Oui — l'argent est mis de côté",
+  "de": "Ja — das Geld ist zurückgelegt",
+  "tr": "Evet — para ayrıldı"
+ },
+ "Yes, I can take that time": {
+  "es": "Sí, puedo disponer de ese tiempo",
+  "fr": "Oui, je peux prendre ce temps",
+  "de": "Ja, diese Zeit kann ich mir nehmen",
+  "tr": "Evet, o zamanı ayırabilirim"
+ },
+ "Yes, someone would come with me": {
+  "es": "Sí, alguien vendría conmigo",
+  "fr": "Oui, quelqu'un m'accompagnerait",
+  "de": "Ja, jemand würde mitkommen",
+  "tr": "Evet, biri benimle gelir"
+ },
+ "You're at the reading stage, and that's the right place to be. A consultation now would just be us talking at you. Take the tools below, come back when you have a date or a quote in hand, and the call will actually be worth your time.": {
+  "es": "Está en la fase de informarse, y ese es el sitio correcto. Una consulta ahora sería solo nosotros hablándole. Coja las herramientas de abajo, vuelva cuando tenga una fecha o un presupuesto en la mano, y entonces la llamada sí merecerá su tiempo.",
+  "fr": "Vous en êtes à vous renseigner, et c'est exactement là qu'il faut être. Une consultation maintenant reviendrait à vous parler sans vous écouter. Prenez les outils ci-dessous, revenez avec une date ou un devis en main, et l'appel vaudra vraiment votre temps.",
+  "de": "Sie sind in der Informationsphase, und das ist genau richtig. Eine Beratung jetzt wäre nur, dass wir auf Sie einreden. Nehmen Sie die Werkzeuge unten mit, kommen Sie wieder, wenn Sie einen Termin oder einen Kostenvoranschlag in der Hand haben — dann ist das Gespräch Ihre Zeit auch wert.",
+  "tr": "Okuma aşamasındasınız ve olmanız gereken yer tam da orası. Şimdi bir konsültasyon, sadece bizim size anlatmamız olurdu. Aşağıdaki araçları alın; elinizde bir tarih ya da teklif olduğunda dönün, o zaman görüşme gerçekten zamanınıza değer."
+ },
+ "You're ready": {
+  "es": "Está listo",
+  "fr": "Vous êtes prêt",
+  "de": "Sie sind bereit",
+  "tr": "Hazırsınız"
+ },
+ "You're serious about this. There are one or two things that would make the conversation far more useful, and they're all things you can do without us. Sort them and book — the call is still free either way.": {
+  "es": "Se lo está tomando en serio. Hay una o dos cosas que harían la conversación mucho más útil, y todas puede hacerlas sin nosotros. Resuélvalas y reserve: la llamada sigue siendo gratuita en cualquier caso.",
+  "fr": "Vous êtes sérieux. Il y a une ou deux choses qui rendraient la conversation bien plus utile, et vous pouvez toutes les faire sans nous. Réglez-les et réservez — l'appel reste gratuit dans tous les cas.",
+  "de": "Sie meinen es ernst. Es gibt ein, zwei Dinge, die das Gespräch deutlich nützlicher machen würden, und die können Sie alle ohne uns erledigen. Erledigen Sie sie und buchen Sie — das Gespräch bleibt so oder so kostenlos.",
+  "tr": "Bu işi ciddiye alıyorsunuz. Görüşmeyi çok daha faydalı kılacak bir iki şey var ve hepsini bizsiz yapabilirsiniz. Onları halledin ve randevu alın — görüşme her hâlükârda ücretsiz."
+ },
+ "Your details go to a patient advisor and to the hospital you choose. They are never sold, and never passed to anyone else.": {
+  "es": "Sus datos van a un asesor de pacientes y al hospital que elija. Nunca se venden ni se pasan a nadie más.",
+  "fr": "Vos informations vont à un conseiller patient et à l'hôpital que vous choisissez. Elles ne sont jamais vendues ni transmises à qui que ce soit d'autre.",
+  "de": "Ihre Daten gehen an einen Patientenberater und an das Krankenhaus, das Sie wählen. Sie werden nie verkauft und nie an sonst jemanden weitergegeben.",
+  "tr": "Bilgileriniz bir hasta danışmanına ve seçtiğiniz hastaneye gider. Asla satılmaz, başka kimseye verilmez."
+ },
+ "Your name": {
+  "es": "Su nombre",
+  "fr": "Votre nom",
+  "de": "Ihr Name",
+  "tr": "Adınız"
+ },
+ "Your time away is tight. Build in two spare days — flights get moved and swelling doesn't read the schedule.": {
+  "es": "Su tiempo fuera está justo. Deje dos días de margen: los vuelos se cambian y la inflamación no lee el calendario.",
+  "fr": "Votre temps sur place est juste. Prévoyez deux jours de marge — les vols sont décalés et l'œdème ne lit pas le calendrier.",
+  "de": "Ihre Zeit vor Ort ist knapp. Planen Sie zwei Tage Puffer ein — Flüge werden verlegt und Schwellungen halten sich nicht an den Kalender.",
+  "tr": "Uzakta kalacağınız süre sıkışık. İki gün pay bırakın — uçuşlar değişir, şişlik de takvim okumaz."
+ },
+ "Your timeline, your funding, and your recovery window all line up. There's nothing to fix first.": {
+  "es": "Su plazo, su financiación y su ventana de recuperación encajan. No hay nada que arreglar antes.",
+  "fr": "Votre calendrier, votre financement et votre convalescence concordent. Il n'y a rien à régler avant.",
+  "de": "Ihr Zeitplan, Ihre Finanzierung und Ihr Genesungsfenster passen zusammen. Vorher ist nichts zu klären.",
+  "tr": "Zaman planınız, finansmanınız ve iyileşme süreniz birbirine uyuyor. Önceden düzeltilecek bir şey yok."
+ }
+}

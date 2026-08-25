@@ -538,6 +538,20 @@ function track(event) {
 /* The top of the funnel. Everything else is measured against this. */
 track("view");
 
+/* Translation for copy this page builds in script. Keyed by the English
+   sentence itself, because there is no element to hang a hash on. Falls back
+   to English, so a missing key is never a blank question.
+   NOTE: transcript() must keep using the raw English - it is what Suleyman
+   reads on the lead board. */
+function T(s) {
+  return (window.MMi18n && window.MMi18n.t) ? window.MMi18n.t(s) : s;
+}
+function Tf(s, vals) {
+  var out = T(s);
+  for (var k in vals) out = out.split("{" + k + "}").join(vals[k]);
+  return out;
+}
+
 var TREATMENTS = {
   nose:   { label: "Rhinoplasty",      stay: "7 to 10 days" },
   dental: { label: "Dental treatment", stay: "5 to 12 days, sometimes split over two trips" },
@@ -764,30 +778,31 @@ function render(def, n) {
   var options = def.options;
 
   if (def.id === "away") {
-    help = "For " + TREATMENTS[t].label.toLowerCase() + ", plan on being in Türkiye " +
-           TREATMENTS[t].stay + ". That is the clinic's schedule, not a sales figure.";
+    help = Tf("For {treatment}, plan on being in Türkiye {stay}. That is the clinic's schedule, not a sales figure.",
+              { treatment: T(TREATMENTS[t].label).toLowerCase(), stay: T(TREATMENTS[t].stay) });
   }
   if (def.id === "health") {
     options = HEALTH_COMMON.concat(HEALTH_EXTRA[t] || [])
       .concat([{ v: "none", t: "None of these apply to me", s: "" }]);
+    // translated at render below, like every other option
   }
 
   var html =
     '<section class="q is-active">' +
-      '<p class="q__count">Question ' + (n + 1) + ' of ' + order.length + '</p>' +
-      '<h2 class="q__title">' + esc(def.title) + '</h2>' +
-      (help ? '<p class="q__help">' + esc(help) + '</p>' : '');
+      '<p class="q__count">' + esc(Tf("Question {n} of {total}", { n: n + 1, total: order.length })) + '</p>' +
+      '<h2 class="q__title">' + esc(T(def.title)) + '</h2>' +
+      (help ? '<p class="q__help">' + esc(T(help)) + '</p>' : '');
 
   if (def.type === "form") {
     html +=
-      '<div class="field"><label for="f-name">Your name</label>' +
+      '<div class="field"><label for="f-name">' + esc(T("Your name")) + '</label>' +
         '<input id="f-name" type="text" autocomplete="name" /></div>' +
-      '<div class="field"><label for="f-email">Email</label>' +
+      '<div class="field"><label for="f-email">' + esc(T("Email")) + '</label>' +
         '<input id="f-email" type="email" autocomplete="email" /></div>' +
-      '<div class="field"><label for="f-phone">Phone <span style="text-transform:none;letter-spacing:0">(optional)</span></label>' +
+      '<div class="field"><label for="f-phone">' + esc(T("Phone")) + ' <span style="text-transform:none;letter-spacing:0">(' + esc(T("optional")) + ')</span></label>' +
         '<input id="f-phone" type="tel" autocomplete="tel" />' +
-        '<p class="field__hint">Only used if you ask us to call. We don\'t cold-call applicants.</p></div>' +
-      '<div class="field"><label for="f-note">Anything you want us to know <span style="text-transform:none;letter-spacing:0">(optional)</span></label>' +
+        '<p class="field__hint">' + esc(T("Only used if you ask us to call. We don't cold-call applicants.")) + '</p></div>' +
+      '<div class="field"><label for="f-note">' + esc(T("Anything you want us to know")) + ' <span style="text-transform:none;letter-spacing:0">(' + esc(T("optional")) + ')</span></label>' +
         '<textarea id="f-note"></textarea></div>' +
       '<input class="honey" id="f-honey" tabindex="-1" autocomplete="off" aria-hidden="true" />' +
       '<div class="msg" id="msg" style="display:none;margin-top:20px;font-size:14px;padding:12px 16px;border-radius:10px;background:#FBEDED;color:#A2413F;"></div>';
@@ -798,8 +813,8 @@ function render(def, n) {
       html +=
         '<button class="opt' + (def.type === "many" ? " opt--multi" : "") + '" data-v="' + esc(o.v) + '">' +
           '<span class="opt__mark"></span>' +
-          '<span class="opt__body">' + esc(o.t) +
-            (o.s ? '<span class="opt__sub">' + esc(o.s) + '</span>' : '') +
+          '<span class="opt__body">' + esc(T(o.t)) +
+            (o.s ? '<span class="opt__sub">' + esc(T(o.s)) + '</span>' : '') +
           '</span>' +
         '</button>';
     }
@@ -810,8 +825,8 @@ function render(def, n) {
     '<div class="navrow">' +
       (def.type === "one" ? '' :
         '<button class="btn btn--gold" id="next">' +
-        (def.type === "form" ? 'See my answer' : 'Continue') + '</button>') +
-      (n > 0 ? '<button class="back" id="back">← Back</button>' : '') +
+        esc(def.type === "form" ? T("See my answer") : T("Continue")) + '</button>') +
+      (n > 0 ? '<button class="back" id="back">← ' + esc(T("Back")) + '</button>' : '') +
     '</div>' +
     /* From the middle onwards, offer the smaller step. Somebody who stalls at
        question six currently leaves and we get nothing at all; this turns them
@@ -961,7 +976,9 @@ function reasons(v) {
   if (answers.funding === "finance")  out.push("<strong>You'd need financing.</strong> Sort that before you commit to a date. We don't lend and we don't take a cut from anyone who does.");
   if (answers.stage === "unsure")     out.push("<strong>You're not sure what you need yet.</strong> One local examination — even a paid one — will save you far more than it costs.");
   if (answers.stage === "decided")    out.push("<strong>You haven't been examined for this.</strong> No responsible surgeon quotes a final price without seeing you or your imaging.");
-  if (answers.away === "no")          out.push("<strong>You can't be away for " + TREATMENTS[t].stay + ".</strong> That's the real constraint here. Flying home early is how good outcomes go wrong.");
+  /* Built by concatenation everywhere else, but a half-sentence makes a
+     useless dictionary key — so this one carries a placeholder instead. */
+  if (answers.away === "no")          out.push(Tf("<strong>You can't be away for {stay}.</strong> That's the real constraint here. Flying home early is how good outcomes go wrong.", { stay: T(TREATMENTS[t].stay) }));
   if (answers.away === "tight")       out.push("Your time away is tight. Build in two spare days — flights get moved and swelling doesn't read the schedule.");
   if (answers.companion === "no" && t === "knee")
     out.push("<strong>Knee replacement alone isn't advisable.</strong> You'll need help for the first week. Please plan to bring someone.");
@@ -1001,7 +1018,7 @@ function submit() {
 
   if (!name || !email || email.indexOf("@") < 1) {
     msg.style.display = "block";
-    msg.textContent = "We need a name and a working email to send your answer.";
+    msg.textContent = T("We need a name and a working email to send your answer.");
     return;
   }
   if (honey) return; /* bot */
@@ -1058,7 +1075,7 @@ function showResult(v) {
   elBar.style.width = "100%";
 
   var c = COPY[v];
-  var list = reasons(v).map(function (r) { return "<li>" + r + "</li>"; }).join("");
+  var list = reasons(v).map(function (r) { return "<li>" + T(r) + "</li>"; }).join("");
 
   var actions = "";
   var extra   = "";
@@ -1066,58 +1083,53 @@ function showResult(v) {
   if (v === "ready") {
     extra =
       '<div class="sched">' +
-        '<div class="sched__label"><p class="eyebrow">SELECT A TIME</p></div>' +
+        '<div class="sched__label"><p class="eyebrow">' + esc(T("SELECT A TIME")) + '</p></div>' +
         '<iframe src="' + CONFIG.calendarEmbed + '" loading="lazy" title="Book a consultation"></iframe>' +
       '</div>';
   } else if (v === "close") {
     actions =
-      '<a class="btn btn--gold" href="' + CONFIG.calendarPage + '">Book anyway — it\'s still free</a>' +
-      '<a class="btn btn--ghost" href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener">Ask a question first</a>';
+      '<a class="btn btn--gold" href="' + CONFIG.calendarPage + '">' + esc(T("Book anyway — it's still free")) + '</a>' +
+      '<a class="btn btn--ghost" href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener">' + esc(T("Ask a question first")) + '</a>';
     extra =
-      '<div class="aside"><strong>We meant it about booking anyway.</strong> The list above is what we\'d ' +
-      'want you to have in hand, not a hurdle. If you\'d rather talk it through now, take a slot — we just ' +
-      'won\'t pretend the quote is final until those pieces are in place.</div>';
+      '<div class="aside">' + T("<strong>We meant it about booking anyway.</strong> The list above is what we'd want you to have in hand, not a hurdle. If you'd rather talk it through now, take a slot — we just won't pretend the quote is final until those pieces are in place.") + '</div>';
   } else if (v === "early") {
     actions =
-      '<a class="btn btn--gold" href="/true-cost.html">See what it really costs</a>' +
-      '<a class="btn btn--ghost" href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener">Message us on WhatsApp</a>';
+      '<a class="btn btn--gold" href="/true-cost.html">' + esc(T("See what it really costs")) + '</a>' +
+      '<a class="btn btn--ghost" href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener">' + esc(T("Message us on WhatsApp")) + '</a>';
     extra =
-      '<div class="aside">Three things worth your time before any call: the ' +
-      '<a href="/true-cost.html">true-cost estimate</a> (flights, hotel and the second trip included), ' +
-      '<a href="/vetting.html">how we vet a hospital</a>, and the ' +
-      '<a href="/blog/">patient guides</a> for your treatment. ' +
-      '<strong>No sales sequence, no follow-up you didn\'t ask for.</strong> ' +
-      'When you have a date or a quote in hand, come back and finish this in thirty seconds.</div>';
+      '<div class="aside">' + T("Three things worth your time before any call: the <a href=\"/true-cost.html\">true-cost estimate</a> (flights, hotel and the second trip included), <a href=\"/vetting.html\">how we vet a hospital</a>, and the <a href=\"/blog/\">patient guides</a> for your treatment. <strong>No sales sequence, no follow-up you didn't ask for.</strong> When you have a date or a quote in hand, come back and finish this in thirty seconds.") + '</div>';
   } else if (v === "clinic") {
     actions =
-      '<a class="btn btn--gold" href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener">Send your records securely</a>' +
-      '<a class="btn btn--ghost" href="mailto:' + CONFIG.email + '">Email us instead</a>';
+      '<a class="btn btn--gold" href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener">' + esc(T("Send your records securely")) + '</a>' +
+      '<a class="btn btn--ghost" href="mailto:' + CONFIG.email + '">' + esc(T("Email us instead")) + '</a>';
     extra =
-      '<div class="aside"><strong>What happens next.</strong> A patient advisor comes back to you within one ' +
-      'business day with exactly which records the surgeon needs — usually a medication list, a recent blood ' +
-      'panel, and any imaging. A clinician reviews it. Only then does anyone talk to you about price or dates. ' +
-      'If the answer is that you shouldn\'t travel for this, we will tell you that too.</div>';
+      '<div class="aside">' + T("<strong>What happens next.</strong> A patient advisor comes back to you within one business day with exactly which records the surgeon needs — usually a medication list, a recent blood panel, and any imaging. A clinician reviews it. Only then does anyone talk to you about price or dates. If the answer is that you shouldn't travel for this, we will tell you that too.") + '</div>';
   } else if (v === "region") {
-    actions = '<a class="btn btn--ghost" href="mailto:' + CONFIG.email + '">Tell us where you are</a>';
+    actions = '<a class="btn btn--ghost" href="mailto:' + CONFIG.email + '">' + esc(T("Tell us where you are")) + '</a>';
   }
 
   elRes.className = "result is-active";
   elRes.innerHTML =
     '<div class="verdict verdict--' + v + '">' +
-      '<span class="verdict__tag">' + esc(c.tag) + '</span>' +
-      '<h2>' + esc(c.h) + '</h2>' +
-      '<p class="verdict__lede">' + esc(c.lede) + '</p>' +
+      '<span class="verdict__tag">' + esc(T(c.tag)) + '</span>' +
+      '<h2>' + esc(T(c.h)) + '</h2>' +
+      '<p class="verdict__lede">' + esc(T(c.lede)) + '</p>' +
       '<div class="verdict__why">' +
-        '<h3>' + (v === "clinic" ? "Why, specifically" : v === "ready" ? "What we saw" : "What to sort first") + '</h3>' +
+        /* Each literal sits directly after T( so the key extractor can see it —
+           T(cond ? "a" : "b") hides both from the scan and ships English. */
+        '<h3>' + esc(v === "clinic" ? T("Why, specifically")
+                   : v === "ready"  ? T("What we saw")
+                                    : T("What to sort first")) + '</h3>' +
         '<ul>' + list + '</ul>' +
       '</div>' +
       (actions ? '<div class="verdict__actions">' + actions + '</div>' : '') +
     '</div>' +
     extra +
     '<div class="aside" id="sendfail" style="display:none;background:#FBEDED;color:#A2413F;">' +
-      'We couldn\'t save your answers just now. Nothing is lost — message us on ' +
-      '<a href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener">WhatsApp</a> or email ' +
-      '<a href="mailto:' + CONFIG.email + '">' + CONFIG.email + '</a> and we\'ll pick it up from there.' +
+      Tf("We couldn't save your answers just now. Nothing is lost — message us on {wa} or email {mail} and we'll pick it up from there.", {
+        wa: '<a href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener">WhatsApp</a>',
+        mail: '<a href="mailto:' + CONFIG.email + '">' + CONFIG.email + '</a>'
+      }) +
     '</div>';
 
   window.scrollTo({ top: 0, behavior: "smooth" });
