@@ -2,3 +2,4 @@
 .audit-profile-*/
 audit-*.json
 shots/
+.live-profile-*/
