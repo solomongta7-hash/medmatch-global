@@ -323,8 +323,8 @@ footer { font-size: 15px; }
 .pkg__hbtn,
 .tpanel__link,
 .partner__link,
-.btn,
-button:not(.u-bare),
+.btn:not(.nav__cta),
+button:not(.u-bare):not(.nav__burger):not(.jump__menu),
 select,
 input[type="submit"],
 input[type="button"] {
@@ -332,6 +332,19 @@ input[type="button"] {
   display: inline-flex;
   align-items: center;
 }
+/* Three controls are deliberately hidden at some widths by the layout: the
+   header CTA below 740px (the sticky bottom bar carries it there), the burger
+   above 1400px, and the jump-bar burger above 900px. Because this file loads
+   last, the blanket `display: inline-flex` above was outranking their own
+   `display: none` and putting all three back on screen — on a phone that
+   squeezed the real menu button to zero width and pushed it off the right
+   edge, so the menu could not be opened at all. They are excluded above and
+   given their height here, which leaves the layout's own display rule to win. */
+.nav__cta { min-height: 44px; align-items: center; }
+.jump__menu { min-height: 44px; }
+/* and wherever the burger is on screen it keeps its full 44px — it is never
+   the element that gives way when the row runs short of room */
+.nav__burger { min-height: 44px; flex: 0 0 auto; }
 /* The chat chips wrap their own padding and landed at 43px — one pixel short
    of the floor is still short. */
 .chat-chip, .chat-panel__close { min-height: 44px; padding-block: 10px; }
@@ -636,3 +649,64 @@ html.text-larger .story__meta strong,
 html.text-larger .sum__quote,
 html.text-larger .sum__what { font-size: 17.7px; }
 
+
+/* ───────── 4. the header still has to fit across a phone ─────────
+   Sections 1 and 2 above grew the header's own furniture: the wordmark's
+   second line went from 9px to 12.5px, and the language picker and the two
+   text-size buttons each became 44px tall targets. Add the burger and the
+   wordmark and that is five things on one row — at 375px they measured 422px
+   wide, so the burger fell off the right edge entirely.
+
+   Nothing is removed here. The tracking, the gaps and the shell padding come
+   in until the row fits a 320px screen with the burger still at a full 44px,
+   which is the one control on this bar a patient actually needs. */
+
+@media (max-width: 740px) {
+  .nav { padding: 16px 3vw; gap: 8px; }
+  .nav.is-solid { padding: 10px 3vw; }
+
+  .nav__brand { flex: 0 1 auto; min-width: 0; }
+  .nav__brand-name { font-size: 12px; letter-spacing: 0.12em; white-space: nowrap; }
+  .nav__brand-sub { font-size: 12.5px; letter-spacing: 0.12em; white-space: nowrap; }
+
+  /* the <select> is an invisible overlay; the globe and the label are what
+     you actually see, so they are what has to shrink */
+  .lang-pick { flex: 0 0 auto; margin-right: 0; gap: 4px; }
+  .lang-pick svg { width: 16px; height: 16px; }
+  .lang-pick__label { font-size: 12.5px; letter-spacing: 0; }
+
+  /* the two-selector form is deliberate: readable.js injects its own
+     `.textsize__btn { min-width: 44px }` into <head> at runtime, which lands
+     after this file, so a single class here would silently lose */
+  .textsize { flex: 0 0 auto; margin-left: 0; }
+  .nav .textsize__btn { min-width: 40px; }
+  .nav .textsize__btn + .textsize__btn { margin-left: 0; }
+
+  /* never let the menu button be the thing that gets squeezed */
+  .nav__burger { flex: 0 0 44px; width: 44px; }
+}
+
+@media (max-width: 380px) {
+  .nav { gap: 6px; }
+  .nav__brand-name { font-size: 11.5px; letter-spacing: 0.08em; }
+  .nav__brand-sub { letter-spacing: 0.08em; }
+  .nav .textsize__btn { min-width: 36px; }
+}
+
+/* The A/A control must not enlarge the one thing it cannot help anyone read.
+   The wordmark is a logo, not copy — at 320px in large-text mode it was the
+   single element still running off the edge, so it holds its size here. */
+@media (max-width: 740px) {
+  html.text-larger .nav__brand-name { font-size: 12px; }
+  html.text-larger .nav__brand-sub { font-size: 12.5px; }
+}
+@media (max-width: 380px) {
+  html.text-larger .nav__brand-name { font-size: 11.5px; }
+}
+
+/* A 375px iPhone still has room for the word "English" next to the globe. An
+   SE at 320px does not, and the globe alone has to carry it there — the name
+   of the current language is still the first thing inside the menu it opens. */
+@media (max-width: 369px) {
+  .lang-pick__label { display: none; }
+}
