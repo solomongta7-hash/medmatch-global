@@ -1,0 +1,4 @@
+# throwaway output from mobile-audit.mjs
+.audit-profile-*/
+audit-*.json
+shots/

@@ -134,8 +134,8 @@ def main():
 .pkg__hbtn,
 .tpanel__link,
 .partner__link,
-.btn,
-button:not(.u-bare),
+.btn:not(.nav__cta),
+button:not(.u-bare):not(.nav__burger):not(.jump__menu),
 select,
 input[type="submit"],
 input[type="button"] {
@@ -143,6 +143,19 @@ input[type="button"] {
   display: inline-flex;
   align-items: center;
 }
+/* Three controls are deliberately hidden at some widths by the layout: the
+   header CTA below 740px (the sticky bottom bar carries it there), the burger
+   above 1400px, and the jump-bar burger above 900px. Because this file loads
+   last, the blanket `display: inline-flex` above was outranking their own
+   `display: none` and putting all three back on screen — on a phone that
+   squeezed the real menu button to zero width and pushed it off the right
+   edge, so the menu could not be opened at all. They are excluded above and
+   given their height here, which leaves the layout's own display rule to win. */
+.nav__cta { min-height: 44px; align-items: center; }
+.jump__menu { min-height: 44px; }
+/* and wherever the burger is on screen it keeps its full 44px — it is never
+   the element that gives way when the row runs short of room */
+.nav__burger { min-height: 44px; min-width: 44px; flex: 0 0 auto; }
 /* The chat chips wrap their own padding and landed at 43px — one pixel short
    of the floor is still short. */
 .chat-chip, .chat-panel__close { min-height: 44px; padding-block: 10px; }
@@ -209,7 +222,23 @@ html.text-larger .hero__sub { font-size: 19px; }
         add(",\n".join(sels) + " { font-size: %gpx; }" % round(new * 1.18, 1))
         add("")
 
-    open(OUT, "w", encoding="utf-8", newline="\n").write("\n".join(lines) + "\n")
+    # Sections 4-6 are written by hand rather than derived from the stylesheets:
+    # they are the layout consequences of everything above (raising type and
+    # growing tap targets makes rows that used to fit stop fitting), plus the
+    # overflow that `body { overflow-x: hidden }` had been hiding. They live in
+    # tools/_readable_tail.css so that regenerating this file keeps them instead
+    # of silently dropping them. Verify with: node tools/mobile-audit.mjs
+    tail_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                             "_readable_tail.css")
+    if os.path.exists(tail_path):
+        add(open(tail_path, encoding="utf-8").read().rstrip("\n"))
+    else:
+        print("WARNING: %s is missing - the mobile layout fixes were NOT emitted"
+              % tail_path)
+
+    # CRLF, because that is what the committed file uses — writing LF here would
+    # make every regeneration look like a rewrite of all 900 lines.
+    open(OUT, "w", encoding="utf-8", newline="\r\n").write("\n".join(lines) + "\n")
     print("wrote %s" % OUT)
     print("selectors raised: %d" % len(found))
     from collections import Counter

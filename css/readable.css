@@ -344,7 +344,7 @@ input[type="button"] {
 .jump__menu { min-height: 44px; }
 /* and wherever the burger is on screen it keeps its full 44px — it is never
    the element that gives way when the row runs short of room */
-.nav__burger { min-height: 44px; flex: 0 0 auto; }
+.nav__burger { min-height: 44px; min-width: 44px; flex: 0 0 auto; }
 /* The chat chips wrap their own padding and landed at 43px — one pixel short
    of the floor is still short. */
 .chat-chip, .chat-panel__close { min-height: 44px; padding-block: 10px; }
@@ -649,7 +649,6 @@ html.text-larger .story__meta strong,
 html.text-larger .sum__quote,
 html.text-larger .sum__what { font-size: 17.7px; }
 
-
 /* ───────── 4. the header still has to fit across a phone ─────────
    Sections 1 and 2 above grew the header's own furniture: the wordmark's
    second line went from 9px to 12.5px, and the language picker and the two
@@ -662,12 +661,19 @@ html.text-larger .sum__what { font-size: 17.7px; }
    which is the one control on this bar a patient actually needs. */
 
 @media (max-width: 740px) {
-  .nav { padding: 16px 3vw; gap: 8px; }
+  /* The row carries five things on a 375px screen — wordmark, language,
+     two text-size buttons and the menu — so the gaps and the wordmark's
+     tracking are what pay for the menu button staying fully on screen. */
+  .nav { padding: 16px 3vw; gap: 4px; }
   .nav.is-solid { padding: 10px 3vw; }
 
-  .nav__brand { flex: 0 1 auto; min-width: 0; }
-  .nav__brand-name { font-size: 12px; letter-spacing: 0.12em; white-space: nowrap; }
-  .nav__brand-sub { font-size: 12.5px; letter-spacing: 0.12em; white-space: nowrap; }
+  /* `flex: 0 0 auto`, not `0 1 auto` with min-width:0 — letting this box shrink
+     below its own nowrap text made the wordmark spill out of it and run under
+     the burger on the blog and answer pages, where the burger is the very next
+     element. The row is tuned below to fit without ever squeezing it. */
+  .nav__brand { flex: 0 0 auto; }
+  .nav__brand-name { font-size: 12px; letter-spacing: 0.08em; white-space: nowrap; }
+  .nav__brand-sub { font-size: 12.5px; letter-spacing: 0.08em; white-space: nowrap; }
 
   /* the <select> is an invisible overlay; the globe and the label are what
      you actually see, so they are what has to shrink */
@@ -684,9 +690,24 @@ html.text-larger .sum__what { font-size: 17.7px; }
 
   /* never let the menu button be the thing that gets squeezed */
   .nav__burger { flex: 0 0 44px; width: 44px; }
+
+  /* On the blog and answer pages the burger sits between the wordmark and the
+     language picker in source order, which left "MEDMATCH GLOBAL" ending two
+     pixels short of the burger's first line. Sending it to the end puts the
+     row's slack where it helps and matches the homepage, where the menu button
+     has always been the last thing on the right. */
+  .nav__burger { order: 9; }
+  .lang-pick { order: 7; }
+  .textsize { order: 8; }
+
+  /* styles.css hides the header CTA on phones, but book.html and book-call.html
+     carry their own stylesheet and never load it — so on those two the button
+     stayed, wrapped to three lines and pushed the A/A control off the right
+     edge. Every page gets the same rule from here. */
+  .nav__cta { display: none; }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 369px) {
   .nav { gap: 6px; }
   .nav__brand-name { font-size: 11.5px; letter-spacing: 0.08em; }
   .nav__brand-sub { letter-spacing: 0.08em; }
@@ -700,7 +721,7 @@ html.text-larger .sum__what { font-size: 17.7px; }
   html.text-larger .nav__brand-name { font-size: 12px; }
   html.text-larger .nav__brand-sub { font-size: 12.5px; }
 }
-@media (max-width: 380px) {
+@media (max-width: 369px) {
   html.text-larger .nav__brand-name { font-size: 11.5px; }
 }
 
@@ -709,4 +730,180 @@ html.text-larger .sum__what { font-size: 17.7px; }
    of the current language is still the first thing inside the menu it opens. */
 @media (max-width: 369px) {
   .lang-pick__label { display: none; }
+}
+
+
+/* ───────── 5. what the phone audit turned up ─────────
+   Found by tools/mobile-audit.mjs, which drives every page in headless Chrome
+   at 375px and hit-tests each control. Each of these is a thing a patient on a
+   phone could not do. */
+
+/* iOS zooms the whole page in when you focus a field whose type is under 16px,
+   and the visitor then has to pinch back out to read the rest of the form. The
+   floor in section 3 above said 16px, but `.select-wrap select` (14.5px) and
+   `.ffield input, .ffield textarea` (15px) are one class more specific and were
+   winning — so the site's own quote form zoomed on every tap. Scoped to touch
+   pointers, which is the only place the bug exists, so desktop type is unchanged. */
+@media (hover: none), (pointer: coarse) {
+  .select-wrap select,
+  .ffield input,
+  .ffield select,
+  .ffield textarea { font-size: 16px; }
+}
+
+/* The chat bubble is fixed to the bottom-right and the hero's buttons run the
+   full width of the screen, so in the very first view it sat on the right fifth
+   of "See My Price" — elementFromPoint returned the bubble, not the button.
+   Padding the hero does not help: its content is already taller than the screen,
+   so extra space at the bottom only adds dead scroll.
+
+   Instead the bubble waits until the reader has left the hero. `jumping` is the
+   class main.js already sets when the hero scrolls out of view, so this needs no
+   new script and no new state. Through the hero the sticky bar below still
+   offers WhatsApp and Get Free Quote, so nothing is out of reach meanwhile.
+   Guarded by :has(.jump) so the pages that never set `jumping` keep their
+   bubble; browsers without :has() simply keep today's behaviour. */
+@media (max-width: 900px) {
+  .chat-launcher { transition: opacity 0.3s ease, visibility 0.3s ease; }
+  body:has(.jump):not(.jumping) .chat-launcher {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* The "read next" links under an answer are standalone navigation, not links
+   inside a sentence, so the exemption above should not have covered them. They
+   were 24px tall and stacked 8px apart — four of them, on eighteen pages. */
+.article-related a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.article-related a + a { margin-top: 4px; }
+
+/* Same again for the standalone links in the small page furniture. */
+.foot__rows a,
+.topbar a,
+.portal-top a,
+.auth-top a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* The wordmark sat half a pixel under this file's own 12.5px floor on phones,
+   which is a silly thing to leave in a file whose whole job is that floor.
+   There is room for it — the header row measured 353px of 375px at 12px. */
+@media (max-width: 740px) {
+  .nav__brand-name { font-size: 12.5px; }
+  html.text-larger .nav__brand-name { font-size: 12.5px; }
+}
+
+/* The A/A control's active button was rendering as a blank white chip with no
+   letter in it. readable.js paints that button `background: currentColor` and
+   then tries to punch the letter back out with
+   `mix-blend-mode: screen; filter: invert(1) grayscale(1) contrast(9)` — but
+   screen-blending anything onto a white background returns white, so the "A"
+   disappeared completely. Give the active button its own brand colour and a
+   plain white letter instead: legible over the transparent header on the hero
+   and over the solid white header once you scroll, with no blending to reason
+   about. Two classes deep so it beats the stylesheet readable.js injects at
+   runtime, which lands after this file. */
+.nav .textsize__btn[aria-pressed="true"],
+.nav__right .textsize__btn[aria-pressed="true"] {
+  background: var(--teal, #12707B);
+  border-color: var(--teal, #12707B);
+}
+.nav .textsize__btn[aria-pressed="true"] span,
+.nav__right .textsize__btn[aria-pressed="true"] span {
+  color: #FFFFFF;
+  mix-blend-mode: normal;
+  filter: none;
+}
+
+/* readable.js inserts the A/A control into .nav__right, and the booking pages
+   chose their own breakpoints before that control existed — they drop the nav
+   links at 760px, which leaves iPad portrait (768px) trying to fit brand, four
+   links, a note, the language picker and A/A on one row. It ran ~40px past the
+   right edge. Drop the links a little earlier and let the rest close up. */
+@media (max-width: 880px) {
+  .nav__right { gap: 16px; }
+  .nav__right .nav__links { display: none; }
+}
+
+/* The same control pushes the blog and answer headers over the edge much
+   further up: their own rule drops the links at 900px, but with the language
+   picker and A/A added the row needs about 1090px, so 901–1090 overflowed —
+   invisibly, because <body> clips it. Hand those widths to the burger, which
+   is the pattern those pages already use below 900. Scoped with :has() so it
+   only fires where a burger exists to take over; the booking pages have none
+   and keep their links. */
+@media (max-width: 1090px) {
+  .nav:has(.nav__burger) .nav__links { display: none; }
+  .nav:has(.nav__burger) .nav__burger { display: block; }
+}
+
+/* Section 1 raised the sticky bar's labels to 14px, and at 320px "Get Free
+   Quote" then wrapped to two lines. The bar grew from 77px to 98px while the
+   body still reserved only 74px, so the last 24px of the footer sat behind it.
+   Tighten the tracking rather than shrink the type back below the floor, and
+   reserve enough room underneath for the bar even if a translation still wraps. */
+@media (max-width: 400px) {
+  .mobilebar { padding-left: 10px; padding-right: 10px; gap: 8px; }
+  .mobilebar__btn {
+    font-size: 12.5px;
+    letter-spacing: 0.03em;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  body { padding-bottom: 96px; }
+}
+
+/* The story template's own furniture was still at 12px. */
+.cost-section p em,
+.verified-box h3 span,
+.footer__col span { font-size: 12.5px; }
+
+
+/* ───────── 6. overflow the body clip was hiding ─────────
+   Every page sets `overflow-x: hidden` on <body>, so content wider than the
+   screen was silently cropped instead of showing a scrollbar — which is why
+   none of this was visible, on the page or in a naive audit. These are the
+   real widths, measured at 320px. */
+
+/* A long address cannot break, so it was setting the width of the whole page:
+   341px of email on a 320px screen. */
+a[href^="mailto:"],
+.contact a { overflow-wrap: anywhere; }
+
+/* `repeat(auto-fit, minmax(310px, 1fr))` cannot go below 310px, so on a 320px
+   screen the column was wider than the space it had. `min()` lets it. */
+@media (max-width: 460px) {
+  .grid--2 { grid-template-columns: repeat(auto-fit, minmax(min(310px, 100%), 1fr)); }
+}
+
+/* The hospital price tables need about 280px of columns, and a 26px card
+   padding either side left them only 222px. Give the padding back, and let the
+   longest treatment names wrap rather than push the table off the screen. */
+@media (max-width: 460px) {
+  .plist__cat { padding: 18px 14px 10px; }
+  .plist__table td { font-size: 13px; }
+  .plist__table td b { font-size: 14px; }
+  .plist__table td:last-child { padding-left: 8px; }
+}
+
+
+/* styles.css tightens the nav between 1401 and 1600 so all eleven links fit
+   beside the wordmark and the CTA — tuning done before readable.js started
+   adding a 94px A/A control to the same row. With it, the CTA was squeezed to
+   42px and pushed past the right edge. Take the difference out of the link
+   tracking, which has it to give, rather than dropping a destination. */
+@media (min-width: 1401px) and (max-width: 1600px) {
+  /* tracking and gaps only — section 1 puts a 12.5px floor under this text and
+     shrinking it back below that to win space would undo the point of the file */
+  .nav__links { gap: 10px; }
+  .nav__links a { letter-spacing: 0.02em; }
+  .nav__cta { padding-left: 14px; padding-right: 14px; }
+  .textsize { margin-left: 4px; }
 }
