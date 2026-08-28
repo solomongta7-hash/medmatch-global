@@ -72,6 +72,15 @@ const CHECKS = [
   ['/', '"See My Price" fully tappable', `(()=>{const a=[...document.querySelectorAll('.hero__cta a')][0];const r=a.getBoundingClientRect();
       let bad=0,n=0;for(let x=r.left+8;x<r.right-8;x+=12){n++;const e=document.elementFromPoint(x,r.top+r.height/2);
       if(!(e&&(e===a||a.contains(e))))bad++;}return bad?'FAIL '+bad+'/'+n+' blocked':'ok'})()`],
+  ['/', '"Ask on WhatsApp" fully tappable', `(()=>{const a=[...document.querySelectorAll('.hero__cta a')][1];const r=a.getBoundingClientRect();
+      if(r.bottom>innerHeight)return 'skip below the fold on this screen';
+      let bad=0,n=0;for(let x=r.left+8;x<r.right-8;x+=12){n++;const e=document.elementFromPoint(x,r.top+r.height/2);
+      if(!(e&&(e===a||a.contains(e))))bad++;}return bad?'FAIL '+bad+'/'+n+' blocked':'ok'})()`],
+  ['/', 'sticky bar waits for the hero', `(()=>{const b=document.querySelector('.mobilebar');
+      const off=b.getBoundingClientRect().top>=innerHeight-1;
+      if(!off)return 'FAIL bar is over the hero at top='+Math.round(b.getBoundingClientRect().top);
+      scrollTo(0,1200);return new Promise(r=>setTimeout(()=>{const t=b.getBoundingClientRect().top;
+      r(t<innerHeight-1?'ok hidden on hero, back at '+Math.round(t):'FAIL never came back');},900))})()`],
   ['/', 'no horizontal overflow', `(()=>{const w=document.documentElement.clientWidth;
       return document.body.scrollWidth<=w+1?'ok '+w+'px':'FAIL body '+document.body.scrollWidth+' vs '+w})()`],
   ['/', 'A/A active letter is visible', `(()=>{const b=document.querySelector('.textsize__btn[aria-pressed="true"]');

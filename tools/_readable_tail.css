@@ -121,6 +121,25 @@
   }
 }
 
+/* And the sticky bar had the same argument made against it, more strongly: its
+   two buttons ARE the hero's two buttons — WhatsApp and Get Free Quote — so
+   over the hero it is pure duplication, and it was covering "Ask on WhatsApp"
+   completely in the first view. Every point across that button hit the bar
+   instead. The hero's own buttons are larger and better labelled, so the bar
+   waits for the hero to leave, then slides up.
+
+   This is the behaviour the bar already has: main.js hides it over #invitation
+   and the footer, for exactly this reason — those sections carry the same
+   actions. `translateY(110%)` is the transform its own .is-hidden state uses,
+   so it slides rather than blinks. Raising the hero's content instead would
+   mean compressing 40-52px out of the type on the one screen that has to sell
+   the whole business. */
+@media (max-width: 900px) {
+  body:has(.jump):not(.jumping) .mobilebar {
+    transform: translateY(110%);
+  }
+}
+
 /* The "read next" links under an answer are standalone navigation, not links
    inside a sentence, so the exemption above should not have covered them. They
    were 24px tall and stacked 8px apart — four of them, on eighteen pages. */

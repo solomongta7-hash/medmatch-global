@@ -27,6 +27,8 @@ const PAGE = argv[0];
 const EXPR_FILE = argv[1];
 const wi = argv.indexOf('--width');
 const WIDTH = wi >= 0 ? +argv[wi + 1] : 375;
+const hi = argv.indexOf('--height');
+const HEIGHT = hi >= 0 ? +argv[hi + 1] : 812;
 
 const CHROME = [
   'C:/Program Files/Google/Chrome/Application/chrome.exe',
@@ -67,8 +69,8 @@ const send = (method, params = {}) => new Promise(res => {
 
 await send('Page.enable');
 await send('Emulation.setDeviceMetricsOverride', {
-  width: WIDTH, height: 812, deviceScaleFactor: 2, mobile: true,
-  screenWidth: WIDTH, screenHeight: 812,
+  width: WIDTH, height: HEIGHT, deviceScaleFactor: 2, mobile: true,
+  screenWidth: WIDTH, screenHeight: HEIGHT,
 });
 await send('Emulation.setTouchEmulationEnabled', { enabled: true, maxTouchPoints: 5 });
 await send('Page.navigate', { url: BASE + '/' + PAGE });
