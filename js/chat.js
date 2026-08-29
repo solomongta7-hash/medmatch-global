@@ -15,7 +15,7 @@
   function lang() { return (window.MMi18n && window.MMi18n.lang) || "en"; }
 
   var WHATSAPP_URL = "https://wa.me/14375951735?text=Hello%20MedMatch%20Global%2C%20I%27d%20like%20a%20free%20quote.";
-  var EMAIL_URL = "mailto:contact@medmatchglobal.info";
+  var EMAIL_URL = "mailto:medmatchglobal@gmail.com";
 
   var ANSWERS = {
     // Keep these in step with the "from" figures on index.html. Dental, knee and

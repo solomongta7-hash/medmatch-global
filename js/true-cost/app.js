@@ -10,7 +10,7 @@
      the same owner notification and patient auto-reply.
      Empty this string to fall back to a pre-filled email instead. */
   var ENDPOINT = "https://script.google.com/macros/s/AKfycbx8G_Drl8SkJfAqJ1YTjOl-muJqLssAkdtyqZyGFobQ2SDt0ompH-jK2ciq_UL5uB4B/exec";
-  var OWNER_EMAIL = "suleymansuleymanoglu@medmatchglobal.info";
+  var OWNER_EMAIL = "medmatchglobal@gmail.com";
 
   /* ═══════════════════════════════════════════════════════════
      CAMPAIGN ENTRY — URL pre-fill + attribution

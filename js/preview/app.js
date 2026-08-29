@@ -532,7 +532,7 @@ function reportRenderFailure(err) {
       "Everything runs inside your browser, and something here is not " +
       "supported. Updating your browser usually fixes it. If you tell us " +
       "what phone you are on we will get it working: " +
-      "<a href=\"mailto:suleymansuleymanoglu@medmatchglobal.info?subject=Preview%20tool%20problem\">" +
+      "<a href=\"mailto:medmatchglobal@gmail.com?subject=Preview%20tool%20problem\">" +
       "email us</a>. <span class=\"disc__tech\">" +
       String((err && err.message) || err).slice(0, 120) + "</span>";
   }
