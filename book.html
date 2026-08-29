@@ -432,7 +432,7 @@ var CONFIG = {
   endpoint: "https://script.google.com/macros/s/AKfycbx8G_Drl8SkJfAqJ1YTjOl-muJqLssAkdtyqZyGFobQ2SDt0ompH-jK2ciq_UL5uB4B/exec",
 
   /* Google Calendar appointment schedule — the same one book-call.html embeds. */
-  calendarEmbed: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1o1nk9GMRuBhjb1JwMATyRsALA5vmjdHGxK72llyA1pHaoqSY2olagpb9SAYSLSrTtC2JQYnQg?gv=true",
+  calendarEmbed: "",
   calendarPage:  "/book-call.html",
 
   whatsapp: "https://wa.me/14375951735",
@@ -1081,11 +1081,22 @@ function showResult(v) {
   var extra   = "";
 
   if (v === "ready") {
-    extra =
-      '<div class="sched">' +
-        '<div class="sched__label"><p class="eyebrow">' + esc(T("SELECT A TIME")) + '</p></div>' +
-        '<iframe src="' + CONFIG.calendarEmbed + '" loading="lazy" title="Book a consultation"></iframe>' +
-      '</div>';
+    if (CONFIG.calendarEmbed) {
+      extra =
+        '<div class="sched">' +
+          '<div class="sched__label"><p class="eyebrow">' + esc(T("SELECT A TIME")) + '</p></div>' +
+          '<iframe src="' + CONFIG.calendarEmbed + '" loading="lazy" title="Book a consultation"></iframe>' +
+        '</div>';
+    } else {
+      /* No calendar connected. Never render an empty iframe at the exact moment
+         the most ready patient on the site is trying to book — hand them a
+         person instead. Their answers are already in the sheet by this point. */
+      actions =
+        '<a class="btn btn--gold" href="' + CONFIG.whatsapp + '" target="_blank" rel="noopener">' + esc(T("Message us on WhatsApp — +1 437 595 1735")) + '</a>' +
+        '<a class="btn btn--ghost" href="mailto:' + CONFIG.email + '">' + esc(T("Email us")) + '</a>';
+      extra =
+        '<div class="aside">' + T("<strong>Your answers are already with us.</strong> A patient advisor will be in touch within one business day to arrange your call. If you would rather not wait, message us now and we will answer today.") + '</div>';
+    }
   } else if (v === "close") {
     actions =
       '<a class="btn btn--gold" href="' + CONFIG.calendarPage + '">' + esc(T("Book anyway — it's still free")) + '</a>' +
