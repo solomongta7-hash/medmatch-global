@@ -34,9 +34,9 @@ includes flights, hotel, days off work and the second trip where one is needed.
 
 ## Positioning worth knowing
 
-The True Cost Calculator routinely tells patients with small cases that treatment
-closer to home — including Mexico for North American patients — works out cheaper
-once travel and time off work are counted. This is deliberate. The economics of
+The True Cost Calculator routinely tells patients with small cases that having the
+work done closer to home works out cheaper once travel and time off work are
+counted. This is deliberate. The economics of
 travelling to Türkiye favour larger cases, and the site says so rather than
 recommending itself unconditionally.
 

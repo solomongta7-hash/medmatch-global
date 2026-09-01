@@ -86,10 +86,10 @@ const CHECKS = [
   ['/', 'A/A active letter is visible', `(()=>{const b=document.querySelector('.textsize__btn[aria-pressed="true"]');
       const s=getComputedStyle(b.querySelector('span'));
       return s.mixBlendMode==='normal'&&s.filter==='none'?'ok '+s.color+' on '+getComputedStyle(b).backgroundColor:'FAIL '+s.mixBlendMode+'/'+s.filter})()`],
-  ['/answers/turkey-vs-mexico-dental.html', 'read-next links are 44px', `(()=>{const a=[...document.querySelectorAll('.article-related a')];
+  ['/answers/dental-implants-turkey-cost-canada.html', 'read-next links are 44px', `(()=>{const a=[...document.querySelectorAll('.article-related a')];
       const bad=a.filter(x=>x.getBoundingClientRect().height<43.5);
       return a.length&&!bad.length?'ok '+a.length+' links':'FAIL '+bad.length+'/'+a.length})()`],
-  ['/answers/turkey-vs-mexico-dental.html', 'no horizontal overflow', `(()=>{const w=document.documentElement.clientWidth;
+  ['/answers/dental-implants-turkey-cost-canada.html', 'no horizontal overflow', `(()=>{const w=document.documentElement.clientWidth;
       return document.body.scrollWidth<=w+1?'ok '+w+'px':'FAIL body '+document.body.scrollWidth+' vs '+w})()`],
   ['/true-cost.html', 'no horizontal overflow', `(()=>{const w=document.documentElement.clientWidth;
       return document.body.scrollWidth<=w+1?'ok '+w+'px':'FAIL body '+document.body.scrollWidth+' vs '+w})()`],
