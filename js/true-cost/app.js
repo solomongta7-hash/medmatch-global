@@ -252,6 +252,21 @@
   }
 
   function track(event, extra) {
+    /* The pixel is fired first and independently. It has its own
+       localhost and GPC/DNT guards and its own once-per-session
+       dedupe, and it must keep counting even while the Apps Script
+       write below is failing — which it currently is, server-side:
+       the "Events" sheet was never created, so every appendRow
+       throws and the browser reports it as a CORS error. The sheet
+       call is deliberately left in place so it starts working again
+       by itself the moment setupEvents() is run. */
+    /* meta-pixel.js is deferred and this file is not, so on first
+       paint mmStep does not exist yet. Queue instead of dropping —
+       "view" fires during init and is the top of the funnel, so
+       losing it would make every later ratio meaningless. */
+    if (window.mmStep) window.mmStep(event);
+    else (window.mmStepQueue = window.mmStepQueue || []).push(event);
+
     if (!trackingEnabled()) return;
     /* Once per session: a funnel counts people, not bounces between tabs. */
     if (fired[event]) return;

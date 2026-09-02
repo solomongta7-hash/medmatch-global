@@ -19,17 +19,32 @@
 
    ── WHAT THIS IS ALLOWED TO SEND ──────────────────────────────
 
-   Two events. Nothing else, ever:
+   Five events, all of them parameterless. Nothing else, ever:
 
-     PageView   which page was opened
-     Lead       somebody finished the nine questions, with no
-                parameters attached
+     PageView         which page was opened
+     ViewContent      somebody opened the cost calculator
+     CalcTripStep     they got as far as the trip questions
+     InitiateCheckout they reached their own number
+     Lead             they submitted the form
+
+   The middle three are the funnel, added 2026-09-02. They exist
+   because the Apps Script "Events" sheet has never recorded a
+   single row (it was never created, so every write throws), which
+   left the site with no drop-off data at all. The pixel is the one
+   counter already installed that can be read back.
+
+   They are STEP MARKERS AND NOTHING MORE. Each fires once per
+   session, carries no payload, and says only how far somebody got
+   through a form — never what they were asking about. A visitor
+   who opens true-cost.html already sends PageView from that URL,
+   so these reveal nothing about a person that Meta did not have.
 
    What it must never send, and does not:
 
      • the verdict (READY / CLINICAL REVIEW / OUT OF REGION …)
      • which treatment they picked
      • the readiness score
+     • the estimate itself, as a value or in any other form
      • any answer, note, name, email or phone number
 
    Every one of those describes somebody's health or identity.
@@ -112,6 +127,34 @@
     alreadySent = true;
     if (window.fbq) window.fbq("track", "Lead");
   };
+
+  /* Funnel steps. Same discipline as mmLead: a stage name from a
+     fixed list and nothing else — no treatment, no configuration,
+     no estimate. If you ever find yourself wanting to pass one of
+     those through here, read the block at the top again.
+
+     Mapped onto Meta's standard events where one fits, because
+     standard events are readable straight out of ads reporting;
+     the trip step has no honest standard equivalent, so it stays
+     a custom event rather than being mislabelled as a shopping
+     one on a site about surgery. */
+  var STEP_EVENTS = {
+    view:  ["track", "ViewContent"],
+    step2: ["trackCustom", "CalcTripStep"],
+    step3: ["track", "InitiateCheckout"]
+  };
+  var sentStep = {};
+  window.mmStep = function (stage) {
+    var ev = STEP_EVENTS[stage];
+    if (!ev) return;                  // lead_submit/lead_ok/lead_fail: mmLead's job
+    if (sentStep[stage]) return;      // a funnel counts people, not tab-flips
+    sentStep[stage] = true;
+    if (window.fbq) window.fbq(ev[0], ev[1]);
+  };
+
+  /* Steps recorded by pages that ran before this deferred file did. */
+  (window.mmStepQueue || []).forEach(function (stage) { window.mmStep(stage); });
+  window.mmStepQueue = { push: function (stage) { window.mmStep(stage); } };
 
   if (!PIXEL_ID) return;              // not configured yet — stay inert
   if (isLocal()) return;              // local dev
