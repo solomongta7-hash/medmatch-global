@@ -144,12 +144,20 @@
     step3: ["track", "InitiateCheckout"]
   };
   var sentStep = {};
+  /* Steps that arrived before the pixel had loaded. Holding them is
+     the whole point: this file defines mmStep well before it calls
+     loadPixel, and true-cost/app.js reports "step3" during init —
+     early enough that fbq does not exist yet. Dropping those while
+     still marking them sent lost the step permanently and made the
+     funnel look like nobody ever reached their number. */
+  var pending = [];
   window.mmStep = function (stage) {
     var ev = STEP_EVENTS[stage];
     if (!ev) return;                  // lead_submit/lead_ok/lead_fail: mmLead's job
     if (sentStep[stage]) return;      // a funnel counts people, not tab-flips
     sentStep[stage] = true;
     if (window.fbq) window.fbq(ev[0], ev[1]);
+    else pending.push(ev);            // flushed right after loadPixel below
   };
 
   /* Steps recorded by pages that ran before this deferred file did. */
@@ -161,4 +169,13 @@
   if (optedOut()) return;             // visitor asked not to be tracked
 
   loadPixel(PIXEL_ID);
+
+  /* fbq exists from here on — Meta's loader installs a queueing stub
+     synchronously — so anything mmStep held can go now. If one of the
+     guards above returned instead, pending is simply never flushed,
+     which is the correct behaviour for a visitor who opted out. */
+  while (pending.length) {
+    var q = pending.shift();
+    window.fbq(q[0], q[1]);
+  }
 })();
