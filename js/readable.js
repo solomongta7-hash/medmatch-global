@@ -56,7 +56,9 @@
        one control, one place, never over anything else. */
     ".lang-pick--float .textsize{margin-left:8px;padding-left:8px;" +
       "border-left:1px solid rgba(255,255,255,.28)}" +
-    ".lang-pick--float .textsize__btn{min-width:40px;min-height:40px;" +
+    /* 44px, the floor the rest of the site keeps: the readers most likely to
+       reach for this control are the ones least able to hit a small target */
+    ".lang-pick--float .textsize__btn{min-width:44px;min-height:44px;" +
       "border-color:rgba(255,255,255,.5)}" +
     ".lang-pick--float .textsize__btn[aria-pressed=\"true\"]{background:#fff}" +
     /* the invert trick below is for a button on the page's own background;

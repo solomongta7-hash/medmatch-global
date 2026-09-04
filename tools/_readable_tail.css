@@ -275,3 +275,50 @@ a[href^="mailto:"],
   .nav__cta { padding-left: 14px; padding-right: 14px; }
   .textsize { margin-left: 4px; }
 }
+
+/* ───────── 8. the A/A control was touching the quote button ─────────
+   Reported from a phone, and true of every screen from 741px up: the text-size
+   buttons ended at exactly the pixel the "Get My Free Quote" button began.
+   Nothing separated them — `.textsize` is given a left margin so it clears the
+   language picker, and nothing on its right, and `.nav` sets no gap above the
+   phone band. A bordered box flush against a filled pill reads as one broken
+   control, which is exactly how it was reported.
+
+   Two things fix it, and both are needed.
+
+   First, below 901px the header button should not be there at all. Every other
+   page on the site already hides it there — they carry `.nav__cta--desktop`
+   and content.css drops it at 900px. index.html, book-call.html and
+   advisor-hub.html were written without that class, so on tablets and large
+   phones they alone kept a header CTA, crammed against the A/A. Nothing is
+   lost by hiding it: `.mobilebar` is displayed from 900px down and carries the
+   same "Get My Free Quote" across the bottom of the screen. */
+@media (max-width: 900px) {
+  .nav__cta { display: none; }
+}
+
+/* Second, at the widths where the button does belong, give it room. 16px is
+   the gap the row already uses between the language picker and what follows
+   it, so the three controls now sit on one rhythm instead of two of them
+   fusing. */
+@media (min-width: 901px) {
+  .nav .textsize { margin-right: 16px; }
+}
+
+/* The menu button ended one pixel past the right edge at exactly 375px — the
+   most common phone width there is. 320px and 360px screens escaped it only
+   because the language name is hidden below 370px, which hands back the space.
+   The 4px gaps and the 40px buttons are what pay for it here; the burger keeps
+   its full 44px, because it is the one control on this row a patient needs. */
+@media (min-width: 370px) and (max-width: 400px) {
+  .nav { gap: 3px; }
+  .nav .textsize__btn { min-width: 38px; }
+}
+
+/* preview.html's wordmark is a link 29px tall — the page carries its own
+   stylesheet and never got the 44px floor the rest of the site has. */
+.hdr__brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
