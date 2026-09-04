@@ -47,6 +47,23 @@
     ".textsize__btn[aria-pressed=\"true\"] span{color:var(--sea-deep,#06333B);" +
       "mix-blend-mode:screen;filter:invert(1) grayscale(1) contrast(9)}" +
     ".textsize__btn--sm{font-size:15px}.textsize__btn--lg{font-size:20px}" +
+
+    /* ── inside the floating picker ─────────────────────────────────────────
+       On the pages with no site nav to hang it on, the picker is a fixed pill
+       in the corner. The buttons used to be dropped into the page body next to
+       it, which on a phone left them loose at the very bottom of the document,
+       sitting across the "Get my free quote" button. They belong in the pill:
+       one control, one place, never over anything else. */
+    ".lang-pick--float .textsize{margin-left:8px;padding-left:8px;" +
+      "border-left:1px solid rgba(255,255,255,.28)}" +
+    ".lang-pick--float .textsize__btn{min-width:40px;min-height:40px;" +
+      "border-color:rgba(255,255,255,.5)}" +
+    ".lang-pick--float .textsize__btn[aria-pressed=\"true\"]{background:#fff}" +
+    /* the invert trick below is for a button on the page's own background;
+       on the dark pill plain dark-on-white is what it should be */
+    ".lang-pick--float .textsize__btn[aria-pressed=\"true\"] span{" +
+      "color:var(--sea-deep,#06333B);mix-blend-mode:normal;filter:none}" +
+
     /* On a narrow phone the header is already crowded; the control keeps its
        44px hit area but loses the outer margin. */
     "@media(max-width:640px){.textsize{margin-left:4px}}";
@@ -76,7 +93,16 @@
       '<button type="button" class="textsize__btn textsize__btn--lg u-bare" ' +
         'data-size="large" title="' + t.large + '" aria-label="' + t.large + '"><span>A</span></button>';
 
-    host.parentNode.insertBefore(wrap, host.nextSibling);
+    /* In a header the two controls stand side by side on the row. When the
+       picker is the floating pill there is no row to join — going in beside it
+       in the body flow put the buttons at the foot of the document, over the
+       page's own CTA — so they go inside the pill and travel with it. */
+    if (host.classList.contains("lang-pick--float")) {
+      host.appendChild(wrap);
+      if (window.MMi18n && window.MMi18n.placeFloat) window.MMi18n.placeFloat();
+    } else {
+      host.parentNode.insertBefore(wrap, host.nextSibling);
+    }
 
     wrap.addEventListener("click", function (e) {
       var btn = e.target.closest("[data-size]");

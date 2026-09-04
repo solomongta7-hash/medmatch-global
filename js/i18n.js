@@ -146,7 +146,23 @@
     document.documentElement.className =
       document.documentElement.className.replace(/\s*i18n-boot/, "");
 
-    if (!done) { done = true; mountPicker(); mountNotice(); }
+    if (!done) {
+      done = true;
+      mountPicker();
+      mountNotice();
+      placeFloat();
+      /* The sticky bars these pages carry are shown by their own CSS and, on
+         /ask.html, revealed by script on scroll — so measure again once the
+         page has settled, and whenever the window changes shape. */
+      setTimeout(placeFloat, 700);
+      if (document.querySelector(".lang-pick--float")) {
+        window.addEventListener("resize", placeSoon);
+        /* capture, because a scroll event inside a scrolling panel does not
+           bubble as far as the window */
+        document.addEventListener("scroll", placeSoon, { passive: true, capture: true });
+        window.addEventListener("orientationchange", function () { setTimeout(placeFloat, 250); });
+      }
+    }
     syncPicker();
   }
 
@@ -171,11 +187,17 @@
     ".lang-pick svg{width:18px;height:18px;opacity:.85;flex:none}" +
     ".lang-pick__label{font:500 15px/1 var(--sans,system-ui,sans-serif);letter-spacing:.02em;" +
       "color:currentColor;pointer-events:none;white-space:nowrap}" +
+    /* The invisible <select> covers the globe and the label only. It used to
+       cover the whole .lang-pick, which meant anything else placed inside the
+       picker — the A/A text-size buttons, when the picker floats — sat under
+       an invisible language menu and could not be tapped. */
+    ".lang-pick__ctl{position:relative;display:inline-flex;align-items:center;gap:7px;min-height:44px}" +
     ".lang-pick select{position:absolute;inset:0;width:100%;height:100%;min-height:44px;" +
       "opacity:0;cursor:pointer;font-size:16px}" +   /* 16px stops iOS zooming on focus */
     ".lang-pick:focus-within{outline:2px solid currentColor;outline-offset:4px;border-radius:6px}" +
     ".lang-pick--float{position:fixed;right:14px;bottom:14px;z-index:9999;background:var(--sea-deep,#06333B);" +
-      "color:#fff;padding:10px 16px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.28)}" +
+      "color:#fff;padding:6px 14px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.28);" +
+      "max-width:calc(100vw - 28px)}" +
 
     /* Matches the site's own callout idiom — .callout in true-cost.css and
        .note in preview.css both use an even hairline border over a tinted
@@ -207,7 +229,14 @@
     var host = document.querySelector(".lang-pick");
 
     if (!host) {
-      var header = document.querySelector("header");
+      /* Only the two headers built to carry it: .nav on the twenty-six main
+         pages and .bar on the calculator. The other three are page furniture —
+         a hero band, a two-item strip — with no room on the row: appending to
+         whichever <header> came first put the picker and the A/A buttons past
+         the right edge of a 375px phone on /ask.html and /preview.html, and
+         halfway down the hero on /privacy.html. Anything else floats, which is
+         a place that always exists. */
+      var header = document.querySelector("header.nav, header.bar");
       host = document.createElement("div");
       host.className = "lang-pick";
       if (header) header.appendChild(host);
@@ -215,10 +244,12 @@
     }
 
     host.innerHTML =
+      '<span class="lang-pick__ctl">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">' +
       '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>' +
       '<label class="lang-pick__label" for="langSelect">' + (CODES[lang] || CODES.en).name + '</label>' +
-      '<select id="langSelect" aria-label="Choose your language"></select>';
+      '<select id="langSelect" aria-label="Choose your language"></select>' +
+      '</span>';
 
     var sel = host.querySelector("#langSelect");
     LANGS.forEach(function (l) {
@@ -230,6 +261,43 @@
       sel.appendChild(o);
     });
     sel.addEventListener("change", function () { MM.set(sel.value); });
+  }
+
+  /* ── keeping the floating picker off the sticky bars ──────────────────────
+     /ask.html pins its own booking bar to the bottom of a phone screen, and
+     the pill landed on top of it. Rather than hard-code that page, measure:
+     whatever fixed thing is touching the bottom edge, sit ten pixels above it.
+     Exposed because readable.js adds the A/A buttons to the same pill after we
+     have already placed it. */
+  function placeFloat() {
+    var el = document.querySelector(".lang-pick--float");
+    if (!el) return;
+    var vh = window.innerHeight, bottom = 14;
+    var stack = document.elementsFromPoint ?
+      document.elementsFromPoint(Math.round(window.innerWidth / 2), vh - 2) : [];
+    for (var i = 0; i < stack.length; i++) {
+      var n = stack[i];
+      if (n === el || el.contains(n) || n === document.body ||
+          n === document.documentElement) continue;
+      if (window.getComputedStyle(n).position !== "fixed") continue;
+      var r = n.getBoundingClientRect();
+      if (r.height > 0 && r.bottom >= vh - 4) {
+        bottom = Math.max(bottom, Math.round(vh - r.top) + 10);
+        break;
+      }
+    }
+    if (el.style.bottom !== bottom + "px") el.style.bottom = bottom + "px";
+  }
+  MM.placeFloat = placeFloat;
+
+  /* /ask.html's bar slides in once you scroll past the form, so a single
+     measurement at load is not enough. Throttled on a timer rather than a
+     frame: requestAnimationFrame does not run while the tab is in the
+     background, and a check that never resets is a check that stops working. */
+  var pending = 0;
+  function placeSoon() {
+    if (pending) return;
+    pending = setTimeout(function () { pending = 0; placeFloat(); }, 80);
   }
 
   function syncPicker() {
