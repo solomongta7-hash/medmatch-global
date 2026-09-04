@@ -160,6 +160,10 @@
         /* capture, because a scroll event inside a scrolling panel does not
            bubble as far as the window */
         document.addEventListener("scroll", placeSoon, { passive: true, capture: true });
+        /* and the moment a sliding bar actually stops, take the true reading */
+        document.addEventListener("transitionend", function (e) {
+          if (e.propertyName === "transform") placeFloat();
+        }, true);
         window.addEventListener("orientationchange", function () { setTimeout(placeFloat, 250); });
       }
     }
@@ -293,11 +297,18 @@
   /* /ask.html's bar slides in once you scroll past the form, so a single
      measurement at load is not enough. Throttled on a timer rather than a
      frame: requestAnimationFrame does not run while the tab is in the
-     background, and a check that never resets is a check that stops working. */
-  var pending = 0;
+     background, and a check that never resets is a check that stops working.
+
+     The trailing read is the one that matters. That bar takes 0.4s to slide up,
+     and a reading taken while it is still moving puts the pill where the bar
+     was passing through rather than where it comes to rest — it landed 29px
+     inside it. So: one reading straight away to react, one after the slide has
+     finished to be right. */
+  var pending = 0, trailing = 0;
   function placeSoon() {
-    if (pending) return;
-    pending = setTimeout(function () { pending = 0; placeFloat(); }, 80);
+    if (!pending) pending = setTimeout(function () { pending = 0; placeFloat(); }, 80);
+    clearTimeout(trailing);
+    trailing = setTimeout(placeFloat, 550);
   }
 
   function syncPicker() {
